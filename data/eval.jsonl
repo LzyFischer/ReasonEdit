@@ -1,0 +1,360 @@
+{"prompt": "Given that John is not in the pool working on his strokes, can it be determined whether John is practicing his backstroke technique? (True, False, or N/A).", "gold": "false"}
+{"prompt": "Given that it is false that the tribe is attempting to invoke rain through spiritual means, what can be determined about the tribe making offerings to their rain god? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that the storyteller can entertain the children tonight, what can be determined about the storyteller knowing the tale of the clever fox? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John will spend his evening gaming, what can be said about John having a new first-person shooter game he wants to play? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that the painting may be censored, what can be determined about whether the painting makes a strong political statement? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that the area does not have tall, steep mountains, can it be determined if powerful erosional forces have shaped the land? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that some of Earth's major ecosystems are undergoing significant changes in weather patterns, what can be determined about the Amazon rainforest experiencing severe drought conditions this year? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that global temperatures are not rising is false, what can be said about humans emitting large amounts of greenhouse gases? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that coastal flooding and erosion are not likely to occur, can it be determined whether the coastal area is experiencing very high tides? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that the lowlands are ideal for agriculture, what can be determined about the lowlands having abundant rainfall? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that the flight is not cleared for takeoff, what can be determined about the aircraft being fueled and ready for departure? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John can prepare a satisfying dinner tonight, what can be determined about John having all the ingredients to make a Caesar salad? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that deforestation rates are known to not be accelerating, what can we deduce about the demand for timber and wood products? Must it be increasing, must it not be increasing, or is it undetermined from the information given?", "gold": "false"}
+{"prompt": "Given that it's false the factory is able to meet its production quota, what can be determined about the machines functioning properly? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John needs to make a detailed schedule, what can be determined about whether John's family is visiting from out of town? ", "gold": "false"}
+{"prompt": "Given that Theorem A cannot be proved is false, what can be determined about the truth of Lemma 2? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John works at the factory, what can be said about John working the night shift at the factory? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that the function f(x) is continuous and differentiable on [a,b], what can be said about f(x) being differentiable on (a,b)? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that Jane is studying numbers less than 100, what can be said about Jane studying two digit numbers? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that parametric statistical methods cannot be used in this case, can we conclude whether the sample size is sufficiently large (n > 30)? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that seismic waves were not detected by monitoring stations, did the tectonic plates along the fault line shift significantly? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that air pollution levels in the city are not elevated, what can be determined about the number of diesel trucks on the roads? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that high-energy particles are not heading towards Earth is false, what can be said about whether a coronal mass ejection was launched from the Sun? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John is getting adequate nutrients, can we determine whether John took his daily vitamins? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that irrigation for crops is not limited, what can be said about the river's water level? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John enjoys being around people, what can be said about John being confident in social situations? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John's income increased this year, can we determine whether John got a pay raise? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John lives in a major U.S. city, what can be determined about John living in Los Angeles? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that Alex's gender identity is outside the male/female binary, what can be determined about whether Alex uses they/them pronouns? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John's company provides good health insurance, what can be determined about whether John works at a large corporation? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that the speaker's conclusion is not necessarily true, can we determine whether the speaker's argument has true premises? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that the statement is not logically determinate, what can be said about the statement being a contradiction? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that the philosopher's argument is not logically sound, what can be concluded about whether the philosopher is presenting a valid inductive argument? (True, False, or N/A).", "gold": "false"}
+{"prompt": "Given that the concept cannot be rigorously analyzed is false, what can be said about the concept having clear necessary and sufficient conditions? (True, False, or N/A (undetermined)). ", "gold": "false"}
+{"prompt": "Given that it is false that John was able to recall the relevant information during the test, what can be determined about whether the test questions covered the key concepts well? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that the seeker has gained such profound esoteric knowledge, what can be determined about whether the seeker has meditated deeply on the Akashic records? (True, False, or N/A).", "gold": "false"}
+{"prompt": "Given that Baphomet was not summoned, can it be determined whether the appropriate sacrifices were offered? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that the individual is a follower of Transcendentalism, what can be determined about the individual believing in the inherent goodness of both people and nature? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that the religion cannot be validly criticized is false, what can be concluded about whether the religion's moral teachings lead to harm? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that a spirit is not actually trying to communicate with the living, can it be determined whether or not the s\u00e9ance participants heard mysterious knocking sounds? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John is conducting linguistic research on the language, what can be determined about whether John is analyzing the syntax of the language? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that society does not encourage a \"pull yourself up by your bootstraps\" mentality, what can be said about the media portraying success as a solo pursuit? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that researchers cannot access the key information about the article, can it be determined whether the article citation and abstract are available in the library database? (True, False, or N/A).", "gold": "false"}
+{"prompt": "Given that John is not in good physical health, what can be said about whether John eats a balanced diet? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that the company had a profitable quarter, what can be said about the success of the marketing campaign? ", "gold": "false"}
+{"prompt": "Given that the computer model is not producing realistic outputs, what can be determined about whether the computer model's algorithms are correctly implemented? (True, False, or N/A)", "gold": "false"}
+{"prompt": "Given that it is false the patient likely has appendicitis, what can be determined about the patient's appendix being inflamed? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that the shipment is not ready to depart port, what can be concluded about the status of the shipping documents being approved by customs? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that the video cannot be successfully imported into the editing program, what can be determined about the video file format being supported by the editing software? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that the program not being ready to deploy is false, what can be concluded about the presence of runtime errors? (True, False, or N/A).", "gold": "false"}
+{"prompt": "Given that the cancer is not at an advanced stage, what can be concluded about whether the tumor has metastasized to other organs? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that Emma needs to teach a class today, what can be determined about the gym scheduling a Pilates class? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false there is a high risk of a major outbreak, what can be inferred about the vaccination rates? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given that it is false that John practices good oral hygiene in the morning, what can be concluded about John flossing his teeth in the morning? (True, False, or N/A)", "gold": "false"}
+{"prompt": "Given that it has been determined the patient does not have carpal tunnel syndrome, can it be concluded whether or not the patient is having difficulty with fine motor control? (True, False, or N/A (undetermined)).", "gold": "false"}
+{"prompt": "Given aac is False, what is the value of aab?.", "gold": "false"}
+{"prompt": "Given ybyz is False, what is the value of caunc?.", "gold": "false"}
+{"prompt": "Given dvnef is False, what is the value of hha?.", "gold": "false"}
+{"prompt": "Given tyi is False, what is the value of oocbm?.", "gold": "false"}
+{"prompt": "Given nd is False, what is the value of wqbc?.", "gold": "false"}
+{"prompt": "Given that it is true the pitcher threw a pitch, did the pitcher throw a fastball? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the rain dance ritual must be performed is true, can we conclude whether the village has experienced a long drought this summer? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the Olympic Games have officially begun is true, can it be determined whether the Olympic flame was lit at the opening ceremony? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that it is true there will be large crowds and many events in town this weekend, can we conclude the town is holding its annual summer festival this weekend? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John cannot ride his bicycle, can it be determined whether John's bicycle tire is flat? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that we know Millfield is officially classified as a town, can we determine whether the town of Millfield has a population over 10,000? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that crops do grow well in the Great Plains, can it be determined whether the Great Plains region receives sufficient rainfall? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the town is expanding in size, can it be determined if the town has a growing population? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the villagers have a steady supply of potable water, what can be determined about the village having a reliable well for fresh water? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the Nile delta will experience increased sediment deposition, what can be determined about the Nile river having high water levels this season? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John has the necessary equipment to go hunting, what can be determined about John having a hunting rifle? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the factory is able to meet its production quota, can it be determined whether the factory has sufficient raw materials? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the president has political capital to advance his agenda, can it be determined whether the president has support from the majority party in Congress? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the crew is ready to launch into space is true, can it be determined whether the spacecraft has sufficient fuel reserves? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the company has decided to have a clearance sale, what can be said about the company having excess inventory? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the survey results can be generalized to the population is true, what can be determined about the survey having a sufficiently large sample size? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the time series analysis does indicate growth, can it be determined if the time series data shows an upward trend? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that the survey sample is representative of the population, can it be determined if the survey sample includes people from all age groups? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the survey results are deemed unreliable for population inferences, can it be determined whether the sample size was large enough to be representative? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that the stochastic process is known to be a continuous-time Markov process, can we conclude that it definitely has a constant rate parameter \u03bb? (True, False, or N/A (undetermined)). ", "gold": "n/a"}
+{"prompt": "Given that it is true that greenhouse gas concentrations in the atmosphere are rising, can it be determined whether atmospheric carbon dioxide levels are increasing? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that the researcher is ready to collect empirical data, what can be said about the researcher having formulated a testable hypothesis? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that marine life and ecosystems are in fact being harmed, can it be determined whether there was an oil spill in the ocean? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the patient has a respiratory infection, what can be determined about the patient having pneumonia? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the patient may be having a heart attack, can we conclude the patient is definitely experiencing chest pain? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the mission is ready for launch, what can be said about the astronauts completing their pre-flight training? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John needs to change his outfit, what can be determined about his shirt being dirty? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John is motivated to improve his health and fitness, can we conclude whether John set a goal to get in shape this year? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John decides to go to the cinema tonight, what can be determined about John being in the mood to watch an action movie? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John is working on improving his communication skills, what can be determined about John enrolling in a public speaking class? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the two schools do in fact have fundamentally different metaphysical views about the nature of abstract objects, can we conclude that Platonism holds abstract objects exist independently of the physical world? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the researcher has in fact made a significant contribution to the field, can it be determined whether the researcher developed a new model of general intelligence? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the painting is considered beautiful, can we conclude that the painting evokes feelings of joy and happiness? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the organization has valuable insights for guiding their product strategy, can it be determined whether the marketing team has gathered sufficient customer data? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that it is true that John faces this ethical dilemma about honesty, can it be determined whether John believes it is morally right to always tell the truth? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that Zeus is known to be a mighty and revered deity, can it be determined whether Zeus is the king of the Greek gods? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that Yoshiko did participate wholeheartedly in the Tenrikyo church service, can we determine whether or not Yoshiko performed the Kagura dance joyfully? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John believes he should avoid sins, can it be determined whether lying is considered a sin in John's religion? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true Li is a dedicated Falun Gong practitioner, can it be determined whether or not Li practices Falun Gong meditation exercises?", "gold": "n/a"}
+{"prompt": "Given that it is known the Satanic coven definitely performs a sinister ceremony on the night of the new moon, can it be determined whether the dark ritual involves a blood sacrifice? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John has extra cash to spend, can it be determined whether John received a bonus at work? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that hostilities between the warring sides have ceased is true, can it be determined whether a ceasefire between the warring countries has been declared? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the automotive factory is able to maintain full production, what can be said about the factory having sufficient raw materials? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the company can fund its expansion plans is true, what can be said about the company having sufficient cash flow? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that construction on the new bridge can begin is true, what can be determined about the city having secured funding for the new bridge project? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the metal is known to be suitable for welding, can it be determined if the metal is aluminum? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the product design is approved to proceed to prototyping, what can be said about the product design meeting all functional requirements? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the company's LAN is functioning normally is true, what can be determined about the network switch being configured properly? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the aircraft design is confirmed to be viable for the intended mission, can it be determined if the design meets the required range specifications? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the conductivity of the silicon has increased, can it be determined if the silicon wafer was definitely doped with impurities? (True, False, or N/A undetermined)", "gold": "n/a"}
+{"prompt": "Given that it is true John is leading a healthy lifestyle, what can be determined about whether John is eating a balanced diet with plenty of fruits and vegetables? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that Joseph's routine does target the side core muscles, can we determine whether he definitely included side leg lifts in his routine? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John practices good hand hygiene, what can be said about John washing his hands frequently throughout the day? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John's skin is well hydrated and protected from sun damage, what can be determined about John using a daily moisturizer with SPF? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the patient may have a neurological disorder affecting their peripheral nerves, can we determine if the patient is experiencing numbness in their extremities? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given aac is True, what is the value of aaa?.", "gold": "n/a"}
+{"prompt": "Given gq is True, what is the value of zitca?.", "gold": "n/a"}
+{"prompt": "Given kybos is True, what is the value of hkzl?.", "gold": "n/a"}
+{"prompt": "Given bvp is True, what is the value of ik?.", "gold": "n/a"}
+{"prompt": "Given yllpg is True, what is the value of lhd?.", "gold": "n/a"}
+{"prompt": "Given that it is false that John cannot practice his underwater swimming techniques, what can be said about John having his swimming goggles? (True, False, or N/A (undetermined)). ", "gold": "true"}
+{"prompt": "Given that it is false that inheritance and property are not passed down through the female line, what can be said about the tribe having a matrilineal kinship system? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that critics have not given the movie negative reviews, what can be said about the movie being a box office hit? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that the local arts community is not disappointed is false, can we determine whether or not the annual film festival is happening this year? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the favorite horse does not have an advantage, can it be determined if the track conditions are muddy or not? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the fjord is not a long, deep, narrow inlet of the sea between high cliffs, what can be determined about whether the fjord was carved by glacial activity over many ice ages? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the town is not classified as a city, what can be said about the town having a large population? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that the salinity level in the estuary being diluted is false, what can be said about the estuary having a high inflow of fresh water from rivers? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that new housing developments are not being built, what can be said about the town having a growing population? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the community does not have access to a public swimming facility, what can be said about the town swimming pool being closed for renovations this summer? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that residents are not motivated to recycle their waste, what can be said about the city having a recycling program? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that John does not go for his usual morning run, what can be determined about John feeling energetic? (True, False, or N/A (undetermined)). ", "gold": "true"}
+{"prompt": "Given that greenhouse gas emissions are being reduced is false, what can be said about the adoption of renewable energy sources? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false there is no leadership vacancy in the government, what can be said about the prime minister resigning from office? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that John does not recommend the movie to his friends, what can be said about John enjoying the movie? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that the margin of error does not exceed the acceptable threshold, can it be determined whether the sample size is sufficiently large? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that non-parametric statistical methods should not be used is false, can it be determined whether the data follows a normal distribution? (True, False, or N/A (undetermined)). ", "gold": "true"}
+{"prompt": "Given that it is false that certain properties of the Riemann zeta function remain unproven, what can be said about the Riemann hypothesis being proven? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that John failed his Calculus exam, what can be said about John's understanding of the concept of derivatives? (True, False, or N/A (undetermined)). ", "gold": "true"}
+{"prompt": "Given that the statement \"There is no diversification benefit between stocks and bonds\" is false, what can be determined about the covariance between stock returns and bond yields being positive? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the patient is experiencing symptoms of depression, can we determine if serotonin is being released in sufficient quantities or not? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the flower will not produce fruit, what can be said about the flower being pollinated by bees? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that the night sky does not in fact appear unusually bright, what can be concluded about whether a nearby supernova has recently occurred? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the basin is not subsiding, what can be determined about whether sedimentary rocks are being deposited in the basin? (True, False, or N/A).", "gold": "true"}
+{"prompt": "Given that it is false that John is at risk for nutritional deficiencies, can we conclude whether or not John has a balanced diet? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the billionaire's net worth decreased, can we determine whether the billionaire made risky investments? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that the pickup basketball game at the park is not canceled, can it be determined whether or not John has enough players for a full game? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that John and Mary's relationship is under stress, what can be determined about whether they are getting along well? (True, False, or N/A (undetermined)). ", "gold": "true"}
+{"prompt": "Given that John does not struggle to debug his code, can we determine whether John is an experienced programmer? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that the scientist's experiment did not fail to yield conclusive results (i.e., it yielded conclusive results), what can be said about the scientist having access to the necessary lab equipment? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that John does not feel inspired to create something new, what can be determined about whether John's imagination is stimulated? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that metaphysical solipsism being impossible to conclusively refute is false, what can be determined about the objective verifiability of the existence of the external world? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that John's cognitive function and mental performance are in fact enhanced (aab is False), what can be concluded about John taking modafinil? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that John likely needs corrective lenses, what can be determined about John's ability to clearly see the words on the eye chart? (True, False, or N/A (undetermined)). ", "gold": "true"}
+{"prompt": "Given that it is false that the claim does not constitute knowledge, what can be said about the claim being justified by reliable evidence - is it true, false, or undetermined?", "gold": "true"}
+{"prompt": "Given that it is false to say Christianity has no legitimate basis, what can be determined about whether Jesus was a real historical figure? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that Hercules did not gain immortality, what can be determined about Hercules completing his twelve labors? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the seeker's consciousness is limited by material illusions, what can be inferred about the seeker having attained direct knowledge of the divine? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that the statement \"People cannot live righteous lives according to Islam\" is considered to be False, can we conclude whether or not the Quran contains guidance for humanity? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the devas do not achieve victory over the asuras, what can be determined about whether Indra goes to battle against the asuras? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that the base is not at a normal alert level is false, what can be said about whether the enemy has launched an attack? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that people are not spending money on discretionary items, what can be said about the level of consumer confidence? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the agency cannot implement the new program, what can be concluded about the new policy proposal being approved by the legislature? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false there will be a transition of power to the opposition party, what can be determined about the incumbent president winning the election? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that there is no evidence linking John to the crime scene (in other words, there IS some evidence linking John to the crime scene), what can be determined about whether John committed the robbery? (True, False, or N/A (undetermined)). ", "gold": "true"}
+{"prompt": "Given that it is false the team will not complete all deliverables on time, can it be determined if the project deadline has been extended or not? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that the pilots are unable to accurately determine the plane's position, what can be said about the aircraft's navigation system functioning properly? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that an electrical connection not being made is false, what can be determined about the connector pins being properly aligned? (True, False, or N/A (undetermined)). ", "gold": "true"}
+{"prompt": "Given that the radio signal reception is not poor, what can be said about the radio antenna being properly tuned? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that the public buses are not operating on schedule is false, what can be said about the bus drivers being on strike? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that John did not experience muscle hypertrophy gains, what can be concluded about whether John performed his usual weightlifting routine? (True, False, or N/A (undetermined)). ", "gold": "true"}
+{"prompt": "Given that the statement \"The instructor cannot teach fitness classes at the gym\" is false, can it be determined whether or not the exercise instructor has their certification? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that John needs to take a vitamin D supplement, what can be determined about whether John is getting enough vitamin D from his diet? (True, False, or N/A).", "gold": "true"}
+{"prompt": "Given that it is false that the patient's joint pain and stiffness are unexplained, what can be determined about the patient having rheumatoid arthritis? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given that it is false that orthodontic treatment is not necessary (i.e. orthodontic treatment IS necessary), what can be said about the alignment of the patient's teeth? (True, False, or N/A (undetermined)).", "gold": "true"}
+{"prompt": "Given aab is False, what is the value of aaa?.", "gold": "true"}
+{"prompt": "Given azhg is False, what is the value of ids?.", "gold": "true"}
+{"prompt": "Given eine is False, what is the value of alix?.", "gold": "true"}
+{"prompt": "Given izat is False, what is the value of cim?.", "gold": "true"}
+{"prompt": "Given fk is False, what is the value of jnfbk?.", "gold": "true"}
+{"prompt": "Given that it is True the puppet master is having difficulty seeing the puppets clearly, what can be determined about the lighting on the puppet show stage? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the star striker does not start the match is true, what can be said about the star striker being injured? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the horses will run faster times, what can be said about the track being muddy from rain? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that additional safety measures are in place, what can be inferred about whether the trapeze artist is performing a dangerous stunt? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the opening ceremony cannot begin is true, what can be said about the Olympic torch being lit? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the estuary has a mix of fresh and salt water, what can be concluded about the salt concentration in the estuary? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that more sunlight does reach the forest floor, what can be determined about the density of the tree cover in the forest? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is known to be true that the trail is safe for hikers, what can be determined about the mountain trail being closed due to snow? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the water clarity in the lake is high, what can be said about the lake experiencing an algal bloom? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the coastal farm crop yields are lower than average, what can we conclude about whether the coastal region experienced heavy rainfall this year? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the dive is cancelled, what can be said about the underwater visibility? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the population continuing to grow rapidly is true, what can be said about whether birth rates are declining? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that John is disappointed with his fishing trip is true, what can be said about John catching any fish today? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the students did not review the material from last class, can it be determined if the teacher gave a pop quiz? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the factory is emitting higher levels of harmful pollutants, what can be concluded about the factory installing new air pollution control equipment? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that robust estimation methods need to be used is true, what can be said about the dataset satisfying the multivariate normality assumption?", "gold": "n/a"}
+{"prompt": "Given that it is true that John is worried he will fail the exam, what can be determined about whether John studied for his calculus exam? (True, False, or N/A (undetermined))", "gold": "n/a"}
+{"prompt": "Given that some factor combinations are indeed not being tested, what can be determined about the experiment having a full factorial design? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that data cleaning and preprocessing is required, what can be said about the dataset containing missing values? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John made a mistake in his calculations, what can be concluded about John solving the arithmetic problem correctly? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true Dr. Smith cannot conduct his planned experiments, what can be concluded about his research grant being approved? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the risk of wildfires is known to be increasing in this region, can it be determined whether or not the region is experiencing prolonged drought conditions? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that neurological symptoms are present in this patient, what can be inferred about their neurotransmitter levels? (Normal range, Not normal range, N/A)", "gold": "n/a"}
+{"prompt": "Given that the Earth's magnetic field is not disrupted is True, what can be said about whether a solar flare erupted from the Sun? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the plant's leaves have turned yellow, what can be inferred about the amount of sunlight the plant is receiving? (Sufficient, Insufficient, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the company is underperforming, what can be said about the CEO having strong leadership skills? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true there is uncertainty about the line of succession, what can be determined about whether the queen has an heir to the throne? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John works at a tech company, what can be said about John working at Google? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the activists' message failed to reach a wide audience, what can be said about the protest having a large turnout? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that this billionaire built their fortune through their own efforts, what can be determined about whether the billionaire inherited their wealth? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that ethics must rely on other philosophical branches for its basis, what can be concluded about whether metaphysics provides a foundation for ethics? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that David's conclusion does not follow from his premises is true, what can be said about the logical validity of David's argument? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John makes impulsive decisions without careful consideration, what can be inferred about whether John takes time to reflect on his goals and priorities? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that Eastern philosophy focuses more on the collective and harmony with nature, what can be concluded about Eastern philosophy emphasizing the individual self? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the philosopher will spend more time teaching this semester, can it be determined whether or not the philosopher received a large grant?", "gold": "n/a"}
+{"prompt": "Given that the Book of Mormon is indeed considered scripture in Mormonism, what can be determined about Joseph Smith receiving divine revelations? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that one takes an agnostic stance on the existence of the divine, what can be said about one's belief in the existence of God or gods? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that the universe has no ultimate purpose or meaning, what can be said about the existence of God? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the crops are indeed flourishing this year, what can be said about Ra's mood? Is Ra angry or not angry? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the practitioner is experiencing suffering, what can be said about their adherence to the Noble Eightfold Path? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is indeed difficult to understand the system's interactions with its environment, what can be said about the system having well-defined boundaries? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the skull fragment is known to be from an early hominid species, what can be determined about whether it belongs to the genus Homo? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the recipient did not receive the message is true, what can be said about the email being sent successfully? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the defendant is likely guilty, what can be concluded about the defense having exculpatory evidence? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the activist group will organize a protest rally, what can be determined about the proposed law having sufficient public support? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the software in question does not meet the free software criteria, can it be determined if the source code is openly available? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the microchip cannot be used in the latest miniaturized devices is true, what can be determined about whether the microchip has features smaller than 1 micron? (True, False, or N/A (undetermined)). ", "gold": "n/a"}
+{"prompt": "Given that the battery storage being depleted is true, what can be determined about the solar panels generating enough electricity? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that there are water shortages in the city, what can be said about the water treatment plant operating at full capacity? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the design team needs to make revisions to the blueprint, can it be determined whether or not the initial blueprint meets all the client's requirements? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John feels sluggish and has low energy during the day, what can be determined about whether or not John went for a bike ride in the morning? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that antibiotics are not prescribed to the patient, what can be said about the patient having a bacterial infection? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the pediatrician recommends rest and fluids is true, what can be said about the child having a fever? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the patient requires treatment, what can be said about the tumor being benign? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the therapist needs to adjust the treatment plan is true, what can be said about the patient making progress in therapy? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given aab is True, what is the value of aaa?.", "gold": "n/a"}
+{"prompt": "Given ppptl is True, what is the value of br?.", "gold": "n/a"}
+{"prompt": "Given uer is True, what is the value of aeieo?.", "gold": "n/a"}
+{"prompt": "Given vk is True, what is the value of zoz?.", "gold": "n/a"}
+{"prompt": "Given yrt is True, what is the value of ezdxz?.", "gold": "n/a"}
+{"prompt": "Given that the opera is not ready for opening night, can it be determined whether the stage sets have been completed on schedule? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the Olympic Games have not officially begun, what can be said about the opening ceremony taking place? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the rugby match between England and New Zealand is not played as scheduled, can we determine whether the rugby match was postponed to a later date? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false the striker is likely to score a goal, what can be determined about the opposing team having a weak defense? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that Homer was not an ancient Greek epic poet is false, what can be said about Homer writing the Odyssey? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the forest is not thriving and healthy, what can be determined about whether the temperature has been favorable for tree growth? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that a floodplain does not form in the region, what can be said about the land having a gentle slope? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that the Tibetan Plateau is extremely high and isolated, can it be determined if the Tibetan Plateau is surrounded by towering mountain ranges? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the region is not classified as a protected natural area, can it be determined whether the area is designated as a wildlife refuge? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the swamp is not becoming flooded, what can be said about the water level rising in the swamp? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that John can navigate the hiking trail, what can be said about John having a working compass? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the conditions are not perfect for John's hiking trip, what can be said about the weather forecast? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that deforestation rates are in fact not accelerating, what can we conclude about the growth of timber and wood product markets? (True, False, or N/A)", "gold": "n/a"}
+{"prompt": "Given that severe degradation of the Amazon rainforest ecosystem is false, what can be said about the expansion of cattle ranching into new areas of the rainforest? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that John is able to go on an international trip, what can be determined about whether John can take time off work for a vacation? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the new treatment did not actually improve 5-year survival rates, what can be determined about the treatment reducing toxic side effects compared to standard chemotherapy? (True, False, or N/A (undetermined)). ", "gold": "n/a"}
+{"prompt": "Given that it is false that the production targets for the month will be met, what can be determined about the factory equipment operating at full capacity? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the experiment does not have high internal validity, were sufficient replications performed in the experiment? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the key measures of central tendency are not determined, what can be said about the median of the data set being calculated? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the fraction lesson will not be effective for the students, what can be said about the students having the prerequisite knowledge of division? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it turns out the patient does not have meningitis, what can we conclude about the patient having a severe headache? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the comet will not be visible to the naked eye is false, what can be said about the comet's orbit bringing it close to Earth? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that clear skies and calm conditions are not expected, what can be concluded about the presence of cold, dry air being advected into the area? ", "gold": "n/a"}
+{"prompt": "Given that it is false that the plant is able to photosynthesize and produce food, what can be determined about whether the plant is getting adequate sunlight? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that cheetahs are superbly adapted for speed, what can be determined about cheetahs being able to reach speeds over 60 mph? (True, False or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the kingdom is not prosperous and stable, what can be said about the king being beloved by his subjects? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that John has a reserved personality, what can be determined about whether John avoids social situations when possible? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that John will quickly improve his guitar skills, what can be concluded about John practicing for at least an hour every day? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that John has been with the company for over 5 years, what can be determined about John being a manager at Acme Inc.? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that the politician takes a fiscally conservative stance, what can be determined about the politician advocating for reducing government spending? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that John did not gain clarity on how to approach solving the problem, can we determine whether John broke the problem down into smaller parts? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the IQ test is not a good measure of intelligence, what can be concluded about the validity of the IQ test? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that John's belief about his driving ability is not justified by evidence, what can be said about whether John has had no accidents or tickets in the past year? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the novel is not an example of experimental literature, can we determine if the author employs a non-linear narrative structure? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that John is not a diligent student is false, what can be said about John taking detailed notes during lectures? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that Gurpreet is not a devout and practicing Sikh, what can be said about whether Gurpreet attends the Gurdwara every Sunday? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that John has a skeptical mindset, what can be concluded about John demanding rigorous proof before accepting paranormal phenomena? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that a successful s\u00e9ance where the spirit delivered a message did not occur, can it be determined whether the spirit was willing to communicate through the medium? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that Sarah feels a strong spiritual connection, what can be determined about whether Sarah meditates daily? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that the gods will bless the people with a bountiful harvest, can it be determined if the necessary ritual sacrifices have been made to the gods? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that John committed the robbery, what can be determined about whether John had the opportunity to commit the robbery? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the statement \"The country's total population is increasing\" is false, can it be determined if net migration into the country is high? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that it is false that John has enough money to cover his expenses this month, what can be determined about whether John got a year-end bonus from his employer? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that John may be experiencing clinical depression, what can be said about John losing interest in activities he used to enjoy? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that activists are mobilizing to fight the proposed law, what can be determined about whether a large protest against the law is being organized? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that quantum confinement effects are not observed (False), what can be said about the quantum well having discrete energy levels? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the steel frame cannot support the load, what can be determined about the steel beams being properly connected? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that the car is able to drive, what can be determined about there being fuel in the gas tank? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the sales data is not ready for analysis, what can be said about the data analyst having cleaned the sales data? (True, False, or N/A (undetermined)). ", "gold": "n/a"}
+{"prompt": "Given that it is false that the building is at high risk of damage during an earthquake, what can be determined about the building being constructed before modern seismic codes were implemented? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that John has good oral hygiene habits, can it be determined whether John flosses daily? (True, False, or N/A)", "gold": "n/a"}
+{"prompt": "Given that it is false that the patient likely has presbyopia, what can be concluded about the patient being over 40 years old? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the patient is not at increased risk for kidney disease, can it be determined whether the patient has diabetes? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that it is false that John is experiencing the meditative and stress-reducing benefits of Tai chi, what can be determined about whether John has been focusing on proper breathing techniques during his practice? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is false that the patient is at high risk for a heart attack, what can be determined about whether the patient has coronary artery disease? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given aac is False, what is the value of aab?.", "gold": "n/a"}
+{"prompt": "Given tgmtv is False, what is the value of mdxaz?.", "gold": "n/a"}
+{"prompt": "Given wujb is False, what is the value of vubo?.", "gold": "n/a"}
+{"prompt": "Given eyneq is False, what is the value of qs?.", "gold": "n/a"}
+{"prompt": "Given tu is False, what is the value of cz?.", "gold": "n/a"}
+{"prompt": "Given that John is ready to start assembling the puzzle is true, can we conclude that John has sorted the remaining pieces by color? (True, False, or N/A)", "gold": "n/a"}
+{"prompt": "Given that the dress shirt is presentable to wear is true, what can be said about the dress shirt having no stains? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John is ready to start painting, what can be said about whether John has some blank canvases? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that this doll is confirmed to be an antique, what can we conclude about the doll's body being made of cloth? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is known colorful powders are being thrown, what can be concluded about whether people are gathering in the streets? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that sand dunes are forming and growing in size in this area, can we conclude there is an ample supply of loose sand? (True or False or N/A)", "gold": "n/a"}
+{"prompt": "Given that crop yields in the Midwest are expected to be bountiful this harvest season is true, what can be said about the soil in the Midwest plains retaining ample moisture? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the political status of Crimea being disputed is true, what can be concluded about Crimea being an autonomous republic within Ukraine? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that both Mount Everest and K2 are part of the Himalayan mountain range, what can be said about K2 being the second tallest mountain in the world? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that we know Millfield is classified as a city, can we determine if it has a downtown area with high-rise buildings? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true human demands are exceeding the Earth's carrying capacity, what can be concluded about resource consumption per capita continuing to increase? ", "gold": "n/a"}
+{"prompt": "Given that the diver is ready to enter the water, can we conclude whether the diver has completed their safety checks? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John will be working overtime, what can be determined about whether John's project requires him to put in extra hours this week? (True, False, or N/A (undetermined))", "gold": "n/a"}
+{"prompt": "Given that it's true the city does move forward with commissioning and constructing the veteran's monument, can we conclude the city allocated the necessary funding for it in the budget? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that the crops grown by the farms are confirmed to be contaminated with harmful substances, can it be concluded that the river water used for irrigation is contaminated by the factory's pollution? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the search algorithm does find a solution efficiently, can we determine whether a heuristic rule was used to estimate remaining distance to the goal? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that F is known to be a sound logical system, what can be concluded about F being complete? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that the investor has decided to purchase the high risk stock, what can be concluded about the investor having a well-diversified portfolio? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that parametric statistical methods can be used to analyze the data is true, what can be said about the sample size being sufficiently large? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the analysis results can be generalized is true, what can be determined about the dataset being representative of the population? (True, False, or N/A)", "gold": "n/a"}
+{"prompt": "Given that the population of the species is increasing is true, what can be concluded about the species having few natural predators? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true cheetahs are well adapted for hunting prey, what can be concluded about cheetahs being the fastest land animals? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that magma is being generated at a subduction zone, can we conclude the subducting oceanic plate contains hydrated minerals? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the patient likely has influenza, what can be determined about the patient having severe muscle aches? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the researcher is following the scientific method, what can be determined about the researcher designing an experiment to test the hypothesis? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that it is true Dr. Smith is ready to publish his research findings, what can be concluded about Dr. Smith having collected supporting experimental data? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the settlers are ready to begin building their settlement is true, what can be said about the settlers having sufficient supplies and resources to get started?", "gold": "n/a"}
+{"prompt": "Given that it is true the company has a comprehensive employee directory, can we determine if it is true that the company maintains a list of all part-time employees? ", "gold": "n/a"}
+{"prompt": "Given that the cyborg does have stable cognitive functioning, can we determine if the cyborg's artificial neural network is properly integrated with its organic brain? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that there is uncertainty about the line of succession, can we deduce whether the king has a clear heir to the throne? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John frequently gets lost in his own imaginary worlds, what can be said about John enjoying daydreaming? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John is experiencing mixed emotions, what can be determined about John also being nervous about flying on an airplane? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the conclusion of the argument is known to be true, what can we determine about the truth of the argument's premises? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John is actively focusing his attention on studying, what can be determined about whether John is taking notes on the material? ", "gold": "n/a"}
+{"prompt": "Given that John can claim to have knowledge about reality is true, what can be inferred about the reliability of John's sense perception as a source of knowledge? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the holy scripture has morally problematic content that should be critically examined, what can we conclude about whether the scripture contains passages promoting intolerance? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that the man concludes it is permissible to break his fast, can we determine whether the man truly saw the new moon or not? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that it is true that the signs demonstrate Jesus was the Son of God, what can be concluded about Jesus fulfilling Old Testament prophecies? (True, False, or N/A)", "gold": "n/a"}
+{"prompt": "Given that it is true the skeptic has significant doubts about theistic belief, can it be determined if the skeptic considers the problem of evil to be a strong argument against God's existence? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that an agnostic does hold the view that God's existence cannot be proven or disproven, what can we say about an agnostic believing the existence of God is unknowable? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the road repair project can begin on schedule is true, what can be said about the availability of the necessary construction equipment? ", "gold": "n/a"}
+{"prompt": "Given that it is true that early hominids developed more advanced cognitive abilities, can it be determined if early hominids engaged in more complex social behavior than other primates? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the economy is in a strong expansion phase, what can be determined about the level of consumer confidence - is it high? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is time to run the dishwasher, can we conclude there is no clean silverware? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that it is true the pottery shard likely belongs to the Sumerian civilization, can we conclude the shard has distinctive markings on it? (True, False, or N/A).", "gold": "n/a"}
+{"prompt": "Given that the structural integrity of the building is confirmed to be sound, can we conclude anything definitive about the state of the foundation? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that data can be successfully transmitted over the fiber optic network is true, what can be determined about the optical transmitter functioning? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the two countries are leaders in emerging technologies, what can be determined about China's investment in quantum computing? ", "gold": "n/a"}
+{"prompt": "Given that the mission to Mars is proceeding as planned, what can be said about the status of the navigation systems? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John can develop complex software applications, what can be said about John's understanding of object-oriented programming principles? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that the patient is diagnosed with primary hypothyroidism, what can be determined about the patient's T4 levels? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true the patient likely needs corrective lenses, what can be determined about the patient having trouble reading small print up close? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John is training his chest and tricep muscles, what can be said about whether John has been doing dips? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true John decides to go for a run, what can be said about the weather being nice outside? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given that it is true that John has improved his balance and flexibility, can we determine whether John attends Tai chi classes regularly? (True, False, or N/A (undetermined)).", "gold": "n/a"}
+{"prompt": "Given aac is True, what is the value of aab?.", "gold": "n/a"}
+{"prompt": "Given seszw is True, what is the value of jned?.", "gold": "n/a"}
+{"prompt": "Given pbo is True, what is the value of gskee?.", "gold": "n/a"}
+{"prompt": "Given ch is True, what is the value of hxf?.", "gold": "n/a"}
+{"prompt": "Given tn is True, what is the value of bnzfe?.", "gold": "n/a"}

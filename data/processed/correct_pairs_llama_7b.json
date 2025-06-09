@@ -1,0 +1,1322 @@
+[
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did the audience end up applauding the opera performance?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Were any points scored in this Rugby Championship match?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that the region has at least one densely populated urban center?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Will this forest be deforested as a result?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that the researcher's sample is representative of the population they are studying?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Does the number 42 have any special divisibility property?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that atmospheric instability will likely develop in this scenario?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, did seismic activity result in any geological disturbances in California?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Amy gain any new insights about the issue through her thinking?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Was the goddess invoked by Sabrina's ritual on this occasion?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we deduce that God has the attributes of perfection based on these beliefs?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on the information provided, can we conclude that GiantCorp's financial performance in the first quarter was positive?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this, can we conclude that this new 1990s music genre was a reflection of the cultural zeitgeist of the 1990s?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on the information provided, does this property have extra amenities?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on their sexual activity, was there a risk of STIs for Amy and Bob?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Will the train reach its destination on time?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can American Airlines flight 1234 let ATC know its position and altitude?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can ACME Inc. now manage customer interactions and data using the new CRM system?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that Sarah needs close monitoring by her midwife?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this, can we conclude the storytelling was engaging?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, can we conclude that the Yanomami are engaging in important cultural practices at this particular feast?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that Emily is well-prepared for her trip?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we deduce that Mary practices her faith?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can the factory manufacture the customer's order?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Given the strong prior evidence and the matching DNA evidence, can we conclude that the posterior probability of guilt is high?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, did the earthquake likely cause significant shaking and damage?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can the supernova event be detected from Earth?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Thomas Edison turn his invention idea into a concrete plan?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on the given information, does Zane need to go to the cyborg repair facility?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Does Bob's test contain at least one mistake?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that this painting is aesthetically pleasing to the art critic?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, can we conclude that Emily used healthy coping strategies to support her mental health?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that the company is investing in long-term planning?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Sophie start working on a new creative project?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that Allan Kardec was a pioneer of Spiritism?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Was an exorcism attempted in this case?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we deduce that Arjuna battled for the cause of dharma in the Mahabharata war?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on these trends, can we conclude that this country's population is experiencing a demographic transition?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that this property the agent is showing is suitable for the family with a car?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did this political scandal receive significant coverage from respected media outlets?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on these developments, can we deduce that disruptive technology will lead to major societal and economic changes?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on the information provided, can we conclude that Sarah is taking steps to address her mental health?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Jane use any alternative therapies?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on these facts, did Sacred Heart Hospital improve its infection control practices?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on the patient's symptoms, does the patient likely have an infection?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether Mary acquired a new doll for her collection or not?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "If the regression model had a high R-squared value OR all of the predictor variables were significant, then it would indicate the model is a good fit for the data. Can we conclude whether or not Emily's regression model is a good fit?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether the natural disaster was averted by divine intervention or not?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether an online transaction was made from Alice's account?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Sarah make any progress on a crafting task?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can it be concluded that this particular meadow provides good grazing for livestock?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Was Emily able to determine the route to her destination?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that Patient X's survival time was longer than the median survival time for this cancer?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can the researcher use parametric statistical tests on her sunflower height data?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that the dataset is ready to be analyzed?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, did the volcano show any signs of activity?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, can we conclude whether seismic activity was detected on the seafloor?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Does this patient require antiviral medication?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did General Smith make a strategic decision about the battle?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Amy experience any entertainment related to the film \"Titanic\"?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Do the government's policies affect the distribution of wealth in the society?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that this painting is visually striking?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on Monist beliefs, does the universe have a unified, intentional origin?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we deduce that Muhammad had a connection with Allah?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Mahavira attain spiritual liberation according to Jain beliefs?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Acme Corporation expand its operations last quarter?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did tensions escalate between the U.S. and Iran?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that this city's transportation system is dynamically unstable?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did the real-time system maintain operational integrity in this case?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, did this self-driving car prototype have environmental perception capabilities?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can this robot generate the necessary mechanical motion?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did the wildflowers bloom abundantly on the plains this year?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did the Sahara desert experience the rare phenomenon of desert greening this year?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Does the designer need to revise the design mockup?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that this dataset is not symmetric?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Alice make a rational decision under uncertainty given the available information?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that Ms. Johnson assigned practice problems for her students?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this, does the plant being studied have vascular tissues?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did the factory reduce its air pollution emissions?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Are the native tree species in this forest ecosystem threatened?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Is the person a man?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Does the painting evoke an emotional response in the viewer?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can Emily recite the order of the planets?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Does the marketing budget need to be re-evaluated?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that Mahavira adhered to the Jain tenet of ahimsa?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Will the proposed highway project be put on hold?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, did the fossilized skeleton belong to an early hominin species?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude the clay tablet served an accounting purpose of some kind?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did the new skyscraper use a concrete frame for its structure?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, will Emily's chlamydia test come back negative?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we deduce whether the anti-aging pill had any effect on Susan's aging process?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Does the nurse need to continue closely monitoring the patient?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on the information, were the biopsy results concerning for this patient?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we deduce whether the forest habitat remained intact and undisturbed?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Based on this, can we conclude whether or not the dance performance was canceled?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we deduce whether the story captured the audience's attention or not based on the information provided?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Will this dog's swollen paw heal completely based on the information provided?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we deduce whether or not Sally received a gold medal?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether the sculpture took a long time to complete or not?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether or not Alice is hired for the position?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Did Lao Tzu achieve enlightenment based on the given information?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The Church of Satan does not actually encourage illegal activities, contrary to some popular misconceptions. However, The Satanic Temple, a separate organization, actively promotes compassion and empathy as core tenets. If it was true that the Church of Satan encouraged illegal acts and that The Satanic Temple promoted compassion, then it could imply that Satanism as a whole supports moral and lawful behavior. However, since the premise about the Church of Satan encouraging illegal activities is false, it cannot be soundly deduced whether or not Satanism as a whole supports moral and lawful behavior based on the given premises.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Given that the Columbia River flows into the Pacific Ocean and the Columbia River contains freshwater, can we conclude that an estuary is formed at the mouth of the Columbia River where it meets the Pacific?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on these conditions, will the Prairie vegetation thrive and grow tall this year?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "The global human population continues to grow at a rapid pace. At the same time, the average person today is consuming more resources than people did historically on a per capita basis. If the population keeps growing quickly and per capita resource consumption also keeps increasing, then humanity will exceed the carrying capacity that the Earth can sustain.",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that Jessica is well-prepared to find her way along the trail?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can the data analyst use this dataset to perform sales trend analysis?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we deduce that the Higgs boson is the quantum excitation of the Higgs field?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Were high-energy cosmic rays detected near Earth as a result of the supernova?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on these conditions, will thunderstorms probably occur?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that this painting is aesthetically pleasing?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Suppose the universe exists and reality is objective in nature. If the universe exists and reality is objective, then it follows that there is an ultimate nature of being that underlies all of existence. Given these premises, can we deduce that there is an ultimate nature of being?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Does the priest need to use holy water and prayers in this exorcism?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this, has Lila achieved a higher level of spiritual enlightenment?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that Lao Tzu lives in harmony with the Tao?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, are the students prepared for the upcoming test?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Does the company decide to make and sell the new product?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we deduce that the demand for public services and infrastructure in the city has increased?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can Dr. Smith draw statistically significant conclusions based on her study?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Can we conclude that the build is ready to deploy to production?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on this information, is Alice at higher risk for developing clinical depression?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Is Mary at higher risk of falling and injuring herself?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Did Sara likely have a UTI based on her symptoms?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "Based on her symptoms, does Alice likely have chickenpox?",
+      "gold": "true"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether or not Lisa's painting is displayed in the museum?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we deduce whether classical logic is the correct system of logic based on the given information?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether Michael is upper middle class or not?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether Mary absorbed and retained the information from this study session?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether idealism is a form of philosophical realism or not based on these premises?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Given this, can we conclude whether or not Mary had a spiritually fulfilling day?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Will Alice achieve spiritual enlightenment in her current life?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Can we conclude whether or not the video was engaging for viewers?",
+      "gold": "n/a"
+    }
+  }
+]
