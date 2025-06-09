@@ -5,7 +5,7 @@
 
 Loading base model (4‐bit)…
 trainable params: 589,824 || all params: 125,029,632 || trainable%: 0.4717
-  0%|          | 0/489 [00:00<?, ?it/s]100%|██████████| 489/489 [00:00<00:00, 25174.78it/s]
+  0%|          | 0/489 [00:00<?, ?it/s]100%|██████████| 489/489 [00:00<00:00, 84154.55it/s]
 Loaded 489 (train, eval) pairs.
 
 Starting sequential training…
@@ -989,5 +989,5 @@ Locality eval: pred=true              gold=true  correct=True  running‐acc=0.9
 [ 489/489] loss=0.0000  pred=true   gold=true  running‐acc=0.286
 Locality eval: pred=true              gold=true  correct=True  running‐acc=0.990
 
-Finished in 630.9s.  Final accuracy: 0.286.
+Finished in 236.5s.  Final accuracy: 0.286.
 Adapter saved to output/lora_logic_pairwise.
