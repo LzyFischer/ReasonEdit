@@ -1,0 +1,42 @@
+{
+    "word_idxs": {
+      "start": 0,
+      "end": 0
+    },
+    "prompts": [
+      {
+        "clean": "The marsh experienced heavy rainfall this spring.\nIf the marsh did not experience heavy rainfall, then the water level would have remained low.\nDid the water level in the marsh remain low this spring? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The marsh experienced heavy rainfall this spring.\nIf the marsh did not experience heavy rainfall, then the water level would have remained low.\nDid the water level in the marsh remain high this spring? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The reef in question is located in shallow water.\nIf the reef is not located in shallow water, then it experiences significant wave action.\nDoes this particular reef experience significant wave action? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The reef in question is located in shallow water.\nIf the reef is not located in shallow water, then it experiences significant wave action.\nDoes this particular reef experience no wave action? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The waters in San Francisco Bay are calm today.\nIf the waters in San Francisco Bay are not calm, then windsurfers cannot go windsurfing in the bay.\nGiven the calm conditions today, can windsurfers go windsurfing in San Francisco Bay? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The waters in San Francisco Bay are calm today.\nIf the waters in San Francisco Bay are not calm, then windsurfers cannot go windsurfing in the bay.\nGiven the calm conditions today, should windsurfers avoid windsurfing in San Francisco Bay? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The town of Oakville held its annual summer festival this year.\nIf the town did not hold its annual summer festival, then the festival would have been canceled.\nWas Oakville's summer festival canceled? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The town of Oakville held its annual summer festival this year.\nIf the town did not hold its annual summer festival, then the festival would have been canceled.\nWas Oakville's summer festival remained? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The Okefenokee Swamp received heavy rainfall this week.\nIf the Okefenokee Swamp did not receive heavy rainfall, then the water level in the swamp would have decreased.\nBased on this information, did the water level in the Okefenokee Swamp decrease? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The Okefenokee Swamp received heavy rainfall this week.\nIf the Okefenokee Swamp did not receive heavy rainfall, then the water level in the swamp would have decreased.\nBased on this information, did the water level in the Okefenokee Swamp increase? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      }
+    ]
+  }

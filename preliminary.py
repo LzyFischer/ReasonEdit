@@ -252,13 +252,14 @@ def harvest_pairs(path: Path, args):
                         eval_text = reason_part
                         eval_label = gold
                 elif args.reason:
+                    a_random_sample = random.choice(list(topics.values()))['<nl>'].strip()
                     if args.cot:
-                        train_text = glb_prompt
+                        train_text = a_random_sample
                         train_label = gold
-                        eval_text = f"{glb_prompt} \n### Answer:" + gold + "\n" + nl
+                        eval_text = f"{a_random_sample} \n### Answer:" + gold + "\n" + nl
                         eval_label = gold
                     elif args.fine_tune:
-                        train_text = glb_prompt
+                        train_text = a_random_sample
                         train_label = gold
                         eval_text = nl
                         eval_label = gold
