@@ -1,0 +1,1214 @@
+
+Loading base model (4‐bit)…
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:14,  4.67s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:10,  5.45s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:14<00:04,  4.60s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:15<00:00,  3.37s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:15<00:00,  3.94s/it]
+trainable params: 6,422,528 || all params: 8,544,103,424 || trainable%: 0.0752
+Finding correct pairs:   0%|          | 0/600 [00:00<?, ?it/s]Finding correct pairs:   0%|          | 1/600 [00:02<20:12,  2.02s/it]Finding correct pairs:   0%|          | 2/600 [00:03<15:59,  1.60s/it]Finding correct pairs:   0%|          | 3/600 [00:05<17:47,  1.79s/it]Finding correct pairs:   1%|          | 4/600 [00:06<15:45,  1.59s/it]Finding correct pairs:   1%|          | 5/600 [00:08<15:08,  1.53s/it]Finding correct pairs:   1%|          | 6/600 [00:09<16:19,  1.65s/it]Finding correct pairs:   1%|          | 7/600 [00:11<14:56,  1.51s/it]Finding correct pairs:   1%|▏         | 8/600 [00:13<16:28,  1.67s/it]Finding correct pairs:   2%|▏         | 9/600 [00:14<15:01,  1.53s/it]Finding correct pairs:   2%|▏         | 10/600 [00:15<14:10,  1.44s/it]Finding correct pairs:   2%|▏         | 11/600 [00:17<15:47,  1.61s/it]Finding correct pairs:   2%|▏         | 12/600 [00:18<13:52,  1.42s/it]Finding correct pairs:   2%|▏         | 13/600 [00:20<14:38,  1.50s/it]Finding correct pairs:   2%|▏         | 14/600 [00:21<14:28,  1.48s/it]Finding correct pairs:   2%|▎         | 15/600 [00:22<13:38,  1.40s/it]Finding correct pairs:   3%|▎         | 16/600 [00:24<12:41,  1.30s/it]Finding correct pairs:   3%|▎         | 17/600 [00:25<12:58,  1.34s/it]Finding correct pairs:   3%|▎         | 18/600 [00:26<13:31,  1.40s/it]Finding correct pairs:   3%|▎         | 19/600 [00:28<15:17,  1.58s/it]Finding correct pairs:   3%|▎         | 20/600 [00:30<14:45,  1.53s/it]Finding correct pairs:   4%|▎         | 21/600 [00:32<16:06,  1.67s/it]Finding correct pairs:   4%|▎         | 22/600 [00:33<15:20,  1.59s/it]Finding correct pairs:   4%|▍         | 23/600 [00:35<16:31,  1.72s/it]Finding correct pairs:   4%|▍         | 24/600 [00:36<14:13,  1.48s/it]Finding correct pairs:   4%|▍         | 25/600 [00:38<15:42,  1.64s/it]Finding correct pairs:   4%|▍         | 26/600 [00:40<15:06,  1.58s/it]Finding correct pairs:   4%|▍         | 27/600 [00:41<12:58,  1.36s/it]Finding correct pairs:   5%|▍         | 28/600 [00:42<11:56,  1.25s/it]Finding correct pairs:   5%|▍         | 29/600 [00:43<13:57,  1.47s/it]Finding correct pairs:   5%|▌         | 30/600 [00:45<14:06,  1.48s/it]Finding correct pairs:   5%|▌         | 31/600 [00:46<12:48,  1.35s/it]Finding correct pairs:   5%|▌         | 32/600 [00:47<12:51,  1.36s/it]Finding correct pairs:   6%|▌         | 33/600 [00:49<12:45,  1.35s/it]Finding correct pairs:   6%|▌         | 34/600 [00:50<13:00,  1.38s/it]Finding correct pairs:   6%|▌         | 35/600 [00:52<14:44,  1.57s/it]Finding correct pairs:   6%|▌         | 36/600 [00:54<15:23,  1.64s/it]Finding correct pairs:   6%|▌         | 37/600 [00:56<15:20,  1.64s/it]Finding correct pairs:   6%|▋         | 38/600 [00:58<16:21,  1.75s/it]Finding correct pairs:   6%|▋         | 39/600 [00:59<15:41,  1.68s/it]Finding correct pairs:   7%|▋         | 40/600 [01:00<13:48,  1.48s/it]Finding correct pairs:   7%|▋         | 41/600 [01:02<15:15,  1.64s/it]Finding correct pairs:   7%|▋         | 42/600 [01:04<14:27,  1.55s/it]Finding correct pairs:   7%|▋         | 43/600 [01:05<14:40,  1.58s/it]Finding correct pairs:   7%|▋         | 44/600 [01:06<13:44,  1.48s/it]Finding correct pairs:   8%|▊         | 45/600 [01:08<13:24,  1.45s/it]Finding correct pairs:   8%|▊         | 46/600 [01:09<12:28,  1.35s/it]Finding correct pairs:   8%|▊         | 47/600 [01:10<12:21,  1.34s/it]Finding correct pairs:   8%|▊         | 48/600 [01:12<14:11,  1.54s/it]Finding correct pairs:   8%|▊         | 49/600 [01:14<13:38,  1.49s/it]Finding correct pairs:   8%|▊         | 50/600 [01:15<12:44,  1.39s/it]Finding correct pairs:   8%|▊         | 51/600 [01:15<10:47,  1.18s/it]Finding correct pairs:   9%|▊         | 52/600 [01:17<12:42,  1.39s/it]Finding correct pairs:   9%|▉         | 53/600 [01:19<12:37,  1.39s/it]Finding correct pairs:   9%|▉         | 54/600 [01:20<11:52,  1.31s/it]Finding correct pairs:   9%|▉         | 55/600 [01:22<13:46,  1.52s/it]Finding correct pairs:   9%|▉         | 56/600 [01:24<14:51,  1.64s/it]Finding correct pairs:  10%|▉         | 57/600 [01:26<15:48,  1.75s/it]Finding correct pairs:  10%|▉         | 58/600 [01:28<16:28,  1.82s/it]Finding correct pairs:  10%|▉         | 59/600 [01:29<14:45,  1.64s/it]Finding correct pairs:  10%|█         | 60/600 [01:30<14:11,  1.58s/it]Finding correct pairs:  10%|█         | 61/600 [01:32<13:30,  1.50s/it]Finding correct pairs:  10%|█         | 62/600 [01:34<14:28,  1.61s/it]Finding correct pairs:  10%|█         | 63/600 [01:35<14:45,  1.65s/it]Finding correct pairs:  11%|█         | 64/600 [01:37<14:05,  1.58s/it]Finding correct pairs:  11%|█         | 65/600 [01:38<13:23,  1.50s/it]Finding correct pairs:  11%|█         | 66/600 [01:39<13:06,  1.47s/it]Finding correct pairs:  11%|█         | 67/600 [01:41<14:28,  1.63s/it]Finding correct pairs:  11%|█▏        | 68/600 [01:43<15:27,  1.74s/it]Finding correct pairs:  12%|█▏        | 69/600 [01:45<14:51,  1.68s/it]Finding correct pairs:  12%|█▏        | 70/600 [01:47<15:03,  1.70s/it]Finding correct pairs:  12%|█▏        | 71/600 [01:48<14:50,  1.68s/it]Finding correct pairs:  12%|█▏        | 72/600 [01:50<15:26,  1.76s/it]Finding correct pairs:  12%|█▏        | 73/600 [01:52<14:41,  1.67s/it]Finding correct pairs:  12%|█▏        | 74/600 [01:53<13:44,  1.57s/it]Finding correct pairs:  12%|█▎        | 75/600 [01:55<13:10,  1.50s/it]Finding correct pairs:  13%|█▎        | 76/600 [01:56<12:08,  1.39s/it]Finding correct pairs:  13%|█▎        | 77/600 [01:58<13:44,  1.58s/it]Finding correct pairs:  13%|█▎        | 78/600 [02:00<14:38,  1.68s/it]Finding correct pairs:  13%|█▎        | 79/600 [02:02<15:28,  1.78s/it]Finding correct pairs:  13%|█▎        | 80/600 [02:03<13:31,  1.56s/it]Finding correct pairs:  14%|█▎        | 81/600 [02:05<14:39,  1.69s/it]Finding correct pairs:  14%|█▎        | 82/600 [02:06<12:52,  1.49s/it]Finding correct pairs:  14%|█▍        | 83/600 [02:07<13:27,  1.56s/it]Finding correct pairs:  14%|█▍        | 84/600 [02:09<14:32,  1.69s/it]Finding correct pairs:  14%|█▍        | 85/600 [02:11<14:18,  1.67s/it]Finding correct pairs:  14%|█▍        | 86/600 [02:13<14:00,  1.64s/it]Finding correct pairs:  14%|█▍        | 87/600 [02:15<14:56,  1.75s/it]Finding correct pairs:  15%|█▍        | 88/600 [02:16<13:26,  1.57s/it]Finding correct pairs:  15%|█▍        | 89/600 [02:17<12:34,  1.48s/it]Finding correct pairs:  15%|█▌        | 90/600 [02:19<13:54,  1.64s/it]Finding correct pairs:  15%|█▌        | 91/600 [02:20<12:40,  1.49s/it]Finding correct pairs:  15%|█▌        | 92/600 [02:21<11:49,  1.40s/it]Finding correct pairs:  16%|█▌        | 93/600 [02:23<12:38,  1.50s/it]Finding correct pairs:  16%|█▌        | 94/600 [02:25<12:59,  1.54s/it]Finding correct pairs:  16%|█▌        | 95/600 [02:27<14:09,  1.68s/it]Finding correct pairs:  16%|█▌        | 96/600 [02:28<12:50,  1.53s/it]Finding correct pairs:  16%|█▌        | 97/600 [02:29<11:54,  1.42s/it]Finding correct pairs:  16%|█▋        | 98/600 [02:30<10:03,  1.20s/it]Finding correct pairs:  16%|█▋        | 99/600 [02:31<10:21,  1.24s/it]Finding correct pairs:  17%|█▋        | 100/600 [02:33<11:09,  1.34s/it]Finding correct pairs:  17%|█▋        | 101/600 [02:34<12:16,  1.48s/it]Finding correct pairs:  17%|█▋        | 102/600 [02:36<11:59,  1.44s/it]Finding correct pairs:  17%|█▋        | 103/600 [02:38<13:15,  1.60s/it]Finding correct pairs:  17%|█▋        | 104/600 [02:40<14:14,  1.72s/it]Finding correct pairs:  18%|█▊        | 105/600 [02:41<13:26,  1.63s/it]Finding correct pairs:  18%|█▊        | 106/600 [02:42<12:22,  1.50s/it]Finding correct pairs:  18%|█▊        | 107/600 [02:43<11:19,  1.38s/it]Finding correct pairs:  18%|█▊        | 108/600 [02:45<10:46,  1.31s/it]Finding correct pairs:  18%|█▊        | 109/600 [02:46<11:34,  1.41s/it]Finding correct pairs:  18%|█▊        | 110/600 [02:48<13:00,  1.59s/it]Finding correct pairs:  18%|█▊        | 111/600 [02:50<13:06,  1.61s/it]Finding correct pairs:  19%|█▊        | 112/600 [02:51<12:54,  1.59s/it]Finding correct pairs:  19%|█▉        | 113/600 [02:53<11:57,  1.47s/it]Finding correct pairs:  19%|█▉        | 114/600 [02:55<13:13,  1.63s/it]Finding correct pairs:  19%|█▉        | 115/600 [02:57<13:49,  1.71s/it]Finding correct pairs:  19%|█▉        | 116/600 [02:58<12:43,  1.58s/it]Finding correct pairs:  20%|█▉        | 117/600 [02:59<12:17,  1.53s/it]Finding correct pairs:  20%|█▉        | 118/600 [03:00<11:22,  1.42s/it]Finding correct pairs:  20%|█▉        | 119/600 [03:02<11:25,  1.43s/it]Finding correct pairs:  20%|██        | 120/600 [03:04<12:36,  1.58s/it]Finding correct pairs:  20%|██        | 121/600 [03:06<13:28,  1.69s/it]Finding correct pairs:  20%|██        | 122/600 [03:07<13:27,  1.69s/it]Finding correct pairs:  20%|██        | 123/600 [03:08<11:53,  1.50s/it]Finding correct pairs:  21%|██        | 124/600 [03:10<11:21,  1.43s/it]Finding correct pairs:  21%|██        | 125/600 [03:12<12:43,  1.61s/it]Finding correct pairs:  21%|██        | 126/600 [03:13<11:27,  1.45s/it]Finding correct pairs:  21%|██        | 127/600 [03:14<10:44,  1.36s/it]Finding correct pairs:  21%|██▏       | 128/600 [03:15<10:21,  1.32s/it]Finding correct pairs:  22%|██▏       | 129/600 [03:17<11:58,  1.53s/it]Finding correct pairs:  22%|██▏       | 130/600 [03:19<11:52,  1.52s/it]Finding correct pairs:  22%|██▏       | 131/600 [03:20<11:18,  1.45s/it]Finding correct pairs:  22%|██▏       | 132/600 [03:21<10:55,  1.40s/it]Finding correct pairs:  22%|██▏       | 133/600 [03:23<11:51,  1.52s/it]Finding correct pairs:  22%|██▏       | 134/600 [03:24<10:52,  1.40s/it]Finding correct pairs:  22%|██▎       | 135/600 [03:26<11:02,  1.42s/it]Finding correct pairs:  23%|██▎       | 136/600 [03:28<12:21,  1.60s/it]Finding correct pairs:  23%|██▎       | 137/600 [03:30<13:17,  1.72s/it]Finding correct pairs:  23%|██▎       | 138/600 [03:31<12:01,  1.56s/it]Finding correct pairs:  23%|██▎       | 139/600 [03:33<12:29,  1.63s/it]Finding correct pairs:  23%|██▎       | 140/600 [03:35<13:19,  1.74s/it]Finding correct pairs:  24%|██▎       | 141/600 [03:36<11:20,  1.48s/it]Finding correct pairs:  24%|██▎       | 142/600 [03:37<11:02,  1.45s/it]Finding correct pairs:  24%|██▍       | 143/600 [03:38<10:22,  1.36s/it]Finding correct pairs:  24%|██▍       | 144/600 [03:39<09:37,  1.27s/it]Finding correct pairs:  24%|██▍       | 145/600 [03:40<09:32,  1.26s/it]Finding correct pairs:  24%|██▍       | 146/600 [03:42<09:34,  1.27s/it]Finding correct pairs:  24%|██▍       | 147/600 [03:44<10:56,  1.45s/it]Finding correct pairs:  25%|██▍       | 148/600 [03:45<11:24,  1.52s/it]Finding correct pairs:  25%|██▍       | 149/600 [03:47<11:25,  1.52s/it]Finding correct pairs:  25%|██▌       | 150/600 [03:49<12:29,  1.67s/it]Finding correct pairs:  25%|██▌       | 151/600 [03:50<11:31,  1.54s/it]Finding correct pairs:  25%|██▌       | 152/600 [03:52<12:01,  1.61s/it]Finding correct pairs:  26%|██▌       | 153/600 [03:54<12:57,  1.74s/it]Finding correct pairs:  26%|██▌       | 154/600 [03:55<11:50,  1.59s/it]Finding correct pairs:  26%|██▌       | 155/600 [03:57<11:28,  1.55s/it]Finding correct pairs:  26%|██▌       | 156/600 [03:58<10:36,  1.43s/it]Finding correct pairs:  26%|██▌       | 157/600 [03:59<09:33,  1.29s/it]Finding correct pairs:  26%|██▋       | 158/600 [04:00<09:52,  1.34s/it]Finding correct pairs:  26%|██▋       | 159/600 [04:01<09:13,  1.25s/it]Finding correct pairs:  27%|██▋       | 160/600 [04:02<08:44,  1.19s/it]Finding correct pairs:  27%|██▋       | 161/600 [04:04<10:31,  1.44s/it]Finding correct pairs:  27%|██▋       | 162/600 [04:06<10:46,  1.48s/it]Finding correct pairs:  27%|██▋       | 163/600 [04:07<09:59,  1.37s/it]Finding correct pairs:  27%|██▋       | 164/600 [04:08<10:18,  1.42s/it]Finding correct pairs:  28%|██▊       | 165/600 [04:10<10:20,  1.43s/it]Finding correct pairs:  28%|██▊       | 166/600 [04:12<11:17,  1.56s/it]Finding correct pairs:  28%|██▊       | 167/600 [04:13<10:39,  1.48s/it]Finding correct pairs:  28%|██▊       | 168/600 [04:15<11:46,  1.64s/it]Finding correct pairs:  28%|██▊       | 169/600 [04:17<11:37,  1.62s/it]Finding correct pairs:  28%|██▊       | 170/600 [04:18<10:47,  1.51s/it]Finding correct pairs:  28%|██▊       | 171/600 [04:20<11:48,  1.65s/it]Finding correct pairs:  29%|██▊       | 172/600 [04:22<11:52,  1.66s/it]Finding correct pairs:  29%|██▉       | 173/600 [04:23<11:38,  1.64s/it]Finding correct pairs:  29%|██▉       | 174/600 [04:25<12:09,  1.71s/it]Finding correct pairs:  29%|██▉       | 175/600 [04:26<10:57,  1.55s/it]Finding correct pairs:  29%|██▉       | 176/600 [04:28<11:41,  1.66s/it]Finding correct pairs:  30%|██▉       | 177/600 [04:30<12:24,  1.76s/it]Finding correct pairs:  30%|██▉       | 178/600 [04:31<11:16,  1.60s/it]Finding correct pairs:  30%|██▉       | 179/600 [04:33<11:15,  1.60s/it]Finding correct pairs:  30%|███       | 180/600 [04:35<12:03,  1.72s/it]Finding correct pairs:  30%|███       | 181/600 [04:37<12:11,  1.75s/it]Finding correct pairs:  30%|███       | 182/600 [04:38<11:03,  1.59s/it]Finding correct pairs:  30%|███       | 183/600 [04:39<09:54,  1.43s/it]Finding correct pairs:  31%|███       | 184/600 [04:40<09:35,  1.38s/it]Finding correct pairs:  31%|███       | 185/600 [04:41<08:42,  1.26s/it]Finding correct pairs:  31%|███       | 186/600 [04:42<08:29,  1.23s/it]Finding correct pairs:  31%|███       | 187/600 [04:44<08:50,  1.28s/it]Finding correct pairs:  31%|███▏      | 188/600 [04:46<10:18,  1.50s/it]Finding correct pairs:  32%|███▏      | 189/600 [04:47<09:21,  1.37s/it]Finding correct pairs:  32%|███▏      | 190/600 [04:49<09:52,  1.45s/it]Finding correct pairs:  32%|███▏      | 191/600 [04:49<08:37,  1.27s/it]Finding correct pairs:  32%|███▏      | 192/600 [04:51<08:34,  1.26s/it]Finding correct pairs:  32%|███▏      | 193/600 [04:53<10:04,  1.49s/it]Finding correct pairs:  32%|███▏      | 194/600 [04:54<09:14,  1.37s/it]Finding correct pairs:  32%|███▎      | 195/600 [04:56<10:31,  1.56s/it]Finding correct pairs:  33%|███▎      | 196/600 [04:58<11:24,  1.69s/it]Finding correct pairs:  33%|███▎      | 197/600 [04:59<11:17,  1.68s/it]Finding correct pairs:  33%|███▎      | 198/600 [05:01<10:39,  1.59s/it]Finding correct pairs:  33%|███▎      | 199/600 [05:02<09:46,  1.46s/it]Finding correct pairs:  33%|███▎      | 200/600 [05:04<10:49,  1.62s/it]Finding correct pairs:  34%|███▎      | 201/600 [05:05<10:12,  1.54s/it]Finding correct pairs:  34%|███▎      | 202/600 [05:07<09:41,  1.46s/it]Finding correct pairs:  34%|███▍      | 203/600 [05:08<09:12,  1.39s/it]Finding correct pairs:  34%|███▍      | 204/600 [05:10<10:24,  1.58s/it]Finding correct pairs:  34%|███▍      | 205/600 [05:11<10:25,  1.58s/it]Finding correct pairs:  34%|███▍      | 206/600 [05:13<09:58,  1.52s/it]Finding correct pairs:  34%|███▍      | 207/600 [05:14<10:12,  1.56s/it]Finding correct pairs:  35%|███▍      | 208/600 [05:16<11:03,  1.69s/it]Finding correct pairs:  35%|███▍      | 209/600 [05:18<10:51,  1.67s/it]Finding correct pairs:  35%|███▌      | 210/600 [05:20<11:11,  1.72s/it]Finding correct pairs:  35%|███▌      | 211/600 [05:22<11:33,  1.78s/it]Finding correct pairs:  35%|███▌      | 212/600 [05:23<10:52,  1.68s/it]Finding correct pairs:  36%|███▌      | 213/600 [05:24<10:00,  1.55s/it]Finding correct pairs:  36%|███▌      | 214/600 [05:26<10:51,  1.69s/it]Finding correct pairs:  36%|███▌      | 215/600 [05:28<11:25,  1.78s/it]Finding correct pairs:  36%|███▌      | 216/600 [05:30<10:40,  1.67s/it]Finding correct pairs:  36%|███▌      | 217/600 [05:32<11:17,  1.77s/it]Finding correct pairs:  36%|███▋      | 218/600 [05:34<11:37,  1.83s/it]Finding correct pairs:  36%|███▋      | 219/600 [05:35<11:05,  1.75s/it]Finding correct pairs:  37%|███▋      | 220/600 [05:37<10:33,  1.67s/it]Finding correct pairs:  37%|███▋      | 221/600 [05:39<10:48,  1.71s/it]Finding correct pairs:  37%|███▋      | 222/600 [05:40<10:42,  1.70s/it]Finding correct pairs:  37%|███▋      | 223/600 [05:42<11:01,  1.76s/it]Finding correct pairs:  37%|███▋      | 224/600 [05:43<09:49,  1.57s/it]Finding correct pairs:  38%|███▊      | 225/600 [05:45<09:38,  1.54s/it]Finding correct pairs:  38%|███▊      | 226/600 [05:46<09:07,  1.47s/it]Finding correct pairs:  38%|███▊      | 227/600 [05:47<08:36,  1.39s/it]Finding correct pairs:  38%|███▊      | 228/600 [05:48<08:03,  1.30s/it]Finding correct pairs:  38%|███▊      | 229/600 [05:50<07:38,  1.23s/it]Finding correct pairs:  38%|███▊      | 230/600 [05:51<08:13,  1.33s/it]Finding correct pairs:  38%|███▊      | 231/600 [05:52<08:02,  1.31s/it]Finding correct pairs:  39%|███▊      | 232/600 [05:54<08:42,  1.42s/it]Finding correct pairs:  39%|███▉      | 233/600 [05:56<09:45,  1.60s/it]Finding correct pairs:  39%|███▉      | 234/600 [05:58<09:32,  1.56s/it]Finding correct pairs:  39%|███▉      | 235/600 [05:59<09:42,  1.60s/it]Finding correct pairs:  39%|███▉      | 236/600 [06:01<10:03,  1.66s/it]Finding correct pairs:  40%|███▉      | 237/600 [06:03<10:38,  1.76s/it]Finding correct pairs:  40%|███▉      | 238/600 [06:05<11:03,  1.83s/it]Finding correct pairs:  40%|███▉      | 239/600 [06:06<10:00,  1.66s/it]Finding correct pairs:  40%|████      | 240/600 [06:08<10:33,  1.76s/it]Finding correct pairs:  40%|████      | 241/600 [06:10<10:28,  1.75s/it]Finding correct pairs:  40%|████      | 242/600 [06:11<08:53,  1.49s/it]Finding correct pairs:  40%|████      | 243/600 [06:12<08:34,  1.44s/it]Finding correct pairs:  41%|████      | 244/600 [06:13<08:16,  1.39s/it]Finding correct pairs:  41%|████      | 245/600 [06:15<09:19,  1.58s/it]Finding correct pairs:  41%|████      | 246/600 [06:17<09:48,  1.66s/it]Finding correct pairs:  41%|████      | 247/600 [06:19<09:02,  1.54s/it]Finding correct pairs:  41%|████▏     | 248/600 [06:20<09:33,  1.63s/it]Finding correct pairs:  42%|████▏     | 249/600 [06:21<08:26,  1.44s/it]Finding correct pairs:  42%|████▏     | 250/600 [06:23<08:12,  1.41s/it]Finding correct pairs:  42%|████▏     | 251/600 [06:24<07:28,  1.28s/it]Finding correct pairs:  42%|████▏     | 252/600 [06:25<06:49,  1.18s/it]Finding correct pairs:  42%|████▏     | 253/600 [06:26<07:08,  1.23s/it]Finding correct pairs:  42%|████▏     | 254/600 [06:28<08:29,  1.47s/it]Finding correct pairs:  42%|████▎     | 255/600 [06:29<07:54,  1.37s/it]Finding correct pairs:  43%|████▎     | 256/600 [06:31<08:45,  1.53s/it]Finding correct pairs:  43%|████▎     | 257/600 [06:32<08:23,  1.47s/it]Finding correct pairs:  43%|████▎     | 258/600 [06:34<08:45,  1.54s/it]Finding correct pairs:  43%|████▎     | 259/600 [06:36<09:29,  1.67s/it]Finding correct pairs:  43%|████▎     | 260/600 [06:38<10:04,  1.78s/it]Finding correct pairs:  44%|████▎     | 261/600 [06:39<08:58,  1.59s/it]Finding correct pairs:  44%|████▎     | 262/600 [06:40<08:05,  1.44s/it]Finding correct pairs:  44%|████▍     | 263/600 [06:41<07:16,  1.30s/it]Finding correct pairs:  44%|████▍     | 264/600 [06:42<06:55,  1.24s/it]Finding correct pairs:  44%|████▍     | 265/600 [06:44<08:07,  1.45s/it]Finding correct pairs:  44%|████▍     | 266/600 [06:46<09:01,  1.62s/it]Finding correct pairs:  44%|████▍     | 267/600 [06:47<07:53,  1.42s/it]Finding correct pairs:  45%|████▍     | 268/600 [06:49<07:53,  1.43s/it]Finding correct pairs:  45%|████▍     | 269/600 [06:50<08:02,  1.46s/it]Finding correct pairs:  45%|████▌     | 270/600 [06:52<08:04,  1.47s/it]Finding correct pairs:  45%|████▌     | 271/600 [06:53<07:57,  1.45s/it]Finding correct pairs:  45%|████▌     | 272/600 [06:55<08:52,  1.62s/it]Finding correct pairs:  46%|████▌     | 273/600 [06:56<08:05,  1.48s/it]Finding correct pairs:  46%|████▌     | 274/600 [06:58<07:27,  1.37s/it]Finding correct pairs:  46%|████▌     | 275/600 [07:00<08:29,  1.57s/it]Finding correct pairs:  46%|████▌     | 276/600 [07:01<08:16,  1.53s/it]Finding correct pairs:  46%|████▌     | 277/600 [07:02<07:58,  1.48s/it]Finding correct pairs:  46%|████▋     | 278/600 [07:04<08:00,  1.49s/it]Finding correct pairs:  46%|████▋     | 279/600 [07:05<07:46,  1.45s/it]Finding correct pairs:  47%|████▋     | 280/600 [07:07<08:02,  1.51s/it]Finding correct pairs:  47%|████▋     | 281/600 [07:09<08:37,  1.62s/it]Finding correct pairs:  47%|████▋     | 282/600 [07:10<07:52,  1.48s/it]Finding correct pairs:  47%|████▋     | 283/600 [07:12<07:58,  1.51s/it]Finding correct pairs:  47%|████▋     | 284/600 [07:13<07:42,  1.46s/it]Finding correct pairs:  48%|████▊     | 285/600 [07:15<08:31,  1.63s/it]Finding correct pairs:  48%|████▊     | 286/600 [07:16<08:02,  1.54s/it]Finding correct pairs:  48%|████▊     | 287/600 [07:18<07:48,  1.50s/it]Finding correct pairs:  48%|████▊     | 288/600 [07:19<07:29,  1.44s/it]Finding correct pairs:  48%|████▊     | 289/600 [07:20<07:06,  1.37s/it]Finding correct pairs:  48%|████▊     | 290/600 [07:21<06:56,  1.34s/it]Finding correct pairs:  48%|████▊     | 291/600 [07:23<07:55,  1.54s/it]Finding correct pairs:  49%|████▊     | 292/600 [07:25<07:34,  1.47s/it]Finding correct pairs:  49%|████▉     | 293/600 [07:26<07:25,  1.45s/it]Finding correct pairs:  49%|████▉     | 294/600 [07:27<06:24,  1.26s/it]Finding correct pairs:  49%|████▉     | 295/600 [07:29<07:31,  1.48s/it]Finding correct pairs:  49%|████▉     | 296/600 [07:31<08:16,  1.63s/it]Finding correct pairs:  50%|████▉     | 297/600 [07:33<08:33,  1.69s/it]Finding correct pairs:  50%|████▉     | 298/600 [07:34<07:21,  1.46s/it]Finding correct pairs:  50%|████▉     | 299/600 [07:35<07:13,  1.44s/it]Finding correct pairs:  50%|█████     | 300/600 [07:36<06:54,  1.38s/it]Finding correct pairs:  50%|█████     | 301/600 [07:38<06:47,  1.36s/it]Finding correct pairs:  50%|█████     | 302/600 [07:39<06:53,  1.39s/it]Finding correct pairs:  50%|█████     | 303/600 [07:41<07:39,  1.55s/it]Finding correct pairs:  51%|█████     | 304/600 [07:42<07:07,  1.44s/it]Finding correct pairs:  51%|█████     | 305/600 [07:44<07:54,  1.61s/it]Finding correct pairs:  51%|█████     | 306/600 [07:45<07:13,  1.48s/it]Finding correct pairs:  51%|█████     | 307/600 [07:46<06:37,  1.36s/it]Finding correct pairs:  51%|█████▏    | 308/600 [07:48<07:32,  1.55s/it]Finding correct pairs:  52%|█████▏    | 309/600 [07:50<07:31,  1.55s/it]Finding correct pairs:  52%|█████▏    | 310/600 [07:51<06:39,  1.38s/it]Finding correct pairs:  52%|█████▏    | 311/600 [07:52<06:39,  1.38s/it]Finding correct pairs:  52%|█████▏    | 312/600 [07:54<07:04,  1.48s/it]Finding correct pairs:  52%|█████▏    | 313/600 [07:56<07:28,  1.56s/it]Finding correct pairs:  52%|█████▏    | 314/600 [07:57<07:16,  1.53s/it]Finding correct pairs:  52%|█████▎    | 315/600 [07:59<07:55,  1.67s/it]Finding correct pairs:  53%|█████▎    | 316/600 [08:01<07:24,  1.57s/it]Finding correct pairs:  53%|█████▎    | 317/600 [08:03<08:00,  1.70s/it]Finding correct pairs:  53%|█████▎    | 318/600 [08:04<08:10,  1.74s/it]Finding correct pairs:  53%|█████▎    | 319/600 [08:06<07:31,  1.61s/it]Finding correct pairs:  53%|█████▎    | 320/600 [08:07<06:49,  1.46s/it]Finding correct pairs:  54%|█████▎    | 321/600 [08:08<05:59,  1.29s/it]Finding correct pairs:  54%|█████▎    | 322/600 [08:09<06:21,  1.37s/it]Finding correct pairs:  54%|█████▍    | 323/600 [08:11<06:15,  1.36s/it]Finding correct pairs:  54%|█████▍    | 324/600 [08:12<06:41,  1.45s/it]Finding correct pairs:  54%|█████▍    | 325/600 [08:14<07:25,  1.62s/it]Finding correct pairs:  54%|█████▍    | 326/600 [08:15<06:39,  1.46s/it]Finding correct pairs:  55%|█████▍    | 327/600 [08:17<06:33,  1.44s/it]Finding correct pairs:  55%|█████▍    | 328/600 [08:19<07:17,  1.61s/it]Finding correct pairs:  55%|█████▍    | 329/600 [08:20<06:49,  1.51s/it]Finding correct pairs:  55%|█████▌    | 330/600 [08:21<06:42,  1.49s/it]Finding correct pairs:  55%|█████▌    | 331/600 [08:23<07:11,  1.60s/it]Finding correct pairs:  55%|█████▌    | 332/600 [08:25<06:53,  1.54s/it]Finding correct pairs:  56%|█████▌    | 333/600 [08:27<07:28,  1.68s/it]Finding correct pairs:  56%|█████▌    | 334/600 [08:29<07:43,  1.74s/it]Finding correct pairs:  56%|█████▌    | 335/600 [08:31<08:01,  1.82s/it]Finding correct pairs:  56%|█████▌    | 336/600 [08:33<08:14,  1.87s/it]Finding correct pairs:  56%|█████▌    | 337/600 [08:34<07:07,  1.63s/it]Finding correct pairs:  56%|█████▋    | 338/600 [08:35<06:51,  1.57s/it]Finding correct pairs:  56%|█████▋    | 339/600 [08:37<06:41,  1.54s/it]Finding correct pairs:  57%|█████▋    | 340/600 [08:38<06:27,  1.49s/it]Finding correct pairs:  57%|█████▋    | 341/600 [08:39<06:27,  1.50s/it]Finding correct pairs:  57%|█████▋    | 342/600 [08:41<06:12,  1.45s/it]Finding correct pairs:  57%|█████▋    | 343/600 [08:42<05:49,  1.36s/it]Finding correct pairs:  57%|█████▋    | 344/600 [08:43<05:30,  1.29s/it]Finding correct pairs:  57%|█████▊    | 345/600 [08:44<05:22,  1.26s/it]Finding correct pairs:  58%|█████▊    | 346/600 [08:46<05:25,  1.28s/it]Finding correct pairs:  58%|█████▊    | 347/600 [08:48<06:18,  1.50s/it]Finding correct pairs:  58%|█████▊    | 348/600 [08:49<06:30,  1.55s/it]Finding correct pairs:  58%|█████▊    | 349/600 [08:51<07:02,  1.68s/it]Finding correct pairs:  58%|█████▊    | 350/600 [08:52<06:24,  1.54s/it]Finding correct pairs:  58%|█████▊    | 351/600 [08:54<05:46,  1.39s/it]Finding correct pairs:  59%|█████▊    | 352/600 [08:55<06:13,  1.51s/it]Finding correct pairs:  59%|█████▉    | 353/600 [08:56<05:32,  1.34s/it]Finding correct pairs:  59%|█████▉    | 354/600 [08:58<05:26,  1.33s/it]Finding correct pairs:  59%|█████▉    | 355/600 [08:59<05:09,  1.27s/it]Finding correct pairs:  59%|█████▉    | 356/600 [09:01<06:02,  1.49s/it]Finding correct pairs:  60%|█████▉    | 357/600 [09:03<06:38,  1.64s/it]Finding correct pairs:  60%|█████▉    | 358/600 [09:05<06:54,  1.71s/it]Finding correct pairs:  60%|█████▉    | 359/600 [09:06<06:47,  1.69s/it]Finding correct pairs:  60%|██████    | 360/600 [09:08<07:09,  1.79s/it]Finding correct pairs:  60%|██████    | 361/600 [09:10<07:15,  1.82s/it]Finding correct pairs:  60%|██████    | 362/600 [09:12<06:49,  1.72s/it]Finding correct pairs:  60%|██████    | 363/600 [09:13<06:09,  1.56s/it]Finding correct pairs:  61%|██████    | 364/600 [09:15<06:39,  1.69s/it]Finding correct pairs:  61%|██████    | 365/600 [09:17<06:41,  1.71s/it]Finding correct pairs:  61%|██████    | 366/600 [09:18<05:51,  1.50s/it]Finding correct pairs:  61%|██████    | 367/600 [09:19<05:58,  1.54s/it]Finding correct pairs:  61%|██████▏   | 368/600 [09:21<06:01,  1.56s/it]Finding correct pairs:  62%|██████▏   | 369/600 [09:23<06:15,  1.62s/it]Finding correct pairs:  62%|██████▏   | 370/600 [09:24<05:53,  1.54s/it]Finding correct pairs:  62%|██████▏   | 371/600 [09:25<05:04,  1.33s/it]Finding correct pairs:  62%|██████▏   | 372/600 [09:26<05:16,  1.39s/it]Finding correct pairs:  62%|██████▏   | 373/600 [09:27<04:56,  1.31s/it]Finding correct pairs:  62%|██████▏   | 374/600 [09:29<04:55,  1.31s/it]Finding correct pairs:  62%|██████▎   | 375/600 [09:30<05:18,  1.42s/it]Finding correct pairs:  63%|██████▎   | 376/600 [09:33<07:09,  1.92s/it]Finding correct pairs:  63%|██████▎   | 377/600 [09:36<07:34,  2.04s/it]Finding correct pairs:  63%|██████▎   | 378/600 [09:39<08:54,  2.41s/it]Finding correct pairs:  63%|██████▎   | 379/600 [09:42<09:50,  2.67s/it]Finding correct pairs:  63%|██████▎   | 380/600 [09:44<08:27,  2.31s/it]Finding correct pairs:  64%|██████▎   | 381/600 [09:46<08:11,  2.24s/it]Finding correct pairs:  64%|██████▎   | 382/600 [09:49<08:48,  2.43s/it]Finding correct pairs:  64%|██████▍   | 383/600 [09:51<08:48,  2.44s/it]Finding correct pairs:  64%|██████▍   | 384/600 [09:53<08:18,  2.31s/it]Finding correct pairs:  64%|██████▍   | 385/600 [09:54<07:03,  1.97s/it]Finding correct pairs:  64%|██████▍   | 386/600 [09:57<07:11,  2.01s/it]Finding correct pairs:  64%|██████▍   | 387/600 [09:58<06:52,  1.94s/it]Finding correct pairs:  65%|██████▍   | 388/600 [10:01<07:31,  2.13s/it]Finding correct pairs:  65%|██████▍   | 389/600 [10:04<08:34,  2.44s/it]Finding correct pairs:  65%|██████▌   | 390/600 [10:06<07:57,  2.27s/it]Finding correct pairs:  65%|██████▌   | 391/600 [10:08<07:42,  2.21s/it]Finding correct pairs:  65%|██████▌   | 392/600 [10:10<07:50,  2.26s/it]Finding correct pairs:  66%|██████▌   | 393/600 [10:12<07:15,  2.10s/it]Finding correct pairs:  66%|██████▌   | 394/600 [10:14<07:32,  2.19s/it]Finding correct pairs:  66%|██████▌   | 395/600 [10:17<07:42,  2.26s/it]Finding correct pairs:  66%|██████▌   | 396/600 [10:19<07:17,  2.15s/it]Finding correct pairs:  66%|██████▌   | 397/600 [10:21<07:15,  2.14s/it]Finding correct pairs:  66%|██████▋   | 398/600 [10:24<08:11,  2.43s/it]Finding correct pairs:  66%|██████▋   | 399/600 [10:26<07:54,  2.36s/it]Finding correct pairs:  67%|██████▋   | 400/600 [10:29<08:44,  2.62s/it]Finding correct pairs:  67%|██████▋   | 401/600 [10:32<08:14,  2.49s/it]Finding correct pairs:  67%|██████▋   | 402/600 [10:34<08:30,  2.58s/it]Finding correct pairs:  67%|██████▋   | 403/600 [10:36<07:34,  2.31s/it]Finding correct pairs:  67%|██████▋   | 404/600 [10:38<07:01,  2.15s/it]Finding correct pairs:  68%|██████▊   | 405/600 [10:40<06:51,  2.11s/it]Finding correct pairs:  68%|██████▊   | 406/600 [10:42<06:36,  2.04s/it]Finding correct pairs:  68%|██████▊   | 407/600 [10:44<06:27,  2.01s/it]Finding correct pairs:  68%|██████▊   | 408/600 [10:45<05:51,  1.83s/it]Finding correct pairs:  68%|██████▊   | 409/600 [10:47<05:51,  1.84s/it]Finding correct pairs:  68%|██████▊   | 410/600 [10:49<06:24,  2.03s/it]Finding correct pairs:  68%|██████▊   | 411/600 [10:52<06:38,  2.11s/it]Finding correct pairs:  69%|██████▊   | 412/600 [10:54<06:52,  2.20s/it]Finding correct pairs:  69%|██████▉   | 413/600 [10:56<06:23,  2.05s/it]Finding correct pairs:  69%|██████▉   | 414/600 [10:58<06:23,  2.06s/it]Finding correct pairs:  69%|██████▉   | 415/600 [11:00<06:44,  2.19s/it]Finding correct pairs:  69%|██████▉   | 416/600 [11:03<07:25,  2.42s/it]Finding correct pairs:  70%|██████▉   | 417/600 [11:05<07:05,  2.32s/it]Finding correct pairs:  70%|██████▉   | 418/600 [11:07<06:46,  2.23s/it]Finding correct pairs:  70%|██████▉   | 419/600 [11:11<07:39,  2.54s/it]Finding correct pairs:  70%|███████   | 420/600 [11:14<08:18,  2.77s/it]Finding correct pairs:  70%|███████   | 421/600 [11:16<07:30,  2.52s/it]Finding correct pairs:  70%|███████   | 422/600 [11:19<07:28,  2.52s/it]Finding correct pairs:  70%|███████   | 423/600 [11:21<07:29,  2.54s/it]Finding correct pairs:  71%|███████   | 424/600 [11:23<07:12,  2.46s/it]Finding correct pairs:  71%|███████   | 425/600 [11:25<06:39,  2.28s/it]Finding correct pairs:  71%|███████   | 426/600 [11:27<06:25,  2.22s/it]Finding correct pairs:  71%|███████   | 427/600 [11:30<06:46,  2.35s/it]Finding correct pairs:  71%|███████▏  | 428/600 [11:32<06:12,  2.16s/it]Finding correct pairs:  72%|███████▏  | 429/600 [11:35<07:01,  2.47s/it]Finding correct pairs:  72%|███████▏  | 430/600 [11:38<07:08,  2.52s/it]Finding correct pairs:  72%|███████▏  | 431/600 [11:39<06:26,  2.29s/it]Finding correct pairs:  72%|███████▏  | 432/600 [11:42<06:38,  2.37s/it]Finding correct pairs:  72%|███████▏  | 433/600 [11:44<06:07,  2.20s/it]Finding correct pairs:  72%|███████▏  | 434/600 [11:46<06:27,  2.33s/it]Finding correct pairs:  72%|███████▎  | 435/600 [11:50<07:12,  2.62s/it]Finding correct pairs:  73%|███████▎  | 436/600 [11:53<07:42,  2.82s/it]Finding correct pairs:  73%|███████▎  | 437/600 [11:55<07:29,  2.76s/it]Finding correct pairs:  73%|███████▎  | 438/600 [11:57<06:45,  2.50s/it]Finding correct pairs:  73%|███████▎  | 439/600 [11:59<05:38,  2.10s/it]Finding correct pairs:  73%|███████▎  | 440/600 [12:00<05:21,  2.01s/it]Finding correct pairs:  74%|███████▎  | 441/600 [12:04<06:21,  2.40s/it]Finding correct pairs:  74%|███████▎  | 442/600 [12:06<06:39,  2.53s/it]Finding correct pairs:  74%|███████▍  | 443/600 [12:10<07:13,  2.76s/it]Finding correct pairs:  74%|███████▍  | 444/600 [12:12<07:04,  2.72s/it]Finding correct pairs:  74%|███████▍  | 445/600 [12:14<06:18,  2.44s/it]Finding correct pairs:  74%|███████▍  | 446/600 [12:16<05:44,  2.24s/it]Finding correct pairs:  74%|███████▍  | 447/600 [12:19<05:59,  2.35s/it]Finding correct pairs:  75%|███████▍  | 448/600 [12:21<05:48,  2.29s/it]Finding correct pairs:  75%|███████▍  | 449/600 [12:23<05:47,  2.30s/it]Finding correct pairs:  75%|███████▌  | 450/600 [12:25<05:32,  2.21s/it]Finding correct pairs:  75%|███████▌  | 451/600 [12:28<05:40,  2.28s/it]Finding correct pairs:  75%|███████▌  | 452/600 [12:30<05:53,  2.39s/it]Finding correct pairs:  76%|███████▌  | 453/600 [12:32<05:28,  2.23s/it]Finding correct pairs:  76%|███████▌  | 454/600 [12:35<06:09,  2.53s/it]Finding correct pairs:  76%|███████▌  | 455/600 [12:37<05:36,  2.32s/it]Finding correct pairs:  76%|███████▌  | 456/600 [12:39<05:05,  2.12s/it]Finding correct pairs:  76%|███████▌  | 457/600 [12:42<05:55,  2.48s/it]Finding correct pairs:  76%|███████▋  | 458/600 [12:45<06:28,  2.73s/it]Finding correct pairs:  76%|███████▋  | 459/600 [12:49<06:48,  2.90s/it]Finding correct pairs:  77%|███████▋  | 460/600 [12:51<06:30,  2.79s/it]Finding correct pairs:  77%|███████▋  | 461/600 [12:53<05:43,  2.47s/it]Finding correct pairs:  77%|███████▋  | 462/600 [12:56<06:15,  2.72s/it]Finding correct pairs:  77%|███████▋  | 463/600 [12:58<05:38,  2.47s/it]Finding correct pairs:  77%|███████▋  | 464/600 [13:01<06:08,  2.71s/it]Finding correct pairs:  78%|███████▊  | 465/600 [13:03<05:29,  2.44s/it]Finding correct pairs:  78%|███████▊  | 466/600 [13:05<05:14,  2.35s/it]Finding correct pairs:  78%|███████▊  | 467/600 [13:08<05:19,  2.40s/it]Finding correct pairs:  78%|███████▊  | 468/600 [13:11<05:51,  2.66s/it]Finding correct pairs:  78%|███████▊  | 469/600 [13:14<05:49,  2.67s/it]Finding correct pairs:  78%|███████▊  | 470/600 [13:16<05:10,  2.39s/it]Finding correct pairs:  78%|███████▊  | 471/600 [13:19<05:36,  2.61s/it]Finding correct pairs:  79%|███████▊  | 472/600 [13:22<05:48,  2.73s/it]Finding correct pairs:  79%|███████▉  | 473/600 [13:23<04:56,  2.34s/it]Finding correct pairs:  79%|███████▉  | 474/600 [13:25<04:47,  2.28s/it]Finding correct pairs:  79%|███████▉  | 475/600 [13:27<04:35,  2.20s/it]Finding correct pairs:  79%|███████▉  | 476/600 [13:30<05:10,  2.50s/it]Finding correct pairs:  80%|███████▉  | 477/600 [13:34<05:34,  2.72s/it]Finding correct pairs:  80%|███████▉  | 478/600 [13:37<05:50,  2.88s/it]Finding correct pairs:  80%|███████▉  | 479/600 [13:40<06:02,  3.00s/it]Finding correct pairs:  80%|████████  | 480/600 [13:42<05:08,  2.57s/it]Finding correct pairs:  80%|████████  | 481/600 [13:44<04:41,  2.37s/it]Finding correct pairs:  80%|████████  | 482/600 [13:47<05:11,  2.64s/it]Finding correct pairs:  80%|████████  | 483/600 [13:50<05:32,  2.84s/it]Finding correct pairs:  81%|████████  | 484/600 [13:54<05:46,  2.98s/it]Finding correct pairs:  81%|████████  | 485/600 [13:56<05:17,  2.76s/it]Finding correct pairs:  81%|████████  | 486/600 [13:59<05:32,  2.92s/it]Finding correct pairs:  81%|████████  | 487/600 [14:01<05:02,  2.68s/it]Finding correct pairs:  81%|████████▏ | 488/600 [14:03<04:41,  2.51s/it]Finding correct pairs:  82%|████████▏ | 489/600 [14:06<04:49,  2.61s/it]Finding correct pairs:  82%|████████▏ | 490/600 [14:09<04:58,  2.71s/it]Finding correct pairs:  82%|████████▏ | 491/600 [14:12<05:14,  2.88s/it]Finding correct pairs:  82%|████████▏ | 492/600 [14:14<04:27,  2.48s/it]Finding correct pairs:  82%|████████▏ | 493/600 [14:16<04:26,  2.49s/it]Finding correct pairs:  82%|████████▏ | 494/600 [14:18<04:04,  2.31s/it]Finding correct pairs:  82%|████████▎ | 495/600 [14:20<03:51,  2.21s/it]Finding correct pairs:  83%|████████▎ | 496/600 [14:23<04:17,  2.48s/it]Finding correct pairs:  83%|████████▎ | 497/600 [14:26<04:27,  2.60s/it]Finding correct pairs:  83%|████████▎ | 498/600 [14:29<04:34,  2.69s/it]Finding correct pairs:  83%|████████▎ | 499/600 [14:32<04:49,  2.87s/it]Finding correct pairs:  83%|████████▎ | 500/600 [14:35<04:31,  2.72s/it]Finding correct pairs:  84%|████████▎ | 501/600 [14:38<04:46,  2.89s/it]Finding correct pairs:  84%|████████▎ | 502/600 [14:41<04:37,  2.83s/it]Finding correct pairs:  84%|████████▍ | 503/600 [14:44<04:36,  2.85s/it]Finding correct pairs:  84%|████████▍ | 504/600 [14:47<04:42,  2.95s/it]Finding correct pairs:  84%|████████▍ | 505/600 [14:50<04:47,  3.02s/it]Finding correct pairs:  84%|████████▍ | 506/600 [14:52<04:19,  2.76s/it]Finding correct pairs:  84%|████████▍ | 507/600 [14:56<04:31,  2.92s/it]Finding correct pairs:  85%|████████▍ | 508/600 [14:59<04:39,  3.04s/it]Finding correct pairs:  85%|████████▍ | 509/600 [15:01<04:15,  2.80s/it]Finding correct pairs:  85%|████████▌ | 510/600 [15:03<03:57,  2.64s/it]Finding correct pairs:  85%|████████▌ | 511/600 [15:05<03:36,  2.43s/it]Finding correct pairs:  85%|████████▌ | 512/600 [15:07<03:24,  2.32s/it]Finding correct pairs:  86%|████████▌ | 513/600 [15:11<03:48,  2.62s/it]Finding correct pairs:  86%|████████▌ | 514/600 [15:14<03:53,  2.72s/it]Finding correct pairs:  86%|████████▌ | 515/600 [15:16<03:30,  2.48s/it]Finding correct pairs:  86%|████████▌ | 516/600 [15:18<03:18,  2.36s/it]Finding correct pairs:  86%|████████▌ | 517/600 [15:19<02:46,  2.00s/it]Finding correct pairs:  86%|████████▋ | 518/600 [15:21<02:56,  2.15s/it]Finding correct pairs:  86%|████████▋ | 519/600 [15:25<03:22,  2.50s/it]Finding correct pairs:  87%|████████▋ | 520/600 [15:28<03:38,  2.73s/it]Finding correct pairs:  87%|████████▋ | 521/600 [15:31<03:41,  2.80s/it]Finding correct pairs:  87%|████████▋ | 522/600 [15:33<03:29,  2.68s/it]Finding correct pairs:  87%|████████▋ | 523/600 [15:35<03:13,  2.51s/it]Finding correct pairs:  87%|████████▋ | 524/600 [15:38<03:23,  2.68s/it]Finding correct pairs:  88%|████████▊ | 525/600 [15:41<03:18,  2.64s/it]Finding correct pairs:  88%|████████▊ | 526/600 [15:44<03:29,  2.83s/it]Finding correct pairs:  88%|████████▊ | 527/600 [15:46<03:02,  2.50s/it]Finding correct pairs:  88%|████████▊ | 528/600 [15:49<03:07,  2.61s/it]Finding correct pairs:  88%|████████▊ | 529/600 [15:52<03:07,  2.64s/it]Finding correct pairs:  88%|████████▊ | 530/600 [15:55<03:13,  2.76s/it]Finding correct pairs:  88%|████████▊ | 531/600 [15:57<02:53,  2.51s/it]Finding correct pairs:  89%|████████▊ | 532/600 [15:58<02:37,  2.31s/it]Finding correct pairs:  89%|████████▉ | 533/600 [16:01<02:43,  2.43s/it]Finding correct pairs:  89%|████████▉ | 534/600 [16:04<02:55,  2.65s/it]Finding correct pairs:  89%|████████▉ | 535/600 [16:07<02:47,  2.57s/it]Finding correct pairs:  89%|████████▉ | 536/600 [16:09<02:35,  2.44s/it]Finding correct pairs:  90%|████████▉ | 537/600 [16:11<02:27,  2.33s/it]Finding correct pairs:  90%|████████▉ | 538/600 [16:13<02:26,  2.36s/it]Finding correct pairs:  90%|████████▉ | 539/600 [16:17<02:40,  2.63s/it]Finding correct pairs:  90%|█████████ | 540/600 [16:19<02:33,  2.55s/it]Finding correct pairs:  90%|█████████ | 541/600 [16:21<02:21,  2.41s/it]Finding correct pairs:  90%|█████████ | 542/600 [16:24<02:26,  2.53s/it]Finding correct pairs:  90%|█████████ | 543/600 [16:26<02:13,  2.35s/it]Finding correct pairs:  91%|█████████ | 544/600 [16:28<02:07,  2.27s/it]Finding correct pairs:  91%|█████████ | 545/600 [16:30<02:04,  2.27s/it]Finding correct pairs:  91%|█████████ | 546/600 [16:32<01:59,  2.21s/it]Finding correct pairs:  91%|█████████ | 547/600 [16:34<01:54,  2.17s/it]Finding correct pairs:  91%|█████████▏| 548/600 [16:36<01:42,  1.97s/it]Finding correct pairs:  92%|█████████▏| 549/600 [16:38<01:45,  2.06s/it]Finding correct pairs:  92%|█████████▏| 550/600 [16:40<01:39,  1.98s/it]Finding correct pairs:  92%|█████████▏| 551/600 [16:42<01:34,  1.93s/it]Finding correct pairs:  92%|█████████▏| 552/600 [16:44<01:44,  2.17s/it]Finding correct pairs:  92%|█████████▏| 553/600 [16:48<01:57,  2.50s/it]Finding correct pairs:  92%|█████████▏| 554/600 [16:50<01:55,  2.51s/it]Finding correct pairs:  92%|█████████▎| 555/600 [16:52<01:44,  2.33s/it]Finding correct pairs:  93%|█████████▎| 556/600 [16:55<01:55,  2.62s/it]Finding correct pairs:  93%|█████████▎| 557/600 [16:58<01:52,  2.63s/it]Finding correct pairs:  93%|█████████▎| 558/600 [17:00<01:45,  2.52s/it]Finding correct pairs:  93%|█████████▎| 559/600 [17:03<01:49,  2.67s/it]Finding correct pairs:  93%|█████████▎| 560/600 [17:05<01:36,  2.41s/it]Finding correct pairs:  94%|█████████▎| 561/600 [17:08<01:43,  2.66s/it]Finding correct pairs:  94%|█████████▎| 562/600 [17:10<01:29,  2.35s/it]Finding correct pairs:  94%|█████████▍| 563/600 [17:12<01:22,  2.22s/it]Finding correct pairs:  94%|█████████▍| 564/600 [17:15<01:31,  2.54s/it]Finding correct pairs:  94%|█████████▍| 565/600 [17:17<01:19,  2.26s/it]Finding correct pairs:  94%|█████████▍| 566/600 [17:20<01:22,  2.42s/it]Finding correct pairs:  94%|█████████▍| 567/600 [17:21<01:14,  2.26s/it]Finding correct pairs:  95%|█████████▍| 568/600 [17:24<01:17,  2.43s/it]Finding correct pairs:  95%|█████████▍| 569/600 [17:27<01:16,  2.47s/it]Finding correct pairs:  95%|█████████▌| 570/600 [17:30<01:21,  2.72s/it]Finding correct pairs:  95%|█████████▌| 571/600 [17:33<01:23,  2.89s/it]Finding correct pairs:  95%|█████████▌| 572/600 [17:36<01:14,  2.65s/it]Finding correct pairs:  96%|█████████▌| 573/600 [17:38<01:08,  2.53s/it]Finding correct pairs:  96%|█████████▌| 574/600 [17:41<01:11,  2.76s/it]Finding correct pairs:  96%|█████████▌| 575/600 [17:44<01:09,  2.79s/it]Finding correct pairs:  96%|█████████▌| 576/600 [17:47<01:07,  2.82s/it]Finding correct pairs:  96%|█████████▌| 577/600 [17:50<01:07,  2.93s/it]Finding correct pairs:  96%|█████████▋| 578/600 [17:53<01:06,  3.03s/it]Finding correct pairs:  96%|█████████▋| 579/600 [17:55<00:56,  2.70s/it]Finding correct pairs:  97%|█████████▋| 580/600 [17:57<00:50,  2.54s/it]Finding correct pairs:  97%|█████████▋| 581/600 [18:00<00:51,  2.70s/it]Finding correct pairs:  97%|█████████▋| 582/600 [18:03<00:50,  2.78s/it]Finding correct pairs:  97%|█████████▋| 583/600 [18:06<00:44,  2.62s/it]Finding correct pairs:  97%|█████████▋| 584/600 [18:07<00:37,  2.36s/it]Finding correct pairs:  98%|█████████▊| 585/600 [18:10<00:35,  2.34s/it]Finding correct pairs:  98%|█████████▊| 586/600 [18:12<00:32,  2.32s/it]Finding correct pairs:  98%|█████████▊| 587/600 [18:14<00:28,  2.16s/it]Finding correct pairs:  98%|█████████▊| 588/600 [18:16<00:26,  2.24s/it]Finding correct pairs:  98%|█████████▊| 589/600 [18:18<00:23,  2.17s/it]Finding correct pairs:  98%|█████████▊| 590/600 [18:20<00:20,  2.10s/it]Finding correct pairs:  98%|█████████▊| 591/600 [18:22<00:19,  2.12s/it]Finding correct pairs:  99%|█████████▊| 592/600 [18:24<00:16,  2.02s/it]Finding correct pairs:  99%|█████████▉| 593/600 [18:27<00:16,  2.33s/it]Finding correct pairs:  99%|█████████▉| 594/600 [18:29<00:13,  2.23s/it]Finding correct pairs:  99%|█████████▉| 595/600 [18:31<00:10,  2.10s/it]Finding correct pairs:  99%|█████████▉| 596/600 [18:34<00:09,  2.45s/it]Finding correct pairs: 100%|█████████▉| 597/600 [18:36<00:06,  2.31s/it]Finding correct pairs: 100%|█████████▉| 598/600 [18:40<00:05,  2.61s/it]Finding correct pairs: 100%|█████████▉| 599/600 [18:41<00:02,  2.35s/it]Finding correct pairs: 100%|██████████| 600/600 [18:43<00:00,  2.20s/it]Finding correct pairs: 100%|██████████| 600/600 [18:43<00:00,  1.87s/it]
+Found 389 correct pairs.
+  0%|          | 0/600 [00:00<?, ?it/s]100%|██████████| 600/600 [00:00<00:00, 27361.59it/s]
+Loaded 600 (train, eval) pairs.
+
+Starting sequential training…
+Cached 112 LoRA tensors.
+[   1/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=1.000
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[   2/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.500
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[   3/600] loss=0.0000  pred=true,  gold=n/a  running‐acc=0.333
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[   4/600] loss=0.0000  pred=true   gold=true  running‐acc=0.500
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[   5/600] loss=0.0000  pred=true   gold=true  running‐acc=0.600
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[   6/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.500
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[   7/600] loss=0.0000  pred=true   gold=true  running‐acc=0.571
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[   8/600] loss=0.0000  pred=false  gold=true  running‐acc=0.500
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[   9/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.556
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  10/600] loss=0.0000  pred=true   gold=true  running‐acc=0.600
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  11/600] loss=0.0000  pred=true   gold=true  running‐acc=0.636
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  12/600] loss=0.0000  pred=true   gold=true  running‐acc=0.667
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  13/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.615
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  14/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  15/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.600
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  16/600] loss=0.0000  pred=true   gold=true  running‐acc=0.625
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  17/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  18/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.611
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  19/600] loss=0.0000  pred=false  gold=true  running‐acc=0.579
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  20/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.600
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  21/600] loss=0.0000  pred=true   gold=true  running‐acc=0.619
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  22/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.591
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  23/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.565
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  24/600] loss=0.0000  pred=true   gold=true  running‐acc=0.583
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  25/600] loss=0.0000  pred=true   gold=true  running‐acc=0.600
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  26/600] loss=0.0000  pred=true   gold=true  running‐acc=0.615
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  27/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.593
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  28/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.571
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  29/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.552
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  30/600] loss=0.0000  pred=true   gold=true  running‐acc=0.567
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  31/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.581
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  32/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.562
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  33/600] loss=0.0000  pred=true   gold=true  running‐acc=0.576
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  34/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.559
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  35/600] loss=0.0000  pred=true   gold=true  running‐acc=0.571
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  36/600] loss=0.0000  pred=true   gold=true  running‐acc=0.583
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  37/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.595
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  38/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.605
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  39/600] loss=0.0000  pred=false  gold=true  running‐acc=0.590
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  40/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.600
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  41/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.585
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  42/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.571
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  43/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.581
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  44/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.591
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  45/600] loss=0.0000  pred=true   gold=true  running‐acc=0.600
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  46/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.587
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  47/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.596
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  48/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.604
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  49/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.612
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  50/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.600
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  51/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.608
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  52/600] loss=0.0000  pred=true   gold=true  running‐acc=0.615
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  53/600] loss=0.0000  pred=true   gold=true  running‐acc=0.623
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  54/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.611
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  55/600] loss=0.0000  pred=true,  gold=n/a  running‐acc=0.600
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  56/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.607
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  57/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.596
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  58/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.586
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  59/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.576
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  60/600] loss=0.0000  pred=true   gold=true  running‐acc=0.583
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  61/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.574
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  62/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.581
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  63/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.571
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  64/600] loss=0.0000  pred=true   gold=true  running‐acc=0.578
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  65/600] loss=0.0000  pred=true   gold=true  running‐acc=0.585
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  66/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.576
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  67/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.567
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  68/600] loss=0.0000  pred=true   gold=true  running‐acc=0.574
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  69/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.565
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  70/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.557
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  71/600] loss=0.0000  pred=true   gold=true  running‐acc=0.563
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  72/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.556
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  73/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.548
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  74/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.541
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  75/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.533
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  76/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.526
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  77/600] loss=0.0000  pred=true   gold=true  running‐acc=0.532
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  78/600] loss=0.0000  pred=true   gold=true  running‐acc=0.538
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  79/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.544
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  80/600] loss=0.0000  pred=true   gold=true  running‐acc=0.550
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  81/600] loss=0.0000  pred=true   gold=true  running‐acc=0.556
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  82/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.561
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  83/600] loss=0.0000  pred=true   gold=true  running‐acc=0.566
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  84/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.560
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  85/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.553
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  86/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.547
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  87/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.540
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  88/600] loss=0.0000  pred=true   gold=true  running‐acc=0.545
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  89/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.539
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  90/600] loss=0.0000  pred=true   gold=true  running‐acc=0.544
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  91/600] loss=0.0000  pred=true   gold=true  running‐acc=0.549
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  92/600] loss=0.0000  pred=true   gold=true  running‐acc=0.554
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  93/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.548
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  94/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.543
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  95/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.537
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  96/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.542
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  97/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.546
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[  98/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.541
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[  99/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.535
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 100/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.530
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 101/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.525
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 102/600] loss=0.0000  pred=true   gold=true  running‐acc=0.529
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 103/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.524
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 104/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.519
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 105/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.514
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 106/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.509
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 107/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.505
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 108/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.500
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 109/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.505
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 110/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.509
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 111/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.505
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 112/600] loss=0.0000  pred=true   gold=true  running‐acc=0.509
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 113/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.504
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 114/600] loss=0.0000  pred=true   gold=true  running‐acc=0.509
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 115/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.504
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 116/600] loss=0.0000  pred=true   gold=true  running‐acc=0.509
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 117/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.504
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 118/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.508
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 119/600] loss=0.0000  pred=true   gold=true  running‐acc=0.513
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 120/600] loss=0.0000  pred=true   gold=true  running‐acc=0.517
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 121/600] loss=0.0000  pred=true   gold=true  running‐acc=0.521
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 122/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.525
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 123/600] loss=0.0000  pred=true   gold=true  running‐acc=0.528
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 124/600] loss=0.0000  pred=true   gold=true  running‐acc=0.532
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 125/600] loss=0.0000  pred=true   gold=true  running‐acc=0.536
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 126/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.532
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 127/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.535
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 128/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.539
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 129/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.543
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 130/600] loss=0.0000  pred=true   gold=true  running‐acc=0.546
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 131/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.550
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 132/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.553
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 133/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.556
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 134/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.552
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 135/600] loss=0.0000  pred=true   gold=true  running‐acc=0.556
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 136/600] loss=0.0000  pred=true   gold=true  running‐acc=0.559
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 137/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.562
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 138/600] loss=0.0000  pred=true   gold=true  running‐acc=0.565
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 139/600] loss=0.0000  pred=true   gold=true  running‐acc=0.568
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 140/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.564
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 141/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.567
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 142/600] loss=0.0000  pred=true   gold=true  running‐acc=0.570
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 143/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.566
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 144/600] loss=0.0000  pred=true,  gold=n/a  running‐acc=0.562
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 145/600] loss=0.0000  pred=true   gold=true  running‐acc=0.566
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 146/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.562
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 147/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.565
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 148/600] loss=0.0000  pred=true   gold=true  running‐acc=0.568
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 149/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.570
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 150/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.567
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 151/600] loss=0.0000  pred=true   gold=true  running‐acc=0.570
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 152/600] loss=0.0000  pred=true   gold=true  running‐acc=0.572
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 153/600] loss=0.0000  pred=true   gold=true  running‐acc=0.575
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 154/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.571
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 155/600] loss=0.0000  pred=true   gold=true  running‐acc=0.574
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 156/600] loss=0.0000  pred=true   gold=true  running‐acc=0.577
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 157/600] loss=0.0000  pred=true   gold=true  running‐acc=0.580
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 158/600] loss=0.0000  pred=true   gold=true  running‐acc=0.582
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 159/600] loss=0.0000  pred=true   gold=true  running‐acc=0.585
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 160/600] loss=0.0000  pred=true   gold=true  running‐acc=0.588
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 161/600] loss=0.0000  pred=true   gold=true  running‐acc=0.590
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 162/600] loss=0.0000  pred=true   gold=true  running‐acc=0.593
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 163/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.589
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 164/600] loss=0.0000  pred=true   gold=true  running‐acc=0.591
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 165/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.588
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 166/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.584
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 167/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.587
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 168/600] loss=0.0000  pred=true   gold=true  running‐acc=0.589
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 169/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.586
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 170/600] loss=0.0000  pred=true   gold=true  running‐acc=0.588
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 171/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.591
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 172/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.587
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 173/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.584
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 174/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.586
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 175/600] loss=0.0000  pred=true   gold=true  running‐acc=0.589
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 176/600] loss=0.0000  pred=true   gold=true  running‐acc=0.591
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 177/600] loss=0.0000  pred=true   gold=true  running‐acc=0.593
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 178/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.590
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 179/600] loss=0.0000  pred=false  gold=true  running‐acc=0.587
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 180/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.589
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 181/600] loss=0.0000  pred=true   gold=true  running‐acc=0.591
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 182/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.593
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 183/600] loss=0.0000  pred=true   gold=true  running‐acc=0.596
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 184/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.598
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 185/600] loss=0.0000  pred=true   gold=true  running‐acc=0.600
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 186/600] loss=0.0000  pred=true   gold=true  running‐acc=0.602
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 187/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.604
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 188/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.601
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 189/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.598
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 190/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.595
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 191/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.597
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 192/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.594
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 193/600] loss=0.0000  pred=true   gold=true  running‐acc=0.596
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 194/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.598
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 195/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.600
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 196/600] loss=0.0000  pred=true   gold=true  running‐acc=0.602
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 197/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.604
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 198/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.601
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 199/600] loss=0.0000  pred=true   gold=true  running‐acc=0.603
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 200/600] loss=0.0000  pred=true   gold=true  running‐acc=0.605
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 201/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.602
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 202/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.599
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 203/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.601
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 204/600] loss=0.0000  pred=true   gold=true  running‐acc=0.603
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 205/600] loss=0.0000  pred=true   gold=true  running‐acc=0.605
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 206/600] loss=0.0000  pred=true   gold=true  running‐acc=0.607
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 207/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.609
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 208/600] loss=0.0000  pred=true   gold=true  running‐acc=0.611
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 209/600] loss=0.0000  pred=true   gold=true  running‐acc=0.612
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 210/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.610
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 211/600] loss=0.0000  pred=true   gold=true  running‐acc=0.611
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 212/600] loss=0.0000  pred=true   gold=true  running‐acc=0.613
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 213/600] loss=0.0000  pred=true   gold=true  running‐acc=0.615
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 214/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.612
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 215/600] loss=0.0000  pred=true   gold=true  running‐acc=0.614
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 216/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.611
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 217/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.613
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 218/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.610
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 219/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.607
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 220/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.605
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 221/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.602
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 222/600] loss=0.0000  pred=true   gold=true  running‐acc=0.604
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 223/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.601
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 224/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.603
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 225/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.600
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 226/600] loss=0.0000  pred=true   gold=true  running‐acc=0.602
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 227/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.604
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 228/600] loss=0.0000  pred=true   gold=true  running‐acc=0.605
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 229/600] loss=0.0000  pred=false  gold=true  running‐acc=0.603
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 230/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.604
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 231/600] loss=0.0000  pred=true   gold=true  running‐acc=0.606
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 232/600] loss=0.0000  pred=true   gold=true  running‐acc=0.608
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 233/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.609
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 234/600] loss=0.0000  pred=true   gold=true  running‐acc=0.611
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 235/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.609
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 236/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.606
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 237/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.608
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 238/600] loss=0.0000  pred=true   gold=true  running‐acc=0.609
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 239/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.607
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 240/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.608
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 241/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.610
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 242/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.607
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 243/600] loss=0.0000  pred=true   gold=true  running‐acc=0.609
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 244/600] loss=0.0000  pred=true   gold=true  running‐acc=0.611
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 245/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.608
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 246/600] loss=0.0000  pred=true   gold=true  running‐acc=0.610
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 247/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.607
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 248/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.609
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 249/600] loss=0.0000  pred=true   gold=true  running‐acc=0.610
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 250/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.608
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 251/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.606
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 252/600] loss=0.0000  pred=true   gold=true  running‐acc=0.607
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 253/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.609
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 254/600] loss=0.0000  pred=true   gold=true  running‐acc=0.610
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 255/600] loss=0.0000  pred=true   gold=true  running‐acc=0.612
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 256/600] loss=0.0000  pred=true   gold=true  running‐acc=0.613
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 257/600] loss=0.0000  pred=true   gold=true  running‐acc=0.615
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 258/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.616
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 259/600] loss=0.0000  pred=true   gold=true  running‐acc=0.618
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 260/600] loss=0.0000  pred=true   gold=true  running‐acc=0.619
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 261/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.621
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 262/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.618
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 263/600] loss=0.0000  pred=false  gold=true  running‐acc=0.616
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 264/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.617
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 265/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.615
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 266/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.617
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 267/600] loss=0.0000  pred=true   gold=true  running‐acc=0.618
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 268/600] loss=0.0000  pred=true   gold=true  running‐acc=0.619
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 269/600] loss=0.0000  pred=true   gold=true  running‐acc=0.621
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 270/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.622
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 271/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.620
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 272/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.621
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 273/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.619
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 274/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.620
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 275/600] loss=0.0000  pred=true   gold=true  running‐acc=0.622
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 276/600] loss=0.0000  pred=true   gold=true  running‐acc=0.623
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 277/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.621
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 278/600] loss=0.0000  pred=true   gold=true  running‐acc=0.622
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 279/600] loss=0.0000  pred=true   gold=true  running‐acc=0.624
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 280/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.621
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 281/600] loss=0.0000  pred=true   gold=true  running‐acc=0.623
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 282/600] loss=0.0000  pred=true   gold=true  running‐acc=0.624
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 283/600] loss=0.0000  pred=true   gold=true  running‐acc=0.625
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 284/600] loss=0.0000  pred=true   gold=true  running‐acc=0.627
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 285/600] loss=0.0000  pred=true   gold=true  running‐acc=0.628
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 286/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.629
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 287/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.627
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 288/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.628
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 289/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.626
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 290/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.628
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 291/600] loss=0.0000  pred=true   gold=true  running‐acc=0.629
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 292/600] loss=0.0000  pred=true   gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 293/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.628
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 294/600] loss=0.0000  pred=true   gold=true  running‐acc=0.629
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 295/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.627
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 296/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.625
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 297/600] loss=0.0000  pred=true   gold=true  running‐acc=0.626
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 298/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.628
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 299/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.625
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 300/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.627
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 301/600] loss=0.0000  pred=true   gold=true  running‐acc=0.628
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 302/600] loss=0.0000  pred=true   gold=true  running‐acc=0.629
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 303/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.630
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 304/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 305/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.630
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 306/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.627
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 307/600] loss=0.0000  pred=true   gold=true  running‐acc=0.629
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 308/600] loss=0.0000  pred=true   gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 309/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 310/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 311/600] loss=0.0000  pred=true   gold=true  running‐acc=0.633
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 312/600] loss=0.0000  pred=true   gold=true  running‐acc=0.635
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 313/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.636
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 314/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.634
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 315/600] loss=0.0000  pred=true   gold=true  running‐acc=0.635
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 316/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.633
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 317/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.631
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 318/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 319/600] loss=0.0000  pred=true   gold=true  running‐acc=0.633
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 320/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 321/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 322/600] loss=0.0000  pred=true   gold=true  running‐acc=0.634
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 323/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 324/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 325/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.628
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 326/600] loss=0.0000  pred=true   gold=true  running‐acc=0.629
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 327/600] loss=0.0000  pred=true   gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 328/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.628
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 329/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.626
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 330/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.627
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 331/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.628
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 332/600] loss=0.0000  pred=true   gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 333/600] loss=0.0000  pred=true   gold=true  running‐acc=0.631
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 334/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 335/600] loss=0.0000  pred=true   gold=true  running‐acc=0.633
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 336/600] loss=0.0000  pred=false  gold=true  running‐acc=0.631
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 337/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.629
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 338/600] loss=0.0000  pred=true   gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 339/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 340/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 341/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.630
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 342/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 343/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.633
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 344/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 345/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 346/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.630
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 347/600] loss=0.0000  pred=true   gold=true  running‐acc=0.631
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 348/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.629
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 349/600] loss=0.0000  pred=true   gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 350/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 351/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 352/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 353/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 354/600] loss=0.0000  pred=true   gold=true  running‐acc=0.633
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 355/600] loss=0.0000  pred=true   gold=true  running‐acc=0.634
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 356/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 357/600] loss=0.0000  pred=false  gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 358/600] loss=0.0000  pred=true   gold=true  running‐acc=0.631
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 359/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 360/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.633
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 361/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 362/600] loss=0.0000  pred=true,  gold=n/a  running‐acc=0.630
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 363/600] loss=0.0000  pred=true   gold=true  running‐acc=0.631
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 364/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 365/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.633
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 366/600] loss=0.0000  pred=true   gold=true  running‐acc=0.634
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 367/600] loss=0.0000  pred=true   gold=true  running‐acc=0.635
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 368/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.636
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 369/600] loss=0.0000  pred=true   gold=true  running‐acc=0.637
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 370/600] loss=0.0000  pred=true   gold=true  running‐acc=0.638
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 371/600] loss=0.0000  pred=true   gold=true  running‐acc=0.639
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 372/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.637
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 373/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.635
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 374/600] loss=0.0000  pred=true   gold=true  running‐acc=0.636
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 375/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.635
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 376/600] loss=0.0000  pred=true   gold=true  running‐acc=0.636
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 377/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.637
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 378/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.635
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 379/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.636
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 380/600] loss=0.0000  pred=true,  gold=n/a  running‐acc=0.634
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 381/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.633
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 382/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 383/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 384/600] loss=0.0000  pred=true   gold=true  running‐acc=0.633
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 385/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 386/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 387/600] loss=0.0000  pred=false  gold=true  running‐acc=0.628
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 388/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.626
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 389/600] loss=0.0000  pred=true   gold=true  running‐acc=0.627
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 390/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.628
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 391/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.629
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 392/600] loss=0.0000  pred=true   gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 393/600] loss=0.0000  pred=true   gold=true  running‐acc=0.631
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 394/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 395/600] loss=0.0000  pred=true   gold=true  running‐acc=0.633
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 396/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 397/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 398/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 399/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 400/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 401/600] loss=0.0000  pred=true   gold=true  running‐acc=0.633
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 402/600] loss=0.0000  pred=true   gold=true  running‐acc=0.634
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 403/600] loss=0.0000  pred=false  gold=true  running‐acc=0.633
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 404/600] loss=0.0000  pred=true   gold=true  running‐acc=0.634
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 405/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.635
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 406/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.633
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 407/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.634
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 408/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 409/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.633
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 410/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 411/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.630
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 412/600] loss=0.0000  pred=true   gold=true  running‐acc=0.631
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 413/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.630
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 414/600] loss=0.0000  pred=true   gold=true  running‐acc=0.630
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 415/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.629
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 416/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.630
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 417/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 418/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 419/600] loss=0.0000  pred=true   gold=true  running‐acc=0.632
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 420/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.631
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 421/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.632
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 422/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.633
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 423/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.634
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 424/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.634
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 425/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.635
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 426/600] loss=0.0000  pred=true   gold=true  running‐acc=0.636
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 427/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.635
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 428/600] loss=0.0000  pred=true   gold=true  running‐acc=0.636
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 429/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.634
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 430/600] loss=0.0000  pred=true   gold=true  running‐acc=0.635
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 431/600] loss=0.0000  pred=true   gold=true  running‐acc=0.636
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 432/600] loss=0.0000  pred=true   gold=true  running‐acc=0.637
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 433/600] loss=0.0000  pred=true   gold=true  running‐acc=0.637
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 434/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.638
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 435/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.639
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 436/600] loss=0.0000  pred=true   gold=true  running‐acc=0.640
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 437/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.638
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 438/600] loss=0.0000  pred=true   gold=true  running‐acc=0.639
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 439/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.640
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 440/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.641
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 441/600] loss=0.0000  pred=true   gold=true  running‐acc=0.642
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 442/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 443/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.641
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 444/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.642
+Locality eval: pred=true              gold=true  correct=True  running‐acc=1.000
+[ 445/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 446/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=1.000
+[ 447/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.644
+Locality eval: pred=n/a               gold=true  correct=False  running‐acc=0.998
+[ 448/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.643
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 449/600] loss=0.0000  pred=true   gold=true  running‐acc=0.644
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 450/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.644
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 451/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.643
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 452/600] loss=0.0000  pred=true   gold=true  running‐acc=0.644
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 453/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 454/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 455/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.646
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 456/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 457/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.643
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 458/600] loss=0.0000  pred=true   gold=true  running‐acc=0.644
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 459/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 460/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.643
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 461/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.644
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 462/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 463/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 464/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 465/600] loss=0.0000  pred=false  gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 466/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 467/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 468/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 469/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 470/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 471/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 472/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 473/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.647
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.998
+[ 474/600] loss=0.0000  pred=true   gold=true  running‐acc=0.648
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 475/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 476/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.998
+[ 477/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.648
+Locality eval: pred=n/a               gold=true  correct=False  running‐acc=0.996
+[ 478/600] loss=0.0000  pred=true   gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 479/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.647
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 480/600] loss=0.0000  pred=true   gold=true  running‐acc=0.648
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 481/600] loss=0.0000  pred=true   gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 482/600] loss=0.0000  pred=true   gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 483/600] loss=0.0000  pred=true   gold=true  running‐acc=0.650
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 484/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.651
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 485/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 486/600] loss=0.0000  pred=true   gold=true  running‐acc=0.650
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 487/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.649
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 488/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.650
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 489/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.650
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 490/600] loss=0.0000  pred=true   gold=true  running‐acc=0.651
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 491/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.652
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 492/600] loss=0.0000  pred=true   gold=true  running‐acc=0.652
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 493/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.651
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 494/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.650
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 495/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.651
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 496/600] loss=0.0000  pred=true   gold=true  running‐acc=0.651
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 497/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.650
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 498/600] loss=0.0000  pred=false  gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 499/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.647
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 500/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.646
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 501/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 502/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 503/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 504/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 505/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.646
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 506/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.644
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 507/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 508/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.646
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 509/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.646
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 510/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 511/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 512/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 513/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 514/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.644
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 515/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 516/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 517/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 518/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 519/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 520/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.644
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 521/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 522/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.646
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 523/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.996
+[ 524/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 525/600] loss=0.0000  pred=true,  gold=n/a  running‐acc=0.644
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.996
+[ 526/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.643
+Locality eval: pred=n/a               gold=true  correct=False  running‐acc=0.994
+[ 527/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.994
+[ 528/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.642
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 529/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.994
+[ 530/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.994
+[ 531/600] loss=0.0000  pred=true   gold=true  running‐acc=0.644
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.994
+[ 532/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 533/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.644
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 534/600] loss=0.0000  pred=true   gold=true  running‐acc=0.644
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.994
+[ 535/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.994
+[ 536/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.994
+[ 537/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.994
+[ 538/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.994
+[ 539/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.646
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 540/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.644
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 541/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 542/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.646
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 543/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 544/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.643
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 545/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.642
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.994
+[ 546/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.641
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 547/600] loss=0.0000  pred=true   gold=true  running‐acc=0.642
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 548/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.642
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 549/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.643
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 550/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.642
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 551/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.642
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 552/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 553/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.642
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 554/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 555/600] loss=0.0000  pred=true   gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 556/600] loss=0.0000  pred=true   gold=true  running‐acc=0.644
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 557/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 558/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.643
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 559/600] loss=0.0000  pred=true   gold=true  running‐acc=0.644
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 560/600] loss=0.0000  pred=true   gold=true  running‐acc=0.645
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 561/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 562/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.646
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 563/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 564/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.645
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 565/600] loss=0.0000  pred=true   gold=true  running‐acc=0.646
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 566/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 567/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 568/600] loss=0.0000  pred=true   gold=true  running‐acc=0.648
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 569/600] loss=0.0000  pred=true   gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 570/600] loss=0.0000  pred=true   gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 571/600] loss=0.0000  pred=true   gold=true  running‐acc=0.650
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 572/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 573/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 574/600] loss=0.0000  pred=true   gold=true  running‐acc=0.648
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 575/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.649
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 576/600] loss=0.0000  pred=true   gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 577/600] loss=0.0000  pred=true   gold=true  running‐acc=0.650
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 578/600] loss=0.0000  pred=true   gold=true  running‐acc=0.651
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 579/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.651
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 580/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.650
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 581/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.651
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 582/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.649
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 583/600] loss=0.0000  pred=n/a    gold=true  running‐acc=0.648
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 584/600] loss=0.0000  pred=true   gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 585/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.648
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 586/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.648
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 587/600] loss=0.0000  pred=true   gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 588/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.648
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 589/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.649
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 590/600] loss=0.0000  pred=true   gold=true  running‐acc=0.649
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 591/600] loss=0.0000  pred=true   gold=true  running‐acc=0.650
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 592/600] loss=0.0000  pred=false  gold=n/a  running‐acc=0.649
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 593/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.648
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 594/600] loss=0.0000  pred=true   gold=true  running‐acc=0.648
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 595/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.647
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 596/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.648
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 597/600] loss=0.0000  pred=true   gold=n/a  running‐acc=0.647
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+[ 598/600] loss=0.0000  pred=true   gold=true  running‐acc=0.647
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 599/600] loss=0.0000  pred=true   gold=true  running‐acc=0.648
+Locality eval: pred=n/a               gold=n/a  correct=True  running‐acc=0.995
+[ 600/600] loss=0.0000  pred=n/a    gold=n/a  running‐acc=0.648
+Locality eval: pred=true              gold=true  correct=True  running‐acc=0.995
+
+Finished in 1354.1s.  Final accuracy: 0.648.
+

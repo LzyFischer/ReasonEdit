@@ -1,0 +1,19 @@
+The repository for Qwen/Qwen-7B-Chat contains custom code which must be executed to correctly load the model. You can inspect the repository content at https://hf.co/Qwen/Qwen-7B-Chat.
+You can avoid this prompt in future by passing the argument `trust_remote_code=True`.
+
+Do you wish to run the custom code? [y/N] Traceback (most recent call last):
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/dynamic_module_utils.py", line 669, in resolve_trust_remote_code
+    answer = input(
+EOFError: EOF when reading a line
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/preliminary_fc.py", line 96, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 981, in from_pretrained
+    trust_remote_code = resolve_trust_remote_code(
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/dynamic_module_utils.py", line 682, in resolve_trust_remote_code
+    raise ValueError(
+ValueError: The repository for Qwen/Qwen-7B-Chat contains custom code which must be executed to correctly load the model. You can inspect the repository content at https://hf.co/Qwen/Qwen-7B-Chat.
+Please pass the argument `trust_remote_code=True` to allow custom code to be run.

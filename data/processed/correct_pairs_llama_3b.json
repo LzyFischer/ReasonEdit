@@ -1,35 +1,17 @@
 [
   {
+    "logic": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
     },
     "eval": {
-      "prompt": "A strong earthquake occurred along the San Andreas Fault in California, but it did not trigger a volcanic eruption at nearby Mount Shasta.\nIf a strong earthquake occurred along the San Andreas Fault or an eruption was triggered at Mount Shasta, then it means that seismic activity caused some geological disturbances in California.\nBased on this information, did seismic activity result in any geological disturbances in California?",
+      "prompt": "The Lakers made the playoffs this year. They did not have a losing record during the regular season.\nIf the Lakers made the playoffs or had a losing record, then that would mean they had a successful season overall.\nDid the Lakers have a successful season?",
       "gold": "true"
     }
   },
   {
-    "train": {
-      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Amy holds a bias against people who don't vote for her preferred political party. She does not believe voting for a different political party is acceptable.\nIf Amy holds a bias against those who vote differently or believes voting differently is acceptable, then it means she exhibits political prejudice.\nDoes Amy exhibit political prejudice based on her beliefs?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Amy and Bob engaged in protected vaginal intercourse. They did not engage in unprotected anal intercourse.\nIf Amy and Bob engaged in either protected vaginal intercourse or unprotected anal intercourse, then there was a risk of sexually transmitted infections between them. \nBased on their sexual activity, was there a risk of STIs for Amy and Bob?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -40,16 +22,29 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
     },
     "eval": {
-      "prompt": "The narrator used descriptive language while telling the story. The narrator also spoke with dramatic flair, varying their tone and volume for effect.\nIf the narrator uses descriptive language or speaks dramatically, then the storytelling will be engaging for the audience.\nBased on this, can we conclude the storytelling was engaging?",
+      "prompt": "yayom is True.\nafo is False.\n(yayom or afo) -> bnk.\nDeduce the result of bnk.",
       "gold": "true"
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "vzkr is True.\nvqrr is False.\n(vzkr or vqrr) -> ga.\nDeduce the result of ga.",
+      "gold": "true"
+    }
+  },
+  {
+    "logic": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -60,86 +55,7 @@
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Alice was playing poker at the casino. In the first round, she was dealt a pair of aces.\nIf Alice was dealt a pair of aces or she was playing poker at the casino, then it means she had a strong starting hand.\nDoes Alice have a strong starting hand in this poker game?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The Yanomami, an indigenous tribe in the Amazon rainforest, are participating in a ceremonial feast. During this feast, they are also performing a ritual dance that has deep cultural significance.\nIf the Yanomami either hold a ceremonial feast or perform a ritual dance at the feast, then it means they are engaging in important cultural practices that reinforce their traditions and beliefs.\nBased on this information, can we conclude that the Yanomami are engaging in important cultural practices at this particular feast?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The lagoon at Pelican Bay is separated from the open ocean by a long, narrow barrier island. The water in the lagoon is very calm and shallow.  \nIf a lagoon has calm shallow water or is separated from the ocean by barrier islands, then it is considered a protected coastal environment.\nCan we conclude that Pelican Bay lagoon is a protected coastal environment?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Monterey Bay is a broad inlet of the sea where the land curves inward. It also has calm waters.\nIf a bay is a broad sea inlet or has calm waters, then it provides a sheltered harbor.\nDoes Monterey Bay provide a sheltered harbor for boats and ships?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Amy attended class today and completed her homework assignment.\nIf Amy completed her homework or attended class, then it means she fulfilled her student responsibilities as expected.\nBased on this information, can we conclude that Amy fulfilled her student responsibilities?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "John went hunting in the forest. He also brought his hunting rifle with him.\nIf John brought his hunting rifle or went hunting in the forest, then it means he was prepared to hunt wild game.\nBased on this information, can we conclude that John was prepared to hunt wild game?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Mary believes in God and attends church regularly.\nIf Mary attends church regularly or believes in God, then it means she practices her faith.\nCan we deduce that Mary practices her faith?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "In the story, Harry has found the magic wand. He has also learned the levitation spell.\nIf Harry has learned the levitation spell or found the magic wand, then he will be able to make objects float.\nCan Harry make objects float?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -150,56 +66,7 @@
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "In a criminal case, there is strong prior evidence suggesting that the defendant committed the crime in question. Furthermore, DNA evidence from the crime scene matches the defendant's DNA. If there is either strong prior evidence of guilt or matching DNA evidence, then the posterior probability (after considering the evidence) that the defendant is guilty would be high.\nGiven the strong prior evidence and the matching DNA evidence, can we conclude that the posterior probability of guilt is high?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Dr. Smith, a physicist, conducted an experiment in her lab. She also carefully analyzed the data collected from the experiment. If a scientist either conducts an experiment or analyzes experimental data, then it implies they have made progress in their research project.\nDid Dr. Smith make progress in her research project based on these facts?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "A magnitude 6.5 earthquake occurred along the San Andreas Fault, with the epicenter located near a major city.\nIf a magnitude 6.5 earthquake occurs along the San Andreas Fault or the epicenter is near a major city, then the earthquake likely caused significant shaking and damage.\nBased on this information, did the earthquake likely cause significant shaking and damage?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "A supernova explosion occurred in a distant galaxy. The supernova released an immense amount of energy and light.\nIf a supernova releases an immense amount of energy and light or if a supernova explosion occurs in a distant galaxy, then the supernova event will be detectable from Earth.\nCan the supernova event be detected from Earth?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Astronaut Sally completed her required pre-flight training. She also passed all her medical examinations.\nIf an astronaut completes their pre-flight training or passes their medical exams, then they are cleared for space flight.\nCan we conclude that Astronaut Sally is cleared and ready to go to space?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -210,6 +77,7 @@
     }
   },
   {
+    "logic": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -220,16 +88,7 @@
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The company developed a new strategic plan. The executives also held an offsite retreat to discuss strategy.\nIf the executives held a strategy offsite or the company developed a new strategic plan, then it means the company is investing time and resources into long-term planning.\nCan we conclude that the company is investing in long-term planning?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -240,86 +99,7 @@
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Selena, a practitioner of Wicca, lit white candles. She also cast a protection spell.\nIf Selena lights white candles or casts a protection spell, then it means she performed a Wiccan ritual.\nDid Selena perform a Wiccan ritual?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Allan Kardec wrote influential books on the philosophy of Spiritism. He also directly communicated with spirits from the afterlife.\nIf Allan Kardec communicated with spirits or wrote books on Spiritism, then he was a pioneer who established Spiritism as a religious movement.\nCan we conclude that Allan Kardec was a pioneer of Spiritism?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "An exorcist was called to help a person who appeared to be possessed and was exhibiting signs of demonic influence. The exorcist performed the prescribed ritual to attempt to drive out the evil spirit.\nIf the possessed person showed signs of demonic influence or the exorcist carried out the ritual, then an exorcism was attempted.\nWas an exorcism attempted in this case?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Arjuna was the greatest archer. He was also a close friend of Lord Krishna.\nIf Arjuna was a friend of Lord Krishna or if he was the greatest archer, then it implies that Arjuna fought on the side of dharma and righteousness in the great Mahabharata war.\nCan we deduce that Arjuna battled for the cause of dharma in the Mahabharata war?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Akira visited the Itsukushima Shrine, a sacred Shinto site. Before entering, he purified himself by washing his hands and mouth with water at the shrine's entrance.  \nIf Akira purified himself with water or visited the Itsukushima Shrine, then it means he showed respect to the kami, the Shinto deities enshrined there.\nDid Akira demonstrate respect for the kami?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "A real estate agent is showing a property to potential buyers, a family with children and a car. The property is a single family home and it has a garage.\nIf a property is a single family home or it has a garage, then it is considered suitable for a family that owns a car.\nCan we conclude that this property the agent is showing is suitable for the family with a car?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "CNN reported on a major political scandal. The New York Times also published an in-depth investigation of the same scandal.\nIf either CNN reported on the scandal or the New York Times investigated it, then the scandal received significant media coverage from respected news organizations.\nDid this political scandal receive significant coverage from respected media outlets?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The construction site was prepared for the foundation work. The construction crew then poured the concrete foundation.\nIf the construction site was prepared for foundation work or the concrete foundation was poured, then it means the first major phase of construction has begun.\nHas the first major phase of construction begun?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -330,26 +110,7 @@
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Quantum computing reaches mainstream adoption. Additionally, AI achieves human-level performance on most cognitive tasks.\nIf either quantum computing reaches mainstream adoption or AI achieves human-level performance on cognitive tasks, then it will lead to disruptive technology causing major societal and economic changes.\nBased on these developments, can we deduce that disruptive technology will lead to major societal and economic changes?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Susan used hot water to wash her hands. She also used soap while washing her hands.\nIf Susan used hot water or soap to wash her hands, then her hands will be clean.\nAre Susan's hands clean after washing them?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -360,26 +121,7 @@
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Jane visited the acupuncturist for treatment of her chronic back pain. She also tried some herbal remedies recommended by the naturopath to help with inflammation. \nIf Jane tried herbal remedies or visited the acupuncturist, then it means she used alternative therapies to address her health issues.\nDid Jane use any alternative therapies?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Sacred Heart Hospital conducted training for all staff on proper sterilization procedures for surgical equipment. The hospital also invested in purchasing new state-of-the-art sterilization machines. \nIf a hospital conducts sterilization training for staff or invests in new sterilization equipment, then it will improve its infection control practices.\nBased on these facts, did Sacred Heart Hospital improve its infection control practices?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -390,6 +132,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Jane did not go for a run today. She also did not lift weights at the gym.\nIf Jane went for a run or lifted weights at the gym, then it would mean she exercised today.\nCan we conclude whether or not Jane exercised today?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -400,6 +154,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -410,6 +165,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -420,6 +176,51 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Marine biologists recently explored the Mariana Trench, the deepest part of the world's oceans. They did not discover any new species of deep sea fish on this expedition. The deepest waters they sampled did not contain any fish species capable of surviving in waters below 0\u00b0C.\nIf a new species of deep sea fish adapted to the extreme conditions was discovered in the Mariana Trench or a fish species that can survive below 0\u00b0C was found, it would indicate that life has adapted to the harsh conditions in the trench.\nBased on the expedition findings, can we conclude whether the Mariana Trench contains life that has adapted to the extreme conditions there?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The Nile river delta did not experience flooding this year.\nAdditionally, no new canals were built to divert water in the delta.\nIf the Nile delta had experienced flooding or new canals had been built, then farmers in the delta would have lost crops.\nCan we conclude that farmers in the Nile delta lost crops this year?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The Tibetan Plateau is not entirely above 16,000 feet in elevation. The topography of the Tibetan Plateau is also not uniformly flat throughout.\nIf the Tibetan Plateau was entirely above 16,000 feet or had a uniformly flat topography, then it could be considered a true plateau by definition.\nCan the Tibetan Plateau be classified as a true plateau based on the given information?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "An intrepid cave explorer was searching a remote cavern system. The explorer did not find a hidden cave entrance. The explorer also did not discover an underground river in the cavern.\nIf the explorer had found either a hidden cave entrance or an underground river, that would have meant the explorer made a significant discovery in the cavern.\nDid the cave explorer make any significant discovery in this cavern?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -430,6 +231,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -440,6 +242,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -450,6 +253,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -460,6 +264,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -470,6 +275,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -480,6 +286,29 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "In analyzing whether a certain scientific hypothesis is true using Bayesian inference, it turns out the prior probability assigned to the hypothesis is not greater than 0.5, and the observed experimental data does not strongly support the hypothesis.\nIf the prior probability was greater than 0.5 or the data strongly supported the hypothesis, then the posterior probability of the hypothesis being true would be high.\nCan we conclude that the posterior probability of the hypothesis being true is high?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A researcher wanted to test if a new drug had an effect using non-parametric methods, since the data did not follow a normal distribution. The researcher conducted both a Sign test and a Wilcoxon signed-rank test at the 0.05 significance level. Neither the Sign test nor the Wilcoxon signed-rank test rejected the null hypothesis at the 0.05 level.\nIf the Sign test or the Wilcoxon signed-rank test had rejected the null hypothesis at the 0.05 level, it would have provided evidence that a non-parametric test rejected the null hypothesis.\nBased on the results, can we conclude that a non-parametric test provided evidence against the null hypothesis?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -490,6 +319,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -500,6 +330,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -510,6 +341,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -520,6 +352,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -530,6 +363,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -540,6 +374,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -550,6 +385,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -560,6 +396,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -570,6 +407,29 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Alex is not sexually attracted to men. Alex is also not sexually attracted to women.\nIf Alex were sexually attracted to either men or women, then it would mean Alex experiences sexual attraction to others.\nCan we deduce whether or not Alex experiences sexual attraction to others based on the given information?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Alice the cyborg did not have her neural processor upgraded. She also did not have her bionic arm serviced.\nIf Alice had her neural processor upgraded or her bionic arm serviced, then it means she had maintenance performed on her biomechatronic components.\nCan we deduce whether Alice the cyborg had any maintenance done on her biomechatronic parts?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -580,6 +440,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Susan does not have conclusive evidence that unicorns exist. Susan also does not have a sound deductive argument proving that unicorns exist.\nIf Susan had either conclusive evidence or a sound deductive argument for the existence of unicorns, then she would have epistemic justification for believing that unicorns exist.\nDoes Susan have epistemic justification for believing that unicorns exist?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -590,6 +462,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The theory of logical positivism, which holds that meaningful statements must be either analytically or empirically verifiable, is not widely accepted by modern philosophers today. \nSimilarly, the theory of social constructionism, which proposes that knowledge is constructed through social processes rather than objectively determined, has not been empirically validated.\nIf either logical positivism was widely accepted or social constructionism was empirically validated, then it would mean there exists at least one dominant, established theory in the philosophy of science.\nCan we conclude that there exists at least one dominant theory in the philosophy of science?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -600,6 +484,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Alice did not score above the 90th percentile on the verbal reasoning test. She also did not score above the 90th percentile on the quantitative reasoning test.\nIf Alice had scored above the 90th percentile on either the verbal or quantitative reasoning test, then it would indicate she has superior cognitive abilities.\nCan we conclude whether Alice has superior cognitive abilities or not based on this information?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -610,6 +506,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -620,6 +517,29 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Amy does not believe in the existence of a supreme being who created the universe.\nAmy also does not pray to any deity to ask for guidance in her daily life.\nIf Amy were to believe in a supreme being or pray to a deity, then she would hold theistic beliefs.\nGiven this, does Amy hold theistic beliefs?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Jesus was not born in Nazareth. Jesus was also not born to Joseph and Mary.\nIf Jesus was born in Nazareth or born to Joseph and Mary, then it would mean he was born in Israel.\nCan we deduce whether or not Jesus was born in Israel based on the given information?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -630,6 +550,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "In analyzing an economic system, it is determined that the feedback loop is not positive. Additionally, the system's output is not being used as input to modify its future behavior. If either the feedback loop were positive or the output was being used as input, then the economic system would be considered self-regulating. \nCan we conclude whether this economic system is self-regulating based on the given information?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -640,6 +572,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -650,6 +583,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -660,6 +594,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -670,6 +605,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "In a high-rise building project, the structural engineer Samantha analyzed two key components: a steel beam and a reinforced concrete pillar. \nShe determined that the steel beam does not meet the minimum load-bearing requirements. She also found that the reinforced concrete pillar lacks sufficient compressive strength.\nIf either the steel beam met the load-bearing requirements or the concrete pillar had sufficient compressive strength, then the building's frame would be able to safely support the intended loads.\nCan the building's frame safely support the intended loads based on Samantha's analysis?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -680,6 +627,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -690,6 +638,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -700,6 +649,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -710,16 +660,7 @@
     }
   },
   {
-    "train": {
-      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "n/a"
-    },
-    "eval": {
-      "prompt": "Jane did not have crooked teeth. She also did not have an overbite.\nIf Jane had crooked teeth or an overbite, then she would need orthodontic treatment.\nDoes the information provided determine whether Jane needed orthodontic treatment?",
-      "gold": "n/a"
-    }
-  },
-  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -730,6 +671,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -740,6 +682,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Tests reveal that Adam does not have leukemia. Further testing also rules out lymphoma in Adam's case.\nIf Adam had either leukemia or lymphoma, it would mean he has some type of hematologic malignancy.\nBased on Adam's negative test results, does he have a hematologic malignancy?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -750,26 +704,73 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "iynr is False.\njoqcm is False.\n(iynr or joqcm) -> lbz.\nDeduce the result of lbz.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "ea is False.\ntyadp is False.\n(ea or tyadp) -> yi.\nDeduce the result of yi.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "lvx is False.\nxkhle is False.\n(lvx or xkhle) -> vm.\nDeduce the result of vm.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is False.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "nttte is False.\nyro is False.\n(nttte or yro) -> zy.\nDeduce the result of zy.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
     },
     "eval": {
-      "prompt": "Sarah did not finish knitting a sweater. However, Sarah was working on a craft project.\nIf Sarah either finished knitting a sweater or was working on a craft project, then it means she made progress on a crafting task.\nDid Sarah make any progress on a crafting task?",
+      "prompt": "Amy did not flip her canoe. She paddled successfully across the lake.\nIf Amy flipped her canoe or paddled across the lake, then it means she went canoeing on the lake.\nDid Amy go canoeing on the lake?",
       "gold": "true"
     }
   },
   {
-    "train": {
-      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Alice did not finish her pottery project. However, she did work on her knitting.\nIf Alice either finished her pottery project or worked on her knitting, then it means she made progress on her crafts.\nDid Alice make any progress on her arts and crafts projects?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -780,246 +781,29 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
     },
     "eval": {
-      "prompt": "The protest organizers did not obtain a permit for the rally. However, the protesters still gathered at the designated location that had been announced.\nIf the organizers had obtained a permit or the protesters gathered at the designated spot, then it implies the protest rally actually took place.\nDid the protest rally end up happening?",
+      "prompt": "The radio antenna was not damaged. The radio receiver was functioning properly.\nIf the radio antenna was damaged or the radio receiver was functioning properly, then the radio was able to receive a signal.\nWas the radio able to receive a signal?",
       "gold": "true"
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
     },
     "eval": {
-      "prompt": "Princess Amelia did not attend the royal ball. However, she did wear her new diamond tiara.\nIf Princess Amelia either attended the royal ball or wore her new diamond tiara, then it means she got ready for a formal occasion.\nCan we conclude that Princess Amelia got ready for a formal occasion?",
+      "prompt": "recub is False.\nwej is True.\n(recub or wej) -> bxllo.\nDeduce the result of bxllo.",
       "gold": "true"
     }
   },
   {
-    "train": {
-      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Sarah was not being her authentic self. However, she was reflecting on her core values.\nIf Sarah was being her authentic self or reflecting on her core values, then she was engaging in self-discovery.\nBased on this, can we deduce whether or not Sarah was engaging in self-discovery?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Amy did not watch the movie \"Titanic\". However, she did listen to the \"Titanic\" movie soundtrack.\nIf Amy either watched the \"Titanic\" movie or listened to its soundtrack, then it means she experienced some form of entertainment related to the film \"Titanic\".\nDid Amy experience any entertainment related to the film \"Titanic\"?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The government does not enact policies that benefit the wealthy elite. However, the government does enact policies that reduce income inequality.\nIf the government either enacts policies benefiting the wealthy elite or policies that reduce inequality, then the government's policies impact how wealth is distributed in society.\nDo the government's policies affect the distribution of wealth in the society?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Alice did not figure out the solution to the puzzle. However, Alice did think deeply about the puzzle.\nIf Alice either figured out the solution to the puzzle or thought deeply about it, then it means she engaged in cognitive effort on the puzzle.\nBased on this, can we deduce whether Alice engaged in cognitive effort on the puzzle?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "According to the philosophical view of Monism, the universe did not originate from chaos and randomness. Instead, Monists believe that the entire universe originated from a single divine source.\nIf the universe either originated from chaos or from a divine source, then that would imply the universe has a unified, intentional origin.\nBased on Monist beliefs, does the universe have a unified, intentional origin?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Muhammad did not receive a revelation directly from Allah. However, it is true that Muhammad was a prophet of Allah.\nIf Muhammad received a revelation from Allah or he was a prophet of Allah, then it means Muhammad had a special connection with Allah.\nCan we deduce that Muhammad had a connection with Allah?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\naab is True.\n(aaa or aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "\nThe government did not violate Alice's right to free speech. However, the government did uphold Alice's right to peacefully protest.\nIf the government either violated Alice's right to free speech or upheld her right to peacefully protest, then it means the government respected Alice's civil liberties in this case.\nDid the government respect Alice's civil liberties in how it handled her activism?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The sailboat did not capsize during the race.\nIf the sailboat did not capsize during the race, then it finished the race.\nDid the sailboat finish the race?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Lionel Messi did not score a goal in the match.\nIf Lionel Messi did not score a goal, then it implies he played in the match.\nCan we deduce whether Lionel Messi played in the match?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Bob did not catch a fish.\nIf Bob did not catch a fish, then it means he went fishing.  \nDid Bob go fishing?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The client did not approve the initial design mockup that the designer presented.\nIf the client does not approve the initial mockup, then the designer needs to make revisions to address the client's feedback.\nDoes the designer need to revise the design mockup?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The plant being studied is not a bryophyte.\nIf a plant is not a bryophyte, then it has vascular tissues.\nBased on this, does the plant being studied have vascular tissues?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The person is not a boy.\nIf the person is not a boy, then the person is a man.\nIs the person a man?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Amy did not go on a date with John.\nIf Amy did not go on a date with John, then it means she stayed home and watched Netflix instead.\nBased on this information, did Amy stay home and watch Netflix?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Mary does not know whether the Gettier problem, which presents cases of justified true belief that intuitively do not seem to constitute knowledge, successfully shows that justified true belief is insufficient for knowledge.\nIf Mary does not know about the Gettier problem, then she should read more about it to better understand the arguments philosophers have made for and against the claim that the Gettier cases undermine justified true belief as the correct analysis of knowledge.  \nShould Mary read more about the Gettier problem?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "An artist created a new painting. The painting does not depict a sad scene.\nIf the painting does not depict a sad scene, then it evokes an emotional response in the viewer.\nDoes the painting evoke an emotional response in the viewer?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "According to Jain beliefs, Mahavira, the 24th Tirthankara, did not engage in any acts of violence. \nIf it is not true that Mahavira engaged in violence, then it implies that Mahavira followed the principle of ahimsa, or non-violence towards all living beings.\nCan we conclude that Mahavira adhered to the Jain tenet of ahimsa?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Anthropologists discovered a fossilized skeleton at a dig site in Ethiopia. After analyzing the skeletal remains, they determined the skeleton did not belong to the species Australopithecus afarensis.\nIf the skeleton did not belong to Australopithecus afarensis, then it must have belonged to a different early hominin species that existed around the same time period.\nBased on this information, did the fossilized skeleton belong to an early hominin species?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Susan does not have the flu.\nIf Susan does not have the flu, then she is healthy enough to go to work.\nCan we conclude that Susan is healthy enough to go to work?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Archaeologists discovered that an ancient clay tablet excavated from the ruins did not actually contain any record of grain being traded, as was initially believed. \nIf the clay tablet does not record grain trades, then it implies the tablet was used for some other accounting purpose.\nCan we conclude the clay tablet served an accounting purpose of some kind?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is False.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The patient's vital signs are not stable. \nIf the patient's vital signs are not stable, then the nurse needs to continue monitoring the patient closely.\nDoes the nurse need to continue closely monitoring the patient?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "n/a"
-    },
-    "eval": {
-      "prompt": "Seattle Slew won the Kentucky Derby in 1977.\nIf Seattle Slew did not win the Kentucky Derby in 1977, then he did not win the Triple Crown that year.\nDid Seattle Slew win the Triple Crown in 1977?",
-      "gold": "n/a"
-    }
-  },
-  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1030,16 +814,7 @@
     }
   },
   {
-    "train": {
-      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
-      "label": "n/a"
-    },
-    "eval": {
-      "prompt": "The Lakers made the playoffs this year.\nIf the Lakers did not make the playoffs, then it implies they must have had a losing record during the regular season.\nDid the Lakers have a losing record during the regular season?",
-      "gold": "n/a"
-    }
-  },
-  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1050,6 +825,18 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The marsh experienced heavy rainfall this spring.\nIf the marsh did not experience heavy rainfall, then the water level would have remained low.\nDid the water level in the marsh remain low this spring?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1060,6 +847,29 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The waters in San Francisco Bay are calm today.\nIf the waters in San Francisco Bay are not calm, then windsurfers cannot go windsurfing in the bay.\nGiven the calm conditions today, can windsurfers go windsurfing in San Francisco Bay?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The town of Oakville held its annual summer festival this year.\nIf the town did not hold its annual summer festival, then the festival would have been canceled.\nWas Oakville's summer festival canceled?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1070,16 +880,18 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
     },
     "eval": {
-      "prompt": "Jane completed the project on time.\nIf Jane did not complete the project on time, then she needed an extension on the project deadline.\nDoes Jane need an extension on the project deadline?",
+      "prompt": "Alice successfully navigated to the correct destination that she intended to reach.\nIf Alice did not arrive at the correct destination, then it implies she must have made a wrong turn at some point.\nBased on the information provided, did Alice make a wrong turn during her journey?",
       "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1090,6 +902,18 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The dance troupe rehearsed their choreography diligently. \nIf the dance troupe did not rehearse their choreography, then the performance would have been canceled.\nBased on this, can we conclude whether or not the dance performance was canceled?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1100,6 +924,7 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1110,6 +935,7 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1120,6 +946,7 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1130,16 +957,18 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
     },
     "eval": {
-      "prompt": "A specific plant is exposed to sunlight. \nIf the plant is not exposed to sunlight, then the plant will die as a result.\nGiven the plant is exposed to sunlight, will the plant die?",
+      "prompt": "The wildflower population in the nature preserve increased this year.\nIf the wildflower population did not increase, then it implies there was below average rainfall. \nBased on the wildflower population increasing, can we deduce whether the rainfall was below average this year?",
       "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1150,6 +979,7 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1160,6 +990,7 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1170,16 +1001,18 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
     },
     "eval": {
-      "prompt": "Sarah received her paycheck this week. \nIf Sarah did not receive her paycheck, then her bank account balance would have decreased.\nDid Sarah's bank account balance decrease?",
+      "prompt": "John won the tennis match against his long-time rival Sam. \nIf it is not true that John won the match, then that would imply Sam is actually a better tennis player than John.\nGiven that John did in fact win the match, can we conclude that Sam is a better tennis player than John?",
       "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1190,6 +1023,7 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1200,6 +1034,18 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Dr. Smith published a paper on the origins of human intelligence.\nIf Dr. Smith did not publish a paper on the origins of human intelligence, then it means his paper was rejected by the journal.\nWas Dr. Smith's paper rejected by the journal?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1210,16 +1056,18 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
     },
     "eval": {
-      "prompt": "Alice conjured up an image of a purple elephant in her mind's eye.\nIf Alice did not imagine a purple elephant, then it means her imagination failed her.\nDid Alice's imagination fail her?",
+      "prompt": "\nIt is true that Jesus was born of the Virgin Mary.\nIf it is not true that Jesus was born of the Virgin Mary, then it implies Jesus was not the Son of God.\nCan we deduce whether or not Jesus was the Son of God?",
       "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1230,6 +1078,51 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The druids performed a ritual to honor the oak tree spirit.\nIf the druids did not perform the ritual to honor the oak tree spirit, then the oak tree spirit would be displeased with the druids.\nWas the oak tree spirit displeased with the druids?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "\nIt is true that Jesus was crucified. \nIf it is not true that Jesus was crucified, then it implies Jesus did not die for humanity's sins.\nCan we deduce whether or not Jesus died for humanity's sins?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Sarah has been feeling fatigued and having headaches lately.\nIf it is not true that Sarah has been feeling fatigued and having headaches, then it would mean Sarah is completely healthy.\nCan we deduce whether Sarah is completely healthy or not?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Sarah cleaned the living room.\nIf Sarah did not clean the living room, then the living room would be messy.\nIs the living room messy?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1240,6 +1133,18 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "There is income inequality in the city.\nIf there is no income inequality in the city, then the city government will implement progressive taxation policies to redistribute wealth.\nWill the city government implement progressive taxation policies?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1250,6 +1155,7 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1260,6 +1166,7 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1270,6 +1177,29 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Current research strongly suggests that the cause of Alzheimer's disease involves the accumulation of amyloid plaques in the brain. If it turns out that amyloid is not the cause of Alzheimer's, then the predominant amyloid hypothesis would be incorrect. \nCan we conclude whether the amyloid hypothesis of Alzheimer's is incorrect based on what we know?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A new infectious disease outbreak occurred in a city.\nIf a new infectious disease outbreak did not occur, then it implies the public health department did not detect the outbreak early.\nCan we deduce whether the public health department detected the outbreak early?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
@@ -1280,16 +1210,51 @@
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
     "train": {
       "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
       "label": "n/a"
     },
     "eval": {
-      "prompt": "Liam, a 5-year-old boy, has a fever. \nIf Liam does not have a fever, then he should visit the pediatrician for a routine checkup.\nGiven that Liam does have a fever, should he visit the pediatrician?",
+      "prompt": "Jane, a spin class instructor, taught her regularly scheduled class today.\nIf Jane did not teach her scheduled spin class, then she would have had to find a substitute instructor to cover for her.\nDid Jane need to find a substitute spin instructor today?",
       "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "jyuvb is True.\n(NOT jyuvb) -> myxqr.\nDeduce the result of myxqr.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+    "train": {
+      "text": "aaa is True.\n(NOT aaa) -> aab.\nDeduce the result of aab.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "ne is True.\n(NOT ne) -> nw.\nDeduce the result of nw.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1300,16 +1265,40 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
     },
     "eval": {
-      "prompt": "Max Verstappen qualified in pole position for the Monaco Grand Prix. However, his Red Bull car had a mechanical issue before the race began.\nIf Max Verstappen qualified in pole position and his car had no mechanical issues, then it would mean he won the Monaco Grand Prix starting from pole.\nDid Max Verstappen win the Monaco Grand Prix from pole position?",
+      "prompt": "Emily signed up for wakeboarding lessons. However, the weather turned out to be too cold for wakeboarding.\nIf Emily signed up for wakeboarding lessons and the weather was suitable, then she would take her first wakeboarding lesson.\nDid Emily end up taking her first wakeboarding lesson?",
       "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The Misty Mountains are a mountain range. However, it is not true that the Misty Mountains are flat plains.\nIf the Misty Mountains are a mountain range and also flat plains, then it would mean the Misty Mountains have both high elevation and low elevation.\nCan we deduce whether the Misty Mountains have both high and low elevation?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The Hubbard Glacier in Alaska is currently advancing and moving forward. However, it is not retreating or shrinking due to the effects of global warming.\nIf the Hubbard Glacier is both advancing and retreating at the same time due to global warming, then it would be exhibiting contradictory behavior.\nCan we conclude that the Hubbard Glacier is exhibiting contradictory behavior?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1320,6 +1309,73 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Mount Erebus in Antarctica is currently an active volcano. However, it has not erupted within the past week.\nIf Mount Erebus is active and has erupted in the past week, then planes would be prohibited from flying near the volcano.\nGiven the information, can we conclude that planes are currently prohibited from flying close to Mount Erebus?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Springfield is a city. However, Springfield does not have a population over 1 million people.\nIf Springfield is a city and has a population over 1 million, then it would be considered a large metropolitan area.\nCan we conclude that Springfield is a large metropolitan area?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A group of activists organized a peaceful protest march to raise awareness about a social issue. However, the activists did not obtain the required permit from the city for their protest.\nIf the activists both organized a peaceful protest march and obtained a permit, then the protest march would have proceeded legally.\nDid the protest march by the activists proceed in a fully legal manner?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The pilot performed the standard pre-flight checklist. However, the co-pilot did not verify that the fuel levels were sufficient for the planned flight. If the pilot completed the pre-flight checklist and the co-pilot verified adequate fuel levels, only then would the airplane be cleared for takeoff.\nBased on this information, was the airplane cleared for takeoff?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "It is true that John committed a robbery. However, it is false that John had an accomplice during the robbery.\nIf it is true that John committed the robbery and that he had an accomplice, then it would mean the robbery was premeditated. \nCan we deduce whether the robbery John committed was premeditated or not?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Bob committed the fallacy of cherry-picking evidence in making his argument. However, Bob did not commit the fallacy of appealing to authority in the same argument.\nIf Bob cherry-picked evidence and appealed to authority in his argument, then his entire argument would be invalid.\nCan we conclude that Bob's entire argument is invalid?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1330,6 +1386,40 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "\nSuppose a researcher collected some data and determined that the data follows a normal distribution. However, the sample size turned out to be less than 30.\nIf the data follows a normal distribution and the sample size is greater than 30, then the z-test can be used to test hypotheses about the population mean.\nCan the researcher use the z-test to test the population mean in this case?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "In right triangle ABC, it is given that angle A measures 30 degrees. However, angle B does not measure 60 degrees in this triangle.\nIf angle A is 30 degrees and angle B is 60 degrees in a right triangle, then it would be a 30-60-90 special right triangle.\nCan we conclude that triangle ABC is a 30-60-90 special right triangle?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A researcher used the Wilcoxon signed-rank test, which is a non-parametric test, on their data. \nThe data did not meet the normality assumption required for using a parametric test.\nIf a researcher used the Wilcoxon signed-rank test and the data did not meet the normality assumption, then the researcher used an appropriate non-parametric test for their data.\nDid the researcher use an appropriate non-parametric test for their data?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1340,6 +1430,18 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A particular species of maple trees has developed resistance to a deadly fungal pathogen that has infected many trees in the forest. However, this maple species is not resistant to infestation by wood-boring beetles.\nIf the maple species was resistant to both the fungal pathogen and beetle infestation, then it would be likely to survive and reproduce successfully in the forest ecosystem.\nGiven this information, will this maple species survive and reproduce in the forest?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1350,6 +1452,40 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A researcher formulated a hypothesis about a natural phenomenon. However, when the researcher collected experimental data, the data did not support the hypothesis.\nIf a researcher formulates a hypothesis and collects data that supports it, then the hypothesis is confirmed.\nIn this case, was the researcher's hypothesis confirmed?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Princess Amelia attended the royal ball. However, she did not dance with Prince Charming that night.\nIf Princess Amelia attended the ball and danced with Prince Charming, then she would have had a magical evening.\nDid Princess Amelia have a magical evening at the royal ball?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Sarah was mugged while walking home at night. However, the mugger did not use any weapons during the crime.\nIf Sarah was mugged and the mugger used a weapon, then it would mean Sarah suffered severe physical injuries from the mugging.\nGiven this information, did Sarah suffer severe physical injuries as a result of this mugging?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1360,6 +1496,40 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "President Smith attended the international climate summit. However, he did not sign the global emissions reduction agreement at the summit.\nIf President Smith attended the climate summit and signed the emissions reduction agreement, then he would have committed his country to lowering greenhouse gas emissions.\nCan we conclude that President Smith committed his country to lowering emissions?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "It is true that Indian philosophy developed the concept of karma. However, it is false that Chinese philosophy also developed the concept of karma independently.\nIf both Indian philosophy and Chinese philosophy had developed the concept of karma, then it would imply that the concept of karma is universally accepted across all Eastern philosophical traditions.\nCan we conclude that the concept of karma is universally accepted across all Eastern philosophical traditions?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Alice saw a bright flash of light outside her window. However, she did not hear any loud booming sound that typically accompanies lightning. \nIf Alice saw a bright flash of light and heard a loud booming sound, then it would mean she witnessed a lightning strike nearby.\nDid Alice witness a nearby lightning strike?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1370,16 +1540,18 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
     },
     "eval": {
-      "prompt": "The theory of Forms, proposed by the ancient Greek philosopher Plato, holds that there exist abstract, perfect, unchanging Forms of all objects in an immaterial realm beyond our physical world. However, the objects we perceive in our world are not perfect representations of their ideal Forms.\nIf the theory of Forms is true and our world contains objects that perfectly represent their Forms, then it would mean Plato's theory accurately captures the fundamental nature of reality. \nDoes Plato's theory of Forms provide an accurate account of the true nature of existence?",
+      "prompt": "A shaman performed a ritual and entered into an altered state of consciousness known as a trance. However, during this particular trance, the shaman did not encounter his usual spirit animal guide.\nIf the shaman enters a trance state and encounters his spirit animal guide, then he will receive a prophetic vision. \nDid the shaman receive any prophetic vision in this case?",
       "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1390,6 +1562,7 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1400,6 +1573,18 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Sita is a devoted follower of Lord Rama. However, Sita does not offer prayers to Lord Shiva.\nIf Sita is devoted to Lord Rama and also offers prayers to Lord Shiva, then it would mean she is equally devoted to both deities.\nCan we conclude that Sita is equally devoted to both Lord Rama and Lord Shiva?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1410,6 +1595,7 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1420,6 +1606,73 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The city approved the budget for a new highway. However, the construction company did not obtain all the required permits.\nIf the city approved the budget for the new highway and the construction company obtained all the required permits, then construction on the new highway would begin.\nDid construction on the new highway begin?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The city council proposed a new tax policy. However, the mayor vetoed the tax policy that was proposed.\nIf the city council proposes a new tax policy and the mayor does not veto it, then the new tax policy will be implemented.\nWill the new tax policy proposed by the city council be implemented?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A controversial protest art exhibit opened which sharply criticized the current government's policies and actions. The government did not praise or endorse this protest art exhibit.\nIf the protest art exhibit criticized the government's policies and the government praised the exhibit, then it would have influenced public opinion against the government. \nCan we conclude that the protest art exhibit influenced public opinion against the government?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The security camera at First Bank did capture footage of the suspect during the time of the bank robbery. However, the suspect's face was not clearly visible in the footage captured by the camera.\nIf the security camera captured footage of the suspect and the suspect's face was clearly visible, then that would give the police clear evidence to identify the bank robbery suspect.\nCan the police identify the suspect based on the security camera evidence?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "TechCorp released a new software product. However, the new software did not have any major bugs or security flaws.\nIf TechCorp released a new software product that had major bugs and security flaws, then the new software launch would be considered unsuccessful.\nWas TechCorp's new software product launch unsuccessful?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The farmer planted wheat seeds this season. However, there was not adequate rainfall. If the farmer planted wheat seeds and there was adequate rainfall, then the farmer would have a good wheat harvest this season.  \nWill the farmer have a good wheat harvest?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1430,16 +1683,29 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
     },
     "eval": {
-      "prompt": "The pharmacy received a new shipment of a drug. However, the drug did not pass quality control testing.\nIf the pharmacy receives a new drug shipment and the drug passes quality control, then the drug gets added to the pharmacy's inventory.\nCan we conclude whether the new drug was added to the pharmacy's inventory?",
+      "prompt": "Jane attended her weekly salsa dancing class. However, her regular salsa dancing partner David did not come to class this week.\nIf Jane attended salsa class and David also came to class, then they would have practiced their salsa routine together.\nDid Jane and David practice their salsa routine together in class?",
       "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The FDA approved a new drug to treat high blood pressure. However, the new drug was not shown to have dangerous side effects in clinical trials.\nIf the FDA approved the new drug and it was shown to have dangerous side effects, then the new drug would be made widely available to patients by prescription.\nCan we conclude whether or not the new drug was made widely available to patients by prescription?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1450,6 +1716,84 @@
     }
   },
   {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "nde is True.\nddi is False.\n(nde and ddi) -> spvn.\nDeduce the result of spvn.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "pxsqz is True.\ngvbzs is False.\n(pxsqz and gvbzs) -> xdc.\nDeduce the result of xdc.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is True.\naab is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "nfoq is True.\nmabq is False.\n(nfoq and mabq) -> qoe.\nDeduce the result of qoe.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Mary has a doll that is not made of porcelain, but it does have curly blonde hair. \nIf Mary's doll were made of porcelain and had curly blonde hair, then it would be considered a vintage collectible doll.\nCan we conclude that Mary's doll is a valuable vintage collectible?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Jerry did not successfully complete his skydiving training. However, he still went ahead and scheduled his first solo skydive jump anyway.\nIf Jerry had both successfully completed his training and scheduled a solo jump, then that would mean he was ready to skydive on his own. \nCan we deduce whether Jerry was actually ready to skydive solo or not based on the information provided?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "In the tale, the knight did not slay the dragon. However, the knight did rescue the princess.\nIf the knight had slayed the dragon and rescued the princess, then he would have completed his quest.\nDid the knight complete his quest in the story?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1460,6 +1804,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1470,16 +1815,7 @@
     }
   },
   {
-    "train": {
-      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "n/a"
-    },
-    "eval": {
-      "prompt": "It did not rain heavily in the Sahara desert this year. However, daytime temperatures in the Sahara desert can reach scorching levels of 120\u00b0F (49\u00b0C).\nIf it had rained heavily in the Sahara this year, and the daytime temperatures reached their usual 120\u00b0F, then the Sahara would have transformed into a lush grassland this year.\nBased on these facts, did the Sahara desert transform into a lush grassland this year?",
-      "gold": "n/a"
-    }
-  },
-  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1490,6 +1826,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "An underground cavern was recently discovered beneath the Earth's surface. Upon exploration, it was found that the cavern does not contain any precious gemstones. However, the cavern does have an abundance of beautiful stalactite formations hanging from its ceiling.\nIf an underground cavern contains both precious gemstones and numerous stalactite formations, then it would be considered a valuable geological site.\nCan we conclude that this particular underground cavern is a valuable geological site?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1500,6 +1848,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1510,6 +1859,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1520,6 +1870,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1530,6 +1881,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1540,6 +1892,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The underwater welders did not finish repairing the oil pipeline today. However, the marine biologists were successful in collecting samples of a newly discovered seahorse species.\nIf the underwater welders had finished the pipeline repairs and the marine biologists collected the seahorse samples, then it would mean all planned underwater activities were completed today.\nBased on this information, were all the planned underwater activities completed today?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1550,6 +1914,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1560,6 +1925,29 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Alice was presented with a choice between a certain payoff of $10 or a risky gamble with a 50% chance of winning $50. Alice did not choose the certain $10 payoff. However, she was indeed presented with the risky 50% chance of winning $50 gamble.  \nIf Alice had chosen the certain $10 payoff and was presented the risky gamble, then it would imply she is risk-seeking in her decision.\nCan we conclude whether or not Alice is risk-seeking based on her decision and the options presented to her?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A researcher collected data for a study and wants to test a hypothesis about the population mean. The data does not follow a normal distribution, but the sample size is sufficiently large with n > 30.\nIf the data followed a normal distribution and the sample size was large enough, then the researcher could use a z-test to test their hypothesis about the population mean.\nCan the researcher use a z-test in this case to test their hypothesis?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1570,6 +1958,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "After collecting survey responses, a data analyst found that the data was not normally distributed, even though the sample size obtained was sufficiently large. If the survey data was normally distributed and the sample size was sufficiently large, then parametric statistical tests could be used to analyze the data.\nCan the data analyst use parametric statistical tests to analyze the survey data?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1580,6 +1980,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A strong earthquake did not occur along the San Andreas Fault. However, seismic waves were detected by monitoring stations in the area.\nIf a strong earthquake had occurred along the San Andreas Fault and the seismic waves were detected, then it would mean the detected seismic waves were caused by that strong earthquake.\nCan we conclude the detected seismic waves were caused by a strong earthquake along the San Andreas Fault?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1590,6 +2002,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1600,6 +2013,18 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Alice was not offered a job. However, she did complete the online job application.\nIf Alice was offered a job and completed the online application, then it would mean she is hired for the position.\nCan we conclude whether or not Alice is hired for the position?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1610,6 +2035,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1620,6 +2046,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1630,6 +2057,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1640,6 +2068,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1650,6 +2079,40 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Mary does not fully understand how the brain processes language. However, Mary is studying cognitive psychology.\nIf Mary understood how the brain processes language and she was studying cognitive psychology, then she would be able to explain the Wernicke-Geschwind model of language processing.\nCan Mary explain the Wernicke-Geschwind model?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Amy does not believe that women are worse than men at math. However, Amy does believe that intelligence is not determined by gender.\nIf Amy believed both that women are worse at math and that intelligence is not determined by gender, then she would hold contradictory gender biases.\nDoes Amy hold contradictory gender biases?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The concept of justice is not based on the idea of equality. However, the concept of justice does involve fair treatment under the law.\nIf the concept of justice were based on equality and involved fair legal treatment, then it would ensure equal outcomes for everyone.\nCan we deduce that the concept of justice ensures equal outcomes for everyone?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1660,6 +2123,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1670,6 +2134,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1680,16 +2145,95 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
     },
     "eval": {
-      "prompt": "The United States does not agree to a new trade deal with China. However, the United States does impose tariffs on Chinese imports.\nIf the United States agreed to a new trade deal with China and imposed tariffs on Chinese imports, then US-China trade relations would improve.\nDo US-China trade relations improve based on the actions taken?",
+      "prompt": "In a Neo-druidic grove, the sacred oak tree was not cut down. However, the druids did make an offering to the nature spirits who dwell in the grove.\nAccording to Neo-druidic beliefs, the nature spirits are only appeased if the sacred oak is cut down and an offering is made.\nAre the nature spirits appeased in this case?",
       "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "During the Passover Seder, the prophet Elijah did not miraculously appear to the assembled rabbis. However, as is customary, the doors were left open in case Elijah should come by. The tradition states that if Elijah appears at the Seder and the doors are opened for him, then his cup will be filled with wine in his honor.\nCan we deduce whether or not the cup of Elijah was filled with wine at this particular Seder?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Mark did not pay his credit card bill in full this month. However, he did make some purchases on his credit card during the month.\nIf Mark paid his credit card bill in full and made some purchases on his credit card this month, then it would mean he carried a balance on his credit card to the next month.\nCan we deduce whether Mark carried a credit card balance to next month?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "A social scientist conducted a survey, but the sample of respondents was not representative of the target population. However, the survey questions were worded clearly and unambiguously.\nIf the survey had a representative sample and the questions were clear, then the results could be generalized to the broader population.\nBased on this information, can the survey results be generalized to the population?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The house does not have a finished basement. However, the house is located in a very desirable school district that is in high demand. If the house had both a finished basement and was located in this desirable school district, then it would likely sell for above the asking price. \nCan we conclude whether the house will sell for above the asking price?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Maria is not of Latin American ancestry.\nHowever, Maria does speak Spanish fluently.\nIf Maria is of Latin American ancestry and speaks Spanish fluently, then she would be considered Hispanic.\nCan we conclude whether or not Maria is Hispanic based on the given information?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Researchers have not yet discovered the complete neural mechanism for how memories are formed in the brain. However, a promising new experimental technique was recently developed that allows scientists to selectively activate specific neurons. \nIf the researchers had discovered the complete neural mechanism for memory formation and they developed the new neuron-activating technique, then they would have been able to use the technique to definitively prove how memories are encoded in neural circuits.\nCan we conclude that researchers used the new technique to prove how memories are neurally encoded?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Mary did not use a mobile app to book a hotel room. However, Mary's smartphone is connected to the internet.\nIf Mary used a mobile app to book a hotel room and her smartphone is connected to the internet, then it means Mary successfully made an online reservation using her mobile device.\nCan we conclude that Mary successfully made an online reservation using her mobile device?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1700,6 +2244,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1710,6 +2255,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1720,6 +2266,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1730,6 +2277,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1740,6 +2288,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1750,6 +2299,7 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -1760,26 +2310,51 @@
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
     },
     "eval": {
-      "prompt": "On a sunny day at the lake, experienced sailor Jenna noticed the wind was blowing steadily. She had taken care to rig her sailboat properly before leaving the dock.  \nIf the wind is blowing steadily and a sailboat is rigged properly, then the sailboat should be able to sail smoothly on the lake.\nUnder these conditions, was Jenna's sailboat able to sail smoothly on the lake?",
-      "gold": "true"
+      "prompt": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
     },
     "eval": {
-      "prompt": "Sally is currently playing with her doll. The doll that Sally is playing with has blonde hair.\nIf the doll has blonde hair and Sally is playing with the doll, then it means the doll Sally is playing with is a blonde doll.\nCan we deduce that the doll Sally is playing with is a blonde doll?",
-      "gold": "true"
+      "prompt": "afzu is False.\nnbklb is True.\n(afzu and nbklb) -> rxkg.\nDeduce the result of rxkg.",
+      "gold": "n/a"
     }
   },
   {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "usnh is False.\nxsflf is True.\n(usnh and xsflf) -> vbte.\nDeduce the result of vbte.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aaa is False.\naab is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "ygz is False.\npb is True.\n(ygz and pb) -> rsa.\nDeduce the result of rsa.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -1790,6 +2365,7 @@
     }
   },
   {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -1800,76 +2376,29 @@
     }
   },
   {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
     },
     "eval": {
-      "prompt": "A data analyst received a dataset that has more than 1000 rows of customer transaction data. \nIf a dataset contains customer transaction data and has more than 1000 rows, then it is considered suitable for analyzing sales trends over time.\nCan the data analyst use this dataset to perform sales trend analysis?",
+      "prompt": "The company had sufficient inventory of the product. \nThere was also high customer demand for the product.\nIf the company had sufficient inventory and there was high customer demand, then the company's sales of the product increased.\nDid the company's sales of the product increase?",
       "gold": "true"
     }
   },
   {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
     },
     "eval": {
-      "prompt": "Alice studied hard for the test. She also got a good night's sleep the night before.\nIf Alice studied hard for the test and got a good night's sleep, then it means she was well prepared for the test.\nBased on this information, can we deduce whether Alice was well prepared for the test?",
+      "prompt": "Alice has lived in the country for over 5 years and she is a legal permanent resident. If someone has lived in the country for over 5 years and is a legal permanent resident, then they are eligible to apply for citizenship.\nIs Alice eligible to apply for citizenship based on her legal status and time in the country?",
       "gold": "true"
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "A researcher collected a large sample of data and determined that the sample size was sufficiently large for statistical analysis. The researcher also verified that the data followed a normal distribution.\nIf the sample size is sufficiently large and the data is normally distributed, then a z-test can be used to test the research hypothesis.\nCan the researcher use a z-test to test their hypothesis in this case?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "A supernova explosion occurred in a distant galaxy. The supernova released an intense burst of gamma radiation.\nIf a supernova explodes and releases gamma radiation, then high-energy cosmic rays will be detected near Earth.\nWere high-energy cosmic rays detected near Earth as a result of the supernova?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "A cold front is approaching the region. There is also abundant moisture present in the atmosphere.\nIf a cold front approaches and there is abundant atmospheric moisture, then it is likely that thunderstorms will develop in the area.\nBased on these conditions, will thunderstorms probably occur?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "A supernova explosion occurred in a distant galaxy. The supernova released an intense burst of neutrinos. \nIf a supernova explosion occurred and it released a burst of neutrinos, then astronomers would be able to detect the neutrino signal on Earth.\nCan astronomers detect the neutrino signal from this supernova explosion on Earth?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "An earthquake occurred along the San Andreas Fault. Prior to the earthquake, the fault had experienced significant stress buildup over time as the Pacific and North American plates pushed against each other.\nIf there is significant stress buildup along the San Andreas Fault and an earthquake occurs, then the earthquake will release the accumulated tectonic stress that had built up between the plates.\nDid this earthquake along the San Andreas Fault release the tectonic stress that had accumulated?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -1880,6 +2409,7 @@
     }
   },
   {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -1890,16 +2420,7 @@
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Suppose the universe exists and reality is objective in nature. If the universe exists and reality is objective, then it follows that there is an ultimate nature of being that underlies all of existence. Given these premises, can we deduce that there is an ultimate nature of being?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -1910,66 +2431,7 @@
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "A priest was called to a house to perform an exorcism. The house was believed to be possessed by an evil spirit.\nIf a priest is called to a possessed house, then the priest will need to use holy water and recite prayers to drive out the demon.\nDoes the priest need to use holy water and prayers in this exorcism?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Lao Tzu follows the principle of wu wei, or effortless action, going with the natural flow of the Tao. He also practices meditation daily to still his mind.\nIf Lao Tzu follows wu wei and practices daily meditation, then he is living in harmony with the Tao.\nCan we conclude that Lao Tzu lives in harmony with the Tao?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Ms. Johnson assigned homework to her students. The students completed all the assigned problems.\nIf Ms. Johnson assigned homework and the students completed all the assigned problems, then the students are prepared for the upcoming test.\nBased on this information, are the students prepared for the upcoming test?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "There is consumer demand for a new product, and a company has the production capability to make it.\nIf there is demand and the company can produce it, then the company will decide to manufacture and sell the new product.\nDoes the company decide to make and sell the new product?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "The city's population has been growing over the past decade. At the same time, new housing developments have also been built in the city to accommodate the growing population.\nIf the city's population is growing and new housing is being built, then it logically follows that the demand for public services and infrastructure in the city, such as schools, hospitals, utilities, and transportation, will increase.\nCan we deduce that the demand for public services and infrastructure in the city has increased? ",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "\nJane is working on a new electronic circuit design for a battery-powered device. The circuit design includes a microcontroller to control the device functions. Also, a key requirement is that the circuit has very low power consumption to maximize battery life.  \nIf the circuit design includes a microcontroller and requires low power consumption, then a microcontroller that is specifically designed for low-power operation should be selected for the circuit.\nBased on the information provided, should Jane select a low-power microcontroller for this circuit design?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -1980,46 +2442,7 @@
     }
   },
   {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "GeneTech Lab successfully isolated the DNA sequence for drought resistance in plants. They also developed a novel technique to splice this drought resistance gene into the genome of wheat. \nIf GeneTech Lab both isolated the drought resistance gene and developed a gene splicing technique for wheat, then it implies they were able to create a new genetically modified strain of wheat that is drought-resistant.\nDid GeneTech Lab succeed in making a drought-resistant GM wheat strain?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Alice is experiencing symptoms of depression and she also has a family history of depression.\nIf Alice has symptoms of depression and a family history of depression, then she is at higher risk for developing clinical depression.\nBased on this information, is Alice at higher risk for developing clinical depression?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Sarah attended a yoga class. The class she attended focused specifically on deep breathing techniques.  \nIf Sarah attended a yoga class and that class focused on deep breathing techniques, then it means Sarah practiced pranayama breathing in the class.\nCan we conclude that Sarah practiced pranayama breathing during the yoga class she attended?",
-      "gold": "true"
-    }
-  },
-  {
-    "train": {
-      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
-      "label": "true"
-    },
-    "eval": {
-      "prompt": "Mary is over 65 years old and she has arthritis in her knees.\nIf someone is over 65 and has arthritis in their knees, then they are at higher risk of falling and injuring themselves.\nIs Mary at higher risk of falling and injuring herself?",
-      "gold": "true"
-    }
-  },
-  {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "true"
@@ -2030,6 +2453,29 @@
     }
   },
   {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "omoaj is True.\nfrs is True.\n(frs and omoaj) -> nikf.\nDeduce the result of nikf.",
+      "gold": "true"
+    }
+  },
+  {
+    "logic": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is True.\naaa is True.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "true"
+    },
+    "eval": {
+      "prompt": "ajyw is True.\neqwsg is True.\n(eqwsg and ajyw) -> dej.\nDeduce the result of dej.",
+      "gold": "true"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2040,6 +2486,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2050,6 +2497,40 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Lisa did not use watercolors. She also did not paint a portrait.\nIf Lisa painted a portrait and used watercolors, then it means her painting would have depicted a person.\nCan we deduce whether or not Lisa's painting depicted a person?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "In a fantasy role-playing game campaign, the players did not complete the main quest line. They also failed to defeat the fearsome dragon that was the final boss of the game.\nIf the players had defeated the dragon boss and completed the main quest line, then they would have reached the maximum possible character level in the game.\nBased on what transpired, did the player characters attain the highest character level?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The average temperature in the tundra region did not stay above freezing this summer.\nThere was also no heavy snowfall that accumulated in the tundra region over the summer.\nIf there was heavy snowfall and above freezing average temperatures in the tundra this summer, then it would have caused the upper layer of permafrost to thaw.\nCan we conclude whether or not the upper layer of permafrost in the tundra thawed this summer?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2060,6 +2541,18 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The tallgrass prairie did not receive sufficient rainfall this spring. Prescribed burning was also not conducted on the prairie to control invasive plants this year.\nIf the prairie receives sufficient rainfall and prescribed burning is conducted, then the prairie's native wildflowers will bloom abundantly in the summer.\nCan we conclude that the prairie's native wildflowers will bloom abundantly this summer?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2070,6 +2563,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2080,6 +2574,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2090,6 +2585,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2100,6 +2596,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2110,6 +2607,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2120,6 +2618,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2130,6 +2629,62 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Let f(x) be a function defined on the closed interval [a,b]. \nIt is known that f(x) is not continuous on [a,b], and also f(x) is not differentiable on the open interval (a,b).\nIf a function is continuous on a closed interval and differentiable on the corresponding open interval, then it is uniformly continuous on the closed interval.\nCan we conclude that the function f(x) is uniformly continuous on [a,b]?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The time series data did not show an increasing trend over the past year.\nThe company's revenue also did not grow in the most recent quarter.\nIf the time series showed an increasing trend over the past year and the company's revenue grew in the most recent quarter, then it would mean the company is experiencing growth and positive momentum.\nCan we conclude the company is experiencing growth and positive momentum based on the information provided?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The covariance between the returns of stock A and stock B was not positive. \nAdditionally, stock A's returns did not increase in the last quarter.\nIf stock A's returns increased and the covariance between A and B's returns was positive, then stock B's returns would have also increased last quarter.\nCan we conclude that stock B's returns increased in the last quarter?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The factory does not have enough raw materials in inventory to produce the customer's order. The factory also does not have available production capacity at this time. If the factory has enough raw materials in inventory and available production capacity, then it would be able to fulfill the customer's order on time.\nCan the factory fulfill the customer's order on time?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The law of excluded middle, which states that for any proposition P, either P is true or not-P is true, is not valid. Additionally, the principle of bivalence, which holds that every meaningful proposition is either true or false, is also not true.\nIf both the law of excluded middle is valid and the principle of bivalence is true, then it would imply that classical logic, based on these principles, is the correct system of logic.\nCan we deduce whether classical logic is the correct system of logic based on the given information?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2140,6 +2695,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2150,6 +2706,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2160,6 +2717,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2170,6 +2728,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2180,6 +2739,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2190,6 +2750,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2200,6 +2761,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2210,6 +2772,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2220,6 +2783,29 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Jane was not passionate about her work. She also did not receive a promotion at her job.\nIf Jane received a promotion at her job and was passionate about her work, then she would feel a strong sense of fulfillment in her career.\nCan we deduce whether Jane felt a strong sense of fulfillment in her career?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Emily is not coping well with the stress at her job. She is also not getting sufficient sleep each night.\nIf Emily was coping well with work stress and getting enough sleep, then it would mean she is maintaining good mental health.\nCan we conclude that Emily is maintaining good mental health?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2230,6 +2816,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2240,6 +2827,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2250,6 +2838,18 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Suppose that God is neither omnipotent (all-powerful) nor omnibenevolent (all-good). If God were both omnipotent and omnibenevolent, then the problem of evil could be satisfactorily resolved. That is, an all-powerful and all-good God would be able to prevent evil and suffering.\nCan the problem of evil be satisfactorily resolved under these premises?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2260,6 +2860,18 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Cyrus, a devout Zoroastrian, did not perform the important ritual of Yasna today. He also failed to recite the sacred Avesta prayers.\nIf Cyrus had recited the Avesta prayers and performed the Yasna ritual, then he would have fulfilled his religious duties as a faithful Zoroastrian.\nGiven that Cyrus did neither of these, did he still manage to fulfill his expected religious obligations on this occasion?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2270,6 +2882,18 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Alice does not meditate regularly and she also does not believe in reincarnation.\nIf Alice believed in reincarnation and meditated regularly, then she would achieve spiritual enlightenment in this lifetime.\nWill Alice achieve spiritual enlightenment in her current life?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2280,6 +2904,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2290,6 +2915,29 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The government does not recognize the right to free speech. The government also does not recognize the right to assembly. If the government recognized both the right to free speech and the right to assembly, then citizens would have the freedom to protest peacefully.\nCan we deduce whether citizens have the freedom to protest peacefully?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The government did not reduce tax rates.\nThe Federal Reserve also did not lower interest rates.\nIf the government had reduced tax rates and the Federal Reserve had lowered interest rates, then economic stimulus measures would have been enacted.\nWere any economic stimulus measures enacted?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2300,6 +2948,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2310,6 +2959,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2320,6 +2970,18 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "The router is not connected to the modem. The Ethernet cable is also not plugged in properly. If the Ethernet cable was plugged in properly and the router was connected to the modem, then it would mean the home network is set up correctly.\nBased on this information, can we conclude whether the home network is set up correctly or not?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2330,6 +2992,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2340,6 +3003,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2350,6 +3014,7 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2360,6 +3025,18 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "Mary did not floss her teeth before bed last night. She also did not brush her teeth for the recommended 2 minutes.\nIf Mary had brushed her teeth for 2 minutes and flossed before bed, then she would have had good oral hygiene last night.\nCan we conclude that Mary had good oral hygiene last night?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
@@ -2370,12 +3047,68 @@
     }
   },
   {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
     "train": {
       "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
       "label": "n/a"
     },
     "eval": {
       "prompt": "Sarah is not pregnant and she is not in her third trimester.\nIf Sarah is in her third trimester and she is pregnant, then she should attend birthing classes.\nShould Sarah attend birthing classes?",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "xjom is False.\nbiaz is False.\n(biaz and xjom) -> hacf.\nDeduce the result of hacf.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "dar is False.\nkzh is False.\n(kzh and dar) -> euy.\nDeduce the result of euy.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "wdnjy is False.\nzb is False.\n(zb and wdnjy) -> dzq.\nDeduce the result of dzq.",
+      "gold": "n/a"
+    }
+  },
+  {
+    "logic": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+    "train": {
+      "text": "aab is False.\naaa is False.\n(aaa and aab) -> aac.\nDeduce the result of aac.",
+      "label": "n/a"
+    },
+    "eval": {
+      "prompt": "lytg is False.\nyrq is False.\n(yrq and lytg) -> obqmv.\nDeduce the result of obqmv.",
       "gold": "n/a"
     }
   }

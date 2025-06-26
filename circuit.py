@@ -11,11 +11,11 @@ from auto_circuit.visualize import draw_seq_graph
 
 # ─── Configuration ─────────────────────────────────────────────────────────
 MODEL_NAME = "Qwen/Qwen1.5-1.8B-Chat"
-DATA_DIR   = Path("data/tmp")
-OUT_JSON   = Path("data/attr_scores")
+DATA_DIR   = Path("data/corrupt")
+OUT_JSON   = Path("output/attr_scores")
 OUT_FIGS   = OUT_JSON / "figures"
 BATCH_SIZE = 2
-TOP_QUANT  = 0.995  # keep top 0.5%
+TOP_QUANT  = 0.999  # keep top 0.5%
 
 OUT_JSON.mkdir(parents=True, exist_ok=True)
 OUT_FIGS.mkdir(parents=True, exist_ok=True)
@@ -32,7 +32,7 @@ model = patchable_model(
 )
 
 # ─── Iterate over all logic_*.json files ───────────────────────────────────
-for json_path in sorted(DATA_DIR.glob("logic_*.json")):
+for json_path in sorted(DATA_DIR.glob("logic_1_all.json")):
     name = json_path.stem
     print(f"\n▶ Processing {name}")
 

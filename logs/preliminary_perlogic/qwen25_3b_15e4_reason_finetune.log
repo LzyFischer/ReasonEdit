@@ -1,0 +1,71 @@
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+
+Loading base model (4‐bit)…
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.82s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.29s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.52s/it]
+trainable params: 3,686,400 || all params: 3,089,625,088 || trainable%: 0.1193
+Attaching locality probes:   0%|          | 0/489 [00:00<?, ?it/s]Attaching locality probes: 100%|██████████| 489/489 [00:00<00:00, 63387.05it/s]
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+Loaded 489 (train, eval) pairs.
+
+Starting sequential training…
+Cached 144 LoRA tensors.
+[  10/489]  gen_acc=0.700  loc_acc=0.600  loss=7.3468
+[  20/489]  gen_acc=0.600  loc_acc=0.700  loss=9.4921
+[  30/489]  gen_acc=0.667  loc_acc=0.620  loss=11.4087
+[  40/489]  gen_acc=0.700  loc_acc=0.610  loss=10.4464
+[  50/489]  gen_acc=0.700  loc_acc=0.624  loss=8.0143
+[  60/489]  gen_acc=0.683  loc_acc=0.643  loss=8.1648
+[  70/489]  gen_acc=0.686  loc_acc=0.666  loss=7.6897
+[  80/489]  gen_acc=0.713  loc_acc=0.660  loss=8.7195
+[  90/489]  gen_acc=0.722  loc_acc=0.671  loss=7.1794
+[ 100/489]  gen_acc=0.710  loc_acc=0.672  loss=8.2319
+[ 110/489]  gen_acc=0.700  loc_acc=0.671  loss=8.9585
+[ 120/489]  gen_acc=0.717  loc_acc=0.670  loss=9.2364
+[ 130/489]  gen_acc=0.731  loc_acc=0.668  loss=9.8554
+[ 140/489]  gen_acc=0.743  loc_acc=0.647  loss=10.9623
+[ 150/489]  gen_acc=0.733  loc_acc=0.641  loss=9.5737
+[ 160/489]  gen_acc=0.713  loc_acc=0.652  loss=7.6884
+[ 170/489]  gen_acc=0.706  loc_acc=0.652  loss=6.8442
+[ 180/489]  gen_acc=0.717  loc_acc=0.644  loss=9.2663
+[ 190/489]  gen_acc=0.732  loc_acc=0.640  loss=10.6523
+[ 200/489]  gen_acc=0.725  loc_acc=0.643  loss=10.3497
+[ 210/489]  gen_acc=0.733  loc_acc=0.629  loss=6.7422
+[ 220/489]  gen_acc=0.736  loc_acc=0.625  loss=7.2244
+[ 230/489]  gen_acc=0.726  loc_acc=0.630  loss=8.4555
+[ 240/489]  gen_acc=0.725  loc_acc=0.627  loss=10.3900
+[ 250/489]  gen_acc=0.716  loc_acc=0.628  loss=6.7478
+[ 260/489]  gen_acc=0.712  loc_acc=0.632  loss=8.7939
+[ 270/489]  gen_acc=0.711  loc_acc=0.630  loss=10.9675
+[ 280/489]  gen_acc=0.711  loc_acc=0.627  loss=6.9339
+[ 290/489]  gen_acc=0.707  loc_acc=0.631  loss=8.9629
+[ 300/489]  gen_acc=0.710  loc_acc=0.631  loss=7.5273
+[ 310/489]  gen_acc=0.713  loc_acc=0.630  loss=7.3395
+[ 320/489]  gen_acc=0.719  loc_acc=0.631  loss=6.2460
+[ 330/489]  gen_acc=0.718  loc_acc=0.626  loss=7.1108
+[ 340/489]  gen_acc=0.715  loc_acc=0.626  loss=9.4920
+[ 350/489]  gen_acc=0.717  loc_acc=0.619  loss=9.2485
+[ 360/489]  gen_acc=0.717  loc_acc=0.621  loss=10.3836
+[ 370/489]  gen_acc=0.716  loc_acc=0.623  loss=7.8658
+[ 380/489]  gen_acc=0.718  loc_acc=0.623  loss=7.6000
+[ 390/489]  gen_acc=0.723  loc_acc=0.621  loss=9.8723
+[ 400/489]  gen_acc=0.723  loc_acc=0.622  loss=6.7376
+[ 410/489]  gen_acc=0.724  loc_acc=0.622  loss=7.9856
+[ 420/489]  gen_acc=0.719  loc_acc=0.624  loss=7.2031
+[ 430/489]  gen_acc=0.716  loc_acc=0.623  loss=7.1474
+[ 440/489]  gen_acc=0.716  loc_acc=0.625  loss=9.6617
+[ 450/489]  gen_acc=0.720  loc_acc=0.627  loss=9.8497
+[ 460/489]  gen_acc=0.720  loc_acc=0.627  loss=10.2431
+[ 470/489]  gen_acc=0.721  loc_acc=0.627  loss=9.8259
+[ 480/489]  gen_acc=0.721  loc_acc=0.625  loss=7.1897
+[ 489/489]  gen_acc=0.724  loc_acc=0.626  loss=7.4173
+
+Saved to output/perlogic/:
+  • accuracy.csv   (numeric accuracy matrix)
+  • n_total.csv    (#evals per cell)
+  • n_correct.csv  (#correct per cell)
+  • logic_tags.csv (tag → original prompt)
