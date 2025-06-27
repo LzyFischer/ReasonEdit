@@ -1,12 +1,11 @@
-from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 #!/usr/bin/env python3
 """
-plot_ot_distance.py
+plot_weighted_edit_distance.py
 ────────────────────────────────────────────────────────────────────────────
 1. 读取 circuit-mask JSON (logic_###_splitS_part[A|B].json)
-2. 将每个掩码展平成 bag-of-edges，构建全局词典并转为直方图
-3. 依照 3-split averaging 规则计算逻辑级 Wasserstein-1 距离
-4. (可选) 依据抽象公式距离进行层次聚类重新排序
+2. 把每个掩码展平成 {edge: normalised_weight} 字典
+3. 依照 3-split averaging 规则计算加权 L₁ 距离
+4. (可选) 根据抽象公式距离做层次聚类重新排序
 5. 绘制热图
 
 Author : <you>
@@ -25,97 +24,95 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.cluster.hierarchy as sch
-import ot                        # pip install pot
 
 # ─────────────────────────────────────────────── regex & util constants ──
 MASK_RE = re.compile(r"(logic_\d{3})_split(\d+)_part([AB])\.json$")
 
-# ═════════════════════════════ 1. 基础工具 ════════════════════════════════
-def load_edges(path: Path) -> List[str]:
-    """Flatten nested list JSON → list[str] of edges with positive score."""
+# ═════════════════════════════ 1. 低阶工具 ════════════════════════════════
+def load_weight_dict(path: Path, mode: str = "sum") -> Dict[str, float]:
+    """
+    JSON → {edge: normalised_weight}
+    mode:
+      "sum" :  w / Σw
+      "max" :  w / max(w)
+    """
     raw = json.loads(path.read_text())
-    edges: List[str] = []
+    flat: Dict[str, float] = {}
 
     def rec(name: str, arr):
         if isinstance(arr, (int, float)):
             if arr > 0:
-                edges.append(name)
+                flat[name] = float(arr)
         else:
             for i, v in enumerate(arr):
                 rec(f"{name}:{i}", v)
 
     for mod, arr in raw.items():
         rec(mod, arr)
-    return edges
+
+    if not flat:
+        return flat
+
+    if mode == "sum":
+        s = sum(flat.values()); flat = {k: v / s for k, v in flat.items()}
+    elif mode == "max":
+        m = max(flat.values()); flat = {k: v / m for k, v in flat.items()}
+    return flat
+
+
+def w_edit(d1: Dict[str, float], d2: Dict[str, float]) -> float:
+    """L1 distance on union of keys."""
+    keys = set(d1) | set(d2)
+    return sum(abs(d1.get(k, 0.0) - d2.get(k, 0.0)) for k in keys)
 
 
 # ═════════════════════════════ 2. 读入 & 组织数据 ═════════════════════════
-def collect_bags(root_pattern: str) -> Dict[str, Dict[str, Dict[str, List[str]]]]:
-    """data[logic][split][part] = list_of_edges."""
+def collect_weights(root_pattern: str) -> Dict[str, Dict[str, Dict[str, Dict[str, float]]]]:
+    """data[logic][split][part] = weight_dict."""
     if any(ch in root_pattern for ch in "*?[]"):
         files = sorted(Path().glob(root_pattern))
     else:
         root  = Path(root_pattern)
-        files = sorted(root.rglob("logic_*_split44_part*.json"))
+        files = sorted(root.rglob("logic_*_split43_part*.json"))
 
     if not files:
         raise RuntimeError(f"No JSON files found under: {root_pattern}")
 
-    data: Dict[str, Dict[str, Dict[str, List[str]]]] = defaultdict(
+    data: Dict[str, Dict[str, Dict[str, Dict[str, float]]]] = defaultdict(
         lambda: defaultdict(dict)
     )
     for f in files:
         if (m := MASK_RE.match(f.name)):
             logic, split, part = m.groups()
-            data[logic][split][part] = load_edges(f)
+            data[logic][split][part] = load_weight_dict(f, mode="sum")
     return data
 
 
-# ═════════════════════════════ 3. OT 距离矩阵 ═════════════════════════════
-def build_ot_matrix(data: Dict[str, Dict[str, Dict[str, List[str]]]]
-                    ) -> tuple[np.ndarray, List[str]]:
+# ═════════════════════════════ 3. 加权编辑距离矩阵 ════════════════════════
+def build_wedit_matrix(data: Dict[str, Dict[str, Dict[str, Dict[str, float]]]]
+                       ) -> tuple[np.ndarray, List[str]]:
     logics = sorted(data.keys())
     n      = len(logics)
+    mat    = np.zeros((n, n))
 
-    # —— 建全局词典 → 直方图 —— #
-    vocab = {e: i for i, e in enumerate(
-        sorted({e for lg in data.values() for sp in lg.values() for bag in sp.values() for e in bag})
-    )}
-    m = len(vocab)
-    if m == 0:
-        raise RuntimeError("No positive edges in any file.")
-
-    def to_hist(bag: List[str]) -> np.ndarray:
-        vec = np.bincount([vocab[e] for e in bag], minlength=m).astype(float)
-        return vec / max(1, vec.sum())
-
-    H = {(lg, sp, pt): to_hist(bag)
-         for lg, d_sp in data.items()
-         for sp, d_pt in d_sp.items()
-         for pt, bag in d_pt.items()}
-
-    C = np.ones((m, m), dtype=float) - np.eye(m)     # ground cost matrix
-
-    # —— 逻辑级 OT 距离 —— #
-    mat = np.zeros((n, n))
     for i, li in enumerate(logics):
         for j, lj in enumerate(logics):
             if i == j:
                 dists = [
-                    ot.emd2(H[(li, s, "A")], H[(li, s, "B")], C)
-                    for s, parts in data[li].items() if {"A", "B"} <= parts.keys()
+                    w_edit(parts["A"], parts["B"])
+                    for parts in data[li].values() if {"A", "B"} <= parts.keys()
                 ]
                 mat[i, j] = np.mean(dists) if dists else 0.0
             else:
                 split_vals = []
-                for s in set(data[li]) & set(data[lj]):
-                    Ai = H.get((li, s, "A")); Bi = H.get((li, s, "B"))
-                    Aj = H.get((lj, s, "A")); Bj = H.get((lj, s, "B"))
+                for s in set(data[li]) & set(data[lj]):      # 共同 split
+                    Ai = data[li][s].get("A"); Bi = data[li][s].get("B")
+                    Aj = data[lj][s].get("A"); Bj = data[lj][s].get("B")
                     combos = []
-                    if Ai is not None and Bj is not None: combos.append(ot.emd2(Ai, Bj, C))
-                    if Bi is not None and Aj is not None: combos.append(ot.emd2(Bi, Aj, C))
-                    if Ai is not None and Aj is not None: combos.append(ot.emd2(Ai, Aj, C))
-                    if Bi is not None and Bj is not None: combos.append(ot.emd2(Bi, Bj, C))
+                    if Ai and Bj: combos.append(w_edit(Ai, Bj))
+                    if Bi and Aj: combos.append(w_edit(Bi, Aj))
+                    if Ai and Aj: combos.append(w_edit(Ai, Aj))
+                    if Bi and Bj: combos.append(w_edit(Bi, Bj))
                     if combos:
                         split_vals.append(np.mean(combos))
                 mat[i, j] = np.mean(split_vals) if split_vals else 0.0
@@ -123,17 +120,17 @@ def build_ot_matrix(data: Dict[str, Dict[str, Dict[str, List[str]]]]
 
 
 # ═══════════════════════════ 4. (可选) 抽象聚类排序 ═══════════════════════
+# 与前两个脚本相同：硬编码示例，可改为读取文件
+ASSIGN_RE = re.compile(r"^\s*([a-zA-Z_]\w*)\s+is\s+(True|False)", re.I)
+RULE_RE   = re.compile(r"\(\s*(.+?)\s*\)\s*->")
+
 def load_abstract_formulas() -> Dict[str, str]:
-    # 与 jaccard 版本相同；可替换成文件读取
     return {
         "logic_000": "aaa is True.\naab is False.\n(aaa or aab) -> aac.",
         "logic_001": "aab is True.\naaa is True.\n(aaa or aab) -> aac.",
         "logic_002": "aaa is True.\n(NOT aaa) -> aab.",
         "logic_003": "aab is True.\naaa is True.\n(aaa and aab) -> aac.",
     }
-
-ASSIGN_RE = re.compile(r"^\s*([a-zA-Z_]\w*)\s+is\s+(True|False)", re.I)
-RULE_RE   = re.compile(r"\(\s*(.+?)\s*\)\s*->")
 
 def parse_formula(text: str):
     var_vals, ant_vars, op = {}, set(), None
@@ -174,9 +171,9 @@ def reorder_by_abstract(mat: np.ndarray, labels: List[str]) -> tuple[np.ndarray,
     return mat[order][:, order], [labels[i] for i in order]
 
 
-# ═══════════════════════════════ 5. 绘图 ═════════════════════════════════
+# ═════════════════════════════ 5. 绘图 ═══════════════════════════════════
 def plot_heatmap(mat: np.ndarray, labels: List[str], out_png: Path,
-                 cmap: str = "magma", block: int = 3):
+                 cmap: str = "cividis", block: int = 3):
     n = len(labels)
     fig, ax = plt.subplots(figsize=(max(6, n*0.5), max(5, n*0.5)))
     im = ax.imshow(mat, cmap=cmap)
@@ -184,7 +181,7 @@ def plot_heatmap(mat: np.ndarray, labels: List[str], out_png: Path,
     ax.set_xticks(range(n)); ax.set_yticks(range(n))
     ax.set_xticklabels(labels, rotation=90, fontsize=8)
     ax.set_yticklabels(labels, fontsize=8)
-    ax.set_title("Pairwise Optimal-Transport Distance (3-split avg)")
+    ax.set_title("Pairwise Weighted-Edit Distance (3-split avg)")
     fig.colorbar(im, ax=ax, fraction=.046, pad=.04)
     plt.tight_layout()
 
@@ -193,10 +190,10 @@ def plot_heatmap(mat: np.ndarray, labels: List[str], out_png: Path,
     print(f"✓ Saved heat-map → {out_png}")
 
 
-# ═══════════════════════════════ 6. CLI ═════════════════════════════════
+# ═════════════════════════════ 6. CLI ════════════════════════════════════
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser()
-    p.add_argument("--input", default=str(OUTPUTS_DIR / "attr_scores/qwen1_5_1_8b_chat/0_1"),
+    p.add_argument("--input", default="output/attr_scores/qwen2_5_3b_instruct/5",
                    help="Directory or glob of *.json mask files")
     p.add_argument("--block", type=int, default=3,
                    help="Dashed grid every N cells")
@@ -206,24 +203,20 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main():
     args = build_parser().parse_args()
-    out_png = Path(args.input) / "ot_distance_matrix.png"
+    out_png = Path(args.input) / "weighted_edit_distance_matrix.png"
 
-    data            = collect_bags(args.input)
-    ot_mat, labels  = build_ot_matrix(data)
+    data           = collect_weights(args.input)
+    wedit_mat, lbl = build_wedit_matrix(data)
 
-    raw_csv = Path(args.input) / "ot_distance_raw.csv"
-    pd.DataFrame(ot_mat, index=labels, columns=labels) \
-      .to_csv(raw_csv, float_format="%.6f")
-    print("✓ Saved raw matrix →", raw_csv)
-    # ────────────────────────────────────────────────────────────────────
-
-    if not args.no_cluster:
-        ot_mat, labels = reorder_by_abstract(ot_mat, labels)
+    pd.DataFrame(wedit_mat, index=lbl, columns=lbl) \
+      .to_csv(Path(args.input) / "weighted_edit_distance_raw.csv", float_format="%.6f")
+    print("✓ Saved raw matrix →", Path(args.input) / "weighted_edit_distance_raw.csv")
+    # ─────────────────────────────────────────────────────────────────────
 
     if not args.no_cluster:
-        ot_mat, labels = reorder_by_abstract(ot_mat, labels)
+        wedit_mat, lbl = reorder_by_abstract(wedit_mat, lbl)
 
-    plot_heatmap(ot_mat, labels, out_png, block=args.block)
+    plot_heatmap(wedit_mat, lbl, out_png, block=args.block)
 
 
 # ═════════════════════════════════════════════════════════════════════════

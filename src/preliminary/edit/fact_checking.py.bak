@@ -1,4 +1,3 @@
-from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR
 #!/usr/bin/env python
 """
 Sequentially fine‐tune a LoRA adapter on **one (train, eval) pair at a time**
@@ -67,7 +66,7 @@ parser.add_argument("--gt", type=str2bool, default=False, help="Use ground truth
 parser.add_argument(
     "--src_json",
     type=Path,
-    default=DATA_DIR / "logic/deductive_logic.json",
+    default=Path("data/logic/deductive_logic.json"),
     help="Path to source JSON file",
 )
 parser.add_argument(

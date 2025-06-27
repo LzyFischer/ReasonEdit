@@ -1,4 +1,3 @@
-from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 #!/usr/bin/env python3
 """
 generate_attr_scores.py
@@ -120,7 +119,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser()
     p.add_argument("--model", default="Qwen/Qwen2.5-3B-Instruct",
                    help="HuggingFace model name / path")
-    p.add_argument("--data_file", default=str(DATA_DIR / "corrupt/augmented_dataset.json"),
+    p.add_argument("--data_file", default="data/corrupt/augmented_dataset.json",
                    help="JSON file containing a list of prompt groups")
     p.add_argument("--quants", nargs="+", type=float, default=[0.95, 0.9],
                    help="Top-quantiles for pruning (space separated)")
@@ -132,7 +131,7 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Base seed for reproducibility")
     p.add_argument("--batch_size", type=int, default=1,
                    help="Batch size (only forward+backward, small is fine)")
-    p.add_argument("--out_root", default=str(OUTPUTS_DIR / "attr_scores"),
+    p.add_argument("--out_root", default="output/attr_scores",
                    help="Root directory to save results")
     return p
 

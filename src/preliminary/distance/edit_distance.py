@@ -1,3 +1,4 @@
+from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 #!/usr/bin/env python3
 """
 plot_weighted_edit_distance.py
@@ -193,7 +194,7 @@ def plot_heatmap(mat: np.ndarray, labels: List[str], out_png: Path,
 # ═════════════════════════════ 6. CLI ════════════════════════════════════
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser()
-    p.add_argument("--input", default="output/attr_scores/qwen2_5_3b_instruct/5",
+    p.add_argument("--input", default=str(OUTPUTS_DIR / "attr_scores/qwen2_5_3b_instruct/5"),
                    help="Directory or glob of *.json mask files")
     p.add_argument("--block", type=int, default=3,
                    help="Dashed grid every N cells")

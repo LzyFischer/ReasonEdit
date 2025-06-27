@@ -1,3 +1,4 @@
+from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 #!/usr/bin/env python
 """
 Sequentially fine‐tune a LoRA adapter on **one (train, eval) pair at a time**
@@ -65,7 +66,7 @@ parser.add_argument("--gt", type=str2bool, default=False, help="Use ground truth
 parser.add_argument(
     "--src_json",
     type=Path,
-    default=Path("data/logic/deductive_logic.json"),
+    default=DATA_DIR / "logic/deductive_logic.json",
     help="Path to source JSON file",
 )
 parser.add_argument(
@@ -83,7 +84,7 @@ parser.add_argument(
 parser.add_argument(
     "--correct_file",
     type=str,
-    default="data/processed/correct_pairs_llama_7b.json",
+    default=str(DATA_DIR / "processed/correct_pairs_llama_7b.json"),
     help="Path to save/load correct pairs",
 )
 args = parser.parse_args()
@@ -197,41 +198,41 @@ model.print_trainable_parameters()
 # 3. Build (train, eval) pairs
 ###############################################################################
 if args.model_name.startswith("mistralai/Mistral-7B"):
-    args.correct_file = "data/processed/correct_pairs_mistral_7b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_mistral_7b.json")
 elif args.model_name.startswith("meta-llama/Llama-2-7b"):
-    args.correct_file = "data/processed/correct_pairs_llama_7b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_llama_7b.json")
 elif args.model_name.startswith("meta-llama/Llama-3.2-3B"):
-    args.correct_file = "data/processed/correct_pairs_llama_3b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_llama_3b.json")
 elif args.model_name.startswith("TinyLlama/TinyLlama-1.1B"):
-    args.correct_file = "data/processed/correct_pairs_tinyllama_1b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_tinyllama_1b.json")
 elif args.model_name.startswith("openai-community/gpt2-large"):
-    args.correct_file = "data/processed/correct_pairs_gpt2_large.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_gpt2_large.json")
 elif args.model_name.startswith("openai-community/gpt2"):
-    args.correct_file = "data/processed/correct_pairs_gpt2.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_gpt2.json")
 elif args.model_name.startswith("Qwen/Qwen1.5-1.8B-Chat"):
-    args.correct_file = "data/processed/correct_pairs_qwen_1_8b_chat.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_qwen_1_8b_chat.json")
 elif args.model_name.startswith("Qwen/Qwen1.5-0.5B"):
-    args.correct_file = "data/processed/correct_pairs_qwen_0_5b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_qwen_0_5b.json")
 elif args.model_name.startswith("Qwen/Qwen1.5-1.8B"):
-    args.correct_file = "data/processed/correct_pairs_qwen_1_8b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_qwen_1_8b.json")
 elif args.model_name.startswith("Qwen/Qwen2-7B-Instruct"):
-    args.correct_file = "data/processed/correct_pairs_qwen_2_7b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_qwen_2_7b.json")
 elif args.model_name.startswith("Qwen/Qwen2.5-7B-Instruct"):
-    args.correct_file = "data/processed/correct_pairs_qwen_2_5_7b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_qwen_2_5_7b.json")
 elif args.model_name.startswith("google/gemma-7b-it"):
-    args.correct_file = "data/processed/correct_pairs_gemma_7b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_gemma_7b.json")
 elif args.model_name.startswith("google/gemma-3-4b-it"):
-    args.correct_file = "data/processed/correct_pairs_gemma_3_4b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_gemma_3_4b.json")
 elif args.model_name.startswith("google/gemma-2b-it"):
-    args.correct_file = "data/processed/correct_pairs_gemma_2_2b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_gemma_2_2b.json")
 elif args.model_name.startswith("Qwen/Qwen2.5-1.5B"):
-    args.correct_file = "data/processed/correct_pairs_qwen_2_5_1_5b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_qwen_2_5_1_5b.json")
 elif args.model_name.startswith("Qwen/Qwen2.5-3B-Instruct"):
-    args.correct_file = "data/processed/correct_pairs_qwen_2_5_3b_it.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_qwen_2_5_3b_it.json")
 elif args.model_name.startswith("Qwen/Qwen2.5-3B"):
-    args.correct_file = "data/processed/correct_pairs_qwen_2_5_3b.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_qwen_2_5_3b.json")
 elif args.model_name.startswith("microsoft/phi-2"):
-    args.correct_file = "data/processed/correct_pairs_phi_2.json"
+    args.correct_file = str(DATA_DIR / "processed/correct_pairs_phi_2.json")
 
 
 CUE = re.compile(
@@ -437,7 +438,7 @@ for idx, pair in enumerate(pairs, 1):
 ###############################################################################
 # 5. Save adapter & tokenizer
 ###############################################################################
-# SAVE_DIR = "output/preliminary/lora_logic_pairwise"
+# SAVE_DIR = str(OUTPUTS_DIR / "preliminary/lora_logic_pairwise")
 # model.save_pretrained(SAVE_DIR)
 # tokenizer.save_pretrained(SAVE_DIR)
 
