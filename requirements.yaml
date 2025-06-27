@@ -1,0 +1,14 @@
+dependencies:
+- auto_circuit==1.0.1
+- matplotlib==3.10.3
+- numpy==2.3.1
+- openai==1.92.2
+- pandas==2.3.0
+- peft==0.15.2
+- POT==0.9.5
+- scipy==1.16.0
+- torch==2.7.0
+- tqdm==4.67.1
+- transformers==4.51.3
+- vscode_tqdm==4.66.2
+
