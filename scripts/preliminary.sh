@@ -1,3 +1,4 @@
+cd /scratch/vjd5zr/project/ReasonEdit
 
 # # CUDA_VISIBLE_DEVICES=0 python -m src.preliminary.edit.edit --model_name "TinyLlama/TinyLlama-1.1B-Chat-v1.0" --lr 1e-4 --quest True > results/logs/preliminary/tinyllama_quest.log 2>&1 &
 # # CUDA_VISIBLE_DEVICES=1 python -m src.preliminary.edit.edit --model_name "TinyLlama/TinyLlama-1.1B-Chat-v1.0" --lr 1e-4 --knowledge True --cot True > results/logs/preliminary/tinyllama_knowledge_cot.log 2>&1 &

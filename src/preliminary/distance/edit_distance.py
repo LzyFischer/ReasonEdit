@@ -12,7 +12,7 @@ plot_weighted_edit_distance.py
 Author : <you>
 Date   : 2025-06-14
 """
-from __future__ import annotations
+# from __future__ import annotations
 import argparse
 import json
 import os
