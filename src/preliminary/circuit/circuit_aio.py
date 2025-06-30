@@ -126,9 +126,9 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Top-quantiles for pruning (space separated)")
     p.add_argument("--subset_k", type=int, default=20,
                    help="Size of partA / partB for each split")
-    p.add_argument("--splits", type=int, default=3,
+    p.add_argument("--splits", type=int, default=1,
                    help="Number of random splits to generate")
-    p.add_argument("--seed", type=int, default=42,
+    p.add_argument("--seed", type=int, default=0,
                    help="Base seed for reproducibility")
     p.add_argument("--batch_size", type=int, default=1,
                    help="Batch size (only forward+backward, small is fine)")
