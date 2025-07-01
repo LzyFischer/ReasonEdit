@@ -9,30 +9,31 @@ plot_ot_distance.py
 4. (可选) 依据抽象公式距离进行层次聚类重新排序
 5. 绘制热图
 
-Author : <you>
-Date   : 2025-06-14
+2025-06-14
 """
 # from __future__ import annotations
 import argparse
 import json
-import os
 import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List
-import pandas as pd
 
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.cluster.hierarchy as sch
-import ot                        # pip install pot
+import ot                         # pip install pot
 
-# ─────────────────────────────────────────────── regex & util constants ──
-MASK_RE = re.compile(r"(logic_\d{3})_split(\d+)_part([AB])\.json$")
+# ───────────────────────────────────────────── regex & util constants ──
+MASK_RE   = re.compile(r"(logic_\d{3})_split(\d+)_part([AB])\.json$")
+ASSIGN_RE = re.compile(r"^\s*([a-zA-Z_]\w*)\s+is\s+(True|False)", re.I)
+RULE_RE   = re.compile(r"\(\s*(.+?)\s*\)\s*->")
 
-# ═════════════════════════════ 1. 基础工具 ════════════════════════════════
+
+# ═════════════════════════════ 1. 基础工具 ═══════════════════════════════
 def load_edges(path: Path) -> List[str]:
-    """Flatten nested list JSON → list[str] of edges with positive score."""
+    """Flatten nested-list JSON → list[str] of edges with positive score."""
     raw = json.loads(path.read_text())
     edges: List[str] = []
 
@@ -50,13 +51,14 @@ def load_edges(path: Path) -> List[str]:
 
 
 # ═════════════════════════════ 2. 读入 & 组织数据 ═════════════════════════
-def collect_bags(root_pattern: str) -> Dict[str, Dict[str, Dict[str, List[str]]]]:
-    """data[logic][split][part] = list_of_edges."""
+def collect_bags(root_pattern: str, seed: int
+                 ) -> Dict[str, Dict[str, Dict[str, List[str]]]]:
+    """data[logic][split][part] = list_of_edges"""
     if any(ch in root_pattern for ch in "*?[]"):
         files = sorted(Path().glob(root_pattern))
     else:
         root  = Path(root_pattern)
-        files = sorted(root.rglob("logic_*_split44_part*.json"))
+        files = sorted(root.rglob(f"logic_*_split{seed}_part*.json"))
 
     if not files:
         raise RuntimeError(f"No JSON files found under: {root_pattern}")
@@ -79,8 +81,11 @@ def build_ot_matrix(data: Dict[str, Dict[str, Dict[str, List[str]]]]
 
     # —— 建全局词典 → 直方图 —— #
     vocab = {e: i for i, e in enumerate(
-        sorted({e for lg in data.values() for sp in lg.values() for bag in sp.values() for e in bag})
-    )}
+        sorted({e for lg in data.values()
+                  for sp in lg.values()
+                  for bag in sp.values()
+                  for e in bag}))
+    }
     m = len(vocab)
     if m == 0:
         raise RuntimeError("No positive edges in any file.")
@@ -94,7 +99,7 @@ def build_ot_matrix(data: Dict[str, Dict[str, Dict[str, List[str]]]]
          for sp, d_pt in d_sp.items()
          for pt, bag in d_pt.items()}
 
-    C = np.ones((m, m), dtype=float) - np.eye(m)     # ground cost matrix
+    C = np.ones((m, m), dtype=float) - np.eye(m)        # ground-cost matrix
 
     # —— 逻辑级 OT 距离 —— #
     mat = np.zeros((n, n))
@@ -103,7 +108,8 @@ def build_ot_matrix(data: Dict[str, Dict[str, Dict[str, List[str]]]]
             if i == j:
                 dists = [
                     ot.emd2(H[(li, s, "A")], H[(li, s, "B")], C)
-                    for s, parts in data[li].items() if {"A", "B"} <= parts.keys()
+                    for s, parts in data[li].items()
+                    if {"A", "B"} <= parts.keys()
                 ]
                 mat[i, j] = np.mean(dists) if dists else 0.0
             else:
@@ -124,16 +130,12 @@ def build_ot_matrix(data: Dict[str, Dict[str, Dict[str, List[str]]]]
 
 # ═══════════════════════════ 4. (可选) 抽象聚类排序 ═══════════════════════
 def load_abstract_formulas() -> Dict[str, str]:
-    # 与 jaccard 版本相同；可替换成文件读取
     return {
         "logic_000": "aaa is True.\naab is False.\n(aaa or aab) -> aac.",
         "logic_001": "aab is True.\naaa is True.\n(aaa or aab) -> aac.",
         "logic_002": "aaa is True.\n(NOT aaa) -> aab.",
         "logic_003": "aab is True.\naaa is True.\n(aaa and aab) -> aac.",
     }
-
-ASSIGN_RE = re.compile(r"^\s*([a-zA-Z_]\w*)\s+is\s+(True|False)", re.I)
-RULE_RE   = re.compile(r"\(\s*(.+?)\s*\)\s*->")
 
 def parse_formula(text: str):
     var_vals, ant_vars, op = {}, set(), None
@@ -155,70 +157,77 @@ def parse_formula(text: str):
 def abstract_distance(f1: str, f2: str) -> int:
     v1, ant1, op1 = parse_formula(f1)
     v2, ant2, op2 = parse_formula(f2)
-    all_vars     = set(v1) | set(v2)
-    truth_diff   = sum(v1.get(k) != v2.get(k) for k in all_vars if k in v1 and k in v2)
-    missing_diff = sum(1 for k in all_vars if (k in v1) ^ (k in v2))
-    ant_num_diff = abs(len(ant1) - len(ant2))
-    op_diff      = 0 if op1 == op2 else 1
+    all_vars      = set(v1) | set(v2)
+    truth_diff    = sum(v1.get(k) != v2.get(k) for k in all_vars if k in v1 and k in v2)
+    missing_diff  = sum(1 for k in all_vars if (k in v1) ^ (k in v2))
+    ant_num_diff  = abs(len(ant1) - len(ant2))
+    op_diff       = 0 if op1 == op2 else 1
     return truth_diff + missing_diff + ant_num_diff + op_diff
 
-def reorder_by_abstract(mat: np.ndarray, labels: List[str]) -> tuple[np.ndarray, List[str]]:
+def reorder_by_abstract(mat: np.ndarray, labels: List[str]
+                        ) -> tuple[np.ndarray, List[str]]:
     abs_formulas = load_abstract_formulas()
     n = len(labels)
     abs_mat = np.zeros((n, n))
     for i, li in enumerate(labels):
         for j, lj in enumerate(labels):
-            abs_mat[i, j] = abstract_distance(abs_formulas.get(li, ""),
-                                              abs_formulas.get(lj, ""))
+            abs_mat[i, j] = abstract_distance(
+                abs_formulas.get(li, ""), abs_formulas.get(lj, "")
+            )
     order = sch.leaves_list(sch.linkage(abs_mat, method="average"))[::-1]
     return mat[order][:, order], [labels[i] for i in order]
 
 
-# ═══════════════════════════════ 5. 绘图 ═════════════════════════════════
+# ═════════════════════════════ 5. 绘图 ═══════════════════════════════════
 def plot_heatmap(mat: np.ndarray, labels: List[str], out_png: Path,
                  cmap: str = "magma", block: int = 3):
     n = len(labels)
-    fig, ax = plt.subplots(figsize=(max(6, n*0.5), max(5, n*0.5)))
+    fig, ax = plt.subplots(figsize=(max(6, n*.5), max(5, n*.5)))
     im = ax.imshow(mat, cmap=cmap)
-
     ax.set_xticks(range(n)); ax.set_yticks(range(n))
     ax.set_xticklabels(labels, rotation=90, fontsize=8)
     ax.set_yticklabels(labels, fontsize=8)
     ax.set_title("Pairwise Optimal-Transport Distance (3-split avg)")
     fig.colorbar(im, ax=ax, fraction=.046, pad=.04)
     plt.tight_layout()
-
     out_png.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_png, dpi=300)
     print(f"✓ Saved heat-map → {out_png}")
 
 
-# ═══════════════════════════════ 6. CLI ═════════════════════════════════
+# ═════════════════════════════ 6. CLI ════════════════════════════════════
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser()
-    p.add_argument("--input", default=str(OUTPUTS_DIR / "attr_scores/qwen1_5_1_8b_chat/0_1"),
-                   help="Directory or glob of *.json mask files")
+    p.add_argument("--input", default=str(
+        OUTPUTS_DIR / "attr_scores/qwen1_5_1_8b_chat/0_1"),
+        help="Directory or glob of *.json mask files")
+    p.add_argument("--out_csv",
+        help="Output CSV path for raw OT matrix "
+             "(default: <input>/ot_distance_raw.csv)")
     p.add_argument("--block", type=int, default=3,
-                   help="Dashed grid every N cells")
+        help="Dashed grid every N cells")
     p.add_argument("--no_cluster", action="store_true",
-                   help="Skip abstract-distance reordering")
+        help="Skip abstract-distance reordering")
+    p.add_argument("--seed", type=int, default=0,
+        help="Seed (only used to find *_split<seed> files when --input is a "
+             "directory)")
     return p
 
+
 def main():
-    args = build_parser().parse_args()
-    out_png = Path(args.input) / "ot_distance_matrix.png"
+    args    = build_parser().parse_args()
+    root    = Path(args.input)
+    out_png = root / "ot_distance_matrix.png"
+    out_csv = Path(args.out_csv) if args.out_csv else root / "ot_distance_raw.csv"
+    # mkdir for output CSV if not specified
+    out_csv.parent.mkdir(parents=True, exist_ok=True)
 
-    data            = collect_bags(args.input)
-    ot_mat, labels  = build_ot_matrix(data)
+    data           = collect_bags(args.input, args.seed)
+    ot_mat, labels = build_ot_matrix(data)
 
-    raw_csv = Path(args.input) / "ot_distance_raw.csv"
     pd.DataFrame(ot_mat, index=labels, columns=labels) \
-      .to_csv(raw_csv, float_format="%.6f")
-    print("✓ Saved raw matrix →", raw_csv)
-    # ────────────────────────────────────────────────────────────────────
-
-    if not args.no_cluster:
-        ot_mat, labels = reorder_by_abstract(ot_mat, labels)
+      .to_csv(out_csv, float_format="%.6f")
+    print("✓ Saved raw matrix →", out_csv)
 
     if not args.no_cluster:
         ot_mat, labels = reorder_by_abstract(ot_mat, labels)

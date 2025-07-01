@@ -1,3 +1,4 @@
+from __future__ import annotations
 from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 #!/usr/bin/env python3
 """
@@ -8,7 +9,6 @@ generate_attr_scores.py
 3. 按 TOP_QUANT 阈值剪枝并保存 JSON + 可视化
 """
 
-from __future__ import annotations
 import argparse
 import json
 import random
@@ -152,7 +152,7 @@ def main():
 
     for idx, logic in enumerate(logic_groups):
         prompts = logic.get("prompts", [])
-        if not prompts or idx < 3:
+        if not prompts:
             continue
 
         logic_name = f"logic_{idx:03d}"
@@ -161,7 +161,7 @@ def main():
         k = min(args.subset_k, len(prompts) // 2 or 1)
 
         for split in range(1, args.splits + 1):
-            rng = random.Random(args.seed + split)
+            rng = random.Random(args.seed + split-1)
             shuffled = prompts[:]
             rng.shuffle(shuffled)
 
@@ -169,7 +169,7 @@ def main():
             scores = compute_scores(model, partA, device, args.batch_size)
             prune_and_save(
                 scores, model, model_dir,
-                logic_name, f"split{args.seed + split}_partA",
+                logic_name, f"split{args.seed + split-1}_partA",
                 args.quants,
             )
 

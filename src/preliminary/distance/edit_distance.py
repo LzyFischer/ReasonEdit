@@ -68,13 +68,13 @@ def w_edit(d1: Dict[str, float], d2: Dict[str, float]) -> float:
 
 
 # ═════════════════════════════ 2. 读入 & 组织数据 ═════════════════════════
-def collect_weights(root_pattern: str) -> Dict[str, Dict[str, Dict[str, Dict[str, float]]]]:
+def collect_weights(root_pattern: str, seed) -> Dict[str, Dict[str, Dict[str, Dict[str, float]]]]:
     """data[logic][split][part] = weight_dict."""
     if any(ch in root_pattern for ch in "*?[]"):
         files = sorted(Path().glob(root_pattern))
     else:
         root  = Path(root_pattern)
-        files = sorted(root.rglob("logic_*_split43_part*.json"))
+        files = sorted(root.rglob(f"logic_*_split{seed}_part*.json"))
 
     if not files:
         raise RuntimeError(f"No JSON files found under: {root_pattern}")
@@ -200,18 +200,32 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Dashed grid every N cells")
     p.add_argument("--no_cluster", action="store_true",
                    help="Skip abstract-distance reordering")
+    p.add_argument("--out_csv",
+                   help="Path to save raw weighted-edit-distance matrix "
+                        "(default: <input>/weighted_edit_distance_raw.csv)")
+    p.add_argument("--seed", type=int, default=0,
+        help="Seed (only used to find *_split<seed> files when --input is a "
+             "directory)")                    
     return p
 
 def main():
     args = build_parser().parse_args()
-    out_png = Path(args.input) / "weighted_edit_distance_matrix.png"
+    # out_png = Path(args.input) / "weighted_edit_distance_matrix.png"
+    root    = Path(args.input)
+    out_png = root / "weighted_edit_distance_matrix.png"
 
-    data           = collect_weights(args.input)
+    data           = collect_weights(args.input, args.seed)
     wedit_mat, lbl = build_wedit_matrix(data)
 
+    # pd.DataFrame(wedit_mat, index=lbl, columns=lbl) \
+    #   .to_csv(Path(args.input) / "weighted_edit_distance_raw.csv", float_format="%.6f")
+    # print("✓ Saved raw matrix →", Path(args.input) / "weighted_edit_distance_raw.csv")
+    out_csv = Path(args.out_csv) if args.out_csv else root / "weighted_edit_distance_raw.csv"
+    out_csv.parent.mkdir(parents=True, exist_ok=True)
+
     pd.DataFrame(wedit_mat, index=lbl, columns=lbl) \
-      .to_csv(Path(args.input) / "weighted_edit_distance_raw.csv", float_format="%.6f")
-    print("✓ Saved raw matrix →", Path(args.input) / "weighted_edit_distance_raw.csv")
+      .to_csv(out_csv, float_format="%.6f")
+    print("✓ Saved raw matrix →", out_csv)
     # ─────────────────────────────────────────────────────────────────────
 
     if not args.no_cluster:

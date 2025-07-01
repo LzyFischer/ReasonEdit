@@ -1,6 +1,7 @@
 # data
-/results/output
-/results/logs/archiv
+/results/output/*
+/results/logs/*
+/results/figures/*
 # !/output/attr_scores/
 # !/output/attr_scores/qwen2_5_3b_instruct/
 # !/output/attr_scores/qwen2_5_3b_instruct/**

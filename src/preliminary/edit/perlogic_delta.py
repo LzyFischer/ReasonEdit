@@ -24,6 +24,7 @@ import re
 import time
 from collections import defaultdict
 from pathlib import Path
+import pdb  # for debugging
 
 import numpy as np
 import pandas as pd
@@ -162,6 +163,13 @@ def split_premise(nl: str):
     sents = re.split(r"(?<=\.|!|\?)\s+", premise)
     return (" ".join(sents[:-1]).strip(), sents[-1].strip()) if len(sents) > 1 else (None, None)
 
+def _view(ex):
+    """Return a small, acyclic dict for probing."""
+    return {
+        "prompt": ex["eval"]["prompt"],
+        "gold":   ex["eval"]["gold"],
+        "logic":  ex["logic"],
+    }
 
 def harvest_pairs(path: Path, gen_k: int, loc_k: int):
     """Load dataset and attach generativity / locality probes."""
@@ -188,18 +196,24 @@ def harvest_pairs(path: Path, gen_k: int, loc_k: int):
                 pool_by_logic[logic].append(ex)
 
     rng = random.Random(SEED)
+
     for ex in examples:
         logic = ex["logic"]
-        # generativity – same-logic pool (excluding itself)
+
+        # --- generativity: SAME-logic pool (excluding itself) --------------
         same_pool = [e for e in pool_by_logic[logic] if e is not ex]
-        ex["gen_eval"] = random.sample(same_pool, k=min(gen_k, len(same_pool)))
-        # locality – LOC_K from each other logic
+        ex["gen_eval"] = [_view(e) for e in rng.sample(
+            same_pool, k=min(gen_k, len(same_pool))
+        )]
+
+        # --- locality: probes from EACH OTHER logic ------------------------
         loc_probes = []
         for other_logic, buf in pool_by_logic.items():
             if other_logic == logic:
                 continue
-            loc_probes.extend(random.sample(buf, k=min(loc_k, len(buf))))
-        ex["loc_eval"] = loc_probes
+            loc_probes += rng.sample(buf, k=min(loc_k, len(buf)))
+        ex["loc_eval"] = [_view(e) for e in loc_probes]
+
     return examples
 
 ###############################################################################
@@ -260,7 +274,6 @@ class Trainer:
         print("\nStarting sequential training…")
         start = time.time()
         for step, pair in enumerate(self.pairs, 1):
-            continue
             self._reset_lora()
             self._process_pair(pair)
             if step % 2 == 0 or step == len(self.pairs):
@@ -268,7 +281,7 @@ class Trainer:
         print(f"Completed in {(time.time()-start)/60:.1f} min")
 
         lr_slug = str(self.args.lr).replace('.', 'p').replace('-', 'm')
-        out_dir = Path(fstr(OUTPUTS_DIR / "perlogic/{lr_slug}"))
+        out_dir = Path(str(OUTPUTS_DIR / f"perlogic/{lr_slug}"))
         self._save_results(out_dir)
 
     # ------------------------------------------------------------------
@@ -352,15 +365,16 @@ class Trainer:
                for r in range(len(self.logic_types))]
 
         tags = [self.tag_of[lg] for lg in self.logic_types]
-        delta_all = [[self.mat_dgen[r][c] if r == c else self.mat_dloc[r][c]
+        delta_count = [[self.mat_dgen[r][c] if r == c else self.mat_dloc[r][c]
                        for c in range(len(self.logic_types))]
                       for r in range(len(self.logic_types))]
-        delta_all = np.array(delta_all) / np.array(self.mat_total)
+        delta = np.array(delta_count) / np.array(self.mat_total)
 
         pd.DataFrame(acc, index=tags, columns=tags).to_csv(out_dir/"accuracy.csv", float_format="%.4f")
         pd.DataFrame(self.mat_total,   index=tags, columns=tags).to_csv(out_dir/"n_total.csv")
-        pd.DataFrame(self.mat_correct, index=tags, columns=tags).to_csv(out_dir/"n_correct.csv")        
-        pd.DataFrame(delta_all, index=tags, columns=tags).to_csv(out_dir/"delta_all.csv")
+        pd.DataFrame(self.mat_correct, index=tags, columns=tags).to_csv(out_dir/"n_correct.csv")  
+        pd.DataFrame(delta_count, index=tags, columns=tags).to_csv(out_dir/"delta_count.csv")    
+        pd.DataFrame(delta, index=tags, columns=tags).to_csv(out_dir/"delta.csv")
 
         # tag lookup
         pd.DataFrame({"tag": tags, "prompt": self.logic_types}).to_csv(out_dir/"logic_tags.csv", index=False)
