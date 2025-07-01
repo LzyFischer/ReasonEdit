@@ -9,12 +9,12 @@ from glob import glob
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-SEEDS      = [0, 1, 2, 3, 4, 7, 8, 9, 11, 16, 6, 43, 44, 45]
+SEEDS      = [10, 12, 13, 14, 15, 17, 18, 19]
 MODEL_ID    = "qwen2_5_3b_instruct"
 DISTANCES  = {"pot": "src.preliminary.distance.pot_distance",
               "edit": "src.preliminary.distance.edit_distance",
               "jaccard": "src.preliminary.distance.jaccard_distance"}
-LRS        = [1.5e-4]
+LRS        = [1e-4, 1.5e-4]
 REQ_PNGS    = ["scatter.png", "scatter_binned.png",
                "scatter_sliding.png", "scatter_acc.png"]
 
