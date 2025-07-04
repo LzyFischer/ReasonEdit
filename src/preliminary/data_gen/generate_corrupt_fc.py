@@ -33,7 +33,7 @@ SUFFIX_WITH_MARK = SUFFIX_NO_NL + " " + ANSWER_MARK
 # -------------------------------------------------------------------------
 # add once, near the top (right after you load the main tokenizer `tok`)
 
-def tlen1(text: str) -> int:
+def tlen1(text: str) -> int: 
     """Token length under the main tokenizer `tok`."""
     return len(tok.encode(text, add_special_tokens=False))
 

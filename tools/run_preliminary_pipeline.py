@@ -9,7 +9,7 @@ from glob import glob
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-SEEDS      = [10, 12, 13, 14, 15, 17, 18, 19]
+SEEDS      = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29,]
 MODEL_ID    = "qwen2_5_3b_instruct"
 DISTANCES  = {"pot": "src.preliminary.distance.pot_distance",
               "edit": "src.preliminary.distance.edit_distance",
@@ -17,6 +17,9 @@ DISTANCES  = {"pot": "src.preliminary.distance.pot_distance",
 LRS        = [1e-4, 1.5e-4]
 REQ_PNGS    = ["scatter.png", "scatter_binned.png",
                "scatter_sliding.png", "scatter_acc.png"]
+plot_mode = "combined"  # "single", "combined", "both"
+combine_size = 9  # None or 0 → merge ALL runs
+len_pattern = 10
 
 
 def run(cmd, **kw):
@@ -30,7 +33,7 @@ def main(force: bool = False):
         pattern = str(PROJECT_ROOT / f"results/output/attr_scores/{MODEL_ID}/10/logic_*_split{seed}_part*")
         matching_dirs = glob(pattern)
 
-        if force or len(matching_dirs) == 0:
+        if force or not matching_dirs:
             run(["python", "-m", "src.preliminary.circuit.circuit_aio",
                  "--seed", str(seed)])
 
@@ -56,23 +59,33 @@ def main(force: bool = False):
                  "--lr", str(lr)])
 
     # 4) 绘图
+    if plot_mode in {"combined", "both"}:
+        for dist_name in DISTANCES.keys():
+            for lr in LRS:
+                seeds_str = ",".join(str(s) for s in SEEDS)
+                lr_slug = str(lr).replace('.', 'p')
+                run([
+                    "python", "-m", "tools.plot_preliminary_combined",
+                    "--distance", dist_name,
+                    "--seeds", seeds_str,
+                    "--lrs",   str(lr),
+                    "--combine", str(combine_size or 0)  # 0 → merge ALL runs
+                ])
 
-    for seed, (dist_name, _), lr in itertools.product(SEEDS, DISTANCES.items(), LRS):
-        lr_slug   = str(lr).replace('.', 'p')
-        out_dir   = PROJECT_ROOT / f"results/figures/{dist_name}/seed{seed}/lr{lr_slug}"
-        need_rerun = force or not out_dir.exists() or not all(
-            (out_dir / fname).exists() for fname in REQ_PNGS
-        )
+    # 4-B) original per-run plots
+    if plot_mode in {"single", "both"}:
+        for seed, (dist_name, _), lr in itertools.product(SEEDS, DISTANCES.items(), LRS):
+            lr_slug = str(lr).replace('.', 'p')
+            out_dir = PROJECT_ROOT / f"results/figures/{dist_name}/seed{seed}/lr{lr_slug}"
+            need    = force or not out_dir.exists() or not all((out_dir / f).exists() for f in REQ_PNGS)
 
-        if need_rerun:
-            run(
-                [
+            if need:
+                run([
                     "python", "-m", "tools.plot_preliminary",
                     "--distance", dist_name,
                     "--seed", str(seed),
                     "--lr",   str(lr),
-                ]
-            )
+                ])
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()

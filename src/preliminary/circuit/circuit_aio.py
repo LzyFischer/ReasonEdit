@@ -172,12 +172,11 @@ def main():
                 logic_name, f"split{args.seed + split-1}_partA",
                 args.quants,
             )
-
             if partB:
                 scores_B = compute_scores(model, partB, device, args.batch_size)
                 prune_and_save(
                     scores_B, model, model_dir,
-                    logic_name, f"split{args.seed + split}_partB",
+                    logic_name, f"split{args.seed + split-1}_partB",
                     args.quants,
                 )
 

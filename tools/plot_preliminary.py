@@ -20,6 +20,7 @@ import argparse
 from pathlib import Path
 from typing import List, Tuple
 from scipy.stats import linregress
+from scipy import stats
 import os
 
 import numpy as np
@@ -51,10 +52,81 @@ PALETTE = [
 ]
 
 # ══════════════════════════════ helpers ════════════════════════════════
+def plot_dist_vs_delta_hist(dist: pd.DataFrame,
+                            delta: pd.DataFrame,
+                            out: Path,
+                            bins=40) -> None:
+    """
+    把 distance 与 delta 打平成一维后：
+      • 绘制重叠直方图（共享 bins）与 KDE 曲线
+      • 同时输出 Kolmogorov–Smirnov p-value 作为参考
+    """
+    out.parent.mkdir(parents=True, exist_ok=True)
+    d1 = dist.values.flatten()
+    d2 = delta.values.flatten()
+
+    # 可选：去掉 0（或 NaN / inf）
+    m = (np.isfinite(d1)) & (d1 != 0)
+    n = (np.isfinite(d2)) & (d2 != 0)
+    d1, d2 = d1[m], d2[n]
+
+    # 统计检验：KS
+    from scipy.stats import ks_2samp
+    ks_stat, ks_p = ks_2samp(d1, d2)
+
+    fig, ax = plt.subplots(figsize=(6, 4))
+    ax.hist(d1, bins=bins, density=True, alpha=.45,
+            label=f"distance (n={len(d1)})")
+    ax.hist(d2, bins=bins, density=True, alpha=.45,
+            label=f"delta (n={len(d2)})")
+
+    # KDE
+    from scipy.stats import gaussian_kde
+    xs = np.linspace(min(d1.min(), d2.min()),
+                     max(d1.max(), d2.max()), 400)
+    ax.plot(xs, gaussian_kde(d1)(xs), lw=2)
+    ax.plot(xs, gaussian_kde(d2)(xs), lw=2)
+
+    ax.set_xlabel("value")
+    ax.set_ylabel("density")
+    ax.set_title(f"distance vs delta  (KS-p = {ks_p:.2e})")
+    ax.legend()
+    ax.grid(True, linestyle=":", alpha=.5)
+    plt.tight_layout()
+    fig.savefig(out, dpi=600, bbox_inches="tight")
+    plt.close(fig)
+
+def plot_qq_dist_delta(dist: pd.DataFrame,
+                       delta: pd.DataFrame,
+                       out: Path) -> None:
+    """
+    双样本 QQ-plot：distance 作为横轴，delta 作为纵轴
+    """
+    out.parent.mkdir(parents=True, exist_ok=True)
+    x = dist.values.flatten()
+    y = delta.values.flatten()
+
+    mask = (np.isfinite(x) & np.isfinite(y) & (x != 0) & (y != 0))
+    x, y = np.sort(x[mask]), np.sort(y[mask])
+    k = min(len(x), len(y))           # 取共同长度
+    x, y = x[:k], y[:k]
+
+    fig, ax = plt.subplots(figsize=(5, 5))
+    ax.scatter(x, y, s=25, color="#4C72B0", alpha=.8)
+    lim = [min(x.min(), y.min()), max(x.max(), y.max())]
+    ax.plot(lim, lim, "--k", lw=1)    # y=x 参考线
+    ax.set_xlabel("distance quantiles")
+    ax.set_ylabel("delta quantiles")
+    ax.set_title("QQ-plot  (distance  vs  delta)")
+    ax.grid(True, linestyle=":", alpha=.5)
+    plt.tight_layout()
+    fig.savefig(out, dpi=600, bbox_inches="tight")
+    plt.close(fig)
+
 
 def _logic_labels(n: int) -> np.ndarray:
-    """Return length‑n array of 0/1 macro‑logic labels."""
-    return np.array([0 if i in LABEL0 else 1 for i in range(n)], dtype=int)
+    return np.array([0 if (i % 10) in LABEL0 else 1 for i in range(n)],
+                    dtype=int)
 
 
 def _style_axes(ax, xlab: str, ylab: str):
@@ -104,6 +176,11 @@ def plot_basic_scatter(dist: pd.DataFrame, delta: pd.DataFrame, out: Path,
     ax.scatter(x[mask_intra], y[mask_intra], s=400, marker="s",
                facecolor=PALETTE[0], edgecolor="black", linewidth=1.8,
                alpha=.8, label="Intra‑Pattern")
+    rows, cols = np.divmod(np.arange(n * n), n)          # pre-compute all indices
+    for idx in np.where(mask_inter | mask_intra)[0]:     # only annotate shown points
+        r, c = rows[idx], cols[idx]
+        ax.text(x[idx], y[idx], f"{r},{c}",
+                fontsize=9, ha="center", va="center", alpha=.9)
     
     _add_corr_line(ax, x[mask_inter], y[mask_inter])
     _add_corr_line(ax, x[mask_intra], y[mask_intra])
@@ -185,6 +262,8 @@ def plot_sliding_scatter(dist: pd.DataFrame, delta: pd.DataFrame, out: Path,
                edgecolor="black", linewidth=1.8, alpha=.8, label="Inter‑Pattern")
     ax.scatter(xd, yd, s=400, marker="s", facecolor=PALETTE[0],
                edgecolor="black", linewidth=1.8, alpha=.8, label="Intra‑Pattern")
+    logic_names = list(dist.index)       # or None if you prefer pure indices
+
     _add_corr_line(ax, xi, yi)
     _add_corr_line(ax, xd, yd)
 
@@ -261,6 +340,7 @@ def _parser() -> argparse.ArgumentParser:
     p.add_argument("--lr", type=float, required=True)
     p.add_argument("--win", type=float, default=.05)
     p.add_argument("--step", type=float, default=.05)
+    p.add_argument("--plot_dist", action="store_true")
     return p
 
 
@@ -313,6 +393,15 @@ def main_cli():
     header_needed = not agg_path.exists()
     agg_df.to_csv(agg_path, mode="a", header=header_needed, index=False)
     print(f"[info] appended to global aggregate → {agg_path}\n")
+
+    if args.plot_dist:
+        # ⑤ distributions   (hist + KDE)
+        plot_dist_vs_delta_hist(dist_mat, delta_mat,
+                                out_dir / "hist_distance_delta.png")
+        # ⑥ QQ-plot  distance vs delta
+        plot_qq_dist_delta(dist_mat, delta_mat,
+                        out_dir / "qq_distance_delta.png")
+
 
 
 if __name__ == "__main__":
