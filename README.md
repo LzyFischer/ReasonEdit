@@ -9,8 +9,9 @@
 - **Plot** with the same notebook: `plot_preliminary.ipynb`.
 
 ## 3 · Motivation & Evidence  
-1. `bash scripts/circuit.sh` — extract circuits for every reasoning path.  
-2. `bash scripts/distance.sh` — compute inter-circuit distances.  
-3. `python -m src.preliminary.edit.perlogic_delta` — evaluate locality & generality per path.  
-4. **Chart** outcomes in `plot_preliminary.ipynb`.
+1. `python -m src.preliminary.data_gen.generate_reverse` - generate corrupted prompts.
+2. `bash scripts/circuit.sh` — extract circuits for every reasoning path.  
+3. `bash scripts/distance.sh` — compute inter-circuit distances.  
+4. `python -m src.preliminary.edit.perlogic_delta` — evaluate locality & generality per path.  
+5. **Chart** outcomes in `plot_preliminary.ipynb`.
 5. **Or you can directly run `python tools/run_preliminary_pipeline.py` all in one go.**

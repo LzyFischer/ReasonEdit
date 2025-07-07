@@ -199,7 +199,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--output_json",
-        default="logic/deductive_logic_reverse.json",
+        default=str(DATA_DIR / "logic/deductive_logic_reverse.json"),
         help="Where to write the transformed JSON",
     )
     parser.add_argument(
