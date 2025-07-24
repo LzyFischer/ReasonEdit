@@ -2,21 +2,25 @@ from __future__ import annotations
 from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 #!/usr/bin/env python
 """
-Sequentially fine-tune a LoRA adapter on one (train, eval) pair at a time and
-immediately evaluate on the corresponding full-question prompt. After each
-pair, the script prints the running accuracy over all processed pairs and
-finally saves per-logic accuracy matrices.
+Sequentially fine‑tune a LoRA adapter on **batches of same‑logic training
+examples** and immediately evaluate on the corresponding full‑question prompt.
+After each batch, the script prints the running accuracy over all processed
+pairs and finally saves per‑logic accuracy matrices.
 
-Re-organised for clarity and maintainability:
-• Clear top-level constants and configuration helpers
-• All IO / CLI parsing grouped in `get_args()`
-• Stateless utility helpers collected together
-• Model and tokenizer initialisation encapsulated in `get_model()`
-• The sequential training loop moved into a `Trainer` class
-• Metrics handling extracted to dedicated helpers
-• `main()` entry-point with guard for import safety
+Major changes vs. the single‑example version
+────────────────────────────────────────────
+• Added `--batch_k` CLI flag (default = 4) controlling how many training
+  examples of the same logic are used per fine‑tuning step.
+• `harvest_pairs()` is unchanged – it still produces a list of (train, eval)
+  pairs with generativity/locality probes.
+• `Trainer` now pre‑computes a lookup mapping each logic → list of *training*
+  examples, enabling quick sampling of same‑logic batches.
+• `_process_pair()` fine‑tunes on a batch of ≤ `batch_k` training examples
+  (randomly sampled without replacement) instead of just one.
+• All other behaviour (generality/locality evaluation, metrics, IO) remains
+  unchanged.
 """
-
+import pdb
 import argparse
 import json
 import random
@@ -24,7 +28,6 @@ import re
 import time
 from collections import defaultdict
 from pathlib import Path
-import pdb  # for debugging
 
 import numpy as np
 import pandas as pd
@@ -40,9 +43,11 @@ SEED = 1
 MAX_LEN = 256
 POSSIBLE_ANSWERS = ["true", "false", "n/a"]
 
+
 def set_seed(seed: int = SEED) -> None:
     random.seed(seed)
     torch.manual_seed(seed)
+
 
 ###############################################################################
 # 1. Configuration & CLI                                                      #
@@ -60,21 +65,23 @@ def str2bool(v: str | bool) -> bool:
 
 def get_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Sequential LoRA fine-tuning on logic pairs",
+        description="Sequential LoRA fine‑tuning on logic pairs",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
 
     # training behaviour
-    parser.add_argument("--fine_tune",  type=str2bool, default=True)
-    parser.add_argument("--lr",         type=float,    default=1e-4,
+    parser.add_argument("--fine_tune", type=str2bool, default=True)
+    parser.add_argument("--lr", type=float, default=1e-5,
                         help="Learning rate for the LoRA parameters")
+    parser.add_argument("--batch_k", type=int, default=20,
+                        help="# of same‑logic training examples per fine‑tuning step")
 
     # dataset paths
-    parser.add_argument("--src_json",   type=Path,     default=DATA_DIR / "logic/deductive_logic.json")
+    parser.add_argument("--src_json", type=Path, default=DATA_DIR / "logic/deductive_logic.json")
     parser.add_argument("--correct_file", type=str,
                         default=str(DATA_DIR / "processed/correct_pairs_llama_7b.json"))
 
-    # sampling-scheme
+    # sampling‑scheme
     parser.add_argument("--gen_k", type=int, default=1,
                         help="# generative prompts from SAME logic")
     parser.add_argument("--loc_k", type=int, default=1,
@@ -84,6 +91,7 @@ def get_args() -> argparse.Namespace:
     parser.add_argument("--model_name", type=str, default="Qwen/Qwen2.5-3B-Instruct")
 
     return parser.parse_args()
+
 
 ###############################################################################
 # 2. Tokenizer, encoding & generation helpers                                #
@@ -107,9 +115,9 @@ def encode_example(row: dict, tokenizer, src_path: Path):
 
     ids = tokenizer(full, max_length=MAX_LEN, padding="max_length",
                     truncation=True, return_tensors="pt")
-    input_ids  = ids["input_ids"].squeeze(0)
-    attn_mask  = ids["attention_mask"].squeeze(0)
-    labels     = input_ids.clone()
+    input_ids = ids["input_ids"].squeeze(0)
+    attn_mask = ids["attention_mask"].squeeze(0)
+    labels = input_ids.clone()
 
     prompt_len = tokenizer(prompt, return_tensors="pt")["input_ids"].squeeze(0).numel()
     labels[:prompt_len] = -100
@@ -131,7 +139,10 @@ def generate_answer(prompt: str, model, tokenizer, src_path: Path, max_new: int 
         text = tokenizer.decode(out[0], skip_special_tokens=True)
 
     # crude normalisation heuristics
-    answer = text.split(" Answer:")[-1].strip().split()[0].lower()
+    try:
+        answer = text.split(" Answer:")[-1].strip().split()[0].lower()
+    except:
+        answer = 'n/a'
     if not any(k in answer for k in POSSIBLE_ANSWERS):
         lowered = text.split(" Answer:")[-1].lower()
         if any(x in lowered for x in {"yes", "true"}):
@@ -141,8 +152,9 @@ def generate_answer(prompt: str, model, tokenizer, src_path: Path, max_new: int 
         elif "n/a" in lowered:
             answer = "n/a"
         else:
-            answer = "true"  # default fall-back
+            answer = "true"  # default fall‑back
     return answer
+
 
 ###############################################################################
 # 3. Data preparation                                                         #
@@ -163,34 +175,36 @@ def split_premise(nl: str):
     sents = re.split(r"(?<=\.|!|\?)\s+", premise)
     return (" ".join(sents[:-1]).strip(), sents[-1].strip()) if len(sents) > 1 else (None, None)
 
+
 def _view(ex):
     """Return a small, acyclic dict for probing."""
     return {
         "prompt": ex["eval"]["prompt"],
-        "gold":   ex["eval"]["gold"],
-        "logic":  ex["logic"],
+        "gold": ex["eval"]["gold"],
+        "logic": ex["logic"],
     }
+
 
 def harvest_pairs(path: Path, gen_k: int, loc_k: int):
     """Load dataset and attach generativity / locality probes."""
-    examples = []
-    pool_by_logic = defaultdict(list)
+    examples: list[dict] = []
+    pool_by_logic: dict[str, list[dict]] = defaultdict(list)
 
     # –– load dataset ––
     for rec in json.load(path.open()):
         logic = rec["question"][0]["<nl>"].strip()
-        gold  = str(rec["answer"]).lower()
+        gold = str(rec["answer"]).lower()
         for dom, topics in rec.items():
             if dom in {"question", "answer"}:
                 continue
             for payload in topics.values():
-                nl_full  = payload["<nl>"].strip()
-                premise  = nl_full.split("\nGiven")[0].strip()
+                nl_full = payload["<nl>"].strip()
+                premise = nl_full.split("\nGiven")[0].strip()
                 question = nl_full.split("\n")[-1].strip()
                 ex = {
                     "logic": logic,
                     "train": {"text": premise, "label": gold},
-                    "eval":  {"prompt": nl_full, "gold": gold},
+                    "eval": {"prompt": nl_full, "gold": gold},
                 }
                 examples.append(ex)
                 pool_by_logic[logic].append(ex)
@@ -200,7 +214,7 @@ def harvest_pairs(path: Path, gen_k: int, loc_k: int):
     for ex in examples:
         logic = ex["logic"]
 
-        # --- generativity: SAME-logic pool (excluding itself) --------------
+        # --- generativity: SAME‑logic pool (excluding itself) --------------
         same_pool = [e for e in pool_by_logic[logic] if e is not ex]
         ex["gen_eval"] = [_view(e) for e in rng.sample(
             same_pool, k=min(gen_k, len(same_pool))
@@ -216,13 +230,14 @@ def harvest_pairs(path: Path, gen_k: int, loc_k: int):
 
     return examples
 
+
 ###############################################################################
 # 4. Model & LoRA initialisation                                             #
 ###############################################################################
 
 def get_model(model_name: str, tokenizer, device: torch.device):
     base = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float16)
-    # target-module heuristic
+    # target‑module heuristic
     target_modules = [
         "q_proj", "o_proj", "k_proj", "v_proj", "gate_proj", "up_proj", "down_proj"
     ] if model_name.startswith("google/gemma-3-4b-it") else None
@@ -234,12 +249,14 @@ def get_model(model_name: str, tokenizer, device: torch.device):
     model.generation_config.pad_token_id = tokenizer.pad_token_id
     return model
 
+
 ###############################################################################
 # 5. Trainer                                                                 #
 ###############################################################################
 class Trainer:
     def __init__(self, args, tokenizer, model, pairs):
         self.args = args
+        self.batch_k = args.batch_k
         self.tok = tokenizer
         self.model = model
         self.pairs = pairs
@@ -251,6 +268,11 @@ class Trainer:
         }
         self.optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr)
 
+        # build logic → list of TRAIN examples mapping ----------------------
+        self.train_pool_by_logic: dict[str, list[dict]] = defaultdict(list)
+        for p in pairs:
+            self.train_pool_by_logic[p["logic"].lower()].append(p["train"])
+
     # ---------------------------------------------------------------------
     # metrics helpers
     # ---------------------------------------------------------------------
@@ -260,15 +282,15 @@ class Trainer:
         self.tag_of = {lg: f"logic_{i:03d}" for i, lg in enumerate(logic_types)}
         self.idx_of = {lg: i for i, lg in enumerate(logic_types)}
         n = len(logic_types)
-        self.mat_total   = [[0]*n for _ in range(n)]
-        self.mat_correct = [[0]*n for _ in range(n)]
-        self.mat_dgen    = [[0]*n for _ in range(n)]
-        self.mat_dloc    = [[0]*n for _ in range(n)]
+        self.mat_total = [[0] * n for _ in range(n)]
+        self.mat_correct = [[0] * n for _ in range(n)]
+        self.mat_dgen = [[0] * n for _ in range(n)]
+        self.mat_dloc = [[0] * n for _ in range(n)]
         # running
         self.hits_gen = self.hits_loc = self.gen_total = self.loc_total = 0
 
     # ---------------------------------------------------------------------
-    # train-evaluate loop
+    # train‑evaluate loop
     # ---------------------------------------------------------------------
     def run(self):
         print("\nStarting sequential training…")
@@ -278,8 +300,9 @@ class Trainer:
             self._process_pair(pair)
             if step % 2 == 0 or step == len(self.pairs):
                 print(self._progress_str(step))
+                if (self.hits_gen / self.gen_total if self.gen_total else 0) < 0.5:
+                    pdb.set_trace()
         print(f"Completed in {(time.time()-start)/60:.1f} min")
-
         lr_slug = str(self.args.lr).replace('.', 'p').replace('-', 'm')
         out_dir = Path(str(OUTPUTS_DIR / f"perlogic/{lr_slug}"))
         self._save_results(out_dir)
@@ -294,7 +317,8 @@ class Trainer:
     # ------------------------------------------------------------------
     def _process_pair(self, pair: dict):
         row = self.idx_of[pair["logic"]]
-        # -- pre-train predictions
+
+        # -- pre‑train predictions ---------------------------------------
         pre_gen = generate_answer(pair["eval"]["prompt"], self.model, self.tok, self.args.src_json)
         pre_hits_gen = [
             p["gold"] in generate_answer(p["prompt"], self.model, self.tok, self.args.src_json)
@@ -304,17 +328,29 @@ class Trainer:
             loc["gold"] in generate_answer(loc["prompt"], self.model, self.tok, self.args.src_json)
             for loc in pair["loc_eval"]
         ]
-        # fine-tune on single example
+
+        # ---------------- fine‑tune on batch ----------------------------
         if self.args.fine_tune:
-            batch = {k: v.unsqueeze(0).to(self.device) for k, v in
-                     encode_example(pair["train"], self.tok, self.args.src_json).items()}
-            for _ in range(10):
-                loss = self.model(**batch).loss
-                loss.backward(); self.optimizer.step(); self.optimizer.zero_grad()
+            batch_examples = random.sample(
+                self.train_pool_by_logic[pair["logic"].lower()],
+                k=min(self.batch_k, len(self.train_pool_by_logic[pair["logic"].lower()]))
+            )
+            batch_tensors = {"input_ids": [], "attention_mask": [], "labels": []}
+            for ex in batch_examples:
+                enc = encode_example(ex, self.tok, self.args.src_json)
+                for k in batch_tensors:
+                    batch_tensors[k].append(enc[k])
+            batch_stack = {k: torch.stack(v).to(self.device) for k, v in batch_tensors.items()}
+
+            for _ in range(10):  # 10 gradient steps as before
+                loss = self.model(**batch_stack).loss / len(batch_examples)
+                loss.backward()
+                self.optimizer.step()
+                self.optimizer.zero_grad()
         else:
             loss = torch.tensor(0.0)
 
-        # -- post-train predictions
+        # -- post‑train predictions --------------------------------------
         post_hits_gen = [
             p["gold"] in generate_answer(p["prompt"], self.model, self.tok, self.args.src_json)
             for p in pair["gen_eval"]
@@ -323,6 +359,7 @@ class Trainer:
             loc["gold"] in generate_answer(loc["prompt"], self.model, self.tok, self.args.src_json)
             for loc in pair["loc_eval"]
         ]
+
         # metrics update
         self._update_matrices(row, pre_hits_gen, post_hits_gen,
                               pair["loc_eval"], pre_hits_loc, post_hits_loc)
@@ -337,16 +374,16 @@ class Trainer:
             self._record(row, col, a, b, gen=False)
 
     def _record(self, r, c, pre, post, *, gen: bool):
-        self.mat_total[r][c]   += 1
+        self.mat_total[r][c] += 1
         self.mat_correct[r][c] += int(post)
         if gen and r == c:
             self.mat_dgen[r][c] += abs(int(post) - int(pre))
             self.gen_total += 1
-            self.hits_gen  += int(post)
+            self.hits_gen += int(post)
         elif not gen:
             self.mat_dloc[r][c] += abs(int(post) - int(pre))
             self.loc_total += 1
-            self.hits_loc  += int(post)
+            self.hits_loc += int(post)
 
     # ------------------------------------------------------------------
     def _progress_str(self, step):
@@ -366,19 +403,20 @@ class Trainer:
 
         tags = [self.tag_of[lg] for lg in self.logic_types]
         delta_count = [[self.mat_dgen[r][c] if r == c else self.mat_dloc[r][c]
-                       for c in range(len(self.logic_types))]
-                      for r in range(len(self.logic_types))]
+                        for c in range(len(self.logic_types))]
+                       for r in range(len(self.logic_types))]
         delta = np.array(delta_count) / np.array(self.mat_total)
 
-        pd.DataFrame(acc, index=tags, columns=tags).to_csv(out_dir/"accuracy.csv", float_format="%.4f")
-        pd.DataFrame(self.mat_total,   index=tags, columns=tags).to_csv(out_dir/"n_total.csv")
-        pd.DataFrame(self.mat_correct, index=tags, columns=tags).to_csv(out_dir/"n_correct.csv")  
-        pd.DataFrame(delta_count, index=tags, columns=tags).to_csv(out_dir/"delta_count.csv")    
-        pd.DataFrame(delta, index=tags, columns=tags).to_csv(out_dir/"delta.csv")
+        pd.DataFrame(acc, index=tags, columns=tags).to_csv(out_dir / "accuracy.csv", float_format="%.4f")
+        pd.DataFrame(self.mat_total, index=tags, columns=tags).to_csv(out_dir / "n_total.csv")
+        pd.DataFrame(self.mat_correct, index=tags, columns=tags).to_csv(out_dir / "n_correct.csv")
+        pd.DataFrame(delta_count, index=tags, columns=tags).to_csv(out_dir / "delta_count.csv")
+        pd.DataFrame(delta, index=tags, columns=tags).to_csv(out_dir / "delta.csv")
 
         # tag lookup
-        pd.DataFrame({"tag": tags, "prompt": self.logic_types}).to_csv(out_dir/"logic_tags.csv", index=False)
+        pd.DataFrame({"tag": tags, "prompt": self.logic_types}).to_csv(out_dir / "logic_tags.csv", index=False)
         print("\nSaved metrics to", out_dir)
+
 
 ###############################################################################
 # 6. Main                                                                    #

@@ -1,3 +1,4 @@
+from __future__ import annotations
 from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 #!/usr/bin/env python
 """
@@ -11,7 +12,6 @@ Changes vs. the buggy version provided by the user  ⤵
 • Removed all `copy` / `sacrebleu` clutter.
 • Fixed device handling and prompt/label masking.
 """
-from __future__ import annotations
 
 import argparse
 import json
@@ -72,13 +72,13 @@ parser.add_argument(
 parser.add_argument(
     "--lr",
     type=float,
-    default=2e-4,
+    default=1e-4,
     help="Learning rate for the optimizer",
 )
 parser.add_argument(
     "--model_name",
     type=str,
-    default="meta-llama/Llama-2-7b-chat-hf",
+    default="Qwen/Qwen2.5-3B-Instruct",
     help="Name of the base model to use",
 )
 parser.add_argument(

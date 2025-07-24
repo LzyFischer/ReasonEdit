@@ -9,16 +9,18 @@ from glob import glob
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-SEEDS      = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29,]
+SEEDS      = [11, 12, 13, 14, 15, 16, 17, 18, 19,0,1,2,3,4,5,6,7,8,9,20,21,22,23,24,25,26,27,28,29,10]
 MODEL_ID    = "qwen2_5_3b_instruct"
-DISTANCES  = {"pot": "src.preliminary.distance.pot_distance",
-              "edit": "src.preliminary.distance.edit_distance",
-              "jaccard": "src.preliminary.distance.jaccard_distance"}
-LRS        = [1e-4, 1.5e-4]
+DISTANCES  = {
+                "pot": "src.preliminary.distance.pot_distance",
+                "edit": "src.preliminary.distance.edit_distance",
+                "jaccard": "src.preliminary.distance.jaccard_distance"
+              }
+LRS        = [1e-4]
 REQ_PNGS    = ["scatter.png", "scatter_binned.png",
                "scatter_sliding.png", "scatter_acc.png"]
 plot_mode = "combined"  # "single", "combined", "both"
-combine_size = 9  # None or 0 → merge ALL runs
+combine_size = 5  # None or 0 → merge ALL runs
 len_pattern = 10
 
 
@@ -55,15 +57,14 @@ def main(force: bool = False):
         lr_slug = str(lr).replace(".", "p").replace("-", "m")
         csv_root = PROJECT_ROOT / f"results/output/perlogic/{lr_slug}"
         if force or not csv_root.exists():
-            run(["python", "-m", "src.preliminary.edit.perlogic_delta",
+            run(["python", "-m", "src.preliminary.edit.perlogic_delta_batch",
                  "--lr", str(lr)])
 
     # 4) 绘图
     if plot_mode in {"combined", "both"}:
         for dist_name in DISTANCES.keys():
             for lr in LRS:
-                seeds_str = ",".join(str(s) for s in SEEDS)
-                lr_slug = str(lr).replace('.', 'p')
+                seeds_str = ",".join(str(s) for s in SEEDS) # can't tell the output dir here
                 run([
                     "python", "-m", "tools.plot_preliminary_combined",
                     "--distance", dist_name,
@@ -78,7 +79,6 @@ def main(force: bool = False):
             lr_slug = str(lr).replace('.', 'p')
             out_dir = PROJECT_ROOT / f"results/figures/{dist_name}/seed{seed}/lr{lr_slug}"
             need    = force or not out_dir.exists() or not all((out_dir / f).exists() for f in REQ_PNGS)
-
             if need:
                 run([
                     "python", "-m", "tools.plot_preliminary",

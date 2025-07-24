@@ -148,6 +148,7 @@ def generate_answer(prompt: str, model, max_new_tokens: int = 50) -> str:
         ids = tokenizer(templ, return_tensors="pt").to(device)
         out = model.generate(**ids, max_new_tokens=max_new_tokens, do_sample=False)
         text = tokenizer.decode(out[0], skip_special_tokens=True)
+        pdb.set_trace()
         try:
             answer = text.split(" Answer:")[-1].strip().split()[0].lower()
             if "true" not in answer and "false" not in answer and "n/a" not in answer:

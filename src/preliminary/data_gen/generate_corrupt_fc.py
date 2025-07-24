@@ -1,10 +1,11 @@
+from __future__ import annotations
 from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 #!/usr/bin/env python
-from __future__ import annotations
 import json, re, argparse, random
 from pathlib import Path
 from typing import Dict, List
 from transformers import AutoTokenizer
+import spacy, re
 import pdb
 
 from itertools import count
@@ -29,6 +30,10 @@ tok  = AutoTokenizer.from_pretrained(args.tok_path, trust_remote_code=True)
 ANSWER_MARK      = "Answer:"
 SUFFIX_NO_NL     = " (Answer in True, False, or N/A (Neither))."
 SUFFIX_WITH_MARK = SUFFIX_NO_NL + " " + ANSWER_MARK
+nlp = spacy.load("en_core_web_sm")
+NEG_PAT = re.compile(r"\bnot\b|\bn't\b", re.I)
+AUX_PAT = re.compile(r"\b(is|are|was|were|has|have|had|can|could|shall|should|"
+                     r"will|would|may|might|must|do|does|did)\b", re.I)
 
 # -------------------------------------------------------------------------
 # add once, near the top (right after you load the main tokenizer `tok`)
@@ -67,7 +72,7 @@ def equalise_len(q_text: str, target_line: str) -> str:
 
     # -------- pad --------
     while tq < tt:
-        words[-1] += "?"
+        words[-1] += " ?"
         tq = tlen1(" ".join(words))
 
     return " ".join(words)
@@ -86,13 +91,26 @@ NEG_PAT = re.compile(r"\bnot\b|\bn't\b", re.I)
 AUX_PAT = re.compile(r"\b(is|are|was|were|has|have|had|can|could|shall|should|"
                      r"will|would|may|might|must|do|does|did)\b", re.I)
 
+# def negate(sent: str) -> str:
+#     if NEG_PAT.search(sent):
+#         return NEG_PAT.sub("", sent, 1).replace("  ", " ").strip()
+#     if (aux := AUX_PAT.search(sent)):
+#         return sent[:aux.end()] + " not" + sent[aux.end():]
+#     subj = re.match(r"(\b\w+\b(?:\s+\b\w+\b)?)\s+", sent)
+#     return (sent[:subj.end()] + "didn’t " + sent[subj.end():]) if subj else "not " + sent
+
 def negate(sent: str) -> str:
     if NEG_PAT.search(sent):
         return NEG_PAT.sub("", sent, 1).replace("  ", " ").strip()
     if (aux := AUX_PAT.search(sent)):
         return sent[:aux.end()] + " not" + sent[aux.end():]
-    subj = re.match(r"(\b\w+\b(?:\s+\b\w+\b)?)\s+", sent)
-    return (sent[:subj.end()] + "didn’t " + sent[subj.end():]) if subj else "not " + sent
+
+    doc = nlp(sent)
+    # 1️⃣ find the first finite verb or the ROOT
+    verb = next((t for t in doc if t.pos_ in ("VERB", "AUX") and t.morph.get("Tense")), doc[-1])
+    base = verb.lemma_
+    # 2️⃣ build new sentence
+    return f"{sent[:verb.idx]}didn't {base}{sent[verb.idx + len(verb.text):]}"
 
 def first_premise(payload: dict, preamble: str) -> str:
     if (prem := payload.get("<aaa>")):          # tagged first premise
@@ -141,10 +159,12 @@ def process_entry(rec: dict, pbar) -> dict:
                 "answers":        [gt],
                 "wrong_answers":  [flipped(gt)],
                 "token_mismatch": mm,
+                "logic": rec['question'][0].get("<nl>", " ").strip(),
             })
             pbar.update()              # advance progress bar
             if (cnt := next(counter)) % 250 == 0:
                 logging.info(f"generated {cnt:,} corrupted prompts so far")
+        # out["logic"] = rec['question'][0].get("<nl>", " ").strip()
     return out
 
 # ────────── main ──────────

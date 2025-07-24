@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR
 #!/usr/bin/env python
 """
@@ -11,7 +13,6 @@ Changes vs. the buggy version provided by the user  ⤵
 • Removed all `copy` / `sacrebleu` clutter.
 • Fixed device handling and prompt/label masking.
 """
-from __future__ import annotations
 
 import argparse
 import json
@@ -79,7 +80,7 @@ parser.add_argument(
 parser.add_argument(
     "--model_name",
     type=str,
-    default="meta-llama/Llama-3.2-3B",
+    default="Qwen/Qwen2.5-3B-Instruct",
     help="Name of the base model to use",
 )
 args = parser.parse_args()
@@ -124,7 +125,7 @@ def generate_answer(prompt: str, model, max_new_tokens: int = 50) -> str:
     model.eval()
     with torch.no_grad():
         if "Answer:" not in prompt:
-            templ = f"{prompt} (Answer in True, False, or N/A). Answer:"
+            templ = f"{prompt} (Output only True, False, or N/A) Answer:"
         else:
             templ = f"{prompt}"
         ids = tokenizer(templ, return_tensors="pt").to(device)
@@ -132,6 +133,7 @@ def generate_answer(prompt: str, model, max_new_tokens: int = 50) -> str:
         text = tokenizer.decode(out[0], skip_special_tokens=True)
         try:
             answer = text.split(" Answer:")[-1].strip().split()[0].lower()
+            pdb.set_trace()  # noqa: F821
             if "true" not in answer and "false" not in answer and "n/a" not in answer:
                 # extract the "not" as false, else as true after the "### Answer:"
                 answers = text.split(" Answer:")[-1].lower()
@@ -139,7 +141,7 @@ def generate_answer(prompt: str, model, max_new_tokens: int = 50) -> str:
                     answer = "true"
                 elif "not" in answers or "no" in answers or "false" in answers:
                     answer = "false"
-                elif "n/a" in answers:
+                elif "n/a" in answers or "neither" in answers or "none" in answers:
                     answer = "n/a"
                 else:
                     answer = "true"
@@ -229,6 +231,8 @@ def harvest_triplets(path: Path):
 
     for rec in root:
         gold_reason = str(rec["answer"]).lower()          # logic-question label
+        if gold_reason == "true":
+            continue
 
         # walk every domain/topic
         for domain in filter(lambda k: k not in {"question", "answer"}, rec):
@@ -255,7 +259,7 @@ def harvest_triplets(path: Path):
                 evals = [
                     {
                         "name": f"fact-{tag}",
-                        "prompt": f"Is the following statement true or false? {txt}. (Answer in True or False). Answer:",
+                        "prompt": f"Is the following statement true or false? {txt}. (Output only True, False, or Neither) Answer:",
                         "gold": lbl,
                     }
                     for tag, txt, lbl in facts
