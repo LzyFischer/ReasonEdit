@@ -190,31 +190,42 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Directory or glob of *.json mask files")
     p.add_argument("--out_csv",
                    help="Output CSV path for raw Jaccard matrix "
-                        "(default: <input>/jaccard_distance_raw.csv)")
+                        "(default: <computed_out_dir>/jaccard_distance_raw.csv)")
     p.add_argument("--block", type=int, default=3,
                    help="Dashed grid every N cells")
     p.add_argument("--no_cluster", action="store_true",
                    help="Skip abstract-distance reordering")
     p.add_argument("--seed", type=int, default=0,
-        help="Seed (only used to find *_split<seed> files when --input is a "
-             "directory)")
+                   help="Seed (only used to find *_split<seed> files when --input is a directory)")
+    p.add_argument("--resume", type=Path,
+                   help="Path to checkpoint; results go under a subdir named after the checkpoint stem")
     return p
 
 
 def main():
     args = build_parser().parse_args()
 
-    root     = Path(args.input)
-    out_png  = root / "jaccard_matrix.png"
-    out_csv  = Path(args.out_csv) if args.out_csv \
-               else root / "jaccard_distance_raw.csv"
+    # --- Determine output directory (same behavior as other script) ---
+    base_dir = Path(args.input).resolve()
+    if args.resume:
+        ckpt_stem = Path(args.resume).stem
+        out_dir = base_dir / ckpt_stem
+        print(f"[info] Using subdir based on checkpoint name: {out_dir}")
+    else:
+        out_dir = base_dir / "origin"  # or "unmodified"
+        print(f"[info] Using subdir for unmodified model: {out_dir}")
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # File paths now live under out_dir
+    out_png = out_dir / "jaccard_matrix.png"
+    out_csv = Path(args.out_csv) if args.out_csv else out_dir / "jaccard_distance_raw.csv"
     out_csv.parent.mkdir(parents=True, exist_ok=True)
 
+    # --- Compute + save ---
     data                = collect_masks(args.input, args.seed)
     jaccard_mat, labels = build_jaccard_matrix(data)
 
-    pd.DataFrame(jaccard_mat, index=labels, columns=labels) \
-      .to_csv(out_csv, float_format="%.6f")
+    pd.DataFrame(jaccard_mat, index=labels, columns=labels).to_csv(out_csv, float_format="%.6f")
     print("✓ Saved raw matrix →", out_csv)
 
     if not args.no_cluster:

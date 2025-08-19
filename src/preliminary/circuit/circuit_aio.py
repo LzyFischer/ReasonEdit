@@ -17,7 +17,6 @@ from pathlib import Path
 from typing import List
 import torch.nn as nn
 
-import pdb
 import torch as t
 from auto_circuit.data import load_datasets_from_json
 from auto_circuit.experiment_utils import load_tl_model
@@ -38,15 +37,40 @@ def quant_tag(q: float) -> str:
     return ("%g" % keep_pct).replace(".", "_")
 
 
-def load_model(model_name: str, device: t.device):
-    base = load_tl_model(model_name, device)
+def load_model(model_name: str, device: t.device, args):
+    # 1) 先按 auto_circuit 方式把“基础 HF 模型”加载进来
+    base = load_tl_model(model_name, device)   # TL 包装的 HF 模型
     base.cfg.parallel_attn_mlp = False
+
+    # 2) （可选）把 ckpt 权重灌进 base（在 patchable_model 之前做）
+    if args.resume is not None:
+        ckpt = t.load(args.resume, map_location="cpu")
+        sd = ckpt.get("model_state", ckpt)  # 兼容直接存 state_dict 的情况
+
+        # 将 ckpt 的张量 dtype 对齐到当前模型参数 dtype
+        model_sd = base.state_dict()
+        aligned_sd = {}
+        for k, v in sd.items():
+            if k in model_sd and t.is_tensor(v) and t.is_floating_point(v) and t.is_floating_point(model_sd[k]):
+                aligned_sd[k] = v.to(model_sd[k].dtype)
+            else:
+                aligned_sd[k] = v
+
+        missing, unexpected = base.load_state_dict(aligned_sd, strict=args.strict_resume)
+        print(f"[ckpt] loaded from {args.resume}")
+        print(f"        missing={len(missing)}  unexpected={len(unexpected)}")
+        if "rng_state" in ckpt:
+            t.set_rng_state(ckpt["rng_state"])
+
+    # 3) 给每个 block 补上 hook（不影响已加载的权重）
     for i, block in enumerate(base.blocks):
         if not hasattr(block, "hook_resid_mid"):
             block.hook_resid_mid = nn.Identity()
-            # 让它在 state_dict 里有名字，避免再被找不到
             block.hook_resid_mid.name = f"blocks.{i}.hook_resid_mid"
+
     print("[info]  Added Identity hook_resid_mid to all blocks")
+
+    # 4) 最后再做 patchable 包装
     return patchable_model(
         base, factorized=False, slice_output="last_seq",
         separate_qkv=True, device=device,
@@ -80,15 +104,10 @@ def prune_and_save(
     logic_name: str,
     subset_tag: str,
     top_quants: List[float],
+    run_tag: str,                      # <── NEW: tag inserted right before filename
 ):
-    # flat_pos = t.cat(
-    #     [t.tensor(v).flatten()[t.tensor(v).flatten() > 0.0]
-    #      for v in scores.values()],
-    #     dim=0,
-    # )
     flat_pos = t.cat(
-        [t.tensor(v).flatten()
-         for v in scores.values()],
+        [t.tensor(v).flatten() for v in scores.values()],
         dim=0,
     )
 
@@ -97,15 +116,15 @@ def prune_and_save(
         pruned = {k: (t.tensor(v) * (t.tensor(v) >= thresh).float())
                   for k, v in scores.items()}
 
-
         qtag   = quant_tag(q)
-        subdir = out_dir / qtag
-        subdir.mkdir(parents=True, exist_ok=True)
+        subdir = out_dir / qtag / run_tag         # <── put tag right before file
+        (subdir / "figures").mkdir(parents=True, exist_ok=True)
 
         json_path = subdir / f"{logic_name}_{subset_tag}.json"
         with open(json_path, "w") as fp:
             json.dump({k: v.tolist() for k, v in pruned.items()}, fp, indent=2)
-        
+
+        # 可视化（如该函数内部会保存，则也会落在当前工作目录或需另外指定）
         draw_seq_graph(
             model, pruned,
             score_threshold=thresh,
@@ -134,6 +153,10 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Batch size (only forward+backward, small is fine)")
     p.add_argument("--out_root", default=str(OUTPUTS_DIR / "attr_scores"),
                    help="Root directory to save results")
+    p.add_argument("--resume", type=Path,
+                   help="Path to checkpoint (expects {'model_state': ...} or raw state_dict)")
+    p.add_argument("--strict_resume", action="store_true",
+                   help="Strict key match when loading state_dict")
     return p
 
 
@@ -141,11 +164,16 @@ def main():
     args = build_parser().parse_args()
 
     device = t.device("cuda" if t.cuda.is_available() else "cpu")
-    model  = load_model(args.model, device)
+    model  = load_model(args.model, device, args)
 
-    model_dir = Path(args.out_root) / model_tag(args.model)
+    out_root = Path(args.out_root).resolve()
+    run_tag  = Path(args.resume).stem if args.resume else "origin"
+    print(f"[info] Using run tag: {run_tag}")
+
+    model_dir = out_root / model_tag(args.model)
+    # 预建各量化目录下的 tag/figures 方便后续保存
     for q in args.quants:
-        (model_dir / quant_tag(q) / "figures").mkdir(parents=True, exist_ok=True)
+        (model_dir / quant_tag(q) / run_tag / "figures").mkdir(parents=True, exist_ok=True)
 
     with open(args.data_file) as f:
         logic_groups = json.load(f)
@@ -161,7 +189,7 @@ def main():
         k = min(args.subset_k, len(prompts) // 2 or 1)
 
         for split in range(1, args.splits + 1):
-            rng = random.Random(args.seed + split-1)
+            rng = random.Random(args.seed + split - 1)
             shuffled = prompts[:]
             rng.shuffle(shuffled)
 
@@ -169,15 +197,15 @@ def main():
             scores = compute_scores(model, partA, device, args.batch_size)
             prune_and_save(
                 scores, model, model_dir,
-                logic_name, f"split{args.seed + split-1}_partA",
-                args.quants,
+                logic_name, f"split{args.seed + split - 1}_partA",
+                args.quants, run_tag=run_tag,
             )
             if partB:
                 scores_B = compute_scores(model, partB, device, args.batch_size)
                 prune_and_save(
                     scores_B, model, model_dir,
-                    logic_name, f"split{args.seed + split-1}_partB",
-                    args.quants,
+                    logic_name, f"split{args.seed + split - 1}_partB",
+                    args.quants, run_tag=run_tag,
                 )
 
     print("\n✅ Finished for all TOP_QUANTS.")

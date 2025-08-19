@@ -101,8 +101,8 @@ class ActCacher:
     def _hook(self, name):
         def fn(module, inp, out):
             # Keep graph (no detach) and retain grad so we can get d(metric)/d(act)
-            if isinstance(out, torch.Tensor):
-                out.retain_grad()
+            # if isinstance(out, torch.Tensor):
+            #     out.retain_grad()
             self.cache[name] = out
         return fn
 
@@ -190,7 +190,7 @@ def calculate_effect(model, clean_cache, corrupt_cache, nodes, tokenizer, out_cl
     grads = torch.autograd.grad(
         metric,
         [clean_cache.cache[n] for n in nodes],
-        retain_graph=True,
+        # retain_graph=False,
         create_graph=True,
         allow_unused=True
     )
@@ -225,7 +225,7 @@ def calculate_effect(model, clean_cache, corrupt_cache, nodes, tokenizer, out_cl
 
                 # 可选：扩展到 q-head 粒度
                 # eff_h = eff_kv.repeat_interleave(group_size, dim=1) # [1, n_heads]
-                effects[n] = eff_h
+                effects[n] = eff_kv
         else:
             # 其他层保持原样（整体 effect）
             diff_mlp = diff_last.reshape(diff_last.size(0), -1).mean(0)  # [1, hidden]

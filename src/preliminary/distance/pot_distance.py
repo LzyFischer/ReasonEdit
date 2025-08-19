@@ -203,30 +203,42 @@ def build_parser() -> argparse.ArgumentParser:
         help="Directory or glob of *.json mask files")
     p.add_argument("--out_csv",
         help="Output CSV path for raw OT matrix "
-             "(default: <input>/ot_distance_raw.csv)")
+             "(default: <computed_out_dir>/ot_distance_raw.csv)")
     p.add_argument("--block", type=int, default=3,
         help="Dashed grid every N cells")
     p.add_argument("--no_cluster", action="store_true",
         help="Skip abstract-distance reordering")
     p.add_argument("--seed", type=int, default=0,
-        help="Seed (only used to find *_split<seed> files when --input is a "
-             "directory)")
+        help="Seed (only used to find *_split<seed> files when --input is a directory)")
+    p.add_argument("--resume", type=Path,
+        help="Path to checkpoint; results go under a subdir named after the checkpoint stem")
     return p
 
 
 def main():
-    args    = build_parser().parse_args()
-    root    = Path(args.input)
-    out_png = root / "ot_distance_matrix.png"
-    out_csv = Path(args.out_csv) if args.out_csv else root / "ot_distance_raw.csv"
-    # mkdir for output CSV if not specified
+    args = build_parser().parse_args()
+
+    # --- Decide output directory (same pattern as other scripts) ---
+    base_dir = Path(args.input).resolve()
+    if args.resume:
+        ckpt_stem = Path(args.resume).stem
+        out_dir = base_dir / ckpt_stem
+        print(f"[info] Using subdir based on checkpoint name: {out_dir}")
+    else:
+        out_dir = base_dir / "origin"  # or "unmodified"
+        print(f"[info] Using subdir for unmodified model: {out_dir}")
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # File paths under out_dir (unless --out_csv explicitly given)
+    out_png = out_dir / "ot_distance_matrix.png"
+    out_csv = Path(args.out_csv) if args.out_csv else out_dir / "ot_distance_raw.csv"
     out_csv.parent.mkdir(parents=True, exist_ok=True)
 
+    # --- Compute + save ---
     data           = collect_bags(args.input, args.seed)
     ot_mat, labels = build_ot_matrix(data)
 
-    pd.DataFrame(ot_mat, index=labels, columns=labels) \
-      .to_csv(out_csv, float_format="%.6f")
+    pd.DataFrame(ot_mat, index=labels, columns=labels).to_csv(out_csv, float_format="%.6f")
     print("✓ Saved raw matrix →", out_csv)
 
     if not args.no_cluster:

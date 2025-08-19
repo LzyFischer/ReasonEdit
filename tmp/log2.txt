@@ -1,0 +1,341 @@
+➤ python -m src.preliminary.edit.perlogic_delta_batch --lr 5e-05 --out_root /sfs/weka/scratch/vjd5zr/project/ReasonEdit/results/output/perlogic --resume ckpts/reptile_ns_00045.pt
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.46it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.87it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.80it/s]
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+Resumed from ckpts/reptile_ns_00045.pt (iter=45), missing=0 unexpected=0
+Loaded model with trainable LoRA parameters:
+trainable params: 3,686,400 || all params: 3,089,625,088 || trainable%: 0.1193
+Loaded 600 (train, eval) pairs.
+
+Starting sequential training…
+[   2/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[   4/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[   6/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[   8/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  10/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  12/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  14/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  16/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  18/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  20/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  22/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  24/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  26/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  28/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  30/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  32/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  34/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  36/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  38/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  40/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  42/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  44/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  46/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  48/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  50/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  52/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  54/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  56/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  58/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  60/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  62/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  64/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  66/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  68/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  70/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  72/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  74/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  76/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  78/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  80/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  82/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  84/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  86/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  88/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  90/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  92/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  94/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  96/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[  98/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 100/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 102/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 104/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 106/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 108/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 110/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 112/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 114/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 116/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 118/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 120/600]  gen_acc=1.000  loc_acc=0.444  loss=nan
+[ 122/600]  gen_acc=0.984  loc_acc=0.446  loss=nan
+[ 124/600]  gen_acc=0.968  loc_acc=0.448  loss=nan
+[ 126/600]  gen_acc=0.952  loc_acc=0.450  loss=nan
+[ 128/600]  gen_acc=0.938  loc_acc=0.451  loss=nan
+[ 130/600]  gen_acc=0.923  loc_acc=0.453  loss=nan
+[ 132/600]  gen_acc=0.909  loc_acc=0.455  loss=nan
+[ 134/600]  gen_acc=0.896  loc_acc=0.456  loss=nan
+[ 136/600]  gen_acc=0.882  loc_acc=0.458  loss=nan
+[ 138/600]  gen_acc=0.870  loc_acc=0.459  loss=nan
+[ 140/600]  gen_acc=0.857  loc_acc=0.460  loss=nan
+[ 142/600]  gen_acc=0.845  loc_acc=0.462  loss=nan
+[ 144/600]  gen_acc=0.833  loc_acc=0.463  loss=nan
+[ 146/600]  gen_acc=0.822  loc_acc=0.464  loss=nan
+[ 148/600]  gen_acc=0.811  loc_acc=0.465  loss=nan
+[ 150/600]  gen_acc=0.800  loc_acc=0.467  loss=nan
+[ 152/600]  gen_acc=0.789  loc_acc=0.468  loss=nan
+[ 154/600]  gen_acc=0.779  loc_acc=0.469  loss=nan
+[ 156/600]  gen_acc=0.769  loc_acc=0.470  loss=nan
+[ 158/600]  gen_acc=0.759  loc_acc=0.471  loss=nan
+[ 160/600]  gen_acc=0.750  loc_acc=0.472  loss=nan
+[ 162/600]  gen_acc=0.741  loc_acc=0.473  loss=nan
+[ 164/600]  gen_acc=0.732  loc_acc=0.474  loss=nan
+[ 166/600]  gen_acc=0.723  loc_acc=0.475  loss=nan
+[ 168/600]  gen_acc=0.714  loc_acc=0.476  loss=nan
+[ 170/600]  gen_acc=0.706  loc_acc=0.477  loss=nan
+[ 172/600]  gen_acc=0.698  loc_acc=0.478  loss=nan
+[ 174/600]  gen_acc=0.690  loc_acc=0.479  loss=nan
+[ 176/600]  gen_acc=0.682  loc_acc=0.480  loss=nan
+[ 178/600]  gen_acc=0.674  loc_acc=0.481  loss=nan
+[ 180/600]  gen_acc=0.667  loc_acc=0.481  loss=nan
+[ 182/600]  gen_acc=0.670  loc_acc=0.481  loss=nan
+[ 184/600]  gen_acc=0.674  loc_acc=0.481  loss=nan
+[ 186/600]  gen_acc=0.677  loc_acc=0.480  loss=nan
+[ 188/600]  gen_acc=0.681  loc_acc=0.480  loss=nan
+[ 190/600]  gen_acc=0.684  loc_acc=0.480  loss=nan
+[ 192/600]  gen_acc=0.688  loc_acc=0.479  loss=nan
+[ 194/600]  gen_acc=0.691  loc_acc=0.479  loss=nan
+[ 196/600]  gen_acc=0.694  loc_acc=0.478  loss=nan
+[ 198/600]  gen_acc=0.697  loc_acc=0.478  loss=nan
+[ 200/600]  gen_acc=0.700  loc_acc=0.478  loss=nan
+[ 202/600]  gen_acc=0.703  loc_acc=0.477  loss=nan
+[ 204/600]  gen_acc=0.706  loc_acc=0.477  loss=nan
+[ 206/600]  gen_acc=0.709  loc_acc=0.477  loss=nan
+[ 208/600]  gen_acc=0.712  loc_acc=0.476  loss=nan
+[ 210/600]  gen_acc=0.714  loc_acc=0.476  loss=nan
+[ 212/600]  gen_acc=0.717  loc_acc=0.476  loss=nan
+[ 214/600]  gen_acc=0.720  loc_acc=0.476  loss=nan
+[ 216/600]  gen_acc=0.722  loc_acc=0.475  loss=nan
+[ 218/600]  gen_acc=0.725  loc_acc=0.475  loss=nan
+[ 220/600]  gen_acc=0.727  loc_acc=0.475  loss=nan
+[ 222/600]  gen_acc=0.730  loc_acc=0.474  loss=nan
+[ 224/600]  gen_acc=0.732  loc_acc=0.474  loss=nan
+[ 226/600]  gen_acc=0.735  loc_acc=0.474  loss=nan
+[ 228/600]  gen_acc=0.737  loc_acc=0.474  loss=nan
+[ 230/600]  gen_acc=0.739  loc_acc=0.473  loss=nan
+[ 232/600]  gen_acc=0.741  loc_acc=0.473  loss=nan
+[ 234/600]  gen_acc=0.744  loc_acc=0.473  loss=nan
+[ 236/600]  gen_acc=0.746  loc_acc=0.473  loss=nan
+[ 238/600]  gen_acc=0.748  loc_acc=0.472  loss=nan
+[ 240/600]  gen_acc=0.750  loc_acc=0.472  loss=nan
+[ 242/600]  gen_acc=0.752  loc_acc=0.472  loss=nan
+[ 244/600]  gen_acc=0.754  loc_acc=0.472  loss=nan
+[ 246/600]  gen_acc=0.756  loc_acc=0.472  loss=nan
+[ 248/600]  gen_acc=0.758  loc_acc=0.471  loss=nan
+[ 250/600]  gen_acc=0.760  loc_acc=0.471  loss=nan
+[ 252/600]  gen_acc=0.762  loc_acc=0.471  loss=nan
+[ 254/600]  gen_acc=0.764  loc_acc=0.471  loss=nan
+[ 256/600]  gen_acc=0.766  loc_acc=0.470  loss=nan
+[ 258/600]  gen_acc=0.767  loc_acc=0.470  loss=nan
+[ 260/600]  gen_acc=0.769  loc_acc=0.470  loss=nan
+[ 262/600]  gen_acc=0.771  loc_acc=0.470  loss=nan
+[ 264/600]  gen_acc=0.773  loc_acc=0.470  loss=nan
+[ 266/600]  gen_acc=0.774  loc_acc=0.470  loss=nan
+[ 268/600]  gen_acc=0.776  loc_acc=0.469  loss=nan
+[ 270/600]  gen_acc=0.778  loc_acc=0.469  loss=nan
+[ 272/600]  gen_acc=0.779  loc_acc=0.469  loss=nan
+[ 274/600]  gen_acc=0.781  loc_acc=0.469  loss=nan
+[ 276/600]  gen_acc=0.783  loc_acc=0.469  loss=nan
+[ 278/600]  gen_acc=0.784  loc_acc=0.468  loss=nan
+[ 280/600]  gen_acc=0.786  loc_acc=0.468  loss=nan
+[ 282/600]  gen_acc=0.787  loc_acc=0.468  loss=nan
+[ 284/600]  gen_acc=0.789  loc_acc=0.468  loss=nan
+[ 286/600]  gen_acc=0.790  loc_acc=0.468  loss=nan
+[ 288/600]  gen_acc=0.792  loc_acc=0.468  loss=nan
+[ 290/600]  gen_acc=0.793  loc_acc=0.467  loss=nan
+[ 292/600]  gen_acc=0.795  loc_acc=0.467  loss=nan
+[ 294/600]  gen_acc=0.796  loc_acc=0.467  loss=nan
+[ 296/600]  gen_acc=0.797  loc_acc=0.467  loss=nan
+[ 298/600]  gen_acc=0.799  loc_acc=0.467  loss=nan
+[ 300/600]  gen_acc=0.800  loc_acc=0.467  loss=nan
+[ 302/600]  gen_acc=0.795  loc_acc=0.467  loss=nan
+[ 304/600]  gen_acc=0.789  loc_acc=0.468  loss=nan
+[ 306/600]  gen_acc=0.784  loc_acc=0.468  loss=nan
+[ 308/600]  gen_acc=0.779  loc_acc=0.469  loss=nan
+[ 310/600]  gen_acc=0.774  loc_acc=0.470  loss=nan
+[ 312/600]  gen_acc=0.769  loc_acc=0.470  loss=nan
+[ 314/600]  gen_acc=0.764  loc_acc=0.471  loss=nan
+[ 316/600]  gen_acc=0.759  loc_acc=0.471  loss=nan
+[ 318/600]  gen_acc=0.755  loc_acc=0.472  loss=nan
+[ 320/600]  gen_acc=0.750  loc_acc=0.472  loss=nan
+[ 322/600]  gen_acc=0.745  loc_acc=0.473  loss=nan
+[ 324/600]  gen_acc=0.741  loc_acc=0.473  loss=nan
+[ 326/600]  gen_acc=0.736  loc_acc=0.474  loss=nan
+[ 328/600]  gen_acc=0.732  loc_acc=0.474  loss=nan
+[ 330/600]  gen_acc=0.727  loc_acc=0.475  loss=nan
+[ 332/600]  gen_acc=0.723  loc_acc=0.475  loss=nan
+[ 334/600]  gen_acc=0.719  loc_acc=0.476  loss=nan
+[ 336/600]  gen_acc=0.714  loc_acc=0.476  loss=nan
+[ 338/600]  gen_acc=0.710  loc_acc=0.477  loss=nan
+[ 340/600]  gen_acc=0.706  loc_acc=0.477  loss=nan
+[ 342/600]  gen_acc=0.702  loc_acc=0.478  loss=nan
+[ 344/600]  gen_acc=0.698  loc_acc=0.478  loss=nan
+[ 346/600]  gen_acc=0.694  loc_acc=0.478  loss=nan
+[ 348/600]  gen_acc=0.690  loc_acc=0.479  loss=nan
+[ 350/600]  gen_acc=0.686  loc_acc=0.479  loss=nan
+[ 352/600]  gen_acc=0.682  loc_acc=0.480  loss=nan
+[ 354/600]  gen_acc=0.678  loc_acc=0.480  loss=nan
+[ 356/600]  gen_acc=0.674  loc_acc=0.481  loss=nan
+[ 358/600]  gen_acc=0.670  loc_acc=0.481  loss=nan
+[ 360/600]  gen_acc=0.667  loc_acc=0.481  loss=nan
+[ 362/600]  gen_acc=0.663  loc_acc=0.482  loss=nan
+[ 364/600]  gen_acc=0.659  loc_acc=0.482  loss=nan
+[ 366/600]  gen_acc=0.656  loc_acc=0.483  loss=nan
+[ 368/600]  gen_acc=0.652  loc_acc=0.483  loss=nan
+[ 370/600]  gen_acc=0.649  loc_acc=0.483  loss=nan
+[ 372/600]  gen_acc=0.645  loc_acc=0.484  loss=nan
+[ 374/600]  gen_acc=0.642  loc_acc=0.484  loss=nan
+[ 376/600]  gen_acc=0.638  loc_acc=0.485  loss=nan
+[ 378/600]  gen_acc=0.635  loc_acc=0.485  loss=nan
+[ 380/600]  gen_acc=0.632  loc_acc=0.485  loss=nan
+[ 382/600]  gen_acc=0.628  loc_acc=0.486  loss=nan
+[ 384/600]  gen_acc=0.625  loc_acc=0.486  loss=nan
+[ 386/600]  gen_acc=0.622  loc_acc=0.486  loss=nan
+[ 388/600]  gen_acc=0.619  loc_acc=0.487  loss=nan
+[ 390/600]  gen_acc=0.615  loc_acc=0.487  loss=nan
+[ 392/600]  gen_acc=0.612  loc_acc=0.488  loss=nan
+[ 394/600]  gen_acc=0.609  loc_acc=0.488  loss=nan
+[ 396/600]  gen_acc=0.606  loc_acc=0.488  loss=nan
+[ 398/600]  gen_acc=0.603  loc_acc=0.489  loss=nan
+[ 400/600]  gen_acc=0.600  loc_acc=0.489  loss=nan
+[ 402/600]  gen_acc=0.597  loc_acc=0.489  loss=nan
+[ 404/600]  gen_acc=0.594  loc_acc=0.490  loss=nan
+[ 406/600]  gen_acc=0.591  loc_acc=0.490  loss=nan
+[ 408/600]  gen_acc=0.588  loc_acc=0.490  loss=nan
+[ 410/600]  gen_acc=0.585  loc_acc=0.491  loss=nan
+[ 412/600]  gen_acc=0.583  loc_acc=0.491  loss=nan
+[ 414/600]  gen_acc=0.580  loc_acc=0.491  loss=nan
+[ 416/600]  gen_acc=0.577  loc_acc=0.491  loss=nan
+[ 418/600]  gen_acc=0.574  loc_acc=0.492  loss=nan
+[ 420/600]  gen_acc=0.571  loc_acc=0.492  loss=nan
+[ 422/600]  gen_acc=0.569  loc_acc=0.492  loss=nan
+[ 424/600]  gen_acc=0.566  loc_acc=0.493  loss=nan
+[ 426/600]  gen_acc=0.563  loc_acc=0.493  loss=nan
+[ 428/600]  gen_acc=0.561  loc_acc=0.493  loss=nan
+[ 430/600]  gen_acc=0.558  loc_acc=0.494  loss=nan
+[ 432/600]  gen_acc=0.556  loc_acc=0.494  loss=nan
+[ 434/600]  gen_acc=0.553  loc_acc=0.494  loss=nan
+[ 436/600]  gen_acc=0.550  loc_acc=0.494  loss=nan
+[ 438/600]  gen_acc=0.548  loc_acc=0.495  loss=nan
+[ 440/600]  gen_acc=0.545  loc_acc=0.495  loss=nan
+[ 442/600]  gen_acc=0.543  loc_acc=0.495  loss=nan
+[ 444/600]  gen_acc=0.541  loc_acc=0.495  loss=nan
+[ 446/600]  gen_acc=0.538  loc_acc=0.496  loss=nan
+[ 448/600]  gen_acc=0.536  loc_acc=0.496  loss=nan
+[ 450/600]  gen_acc=0.533  loc_acc=0.496  loss=nan
+[ 452/600]  gen_acc=0.531  loc_acc=0.497  loss=nan
+[ 454/600]  gen_acc=0.529  loc_acc=0.497  loss=nan
+[ 456/600]  gen_acc=0.526  loc_acc=0.497  loss=nan
+[ 458/600]  gen_acc=0.524  loc_acc=0.497  loss=nan
+[ 460/600]  gen_acc=0.522  loc_acc=0.498  loss=nan
+[ 462/600]  gen_acc=0.519  loc_acc=0.498  loss=nan
+[ 464/600]  gen_acc=0.517  loc_acc=0.498  loss=nan
+[ 466/600]  gen_acc=0.515  loc_acc=0.498  loss=nan
+[ 468/600]  gen_acc=0.513  loc_acc=0.499  loss=nan
+[ 470/600]  gen_acc=0.511  loc_acc=0.499  loss=nan
+[ 472/600]  gen_acc=0.508  loc_acc=0.499  loss=nan
+[ 474/600]  gen_acc=0.506  loc_acc=0.499  loss=nan
+[ 476/600]  gen_acc=0.504  loc_acc=0.500  loss=nan
+[ 478/600]  gen_acc=0.502  loc_acc=0.500  loss=nan
+[ 480/600]  gen_acc=0.500  loc_acc=0.500  loss=nan
+[ 482/600]  gen_acc=0.502  loc_acc=0.500  loss=nan
+[ 484/600]  gen_acc=0.504  loc_acc=0.500  loss=nan
+[ 486/600]  gen_acc=0.506  loc_acc=0.499  loss=nan
+[ 488/600]  gen_acc=0.508  loc_acc=0.499  loss=nan
+[ 490/600]  gen_acc=0.510  loc_acc=0.499  loss=nan
+[ 492/600]  gen_acc=0.512  loc_acc=0.499  loss=nan
+[ 494/600]  gen_acc=0.514  loc_acc=0.498  loss=nan
+[ 496/600]  gen_acc=0.516  loc_acc=0.498  loss=nan
+[ 498/600]  gen_acc=0.518  loc_acc=0.498  loss=nan
+[ 500/600]  gen_acc=0.520  loc_acc=0.498  loss=nan
+[ 502/600]  gen_acc=0.522  loc_acc=0.498  loss=nan
+[ 504/600]  gen_acc=0.524  loc_acc=0.497  loss=nan
+[ 506/600]  gen_acc=0.526  loc_acc=0.497  loss=nan
+[ 508/600]  gen_acc=0.528  loc_acc=0.497  loss=nan
+[ 510/600]  gen_acc=0.529  loc_acc=0.497  loss=nan
+[ 512/600]  gen_acc=0.531  loc_acc=0.497  loss=nan
+[ 514/600]  gen_acc=0.533  loc_acc=0.496  loss=nan
+[ 516/600]  gen_acc=0.535  loc_acc=0.496  loss=nan
+[ 518/600]  gen_acc=0.537  loc_acc=0.496  loss=nan
+[ 520/600]  gen_acc=0.538  loc_acc=0.496  loss=nan
+[ 522/600]  gen_acc=0.540  loc_acc=0.496  loss=nan
+[ 524/600]  gen_acc=0.542  loc_acc=0.495  loss=nan
+[ 526/600]  gen_acc=0.544  loc_acc=0.495  loss=nan
+[ 528/600]  gen_acc=0.545  loc_acc=0.495  loss=nan
+[ 530/600]  gen_acc=0.547  loc_acc=0.495  loss=nan
+[ 532/600]  gen_acc=0.549  loc_acc=0.495  loss=nan
+[ 534/600]  gen_acc=0.551  loc_acc=0.494  loss=nan
+[ 536/600]  gen_acc=0.552  loc_acc=0.494  loss=nan
+[ 538/600]  gen_acc=0.554  loc_acc=0.494  loss=nan
+[ 540/600]  gen_acc=0.556  loc_acc=0.494  loss=nan
+[ 542/600]  gen_acc=0.554  loc_acc=0.494  loss=nan
+[ 544/600]  gen_acc=0.551  loc_acc=0.494  loss=nan
+[ 546/600]  gen_acc=0.549  loc_acc=0.495  loss=nan
+[ 548/600]  gen_acc=0.547  loc_acc=0.495  loss=nan
+[ 550/600]  gen_acc=0.545  loc_acc=0.495  loss=nan
+[ 552/600]  gen_acc=0.543  loc_acc=0.495  loss=nan
+[ 554/600]  gen_acc=0.542  loc_acc=0.495  loss=nan
+[ 556/600]  gen_acc=0.540  loc_acc=0.496  loss=nan
+[ 558/600]  gen_acc=0.538  loc_acc=0.496  loss=nan
+[ 560/600]  gen_acc=0.536  loc_acc=0.496  loss=nan
+[ 562/600]  gen_acc=0.534  loc_acc=0.496  loss=nan
+[ 564/600]  gen_acc=0.532  loc_acc=0.496  loss=nan
+[ 566/600]  gen_acc=0.530  loc_acc=0.497  loss=nan
+[ 568/600]  gen_acc=0.528  loc_acc=0.497  loss=nan
+[ 570/600]  gen_acc=0.526  loc_acc=0.497  loss=nan
+[ 572/600]  gen_acc=0.524  loc_acc=0.497  loss=nan
+[ 574/600]  gen_acc=0.523  loc_acc=0.497  loss=nan
+[ 576/600]  gen_acc=0.521  loc_acc=0.498  loss=nan
+[ 578/600]  gen_acc=0.519  loc_acc=0.498  loss=nan
+[ 580/600]  gen_acc=0.517  loc_acc=0.498  loss=nan
+[ 582/600]  gen_acc=0.515  loc_acc=0.498  loss=nan
+[ 584/600]  gen_acc=0.514  loc_acc=0.498  loss=nan
+[ 586/600]  gen_acc=0.512  loc_acc=0.499  loss=nan
+[ 588/600]  gen_acc=0.510  loc_acc=0.499  loss=nan
+[ 590/600]  gen_acc=0.508  loc_acc=0.499  loss=nan
+[ 592/600]  gen_acc=0.507  loc_acc=0.499  loss=nan
+[ 594/600]  gen_acc=0.505  loc_acc=0.499  loss=nan
+[ 596/600]  gen_acc=0.503  loc_acc=0.500  loss=nan
+[ 598/600]  gen_acc=0.502  loc_acc=0.500  loss=nan
+[ 600/600]  gen_acc=0.500  loc_acc=0.500  loss=nan
+Completed in 90.5 min
+> /sfs/weka/scratch/vjd5zr/project/ReasonEdit/src/preliminary/edit/perlogic_delta_batch.py(352)run()
+-> run_tag = Path(self.args.resume).stem if self.args.resume else "origin"
+(Pdb) --KeyboardInterrupt--
+(Pdb) Traceback (most recent call last):
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/run_preliminary_pipeline.py", line 209, in <module>
+    main(args)
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/run_preliminary_pipeline.py", line 110, in main
+    run(cmd)
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/run_preliminary_pipeline.py", line 26, in run
+    subprocess.run(cmd, check=True, **kw)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/subprocess.py", line 1146, in communicate
+    self.wait()
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/subprocess.py", line 1209, in wait
+    return self._wait(timeout=timeout)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/subprocess.py", line 1959, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/subprocess.py", line 1917, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+KeyboardInterrupt

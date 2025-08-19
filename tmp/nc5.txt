@@ -1,0 +1,358 @@
+➤ python -m src.preliminary.edit.perlogic_delta_batch --lr 5e-05 --out_root /sfs/weka/scratch/vjd5zr/project/ReasonEdit/results/output/perlogic --resume ckpts/reptile_ns_00045.pt
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 21.66it/s]
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+Resumed from ckpts/reptile_ns_00045.pt (iter=45), missing=0 unexpected=0
+Loaded model with trainable LoRA parameters:
+trainable params: 3,686,400 || all params: 3,089,625,088 || trainable%: 0.1193
+Loaded 600 (train, eval) pairs.
+
+Starting sequential training…
+[   2/600]  gen_acc=1.000  loc_acc=0.611  loss=0.8321
+[   4/600]  gen_acc=1.000  loc_acc=0.528  loss=0.8386
+[   6/600]  gen_acc=1.000  loc_acc=0.556  loss=0.8205
+[   8/600]  gen_acc=1.000  loc_acc=0.542  loss=0.8317
+[  10/600]  gen_acc=0.900  loc_acc=0.533  loss=0.8242
+[  12/600]  gen_acc=0.917  loc_acc=0.519  loss=0.8358
+[  14/600]  gen_acc=0.857  loc_acc=0.540  loss=0.8209
+[  16/600]  gen_acc=0.875  loc_acc=0.535  loss=0.8462
+[  18/600]  gen_acc=0.889  loc_acc=0.537  loss=0.8186
+[  20/600]  gen_acc=0.850  loc_acc=0.544  loss=0.8343
+[  22/600]  gen_acc=0.864  loc_acc=0.545  loss=0.8314
+[  24/600]  gen_acc=0.792  loc_acc=0.556  loss=0.8505
+[  26/600]  gen_acc=0.769  loc_acc=0.560  loss=0.8237
+[  28/600]  gen_acc=0.750  loc_acc=0.560  loss=0.8310
+[  30/600]  gen_acc=0.767  loc_acc=0.567  loss=0.8363
+[  32/600]  gen_acc=0.750  loc_acc=0.562  loss=0.8218
+[  34/600]  gen_acc=0.765  loc_acc=0.562  loss=0.8284
+[  36/600]  gen_acc=0.750  loc_acc=0.562  loss=0.8245
+[  38/600]  gen_acc=0.763  loc_acc=0.558  loss=0.8313
+[  40/600]  gen_acc=0.750  loc_acc=0.558  loss=0.8268
+[  42/600]  gen_acc=0.738  loc_acc=0.556  loss=0.8250
+[  44/600]  gen_acc=0.750  loc_acc=0.553  loss=0.8268
+[  46/600]  gen_acc=0.761  loc_acc=0.551  loss=0.8304
+[  48/600]  gen_acc=0.771  loc_acc=0.546  loss=0.8310
+[  50/600]  gen_acc=0.780  loc_acc=0.551  loss=0.8342
+[  52/600]  gen_acc=0.788  loc_acc=0.547  loss=0.8204
+[  54/600]  gen_acc=0.796  loc_acc=0.549  loss=0.8467
+[  56/600]  gen_acc=0.786  loc_acc=0.546  loss=0.8408
+[  58/600]  gen_acc=0.793  loc_acc=0.548  loss=0.8272
+[  60/600]  gen_acc=0.800  loc_acc=0.552  loss=0.8380
+[  62/600]  gen_acc=0.806  loc_acc=0.556  loss=0.7969
+[  64/600]  gen_acc=0.812  loc_acc=0.554  loss=0.7627
+[  66/600]  gen_acc=0.818  loc_acc=0.557  loss=0.7544
+[  68/600]  gen_acc=0.824  loc_acc=0.557  loss=0.7709
+[  70/600]  gen_acc=0.829  loc_acc=0.556  loss=0.7787
+[  72/600]  gen_acc=0.833  loc_acc=0.556  loss=0.7713
+[  74/600]  gen_acc=0.838  loc_acc=0.557  loss=0.7643
+[  76/600]  gen_acc=0.829  loc_acc=0.553  loss=0.7723
+[  78/600]  gen_acc=0.833  loc_acc=0.553  loss=0.7715
+[  80/600]  gen_acc=0.838  loc_acc=0.551  loss=0.7842
+[  82/600]  gen_acc=0.841  loc_acc=0.550  loss=0.7821
+[  84/600]  gen_acc=0.845  loc_acc=0.554  loss=0.7872
+[  86/600]  gen_acc=0.849  loc_acc=0.552  loss=0.7817
+[  88/600]  gen_acc=0.852  loc_acc=0.553  loss=0.7778
+[  90/600]  gen_acc=0.856  loc_acc=0.553  loss=0.7998
+[  92/600]  gen_acc=0.859  loc_acc=0.556  loss=0.7926
+[  94/600]  gen_acc=0.862  loc_acc=0.556  loss=0.7891
+[  96/600]  gen_acc=0.865  loc_acc=0.551  loss=0.7915
+[  98/600]  gen_acc=0.867  loc_acc=0.551  loss=0.8097
+[ 100/600]  gen_acc=0.870  loc_acc=0.552  loss=0.8038
+[ 102/600]  gen_acc=0.873  loc_acc=0.552  loss=0.7833
+[ 104/600]  gen_acc=0.856  loc_acc=0.551  loss=0.7752
+[ 106/600]  gen_acc=0.858  loc_acc=0.552  loss=0.7874
+[ 108/600]  gen_acc=0.861  loc_acc=0.553  loss=0.8183
+[ 110/600]  gen_acc=0.864  loc_acc=0.549  loss=0.7993
+[ 112/600]  gen_acc=0.866  loc_acc=0.549  loss=0.7996
+[ 114/600]  gen_acc=0.868  loc_acc=0.548  loss=0.8041
+[ 116/600]  gen_acc=0.871  loc_acc=0.548  loss=0.7901
+[ 118/600]  gen_acc=0.873  loc_acc=0.546  loss=0.7980
+[ 120/600]  gen_acc=0.875  loc_acc=0.544  loss=0.7942
+[ 122/600]  gen_acc=0.869  loc_acc=0.543  loss=0.5395
+[ 124/600]  gen_acc=0.855  loc_acc=0.547  loss=0.5344
+[ 126/600]  gen_acc=0.849  loc_acc=0.548  loss=0.5350
+[ 128/600]  gen_acc=0.836  loc_acc=0.545  loss=0.5372
+[ 130/600]  gen_acc=0.831  loc_acc=0.544  loss=0.5276
+[ 132/600]  gen_acc=0.826  loc_acc=0.547  loss=0.5493
+[ 134/600]  gen_acc=0.821  loc_acc=0.549  loss=0.5399
+[ 136/600]  gen_acc=0.816  loc_acc=0.549  loss=0.5430
+[ 138/600]  gen_acc=0.812  loc_acc=0.551  loss=0.5475
+[ 140/600]  gen_acc=0.807  loc_acc=0.551  loss=0.5383
+[ 142/600]  gen_acc=0.803  loc_acc=0.550  loss=0.5440
+[ 144/600]  gen_acc=0.799  loc_acc=0.549  loss=0.5374
+[ 146/600]  gen_acc=0.795  loc_acc=0.550  loss=0.5543
+[ 148/600]  gen_acc=0.797  loc_acc=0.547  loss=0.5404
+[ 150/600]  gen_acc=0.787  loc_acc=0.547  loss=0.5476
+[ 152/600]  gen_acc=0.776  loc_acc=0.549  loss=0.5379
+[ 154/600]  gen_acc=0.779  loc_acc=0.551  loss=0.5382
+[ 156/600]  gen_acc=0.776  loc_acc=0.553  loss=0.5383
+[ 158/600]  gen_acc=0.772  loc_acc=0.556  loss=0.5383
+[ 160/600]  gen_acc=0.775  loc_acc=0.556  loss=0.5398
+[ 162/600]  gen_acc=0.772  loc_acc=0.554  loss=0.5384
+[ 164/600]  gen_acc=0.762  loc_acc=0.556  loss=0.5585
+[ 166/600]  gen_acc=0.759  loc_acc=0.558  loss=0.5435
+[ 168/600]  gen_acc=0.756  loc_acc=0.560  loss=0.5377
+[ 170/600]  gen_acc=0.753  loc_acc=0.559  loss=0.5392
+[ 172/600]  gen_acc=0.756  loc_acc=0.559  loss=0.5431
+[ 174/600]  gen_acc=0.747  loc_acc=0.560  loss=0.5424
+[ 176/600]  gen_acc=0.744  loc_acc=0.561  loss=0.5385
+[ 178/600]  gen_acc=0.747  loc_acc=0.563  loss=0.5432
+[ 180/600]  gen_acc=0.744  loc_acc=0.564  loss=0.5311
+[ 182/600]  gen_acc=0.742  loc_acc=0.562  loss=0.8122
+[ 184/600]  gen_acc=0.739  loc_acc=0.562  loss=0.7557
+[ 186/600]  gen_acc=0.737  loc_acc=0.562  loss=0.7493
+[ 188/600]  gen_acc=0.734  loc_acc=0.562  loss=0.7291
+[ 190/600]  gen_acc=0.737  loc_acc=0.562  loss=0.7423
+[ 192/600]  gen_acc=0.740  loc_acc=0.564  loss=0.7303
+[ 194/600]  gen_acc=0.742  loc_acc=0.562  loss=0.7324
+[ 196/600]  gen_acc=0.745  loc_acc=0.562  loss=0.7264
+[ 198/600]  gen_acc=0.747  loc_acc=0.561  loss=0.7401
+[ 200/600]  gen_acc=0.750  loc_acc=0.561  loss=0.7560
+[ 202/600]  gen_acc=0.752  loc_acc=0.560  loss=0.7703
+[ 204/600]  gen_acc=0.755  loc_acc=0.559  loss=0.7718
+[ 206/600]  gen_acc=0.757  loc_acc=0.560  loss=0.7694
+[ 208/600]  gen_acc=0.760  loc_acc=0.560  loss=0.7912
+[ 210/600]  gen_acc=0.762  loc_acc=0.561  loss=0.7773
+[ 212/600]  gen_acc=0.759  loc_acc=0.561  loss=0.7735
+[ 214/600]  gen_acc=0.762  loc_acc=0.562  loss=0.7511
+[ 216/600]  gen_acc=0.764  loc_acc=0.560  loss=0.7804
+[ 218/600]  gen_acc=0.766  loc_acc=0.560  loss=0.7893
+[ 220/600]  gen_acc=0.768  loc_acc=0.559  loss=0.7901
+[ 222/600]  gen_acc=0.770  loc_acc=0.559  loss=0.7795
+[ 224/600]  gen_acc=0.772  loc_acc=0.558  loss=0.7901
+[ 226/600]  gen_acc=0.770  loc_acc=0.557  loss=0.7770
+[ 228/600]  gen_acc=0.768  loc_acc=0.558  loss=0.7720
+[ 230/600]  gen_acc=0.770  loc_acc=0.559  loss=0.7782
+[ 232/600]  gen_acc=0.772  loc_acc=0.559  loss=0.7853
+[ 234/600]  gen_acc=0.774  loc_acc=0.559  loss=0.7783
+[ 236/600]  gen_acc=0.775  loc_acc=0.560  loss=0.7981
+[ 238/600]  gen_acc=0.777  loc_acc=0.558  loss=0.7925
+[ 240/600]  gen_acc=0.779  loc_acc=0.559  loss=0.7941
+[ 242/600]  gen_acc=0.777  loc_acc=0.557  loss=0.7850
+[ 244/600]  gen_acc=0.779  loc_acc=0.557  loss=0.8057
+[ 246/600]  gen_acc=0.780  loc_acc=0.558  loss=0.7688
+[ 248/600]  gen_acc=0.782  loc_acc=0.556  loss=0.7750
+[ 250/600]  gen_acc=0.780  loc_acc=0.555  loss=0.7593
+[ 252/600]  gen_acc=0.778  loc_acc=0.555  loss=0.7871
+[ 254/600]  gen_acc=0.780  loc_acc=0.555  loss=0.7908
+[ 256/600]  gen_acc=0.781  loc_acc=0.554  loss=0.7823
+[ 258/600]  gen_acc=0.783  loc_acc=0.554  loss=0.7915
+[ 260/600]  gen_acc=0.785  loc_acc=0.553  loss=0.7700
+[ 262/600]  gen_acc=0.786  loc_acc=0.551  loss=0.8093
+[ 264/600]  gen_acc=0.784  loc_acc=0.551  loss=0.7878
+[ 266/600]  gen_acc=0.786  loc_acc=0.550  loss=0.7956
+[ 268/600]  gen_acc=0.784  loc_acc=0.549  loss=0.8074
+[ 270/600]  gen_acc=0.785  loc_acc=0.547  loss=0.8235
+[ 272/600]  gen_acc=0.787  loc_acc=0.547  loss=0.8185
+[ 274/600]  gen_acc=0.788  loc_acc=0.546  loss=0.7964
+[ 276/600]  gen_acc=0.783  loc_acc=0.546  loss=0.8059
+[ 278/600]  gen_acc=0.784  loc_acc=0.546  loss=0.7990
+[ 280/600]  gen_acc=0.786  loc_acc=0.546  loss=0.8046
+[ 282/600]  gen_acc=0.784  loc_acc=0.547  loss=0.7994
+[ 284/600]  gen_acc=0.782  loc_acc=0.547  loss=0.7939
+[ 286/600]  gen_acc=0.780  loc_acc=0.548  loss=0.8111
+[ 288/600]  gen_acc=0.778  loc_acc=0.547  loss=0.8222
+[ 290/600]  gen_acc=0.776  loc_acc=0.546  loss=0.8154
+[ 292/600]  gen_acc=0.774  loc_acc=0.545  loss=0.7971
+[ 294/600]  gen_acc=0.772  loc_acc=0.545  loss=0.7901
+[ 296/600]  gen_acc=0.774  loc_acc=0.544  loss=0.7916
+[ 298/600]  gen_acc=0.775  loc_acc=0.545  loss=0.8044
+[ 300/600]  gen_acc=0.777  loc_acc=0.546  loss=0.8060
+[ 302/600]  gen_acc=0.775  loc_acc=0.546  loss=0.5457
+[ 304/600]  gen_acc=0.776  loc_acc=0.545  loss=0.5533
+[ 306/600]  gen_acc=0.775  loc_acc=0.545  loss=0.5345
+[ 308/600]  gen_acc=0.773  loc_acc=0.544  loss=0.5427
+[ 310/600]  gen_acc=0.768  loc_acc=0.545  loss=0.5400
+[ 312/600]  gen_acc=0.763  loc_acc=0.545  loss=0.5400
+[ 314/600]  gen_acc=0.761  loc_acc=0.546  loss=0.5400
+[ 316/600]  gen_acc=0.763  loc_acc=0.546  loss=0.5422
+[ 318/600]  gen_acc=0.758  loc_acc=0.546  loss=0.5396
+[ 320/600]  gen_acc=0.753  loc_acc=0.547  loss=0.5389
+[ 322/600]  gen_acc=0.748  loc_acc=0.546  loss=0.5488
+[ 324/600]  gen_acc=0.747  loc_acc=0.547  loss=0.5433
+[ 326/600]  gen_acc=0.745  loc_acc=0.546  loss=0.5381
+[ 328/600]  gen_acc=0.744  loc_acc=0.546  loss=0.5451
+[ 330/600]  gen_acc=0.745  loc_acc=0.546  loss=0.5366
+[ 332/600]  gen_acc=0.747  loc_acc=0.548  loss=0.5414
+[ 334/600]  gen_acc=0.746  loc_acc=0.548  loss=0.5404
+[ 336/600]  gen_acc=0.744  loc_acc=0.547  loss=0.5404
+[ 338/600]  gen_acc=0.743  loc_acc=0.547  loss=0.5503
+[ 340/600]  gen_acc=0.741  loc_acc=0.547  loss=0.5390
+[ 342/600]  gen_acc=0.740  loc_acc=0.547  loss=0.5364
+[ 344/600]  gen_acc=0.738  loc_acc=0.548  loss=0.5476
+[ 346/600]  gen_acc=0.737  loc_acc=0.548  loss=0.5372
+[ 348/600]  gen_acc=0.739  loc_acc=0.549  loss=0.5429
+[ 350/600]  gen_acc=0.740  loc_acc=0.550  loss=0.5395
+[ 352/600]  gen_acc=0.739  loc_acc=0.552  loss=0.5497
+[ 354/600]  gen_acc=0.740  loc_acc=0.552  loss=0.5430
+[ 356/600]  gen_acc=0.739  loc_acc=0.552  loss=0.5395
+[ 358/600]  gen_acc=0.735  loc_acc=0.552  loss=0.5413
+[ 360/600]  gen_acc=0.731  loc_acc=0.552  loss=0.5411
+[ 362/600]  gen_acc=0.729  loc_acc=0.552  loss=0.5357
+[ 364/600]  gen_acc=0.728  loc_acc=0.553  loss=0.5268
+[ 366/600]  gen_acc=0.727  loc_acc=0.553  loss=0.5323
+[ 368/600]  gen_acc=0.723  loc_acc=0.554  loss=0.5286
+[ 370/600]  gen_acc=0.722  loc_acc=0.554  loss=0.5257
+[ 372/600]  gen_acc=0.720  loc_acc=0.555  loss=0.5218
+[ 374/600]  gen_acc=0.717  loc_acc=0.556  loss=0.5290
+[ 376/600]  gen_acc=0.715  loc_acc=0.556  loss=0.5343
+[ 378/600]  gen_acc=0.714  loc_acc=0.557  loss=0.5249
+[ 380/600]  gen_acc=0.711  loc_acc=0.558  loss=0.5297
+[ 382/600]  gen_acc=0.709  loc_acc=0.558  loss=0.5302
+[ 384/600]  gen_acc=0.706  loc_acc=0.558  loss=0.5332
+[ 386/600]  gen_acc=0.705  loc_acc=0.557  loss=0.5305
+[ 388/600]  gen_acc=0.706  loc_acc=0.557  loss=0.5325
+[ 390/600]  gen_acc=0.708  loc_acc=0.558  loss=0.5287
+[ 392/600]  gen_acc=0.707  loc_acc=0.558  loss=0.5270
+[ 394/600]  gen_acc=0.708  loc_acc=0.557  loss=0.5320
+[ 396/600]  gen_acc=0.710  loc_acc=0.558  loss=0.5244
+[ 398/600]  gen_acc=0.706  loc_acc=0.557  loss=0.5243
+[ 400/600]  gen_acc=0.703  loc_acc=0.558  loss=0.5319
+[ 402/600]  gen_acc=0.699  loc_acc=0.559  loss=0.5303
+[ 404/600]  gen_acc=0.696  loc_acc=0.559  loss=0.5290
+[ 406/600]  gen_acc=0.695  loc_acc=0.559  loss=0.5234
+[ 408/600]  gen_acc=0.694  loc_acc=0.560  loss=0.5206
+[ 410/600]  gen_acc=0.693  loc_acc=0.560  loss=0.5237
+[ 412/600]  gen_acc=0.694  loc_acc=0.560  loss=0.5292
+[ 414/600]  gen_acc=0.691  loc_acc=0.560  loss=0.5297
+[ 416/600]  gen_acc=0.690  loc_acc=0.561  loss=0.5262
+[ 418/600]  gen_acc=0.687  loc_acc=0.561  loss=0.5295
+[ 420/600]  gen_acc=0.688  loc_acc=0.561  loss=0.5239
+[ 422/600]  gen_acc=0.687  loc_acc=0.561  loss=0.5317
+[ 424/600]  gen_acc=0.686  loc_acc=0.561  loss=0.5278
+[ 426/600]  gen_acc=0.685  loc_acc=0.561  loss=0.5280
+[ 428/600]  gen_acc=0.687  loc_acc=0.561  loss=0.5266
+[ 430/600]  gen_acc=0.686  loc_acc=0.561  loss=0.5255
+[ 432/600]  gen_acc=0.688  loc_acc=0.562  loss=0.5287
+[ 434/600]  gen_acc=0.687  loc_acc=0.562  loss=0.5440
+[ 436/600]  gen_acc=0.686  loc_acc=0.562  loss=0.5337
+[ 438/600]  gen_acc=0.685  loc_acc=0.562  loss=0.5227
+[ 440/600]  gen_acc=0.684  loc_acc=0.564  loss=0.5280
+[ 442/600]  gen_acc=0.686  loc_acc=0.565  loss=0.5300
+[ 444/600]  gen_acc=0.685  loc_acc=0.565  loss=0.5337
+[ 446/600]  gen_acc=0.682  loc_acc=0.565  loss=0.5301
+[ 448/600]  gen_acc=0.681  loc_acc=0.565  loss=0.5292
+[ 450/600]  gen_acc=0.682  loc_acc=0.566  loss=0.5287
+[ 452/600]  gen_acc=0.681  loc_acc=0.566  loss=0.5296
+[ 454/600]  gen_acc=0.678  loc_acc=0.565  loss=0.5258
+[ 456/600]  gen_acc=0.678  loc_acc=0.565  loss=0.5359
+[ 458/600]  gen_acc=0.675  loc_acc=0.566  loss=0.5289
+[ 460/600]  gen_acc=0.676  loc_acc=0.565  loss=0.5325
+[ 462/600]  gen_acc=0.677  loc_acc=0.566  loss=0.5256
+[ 464/600]  gen_acc=0.677  loc_acc=0.566  loss=0.5278
+[ 466/600]  gen_acc=0.678  loc_acc=0.566  loss=0.5255
+[ 468/600]  gen_acc=0.677  loc_acc=0.566  loss=0.5290
+[ 470/600]  gen_acc=0.677  loc_acc=0.566  loss=0.5267
+[ 472/600]  gen_acc=0.678  loc_acc=0.566  loss=0.5302
+[ 474/600]  gen_acc=0.679  loc_acc=0.566  loss=0.5343
+[ 476/600]  gen_acc=0.679  loc_acc=0.566  loss=0.5296
+[ 478/600]  gen_acc=0.678  loc_acc=0.566  loss=0.5305
+[ 480/600]  gen_acc=0.677  loc_acc=0.566  loss=0.5367
+[ 482/600]  gen_acc=0.678  loc_acc=0.566  loss=0.7255
+[ 484/600]  gen_acc=0.680  loc_acc=0.565  loss=0.6127
+[ 486/600]  gen_acc=0.681  loc_acc=0.565  loss=0.6039
+[ 488/600]  gen_acc=0.682  loc_acc=0.565  loss=0.6020
+[ 490/600]  gen_acc=0.684  loc_acc=0.565  loss=0.6221
+[ 492/600]  gen_acc=0.685  loc_acc=0.564  loss=0.6101
+[ 494/600]  gen_acc=0.686  loc_acc=0.564  loss=0.6079
+[ 496/600]  gen_acc=0.688  loc_acc=0.563  loss=0.6311
+[ 498/600]  gen_acc=0.689  loc_acc=0.563  loss=0.6365
+[ 500/600]  gen_acc=0.690  loc_acc=0.563  loss=0.6451
+[ 502/600]  gen_acc=0.689  loc_acc=0.563  loss=0.6847
+[ 504/600]  gen_acc=0.690  loc_acc=0.562  loss=0.6838
+[ 506/600]  gen_acc=0.692  loc_acc=0.561  loss=0.7102
+[ 508/600]  gen_acc=0.693  loc_acc=0.561  loss=0.7210
+[ 510/600]  gen_acc=0.694  loc_acc=0.561  loss=0.7176
+[ 512/600]  gen_acc=0.695  loc_acc=0.562  loss=0.7167
+[ 514/600]  gen_acc=0.696  loc_acc=0.562  loss=0.7311
+[ 516/600]  gen_acc=0.698  loc_acc=0.562  loss=0.7211
+[ 518/600]  gen_acc=0.699  loc_acc=0.562  loss=0.7416
+[ 520/600]  gen_acc=0.700  loc_acc=0.561  loss=0.7351
+[ 522/600]  gen_acc=0.699  loc_acc=0.561  loss=0.7331
+[ 524/600]  gen_acc=0.700  loc_acc=0.561  loss=0.7453
+[ 526/600]  gen_acc=0.702  loc_acc=0.560  loss=0.7332
+[ 528/600]  gen_acc=0.703  loc_acc=0.560  loss=0.7344
+[ 530/600]  gen_acc=0.704  loc_acc=0.559  loss=0.7354
+[ 532/600]  gen_acc=0.705  loc_acc=0.559  loss=0.7360
+[ 534/600]  gen_acc=0.706  loc_acc=0.558  loss=0.7341
+[ 536/600]  gen_acc=0.707  loc_acc=0.558  loss=0.7573
+[ 538/600]  gen_acc=0.708  loc_acc=0.557  loss=0.7596
+[ 540/600]  gen_acc=0.707  loc_acc=0.556  loss=0.7587
+[ 542/600]  gen_acc=0.707  loc_acc=0.557  loss=0.5432
+[ 544/600]  gen_acc=0.708  loc_acc=0.556  loss=0.5347
+[ 546/600]  gen_acc=0.707  loc_acc=0.556  loss=0.5278
+[ 548/600]  gen_acc=0.706  loc_acc=0.557  loss=0.5304
+[ 550/600]  gen_acc=0.707  loc_acc=0.557  loss=0.5329
+[ 552/600]  gen_acc=0.707  loc_acc=0.557  loss=0.5364
+[ 554/600]  gen_acc=0.704  loc_acc=0.557  loss=0.5275
+[ 556/600]  gen_acc=0.701  loc_acc=0.557  loss=0.5370
+[ 558/600]  gen_acc=0.701  loc_acc=0.557  loss=0.5295
+[ 560/600]  gen_acc=0.702  loc_acc=0.557  loss=0.5312
+[ 562/600]  gen_acc=0.701  loc_acc=0.557  loss=0.5344
+[ 564/600]  gen_acc=0.700  loc_acc=0.558  loss=0.5332
+[ 566/600]  gen_acc=0.698  loc_acc=0.559  loss=0.5404
+[ 568/600]  gen_acc=0.697  loc_acc=0.559  loss=0.5300
+[ 570/600]  gen_acc=0.696  loc_acc=0.560  loss=0.5278
+[ 572/600]  gen_acc=0.696  loc_acc=0.560  loss=0.5347
+[ 574/600]  gen_acc=0.695  loc_acc=0.560  loss=0.5340
+[ 576/600]  gen_acc=0.694  loc_acc=0.560  loss=0.5336
+[ 578/600]  gen_acc=0.696  loc_acc=0.560  loss=0.5362
+[ 580/600]  gen_acc=0.695  loc_acc=0.560  loss=0.5333
+[ 582/600]  gen_acc=0.692  loc_acc=0.559  loss=0.5276
+[ 584/600]  gen_acc=0.693  loc_acc=0.560  loss=0.5313
+[ 586/600]  gen_acc=0.691  loc_acc=0.559  loss=0.5301
+[ 588/600]  gen_acc=0.690  loc_acc=0.559  loss=0.5372
+[ 590/600]  gen_acc=0.692  loc_acc=0.560  loss=0.5329
+[ 592/600]  gen_acc=0.689  loc_acc=0.560  loss=0.5313
+[ 594/600]  gen_acc=0.690  loc_acc=0.561  loss=0.5320
+[ 596/600]  gen_acc=0.691  loc_acc=0.561  loss=0.5286
+[ 598/600]  gen_acc=0.691  loc_acc=0.561  loss=0.5360
+[ 600/600]  gen_acc=0.692  loc_acc=0.562  loss=0.5306
+Completed in 92.8 min
+[info] Saving results under: /sfs/weka/scratch/vjd5zr/project/ReasonEdit/results/output/perlogic/5em05/reptile_ns_00045
+
+Saved metrics to /sfs/weka/scratch/vjd5zr/project/ReasonEdit/results/output/perlogic/5em05/reptile_ns_00045
+➤ python -m tools.plot_cluster --distance pot --lrs 5e-05 --seeds 0 1 2 3 4 5 6 7 8 9 10 --combine 10 --subdir reptile_ns_00045
+Traceback (most recent call last):
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/plot_cluster.py", line 495, in <module>
+    main()
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/plot_cluster.py", line 404, in main
+    dist_cat  = block_diag_df([load_distance(args.distance, s, args.subdir) for s, _ in grp])
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/plot_cluster.py", line 404, in <listcomp>
+    dist_cat  = block_diag_df([load_distance(args.distance, s, args.subdir) for s, _ in grp])
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/plot_cluster.py", line 308, in load_distance
+    return pd.read_csv(f, index_col=0)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'results/output/distance/pot/reptile_ns_00045/seed0.csv'
+Traceback (most recent call last):
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/run_preliminary_pipeline.py", line 209, in <module>
+    main(args)
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/run_preliminary_pipeline.py", line 158, in main
+    run(cmd)
+  File "/sfs/weka/scratch/vjd5zr/project/ReasonEdit/tools/run_preliminary_pipeline.py", line 26, in run
+    subprocess.run(cmd, check=True, **kw)
+  File "/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '-m', 'tools.plot_cluster', '--distance', 'pot', '--lrs', '5e-05', '--seeds', '0 1 2 3 4 5 6 7 8 9 10', '--combine', '10', '--subdir', 'reptile_ns_00045']' returned non-zero exit status 1.

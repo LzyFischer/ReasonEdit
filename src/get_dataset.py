@@ -181,6 +181,109 @@ class LogicDataset(Dataset):
 
 
 ###############################################################################
+# ---------------- Protected set built from LogicDataset groups ----------------
+from torch.utils.data import Dataset, DataLoader
+import random
+
+class ProtectedDataset(Dataset):
+    """
+    Builds a small set of (clean prompt, correct answer) pairs from grouped rows:
+        grouped_rows: { logic_str: [ {clean, corrupt, answer, wrong_answer}, ... ] }
+    Returns per item:
+        {
+          "input_ids":      LongTensor [seq],
+          "attention_mask": LongTensor [seq],
+          "target_ids":     LongTensor [seq]  # last position holds the target token id
+        }
+    """
+    def __init__(
+        self,
+        grouped_rows: Dict[str, List[Dict]],
+        tokenizer: AutoTokenizer,
+        max_length: int = 256,
+        n_logics: int = 16,          # how many distinct logics to sample
+        per_logic: int = 2,          # how many examples per selected logic
+        seed: int = 0,
+    ):
+        super().__init__()
+        self.tok = tokenizer
+        self.max_length = max_length
+
+        rng = random.Random(seed)
+        all_logics = list(grouped_rows.keys())
+        rng.shuffle(all_logics)
+        picked = all_logics[:min(n_logics, len(all_logics))]
+
+        # Collect clean prompts + correct answer
+        pairs = []
+        for lgc in picked:
+            rows = grouped_rows[lgc]
+            if not rows:
+                continue
+            idxs = list(range(len(rows)))
+            rng.shuffle(idxs)
+            for i in idxs[:per_logic]:
+                r = rows[i]
+                pairs.append((r["clean"], r.get("answer", "")))
+
+        # Tokenize prompts
+        enc = self.tok(
+            [p for p, _ in pairs],
+            padding="max_length",
+            truncation=True,
+            max_length=self.max_length,
+            return_tensors="pt",
+        )
+
+        # Build target_ids: a sequence filled with pad, except the *last* position
+        # stores the first token id of the answer string (like your token_logit_metric).
+        tgt_ids = []
+        for _, ans in pairs:
+            ids = self.tok.encode(ans, add_special_tokens=False)
+            if len(ids) == 0:
+                ids = [self.tok.eos_token_id]
+            tgt_ids.append(ids[0])
+
+        self.input_ids = enc["input_ids"]                # [N, L]
+        self.attn_mask = enc["attention_mask"]           # [N, L]
+        N, L = self.input_ids.size()
+        self.target_ids = torch.full((N, L), fill_value=self.tok.pad_token_id, dtype=torch.long)
+        self.target_ids[:, -1] = torch.tensor(tgt_ids, dtype=torch.long)  # gather from last logit
+
+    def __len__(self):
+        return self.input_ids.size(0)
+
+    def __getitem__(self, idx: int):
+        return {
+            "input_ids":      self.input_ids[idx],
+            "attention_mask": self.attn_mask[idx],
+            "target_ids":     self.target_ids[idx],
+        }
+
+
+def build_protected_loader(
+    grouped_rows: Dict[str, List[Dict]],
+    tokenizer: AutoTokenizer,
+    max_length: int = 256,
+    n_logics: int = 16,
+    per_logic: int = 2,
+    seed: int = 0,
+    batch_size: int = 4,
+    shuffle: bool = True,
+):
+    ds = ProtectedDataset(
+        grouped_rows,
+        tokenizer=tokenizer,
+        max_length=max_length,
+        n_logics=n_logics,
+        per_logic=per_logic,
+        seed=seed,
+    )
+    loader = DataLoader(ds, batch_size=batch_size, shuffle=shuffle, pin_memory=True)
+    return ds, loader
+
+
+###############################################################################
 # Collate
 ###############################################################################
 def collate_fn(
