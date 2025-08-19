@@ -1,0 +1,360 @@
+➤ python -m src.preliminary.edit.perlogic_delta_batch --lr 2e-05 --out_root /sfs/weka/scratch/vjd5zr/project/ReasonEdit/results/output/perlogic
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.80s/it]
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/project/uvadm/zhenyu/miniconda3/envs/mechanistic/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+Loaded model with trainable LoRA parameters:
+trainable params: 3,686,400 || all params: 3,089,625,088 || trainable%: 0.1193
+Loaded 600 (train, eval) pairs.
+
+Starting sequential training…
+[   2/600]  gen_acc=1.000  loc_acc=0.667  loss=0.8839
+[   4/600]  gen_acc=0.750  loc_acc=0.694  loss=0.8818
+[   6/600]  gen_acc=0.833  loc_acc=0.722  loss=0.8970
+[   8/600]  gen_acc=0.875  loc_acc=0.708  loss=0.8869
+[  10/600]  gen_acc=0.900  loc_acc=0.711  loss=0.8733
+[  12/600]  gen_acc=0.917  loc_acc=0.713  loss=0.8867
+[  14/600]  gen_acc=0.857  loc_acc=0.730  loss=0.8624
+[  16/600]  gen_acc=0.812  loc_acc=0.729  loss=0.8875
+[  18/600]  gen_acc=0.778  loc_acc=0.741  loss=0.8725
+[  20/600]  gen_acc=0.800  loc_acc=0.761  loss=0.8696
+[  22/600]  gen_acc=0.773  loc_acc=0.753  loss=0.8627
+[  24/600]  gen_acc=0.750  loc_acc=0.755  loss=0.8885
+[  26/600]  gen_acc=0.731  loc_acc=0.761  loss=0.8590
+[  28/600]  gen_acc=0.714  loc_acc=0.754  loss=0.8803
+[  30/600]  gen_acc=0.700  loc_acc=0.770  loss=0.8786
+[  32/600]  gen_acc=0.688  loc_acc=0.774  loss=0.8843
+[  34/600]  gen_acc=0.706  loc_acc=0.765  loss=0.8756
+[  36/600]  gen_acc=0.694  loc_acc=0.765  loss=0.8741
+[  38/600]  gen_acc=0.711  loc_acc=0.754  loss=0.9061
+[  40/600]  gen_acc=0.700  loc_acc=0.753  loss=0.8808
+[  42/600]  gen_acc=0.714  loc_acc=0.749  loss=0.8749
+[  44/600]  gen_acc=0.727  loc_acc=0.747  loss=0.8883
+[  46/600]  gen_acc=0.739  loc_acc=0.739  loss=0.8711
+[  48/600]  gen_acc=0.729  loc_acc=0.729  loss=0.8914
+[  50/600]  gen_acc=0.740  loc_acc=0.740  loss=0.8820
+[  52/600]  gen_acc=0.731  loc_acc=0.744  loss=0.8816
+[  54/600]  gen_acc=0.741  loc_acc=0.743  loss=0.8820
+[  56/600]  gen_acc=0.750  loc_acc=0.738  loss=0.8847
+[  58/600]  gen_acc=0.741  loc_acc=0.741  loss=0.8742
+[  60/600]  gen_acc=0.750  loc_acc=0.735  loss=0.8926
+[  62/600]  gen_acc=0.758  loc_acc=0.738  loss=0.8278
+[  64/600]  gen_acc=0.766  loc_acc=0.738  loss=0.8228
+[  66/600]  gen_acc=0.773  loc_acc=0.732  loss=0.8062
+[  68/600]  gen_acc=0.779  loc_acc=0.730  loss=0.8440
+[  70/600]  gen_acc=0.786  loc_acc=0.729  loss=0.8352
+[  72/600]  gen_acc=0.792  loc_acc=0.733  loss=0.8255
+[  74/600]  gen_acc=0.797  loc_acc=0.733  loss=0.8353
+[  76/600]  gen_acc=0.803  loc_acc=0.727  loss=0.8238
+[  78/600]  gen_acc=0.808  loc_acc=0.724  loss=0.8159
+[  80/600]  gen_acc=0.812  loc_acc=0.724  loss=0.8292
+[  82/600]  gen_acc=0.817  loc_acc=0.721  loss=0.8410
+[  84/600]  gen_acc=0.821  loc_acc=0.721  loss=0.8310
+[  86/600]  gen_acc=0.826  loc_acc=0.717  loss=0.8209
+[  88/600]  gen_acc=0.830  loc_acc=0.715  loss=0.8211
+[  90/600]  gen_acc=0.833  loc_acc=0.716  loss=0.8292
+[  92/600]  gen_acc=0.837  loc_acc=0.711  loss=0.8264
+[  94/600]  gen_acc=0.840  loc_acc=0.710  loss=0.8192
+[  96/600]  gen_acc=0.844  loc_acc=0.704  loss=0.8223
+[  98/600]  gen_acc=0.847  loc_acc=0.703  loss=0.8361
+[ 100/600]  gen_acc=0.850  loc_acc=0.700  loss=0.8382
+[ 102/600]  gen_acc=0.853  loc_acc=0.699  loss=0.8314
+[ 104/600]  gen_acc=0.837  loc_acc=0.700  loss=0.8142
+[ 106/600]  gen_acc=0.840  loc_acc=0.699  loss=0.8192
+[ 108/600]  gen_acc=0.843  loc_acc=0.698  loss=0.8288
+[ 110/600]  gen_acc=0.845  loc_acc=0.695  loss=0.8323
+[ 112/600]  gen_acc=0.848  loc_acc=0.696  loss=0.8413
+[ 114/600]  gen_acc=0.851  loc_acc=0.696  loss=0.8439
+[ 116/600]  gen_acc=0.853  loc_acc=0.697  loss=0.8301
+[ 118/600]  gen_acc=0.856  loc_acc=0.692  loss=0.8421
+[ 120/600]  gen_acc=0.858  loc_acc=0.688  loss=0.8248
+[ 122/600]  gen_acc=0.861  loc_acc=0.690  loss=0.5850
+[ 124/600]  gen_acc=0.847  loc_acc=0.690  loss=0.5887
+[ 126/600]  gen_acc=0.849  loc_acc=0.693  loss=0.5772
+[ 128/600]  gen_acc=0.844  loc_acc=0.690  loss=0.5902
+[ 130/600]  gen_acc=0.838  loc_acc=0.686  loss=0.5811
+[ 132/600]  gen_acc=0.833  loc_acc=0.688  loss=0.5769
+[ 134/600]  gen_acc=0.828  loc_acc=0.687  loss=0.5917
+[ 136/600]  gen_acc=0.831  loc_acc=0.688  loss=0.5819
+[ 138/600]  gen_acc=0.826  loc_acc=0.689  loss=0.6013
+[ 140/600]  gen_acc=0.814  loc_acc=0.690  loss=0.5896
+[ 142/600]  gen_acc=0.810  loc_acc=0.690  loss=0.5969
+[ 144/600]  gen_acc=0.806  loc_acc=0.692  loss=0.5799
+[ 146/600]  gen_acc=0.808  loc_acc=0.693  loss=0.5978
+[ 148/600]  gen_acc=0.804  loc_acc=0.691  loss=0.5905
+[ 150/600]  gen_acc=0.800  loc_acc=0.693  loss=0.5946
+[ 152/600]  gen_acc=0.803  loc_acc=0.692  loss=0.5972
+[ 154/600]  gen_acc=0.805  loc_acc=0.693  loss=0.5946
+[ 156/600]  gen_acc=0.808  loc_acc=0.694  loss=0.5930
+[ 158/600]  gen_acc=0.810  loc_acc=0.696  loss=0.5878
+[ 160/600]  gen_acc=0.812  loc_acc=0.697  loss=0.5937
+[ 162/600]  gen_acc=0.809  loc_acc=0.695  loss=0.5864
+[ 164/600]  gen_acc=0.805  loc_acc=0.694  loss=0.6000
+[ 166/600]  gen_acc=0.801  loc_acc=0.695  loss=0.5909
+[ 168/600]  gen_acc=0.792  loc_acc=0.694  loss=0.5918
+[ 170/600]  gen_acc=0.794  loc_acc=0.692  loss=0.5882
+[ 172/600]  gen_acc=0.797  loc_acc=0.693  loss=0.5890
+[ 174/600]  gen_acc=0.787  loc_acc=0.695  loss=0.5829
+[ 176/600]  gen_acc=0.784  loc_acc=0.695  loss=0.5959
+[ 178/600]  gen_acc=0.787  loc_acc=0.695  loss=0.6004
+[ 180/600]  gen_acc=0.778  loc_acc=0.695  loss=0.5828
+[ 182/600]  gen_acc=0.775  loc_acc=0.692  loss=0.8417
+[ 184/600]  gen_acc=0.777  loc_acc=0.691  loss=0.8320
+[ 186/600]  gen_acc=0.780  loc_acc=0.692  loss=0.8278
+[ 188/600]  gen_acc=0.782  loc_acc=0.692  loss=0.8395
+[ 190/600]  gen_acc=0.784  loc_acc=0.691  loss=0.8369
+[ 192/600]  gen_acc=0.786  loc_acc=0.692  loss=0.8309
+[ 194/600]  gen_acc=0.789  loc_acc=0.692  loss=0.8312
+[ 196/600]  gen_acc=0.791  loc_acc=0.692  loss=0.8245
+[ 198/600]  gen_acc=0.788  loc_acc=0.691  loss=0.8245
+[ 200/600]  gen_acc=0.790  loc_acc=0.691  loss=0.8411
+[ 202/600]  gen_acc=0.792  loc_acc=0.689  loss=0.8349
+[ 204/600]  gen_acc=0.794  loc_acc=0.688  loss=0.8451
+[ 206/600]  gen_acc=0.796  loc_acc=0.688  loss=0.8337
+[ 208/600]  gen_acc=0.793  loc_acc=0.689  loss=0.8360
+[ 210/600]  gen_acc=0.795  loc_acc=0.690  loss=0.8339
+[ 212/600]  gen_acc=0.797  loc_acc=0.690  loss=0.8297
+[ 214/600]  gen_acc=0.799  loc_acc=0.692  loss=0.8335
+[ 216/600]  gen_acc=0.796  loc_acc=0.692  loss=0.8478
+[ 218/600]  gen_acc=0.798  loc_acc=0.692  loss=0.8406
+[ 220/600]  gen_acc=0.800  loc_acc=0.692  loss=0.8429
+[ 222/600]  gen_acc=0.802  loc_acc=0.693  loss=0.8412
+[ 224/600]  gen_acc=0.804  loc_acc=0.691  loss=0.8432
+[ 226/600]  gen_acc=0.796  loc_acc=0.691  loss=0.8364
+[ 228/600]  gen_acc=0.798  loc_acc=0.692  loss=0.8470
+[ 230/600]  gen_acc=0.800  loc_acc=0.691  loss=0.8437
+[ 232/600]  gen_acc=0.802  loc_acc=0.691  loss=0.8432
+[ 234/600]  gen_acc=0.803  loc_acc=0.691  loss=0.8420
+[ 236/600]  gen_acc=0.805  loc_acc=0.691  loss=0.8450
+[ 238/600]  gen_acc=0.807  loc_acc=0.690  loss=0.8321
+[ 240/600]  gen_acc=0.808  loc_acc=0.689  loss=0.8470
+[ 242/600]  gen_acc=0.806  loc_acc=0.688  loss=0.8483
+[ 244/600]  gen_acc=0.803  loc_acc=0.690  loss=0.8616
+[ 246/600]  gen_acc=0.805  loc_acc=0.689  loss=0.8199
+[ 248/600]  gen_acc=0.806  loc_acc=0.688  loss=0.8385
+[ 250/600]  gen_acc=0.804  loc_acc=0.688  loss=0.8400
+[ 252/600]  gen_acc=0.798  loc_acc=0.689  loss=0.8297
+[ 254/600]  gen_acc=0.799  loc_acc=0.689  loss=0.8347
+[ 256/600]  gen_acc=0.797  loc_acc=0.690  loss=0.8476
+[ 258/600]  gen_acc=0.798  loc_acc=0.689  loss=0.8556
+[ 260/600]  gen_acc=0.796  loc_acc=0.688  loss=0.8259
+[ 262/600]  gen_acc=0.794  loc_acc=0.690  loss=0.8492
+[ 264/600]  gen_acc=0.788  loc_acc=0.689  loss=0.8420
+[ 266/600]  gen_acc=0.789  loc_acc=0.688  loss=0.8546
+[ 268/600]  gen_acc=0.787  loc_acc=0.687  loss=0.8605
+[ 270/600]  gen_acc=0.789  loc_acc=0.686  loss=0.8599
+[ 272/600]  gen_acc=0.787  loc_acc=0.686  loss=0.8560
+[ 274/600]  gen_acc=0.785  loc_acc=0.685  loss=0.8347
+[ 276/600]  gen_acc=0.779  loc_acc=0.686  loss=0.8555
+[ 278/600]  gen_acc=0.773  loc_acc=0.685  loss=0.8551
+[ 280/600]  gen_acc=0.771  loc_acc=0.685  loss=0.8495
+[ 282/600]  gen_acc=0.770  loc_acc=0.686  loss=0.8567
+[ 284/600]  gen_acc=0.768  loc_acc=0.686  loss=0.8401
+[ 286/600]  gen_acc=0.762  loc_acc=0.687  loss=0.8472
+[ 288/600]  gen_acc=0.757  loc_acc=0.687  loss=0.8764
+[ 290/600]  gen_acc=0.755  loc_acc=0.687  loss=0.8629
+[ 292/600]  gen_acc=0.750  loc_acc=0.687  loss=0.8426
+[ 294/600]  gen_acc=0.748  loc_acc=0.687  loss=0.8400
+[ 296/600]  gen_acc=0.750  loc_acc=0.687  loss=0.8431
+[ 298/600]  gen_acc=0.752  loc_acc=0.685  loss=0.8490
+[ 300/600]  gen_acc=0.750  loc_acc=0.684  loss=0.8482
+[ 302/600]  gen_acc=0.745  loc_acc=0.684  loss=0.5895
+[ 304/600]  gen_acc=0.743  loc_acc=0.683  loss=0.5845
+[ 306/600]  gen_acc=0.742  loc_acc=0.682  loss=0.5814
+[ 308/600]  gen_acc=0.737  loc_acc=0.683  loss=0.5845
+[ 310/600]  gen_acc=0.735  loc_acc=0.683  loss=0.5834
+[ 312/600]  gen_acc=0.734  loc_acc=0.683  loss=0.5847
+[ 314/600]  gen_acc=0.736  loc_acc=0.683  loss=0.5810
+[ 316/600]  gen_acc=0.734  loc_acc=0.683  loss=0.5841
+[ 318/600]  gen_acc=0.733  loc_acc=0.682  loss=0.5915
+[ 320/600]  gen_acc=0.731  loc_acc=0.683  loss=0.5826
+[ 322/600]  gen_acc=0.727  loc_acc=0.682  loss=0.5903
+[ 324/600]  gen_acc=0.725  loc_acc=0.682  loss=0.5909
+[ 326/600]  gen_acc=0.724  loc_acc=0.682  loss=0.5877
+[ 328/600]  gen_acc=0.726  loc_acc=0.682  loss=0.5924
+[ 330/600]  gen_acc=0.727  loc_acc=0.681  loss=0.5873
+[ 332/600]  gen_acc=0.726  loc_acc=0.682  loss=0.5862
+[ 334/600]  gen_acc=0.728  loc_acc=0.682  loss=0.5900
+[ 336/600]  gen_acc=0.726  loc_acc=0.682  loss=0.5853
+[ 338/600]  gen_acc=0.722  loc_acc=0.681  loss=0.5882
+[ 340/600]  gen_acc=0.721  loc_acc=0.682  loss=0.5837
+[ 342/600]  gen_acc=0.716  loc_acc=0.682  loss=0.5820
+[ 344/600]  gen_acc=0.715  loc_acc=0.682  loss=0.5793
+[ 346/600]  gen_acc=0.711  loc_acc=0.682  loss=0.5860
+[ 348/600]  gen_acc=0.713  loc_acc=0.683  loss=0.5878
+[ 350/600]  gen_acc=0.714  loc_acc=0.683  loss=0.5942
+[ 352/600]  gen_acc=0.716  loc_acc=0.684  loss=0.5877
+[ 354/600]  gen_acc=0.715  loc_acc=0.685  loss=0.5831
+[ 356/600]  gen_acc=0.713  loc_acc=0.685  loss=0.5844
+[ 358/600]  gen_acc=0.712  loc_acc=0.686  loss=0.5864
+[ 360/600]  gen_acc=0.714  loc_acc=0.685  loss=0.5893
+[ 362/600]  gen_acc=0.715  loc_acc=0.684  loss=0.5975
+[ 364/600]  gen_acc=0.714  loc_acc=0.685  loss=0.5949
+[ 366/600]  gen_acc=0.716  loc_acc=0.684  loss=0.5868
+[ 368/600]  gen_acc=0.717  loc_acc=0.684  loss=0.5839
+[ 370/600]  gen_acc=0.719  loc_acc=0.684  loss=0.5814
+[ 372/600]  gen_acc=0.718  loc_acc=0.684  loss=0.5851
+[ 374/600]  gen_acc=0.719  loc_acc=0.684  loss=0.5832
+[ 376/600]  gen_acc=0.718  loc_acc=0.685  loss=0.5990
+[ 378/600]  gen_acc=0.720  loc_acc=0.685  loss=0.5859
+[ 380/600]  gen_acc=0.718  loc_acc=0.685  loss=0.5915
+[ 382/600]  gen_acc=0.717  loc_acc=0.685  loss=0.5847
+[ 384/600]  gen_acc=0.716  loc_acc=0.685  loss=0.5920
+[ 386/600]  gen_acc=0.718  loc_acc=0.685  loss=0.5923
+[ 388/600]  gen_acc=0.719  loc_acc=0.685  loss=0.5926
+[ 390/600]  gen_acc=0.721  loc_acc=0.686  loss=0.5933
+[ 392/600]  gen_acc=0.719  loc_acc=0.686  loss=0.5878
+[ 394/600]  gen_acc=0.721  loc_acc=0.686  loss=0.5971
+[ 396/600]  gen_acc=0.722  loc_acc=0.685  loss=0.5843
+[ 398/600]  gen_acc=0.721  loc_acc=0.686  loss=0.5886
+[ 400/600]  gen_acc=0.723  loc_acc=0.688  loss=0.5942
+[ 402/600]  gen_acc=0.721  loc_acc=0.687  loss=0.5931
+[ 404/600]  gen_acc=0.720  loc_acc=0.687  loss=0.5857
+[ 406/600]  gen_acc=0.722  loc_acc=0.687  loss=0.5911
+[ 408/600]  gen_acc=0.723  loc_acc=0.687  loss=0.5900
+[ 410/600]  gen_acc=0.724  loc_acc=0.687  loss=0.5872
+[ 412/600]  gen_acc=0.726  loc_acc=0.687  loss=0.5878
+[ 414/600]  gen_acc=0.727  loc_acc=0.687  loss=0.5901
+[ 416/600]  gen_acc=0.726  loc_acc=0.686  loss=0.5893
+[ 418/600]  gen_acc=0.727  loc_acc=0.687  loss=0.5907
+[ 420/600]  gen_acc=0.729  loc_acc=0.688  loss=0.5910
+[ 422/600]  gen_acc=0.727  loc_acc=0.688  loss=0.5917
+[ 424/600]  gen_acc=0.726  loc_acc=0.687  loss=0.5882
+[ 426/600]  gen_acc=0.725  loc_acc=0.688  loss=0.5918
+[ 428/600]  gen_acc=0.724  loc_acc=0.687  loss=0.5881
+[ 430/600]  gen_acc=0.721  loc_acc=0.688  loss=0.5911
+[ 432/600]  gen_acc=0.718  loc_acc=0.688  loss=0.6024
+[ 434/600]  gen_acc=0.719  loc_acc=0.688  loss=0.5956
+[ 436/600]  gen_acc=0.718  loc_acc=0.687  loss=0.6027
+[ 438/600]  gen_acc=0.719  loc_acc=0.688  loss=0.5900
+[ 440/600]  gen_acc=0.718  loc_acc=0.689  loss=0.5912
+[ 442/600]  gen_acc=0.719  loc_acc=0.689  loss=0.5863
+[ 444/600]  gen_acc=0.721  loc_acc=0.690  loss=0.5993
+[ 446/600]  gen_acc=0.722  loc_acc=0.690  loss=0.5971
+[ 448/600]  gen_acc=0.719  loc_acc=0.689  loss=0.5946
+[ 450/600]  gen_acc=0.720  loc_acc=0.689  loss=0.5934
+[ 452/600]  gen_acc=0.721  loc_acc=0.689  loss=0.5875
+[ 454/600]  gen_acc=0.720  loc_acc=0.689  loss=0.5983
+[ 456/600]  gen_acc=0.719  loc_acc=0.689  loss=0.5983
+[ 458/600]  gen_acc=0.718  loc_acc=0.690  loss=0.5909
+[ 460/600]  gen_acc=0.720  loc_acc=0.689  loss=0.5977
+[ 462/600]  gen_acc=0.721  loc_acc=0.689  loss=0.5975
+[ 464/600]  gen_acc=0.720  loc_acc=0.689  loss=0.6006
+[ 466/600]  gen_acc=0.717  loc_acc=0.690  loss=0.6005
+[ 468/600]  gen_acc=0.718  loc_acc=0.689  loss=0.5894
+[ 470/600]  gen_acc=0.717  loc_acc=0.689  loss=0.5999
+[ 472/600]  gen_acc=0.718  loc_acc=0.689  loss=0.6006
+[ 474/600]  gen_acc=0.717  loc_acc=0.689  loss=0.6007
+[ 476/600]  gen_acc=0.718  loc_acc=0.689  loss=0.5922
+[ 478/600]  gen_acc=0.715  loc_acc=0.688  loss=0.5938
+[ 480/600]  gen_acc=0.717  loc_acc=0.688  loss=0.6026
+[ 482/600]  gen_acc=0.718  loc_acc=0.688  loss=0.8044
+[ 484/600]  gen_acc=0.719  loc_acc=0.688  loss=0.8059
+[ 486/600]  gen_acc=0.720  loc_acc=0.688  loss=0.7979
+[ 488/600]  gen_acc=0.721  loc_acc=0.689  loss=0.8074
+[ 490/600]  gen_acc=0.722  loc_acc=0.689  loss=0.7963
+[ 492/600]  gen_acc=0.724  loc_acc=0.688  loss=0.8154
+[ 494/600]  gen_acc=0.725  loc_acc=0.688  loss=0.7902
+[ 496/600]  gen_acc=0.724  loc_acc=0.688  loss=0.7937
+[ 498/600]  gen_acc=0.725  loc_acc=0.688  loss=0.8008
+[ 500/600]  gen_acc=0.726  loc_acc=0.687  loss=0.7928
+[ 502/600]  gen_acc=0.725  loc_acc=0.687  loss=0.8059
+[ 504/600]  gen_acc=0.726  loc_acc=0.687  loss=0.8144
+[ 506/600]  gen_acc=0.727  loc_acc=0.688  loss=0.8110
+[ 508/600]  gen_acc=0.728  loc_acc=0.688  loss=0.8122
+[ 510/600]  gen_acc=0.727  loc_acc=0.688  loss=0.8204
+[ 512/600]  gen_acc=0.729  loc_acc=0.688  loss=0.8124
+[ 514/600]  gen_acc=0.728  loc_acc=0.688  loss=0.8122
+[ 516/600]  gen_acc=0.729  loc_acc=0.688  loss=0.8028
+[ 518/600]  gen_acc=0.730  loc_acc=0.686  loss=0.8150
+[ 520/600]  gen_acc=0.731  loc_acc=0.686  loss=0.8098
+[ 522/600]  gen_acc=0.730  loc_acc=0.685  loss=0.8001
+[ 524/600]  gen_acc=0.731  loc_acc=0.686  loss=0.8095
+[ 526/600]  gen_acc=0.732  loc_acc=0.685  loss=0.7999
+[ 528/600]  gen_acc=0.733  loc_acc=0.684  loss=0.8088
+[ 530/600]  gen_acc=0.734  loc_acc=0.684  loss=0.8124
+[ 532/600]  gen_acc=0.735  loc_acc=0.684  loss=0.8073
+[ 534/600]  gen_acc=0.736  loc_acc=0.684  loss=0.8073
+[ 536/600]  gen_acc=0.737  loc_acc=0.684  loss=0.8206
+[ 538/600]  gen_acc=0.738  loc_acc=0.684  loss=0.8217
+[ 540/600]  gen_acc=0.737  loc_acc=0.684  loss=0.8242
+[ 542/600]  gen_acc=0.738  loc_acc=0.684  loss=0.6022
+[ 544/600]  gen_acc=0.739  loc_acc=0.683  loss=0.5923
+[ 546/600]  gen_acc=0.740  loc_acc=0.683  loss=0.5857
+[ 548/600]  gen_acc=0.739  loc_acc=0.683  loss=0.5843
+[ 550/600]  gen_acc=0.740  loc_acc=0.683  loss=0.5906
+[ 552/600]  gen_acc=0.739  loc_acc=0.682  loss=0.5861
+[ 554/600]  gen_acc=0.736  loc_acc=0.682  loss=0.5885
+[ 556/600]  gen_acc=0.734  loc_acc=0.682  loss=0.5967
+[ 558/600]  gen_acc=0.735  loc_acc=0.683  loss=0.5884
+[ 560/600]  gen_acc=0.734  loc_acc=0.683  loss=0.5942
+[ 562/600]  gen_acc=0.733  loc_acc=0.683  loss=0.5854
+[ 564/600]  gen_acc=0.732  loc_acc=0.683  loss=0.5992
+[ 566/600]  gen_acc=0.731  loc_acc=0.684  loss=0.5934
+[ 568/600]  gen_acc=0.732  loc_acc=0.684  loss=0.5972
+[ 570/600]  gen_acc=0.732  loc_acc=0.684  loss=0.5793
+[ 572/600]  gen_acc=0.731  loc_acc=0.684  loss=0.6014
+[ 574/600]  gen_acc=0.732  loc_acc=0.684  loss=0.5873
+[ 576/600]  gen_acc=0.733  loc_acc=0.685  loss=0.5955
+[ 578/600]  gen_acc=0.734  loc_acc=0.684  loss=0.5978
+[ 580/600]  gen_acc=0.733  loc_acc=0.684  loss=0.5976
+[ 582/600]  gen_acc=0.734  loc_acc=0.683  loss=0.5966
+[ 584/600]  gen_acc=0.735  loc_acc=0.683  loss=0.5950
+[ 586/600]  gen_acc=0.734  loc_acc=0.683  loss=0.5875
+[ 588/600]  gen_acc=0.735  loc_acc=0.683  loss=0.6021
+[ 590/600]  gen_acc=0.736  loc_acc=0.683  loss=0.5953
+[ 592/600]  gen_acc=0.736  loc_acc=0.683  loss=0.5934
+[ 594/600]  gen_acc=0.737  loc_acc=0.683  loss=0.5997
+[ 596/600]  gen_acc=0.738  loc_acc=0.683  loss=0.5931
+[ 598/600]  gen_acc=0.739  loc_acc=0.683  loss=0.6016
+[ 600/600]  gen_acc=0.737  loc_acc=0.684  loss=0.5930
+Completed in 93.9 min
+> /sfs/weka/scratch/vjd5zr/project/ReasonEdit/src/preliminary/edit/perlogic_delta_batch.py(352)run()
+-> run_tag = Path(self.args.resume).stem if self.args.resume else "origin"
+(Pdb) self = <__main__.Trainer object at 0x7fe67cc33dc0>
+(Pdb) [info] Saving results under: /sfs/weka/scratch/vjd5zr/project/ReasonEdit/results/output/perlogic/2em05/origin
+
+Saved metrics to /sfs/weka/scratch/vjd5zr/project/ReasonEdit/results/output/perlogic/2em05/origin
+➤ python -m tools.plot_cluster --distance pot --lrs 2e-05 --seeds 0 1 2 3 4 5 6 7 8 9 10 --combine 10
+[✓] group 1: seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] lrs=[2e-05] → results/figures/cluster/pot/m0-1-2-3-4-5-6-7-8-9/m2em05/origin/group_1
+[✓] group 2: seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 10] lrs=[2e-05] → results/figures/cluster/pot/m0-1-2-3-4-5-6-7-8-10/m2em05/origin/group_2
+[✓] group 3: seeds=[0, 1, 2, 3, 4, 5, 6, 7, 9, 10] lrs=[2e-05] → results/figures/cluster/pot/m0-1-2-3-4-5-6-7-9-10/m2em05/origin/group_3
+[✓] group 4: seeds=[0, 1, 2, 3, 4, 5, 6, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/pot/m0-1-2-3-4-5-6-8-9-10/m2em05/origin/group_4
+[✓] group 5: seeds=[0, 1, 2, 3, 4, 5, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/pot/m0-1-2-3-4-5-7-8-9-10/m2em05/origin/group_5
+[✓] group 6: seeds=[0, 1, 2, 3, 4, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/pot/m0-1-2-3-4-6-7-8-9-10/m2em05/origin/group_6
+[✓] group 7: seeds=[0, 1, 2, 3, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/pot/m0-1-2-3-5-6-7-8-9-10/m2em05/origin/group_7
+[✓] group 8: seeds=[0, 1, 2, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/pot/m0-1-2-4-5-6-7-8-9-10/m2em05/origin/group_8
+[✓] group 9: seeds=[0, 1, 3, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/pot/m0-1-3-4-5-6-7-8-9-10/m2em05/origin/group_9
+[✓] group 10: seeds=[0, 2, 3, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/pot/m0-2-3-4-5-6-7-8-9-10/m2em05/origin/group_10
+[✓] group 11: seeds=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/pot/m1-2-3-4-5-6-7-8-9-10/m2em05/origin/group_11
+[✓] violin plots written under results/figures/cluster/pot/violin/origin (2D, X-only, Y-only)
+➤ python -m tools.plot_cluster --distance edit --lrs 2e-05 --seeds 0 1 2 3 4 5 6 7 8 9 10 --combine 10
+[✓] group 1: seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] lrs=[2e-05] → results/figures/cluster/edit/m0-1-2-3-4-5-6-7-8-9/m2em05/origin/group_1
+[✓] group 2: seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 10] lrs=[2e-05] → results/figures/cluster/edit/m0-1-2-3-4-5-6-7-8-10/m2em05/origin/group_2
+[✓] group 3: seeds=[0, 1, 2, 3, 4, 5, 6, 7, 9, 10] lrs=[2e-05] → results/figures/cluster/edit/m0-1-2-3-4-5-6-7-9-10/m2em05/origin/group_3
+[✓] group 4: seeds=[0, 1, 2, 3, 4, 5, 6, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/edit/m0-1-2-3-4-5-6-8-9-10/m2em05/origin/group_4
+[✓] group 5: seeds=[0, 1, 2, 3, 4, 5, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/edit/m0-1-2-3-4-5-7-8-9-10/m2em05/origin/group_5
+[✓] group 6: seeds=[0, 1, 2, 3, 4, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/edit/m0-1-2-3-4-6-7-8-9-10/m2em05/origin/group_6
+[✓] group 7: seeds=[0, 1, 2, 3, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/edit/m0-1-2-3-5-6-7-8-9-10/m2em05/origin/group_7
+[✓] group 8: seeds=[0, 1, 2, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/edit/m0-1-2-4-5-6-7-8-9-10/m2em05/origin/group_8
+[✓] group 9: seeds=[0, 1, 3, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/edit/m0-1-3-4-5-6-7-8-9-10/m2em05/origin/group_9
+[✓] group 10: seeds=[0, 2, 3, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/edit/m0-2-3-4-5-6-7-8-9-10/m2em05/origin/group_10
+[✓] group 11: seeds=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/edit/m1-2-3-4-5-6-7-8-9-10/m2em05/origin/group_11
+[✓] violin plots written under results/figures/cluster/edit/violin/origin (2D, X-only, Y-only)
+➤ python -m tools.plot_cluster --distance jaccard --lrs 2e-05 --seeds 0 1 2 3 4 5 6 7 8 9 10 --combine 10
+[✓] group 1: seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] lrs=[2e-05] → results/figures/cluster/jaccard/m0-1-2-3-4-5-6-7-8-9/m2em05/origin/group_1
+[✓] group 2: seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m0-1-2-3-4-5-6-7-8-10/m2em05/origin/group_2
+[✓] group 3: seeds=[0, 1, 2, 3, 4, 5, 6, 7, 9, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m0-1-2-3-4-5-6-7-9-10/m2em05/origin/group_3
+[✓] group 4: seeds=[0, 1, 2, 3, 4, 5, 6, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m0-1-2-3-4-5-6-8-9-10/m2em05/origin/group_4
+[✓] group 5: seeds=[0, 1, 2, 3, 4, 5, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m0-1-2-3-4-5-7-8-9-10/m2em05/origin/group_5
+[✓] group 6: seeds=[0, 1, 2, 3, 4, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m0-1-2-3-4-6-7-8-9-10/m2em05/origin/group_6
+[✓] group 7: seeds=[0, 1, 2, 3, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m0-1-2-3-5-6-7-8-9-10/m2em05/origin/group_7
+[✓] group 8: seeds=[0, 1, 2, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m0-1-2-4-5-6-7-8-9-10/m2em05/origin/group_8
+[✓] group 9: seeds=[0, 1, 3, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m0-1-3-4-5-6-7-8-9-10/m2em05/origin/group_9
+[✓] group 10: seeds=[0, 2, 3, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m0-2-3-4-5-6-7-8-9-10/m2em05/origin/group_10
+[✓] group 11: seeds=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] lrs=[2e-05] → results/figures/cluster/jaccard/m1-2-3-4-5-6-7-8-9-10/m2em05/origin/group_11
+[✓] violin plots written under results/figures/cluster/jaccard/violin/origin (2D, X-only, Y-only)

@@ -90,13 +90,24 @@ def get_args() -> argparse.Namespace:
                    help="JSON file OR directory containing logic_XXX.txt files")
     p.add_argument("--out_dir", default="results/output/distance",
                    help="Where to write CSV (default = same directory as --formulas)")
+    p.add_argument("--resume", type=Path,
+                help="Path to checkpoint (expects {'model_state': ...} or raw state_dict)")
     return p.parse_args()
 
 def main() -> None:
     args      = get_args()
     path      = Path(args.formulas).expanduser()
     out_dir   = Path(args.out_dir) if args.out_dir else path.parent
+
+    if args.resume:
+        ckpt_stem = Path(args.resume).stem
+        out_dir = out_dir / ckpt_stem
+        print(f"[info] Using subdir based on checkpoint name: {out_dir}")
+    else:
+        out_dir = out_dir / "origin"  # or "unmodified"
+        print(f"[info] Using subdir for unmodified model: {out_dir}")
     out_dir.mkdir(parents=True, exist_ok=True)
+
 
     formulas  = read_formulas(path)
     mat, lbls = build_matrix(formulas)

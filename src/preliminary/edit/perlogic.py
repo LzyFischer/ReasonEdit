@@ -90,6 +90,17 @@ parser.add_argument(
     default=str(DATA_DIR / "processed/correct_pairs_llama_7b.json"),
     help="Path to save/load correct pairs",
 )
+parser.add_argument(
+    "--out_root",
+    type=Path,
+    default=OUTPUTS_DIR / "perlogic",
+    help="Base directory to save results",
+)
+parser.add_argument(
+    "--resume",
+    type=Path,
+    help="Optional checkpoint path; its stem names the subdir (else 'origin')",
+)
 args = parser.parse_args()
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -488,16 +499,23 @@ df_acc     = pd.DataFrame(acc,       index=logic_tags, columns=logic_tags)
 df_total   = pd.DataFrame(mat_total, index=logic_tags, columns=logic_tags)
 df_correct = pd.DataFrame(mat_correct,index=logic_tags, columns=logic_tags)
 
-OUTPUTS_DIR / "perlogic".mkdir(parents=True, exist_ok=True)
-df_acc    .to_csv(str(OUTPUTS_DIR / "perlogic/accuracy.csv"),  float_format="%.4f")
-df_total  .to_csv(str(OUTPUTS_DIR / "perlogic/n_total.csv"))
-df_correct.to_csv(str(OUTPUTS_DIR / "perlogic/n_correct.csv"))
+# Decide subdir: ckpt stem if resume else 'origin'
+# Decide subdir: <out_root>/<ckpt-stem|origin>/<lr-slug>/, then files inside
+lr_slug = str(args.lr).replace(".", "p").replace("-", "m")
+base_out_root = Path(args.out_root).resolve()
+run_tag = Path(args.resume).stem if args.resume else "origin"
+out_dir = base_out_root / lr_slug / run_tag
+out_dir.mkdir(parents=True, exist_ok=True)
+print(f"[info] Saving results under: {out_dir}")
 
-# save the tag ↔︎ prompt lookup table
+# Save outputs
+df_acc.to_csv(out_dir / "accuracy.csv", float_format="%.4f")
+df_total.to_csv(out_dir / "n_total.csv")
+df_correct.to_csv(out_dir / "n_correct.csv")
 pd.DataFrame({"tag": logic_tags, "prompt": logic_types}) \
-  .to_csv(str(OUTPUTS_DIR / "perlogic/logic_tags.csv"), index=False)
+  .to_csv(out_dir / "logic_tags.csv", index=False)
 
-print("\nSaved to output/perlogic/:")
+print(f"\nSaved to {out_dir}:")
 print("  • accuracy.csv   (numeric accuracy matrix)")
 print("  • n_total.csv    (#evals per cell)")
 print("  • n_correct.csv  (#correct per cell)")

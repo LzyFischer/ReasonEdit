@@ -83,6 +83,12 @@ def get_args() -> argparse.Namespace:
     # model
     parser.add_argument("--model_name", type=str, default="Qwen/Qwen2.5-3B-Instruct")
 
+    # NEW: output base + optional checkpoint name source
+    parser.add_argument("--out_root", type=Path, default=OUTPUTS_DIR / "perlogic",
+                        help="Base directory to save results")
+    parser.add_argument("--resume", type=Path,
+                        help="Optional checkpoint path; its stem names the subdir (else 'origin')")
+
     return parser.parse_args()
 
 ###############################################################################
@@ -280,10 +286,13 @@ class Trainer:
                 print(self._progress_str(step))
         print(f"Completed in {(time.time()-start)/60:.1f} min")
 
+        # ── build output path with tag right before filenames ───────────
         lr_slug = str(self.args.lr).replace('.', 'p').replace('-', 'm')
-        out_dir = Path(str(OUTPUTS_DIR / f"perlogic/{lr_slug}"))
+        base = Path(self.args.out_root).resolve()
+        run_tag = Path(self.args.resume).stem if self.args.resume else "origin"
+        out_dir = base / lr_slug / run_tag  # lr_slug first, tag next to file
+        print(f"[info] Saving results under: {out_dir}")
         self._save_results(out_dir)
-
     # ------------------------------------------------------------------
     def _reset_lora(self):
         with torch.no_grad():

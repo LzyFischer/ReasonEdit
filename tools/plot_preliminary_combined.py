@@ -1,38 +1,22 @@
 #!/usr/bin/env python3
 """
-tools/plot_preliminary.py  —  **multi-run edition, unified-corr version**
-──────────────────────────────────────────────────────────────────────────
-• Accepts *lists* of --seeds and --lrs and an optional --combine SIZE.
-• Combines each SIZE-sized group of (seed, lr) runs, averaging / block-
-  concatenating their distance, Δ, and accuracy-count matrices, then
-  draws the four standard figures **per group** using the *new* one-corr
-  plotting helpers.
+tools/plot_preliminary.py  —  multi-run edition, unified-corr
+with checkpoint-stem/origin tagging support.
 
-Key changes from the original multi-run script
-──────────────────────────────────────────────
-1.  Uses the updated plotting helpers
-      – `plot_basic_scatter`, `plot_rowmean_scatter`,
-        `plot_sliding_scatter`, `plot_accuracy_scatter`
-   which now **return a single Pearson r** over all plotted points.
-2.  `stats` now stores `(figure, corr)` tuples.
-3.  Per-group `correlations.csv` → columns: `figure,corr`
-    Global aggregate `correlations_all.csv` →
-    `distance,seeds,lrs,figure,corr`
-4.  Δ-filter threshold (≥ 0.1) is handled inside the helpers, so nothing
-    to change here.
+Inputs (tagged):
+  results/output/distance/<TAG>/<distance>/seed{seed}.csv
+  results/output/perlogic/<TAG>/<lr_slug>/{delta.csv,n_total.csv,delta_count.csv}
 
-Example
-───────
-python -m tools.plot_preliminary \\
-       --distance pot \\
-       --seeds 10,12,13,14,15,17,18,19 \\
-       --lrs 1e-4,1.5e-4 \\
-       --combine 6
+Outputs (tagged):
+  results/figures/<distance>/<TAG>/mSEEDS/mLRS/
+    scatter.png, scatter_binned.png, scatter_sliding.png, scatter_acc.png, correlations.csv
+Global aggregate (per TAG):
+  results/figures/<TAG>/correlations_all.csv
 """
 from __future__ import annotations
 import argparse, itertools, uuid, shutil
 from pathlib import Path
-from typing import List, Tuple, Sequence, Dict
+from typing import List, Tuple, Sequence, Optional
 from itertools import combinations
 
 import numpy as np
@@ -71,18 +55,36 @@ def aggregate_mats(mats: Sequence[pd.DataFrame]) -> pd.DataFrame:
     stack = np.stack([m.values for m in mats])
     return pd.DataFrame(stack.mean(axis=0), index=mats[0].index, columns=mats[0].columns)
 
-def load_distance(distance: str, seed: int) -> pd.DataFrame:
-    f = Path(f"results/output/distance/{distance}/seed{seed}.csv")
+def lr_slug(lr: float | str) -> str:
+    return str(lr).replace(".", "p").replace("-", "m")
+
+def resolve_tag(tag: Optional[str], resume: Optional[str], origin_tag: str) -> Optional[str]:
+    """
+    Priority: explicit --tag → stem(--resume) → origin_tag (default 'origin').
+    Returns None to use legacy (untagged) layout if everything empty.
+    """
+    if tag:
+        return tag
+    if resume:
+        return Path(resume).stem
+    return origin_tag if origin_tag else None
+
+# ───────────── tagged I/O helpers (fall back to legacy if TAG is None) ─────────────
+def load_distance(distance: str, seed: int, TAG: Optional[str]) -> pd.DataFrame:
+    f = (Path(f"results/output/distance/{distance}/{TAG}/seed{seed}.csv")
+         if TAG else Path(f"results/output/distance/{distance}/seed{seed}.csv"))
     return pd.read_csv(f, index_col=0)
 
-def load_delta(lr: float) -> pd.DataFrame:
-    lr_slug = str(lr).replace(".", "p").replace("-", "m")
-    f = Path(f"results/output/perlogic/{lr_slug}/delta.csv")
+def load_delta(lr: float, TAG: Optional[str]) -> pd.DataFrame:
+    s = lr_slug(lr)
+    f = (Path(f"results/output/perlogic/{s}/{TAG}/delta.csv")
+         if TAG else Path(f"results/output/perlogic/{s}/delta.csv"))
     return pd.read_csv(f, index_col=0)
 
-def load_acc_counts(lr: float) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    lr_slug = str(lr).replace(".", "p").replace("-", "m")
-    root = Path(f"results/output/perlogic/{lr_slug}")
+def load_acc_counts(lr: float, TAG: Optional[str]) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    s = lr_slug(lr)
+    root = (Path(f"results/output/perlogic/{s}/{TAG}")
+            if TAG else Path(f"results/output/perlogic/{s}"))
     return (pd.read_csv(root / "n_total.csv", index_col=0),
             pd.read_csv(root / "delta_count.csv", index_col=0))
 
@@ -107,7 +109,14 @@ def main_cli() -> None:
                     help="merge this many (seed,lr) runs into one group")
     ap.add_argument("--win",  type=float, default=.05)
     ap.add_argument("--step", type=float, default=.05)
+    # NEW: tagging
+    ap.add_argument("--tag", type=str, default="", help="Explicit run tag to use in paths")
+    ap.add_argument("--resume", type=str, help="Checkpoint path; stem becomes tag if --tag not given")
+    ap.add_argument("--origin_tag", type=str, default="origin",
+                    help="Tag to use when neither --tag nor --resume is provided")
     args = ap.parse_args()
+
+    TAG = resolve_tag(args.tag, args.resume, args.origin_tag)
 
     seeds = parse_list(args.seeds, int)  or ([args.seed] if args.seed is not None else [])
     lrs   = parse_list(args.lrs,   float) or ([args.lr]   if args.lr   is not None else [])
@@ -120,15 +129,15 @@ def main_cli() -> None:
     for gidx, grp in enumerate(groups, 1):
         seeds_grp = sorted({s for s, _ in grp})
         lrs_grp   = sorted({lr for _, lr in grp})
-        lr_slugs  = [str(lr).replace(".", "p").replace("-", "m") for lr in lrs_grp]
+        lr_slugs  = [lr_slug(lr) for lr in lrs_grp]
 
         # ── build block-diag matrices ───────────────────────────────────
-        dist_cat  = block_diag_df([load_distance(args.distance, s) for s, _ in grp])
-        delta_cat = block_diag_df([load_delta(lr)                  for _, lr in grp])
+        dist_cat  = block_diag_df([load_distance(args.distance, s, TAG) for s, _ in grp])
+        delta_cat = block_diag_df([load_delta(lr, TAG)                  for _, lr in grp])
 
         tot_blocks, cor_blocks = [], []
         for _, lr in grp:
-            tot, cor = load_acc_counts(lr)
+            tot, cor = load_acc_counts(lr, TAG)
             tot_blocks.append(tot)
             cor_blocks.append(cor)
         tot_cat = block_diag_df(tot_blocks).round().astype(int)
@@ -140,15 +149,19 @@ def main_cli() -> None:
         tot_cat.to_csv(tmp_root / "n_total.csv")
         cor_cat.to_csv(tmp_root / "delta_count.csv")
 
-        # figure output dir
+        # figure output dir (tagged or legacy)
         seed_tag = "m" + "-".join(map(str, seeds_grp))
         lr_tag   = "m" + "-".join(lr_slugs)
-        out_dir  = Path(f"results/figures/{args.distance}/{seed_tag}/{lr_tag}")
+        if TAG:
+            out_dir = Path(f"results/figures/{args.distance}/{TAG}/{seed_tag}/{lr_tag}")
+            agg_path = Path(f"results/figures/{TAG}/correlations_all.csv")
+        else:
+            out_dir = Path(f"results/figures/{args.distance}/{seed_tag}/{lr_tag}")
+            agg_path = Path("results/figures/correlations_all.csv")
         out_dir.mkdir(parents=True, exist_ok=True)
 
         # ── generate four plots ─────────────────────────────────────────
         stats: List[Tuple[str, float]] = []
-
         stats.append(("scatter",
             plot_basic_scatter(dist_cat, delta_cat, out_dir / "scatter.png")))
         stats.append(("scatter_binned",
@@ -172,7 +185,7 @@ def main_cli() -> None:
         agg.insert(0, "seeds", ";".join(map(str, seeds_grp)))
         agg.insert(0, "distance", args.distance)
 
-        agg_path = Path("results/figures/correlations_all.csv")
+        agg_path.parent.mkdir(parents=True, exist_ok=True)
         agg.to_csv(agg_path, mode="a", header=not agg_path.exists(), index=False)
 
         # cleanup

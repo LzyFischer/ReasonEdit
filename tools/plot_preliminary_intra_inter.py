@@ -341,6 +341,10 @@ def _parser() -> argparse.ArgumentParser:
     p.add_argument("--win", type=float, default=.05)
     p.add_argument("--step", type=float, default=.05)
     p.add_argument("--plot_dist", action="store_true")
+    p.add_argument("--out_root", type=str, default="figures",
+                   help="Root directory to save figures")
+    p.add_argument("--resume", type=str, default=None,
+                   help="If set, use this subdir (e.g., reptile_00045); otherwise 'origin'")
     return p
 
 
@@ -348,21 +352,24 @@ def main_cli():
     args = _parser().parse_args()
     lr_slug = str(args.lr).replace(".", "p").replace("-", "m")
 
-    # ── load matrices ───────────────────────────────────────────────────
+    # Determine subdir name
+    subdir = Path(args.resume).stem if args.resume else "origin"
+    out_dir = Path(args.out_root) / subdir / args.distance / f"seed{args.seed}" / f"lr{lr_slug}"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # Load matrices
     dist_csv = Path(f"results/output/distance/{args.distance}/seed{args.seed}.csv")
     delta_csv = Path(f"results/output/perlogic/{lr_slug}/delta.csv")
     dist_mat = pd.read_csv(dist_csv, index_col=0)
     delta_mat = pd.read_csv(delta_csv, index_col=0).loc[dist_mat.index, dist_mat.columns]
 
-    out_dir = Path(f"results/figures/{args.distance}/seed{args.seed}/lr{lr_slug}")
-
-    stats: List[Tuple[str, float, float]] = []  # figure, inter, intra
+    stats: List[Tuple[str, float, float]] = []
 
     # ① basic
     ci, cd = plot_basic_scatter(dist_mat, delta_mat, out_dir / "scatter.png")
     stats.append(("scatter", ci, cd))
 
-    # ② row‑mean
+    # ② row-mean
     ci, cd = plot_rowmean_scatter(dist_mat, delta_mat, out_dir / "scatter_binned.png")
     stats.append(("scatter_binned", ci, cd))
 
@@ -377,31 +384,25 @@ def main_cli():
                                    win=args.win, step=args.step)
     stats.append(("scatter_acc", ci, cd))
 
-    # ── write per‑combo CSV (figure,inter,intra) ────────────────────────
+    # Save per-combo CSV
     combo_df = pd.DataFrame(stats, columns=["figure", "inter", "intra"])
     combo_path = out_dir / "correlations.csv"
     combo_df.to_csv(combo_path, index=False)
-    print(f"[info] saved per‑combo correlations → {combo_path}")
+    print(f"[info] saved per-combo correlations → {combo_path}")
 
-    # ── append to global aggregate ──────────────────────────────────────
+    # Append to aggregate file under out_root
+    agg_path = Path(args.out_root) / subdir / "correlations_all.csv"
     agg_df = combo_df.copy()
     agg_df.insert(0, "lr", args.lr)
     agg_df.insert(0, "seed", args.seed)
     agg_df.insert(0, "distance", args.distance)
-
-    agg_path = Path("results/figures/correlations_all.csv")
     header_needed = not agg_path.exists()
     agg_df.to_csv(agg_path, mode="a", header=header_needed, index=False)
     print(f"[info] appended to global aggregate → {agg_path}\n")
 
     if args.plot_dist:
-        # ⑤ distributions   (hist + KDE)
-        plot_dist_vs_delta_hist(dist_mat, delta_mat,
-                                out_dir / "hist_distance_delta.png")
-        # ⑥ QQ-plot  distance vs delta
-        plot_qq_dist_delta(dist_mat, delta_mat,
-                        out_dir / "qq_distance_delta.png")
-
+        plot_dist_vs_delta_hist(dist_mat, delta_mat, out_dir / "hist_distance_delta.png")
+        plot_qq_dist_delta(dist_mat, delta_mat, out_dir / "qq_distance_delta.png")
 
 
 if __name__ == "__main__":

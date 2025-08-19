@@ -205,32 +205,42 @@ def build_parser() -> argparse.ArgumentParser:
                         "(default: <input>/weighted_edit_distance_raw.csv)")
     p.add_argument("--seed", type=int, default=0,
         help="Seed (only used to find *_split<seed> files when --input is a "
-             "directory)")                    
+             "directory)")                
+    p.add_argument("--resume", type=Path, help="Checkpoint path to use for output dir")   
     return p
 
 def main():
     args = build_parser().parse_args()
-    # out_png = Path(args.input) / "weighted_edit_distance_matrix.png"
-    root    = Path(args.input)
-    out_png = root / "weighted_edit_distance_matrix.png"
 
-    data           = collect_weights(args.input, args.seed)
-    wedit_mat, lbl = build_wedit_matrix(data)
+    # --- Determine output directory ---
+    out_dir = Path(args.input)  # start from given input base
+    if getattr(args, "resume", None):  # will work if --resume is later added to parser
+        ckpt_stem = Path(args.resume).stem
+        out_dir = out_dir / ckpt_stem
+        print(f"[info] Using subdir based on checkpoint name: {out_dir}")
+    else:
+        out_dir = out_dir / "origin"  # or "unmodified"
+        print(f"[info] Using subdir for unmodified model: {out_dir}")
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    # pd.DataFrame(wedit_mat, index=lbl, columns=lbl) \
-    #   .to_csv(Path(args.input) / "weighted_edit_distance_raw.csv", float_format="%.6f")
-    # print("✓ Saved raw matrix →", Path(args.input) / "weighted_edit_distance_raw.csv")
-    out_csv = Path(args.out_csv) if args.out_csv else root / "weighted_edit_distance_raw.csv"
+    # Where to save the PNG + CSV
+    out_png = out_dir / "weighted_edit_distance_matrix.png"
+    out_csv = Path(args.out_csv) if args.out_csv else out_dir / "weighted_edit_distance_raw.csv"
     out_csv.parent.mkdir(parents=True, exist_ok=True)
+
+    # --- Compute matrix ---
+    data = collect_weights(args.input, args.seed)
+    wedit_mat, lbl = build_wedit_matrix(data)
 
     pd.DataFrame(wedit_mat, index=lbl, columns=lbl) \
       .to_csv(out_csv, float_format="%.6f")
     print("✓ Saved raw matrix →", out_csv)
-    # ─────────────────────────────────────────────────────────────────────
 
+    # Optional reordering
     if not args.no_cluster:
         wedit_mat, lbl = reorder_by_abstract(wedit_mat, lbl)
 
+    # Plot heatmap
     plot_heatmap(wedit_mat, lbl, out_png, block=args.block)
 
 

@@ -71,7 +71,7 @@ def get_args() -> argparse.Namespace:
 
     # training behaviour
     parser.add_argument("--fine_tune", type=str2bool, default=True)
-    parser.add_argument("--lr", type=float, default=1e-5,
+    parser.add_argument("--lr", type=float, default=1e-4,
                         help="Learning rate for the LoRA parameters")
     parser.add_argument("--batch_k", type=int, default=20,
                         help="# of same‑logic training examples per fine‑tuning step")
@@ -89,6 +89,16 @@ def get_args() -> argparse.Namespace:
 
     # model
     parser.add_argument("--model_name", type=str, default="Qwen/Qwen2.5-3B-Instruct")
+
+    # ckpt
+    parser.add_argument("--resume", type=Path, default=None,
+                        help="Path to reptile_*.pt full-model checkpoint")
+    parser.add_argument("--strict_resume", type=str2bool, default=False,
+                        help="Set True to enforce exact key match on load_state_dict")
+
+    # NEW: output base (we’ll append ckpt stem or 'origin' + LR slug)
+    parser.add_argument("--out_root", type=Path, default=OUTPUTS_DIR / "perlogic",
+                        help="Base directory to save results")
 
     return parser.parse_args()
 
@@ -137,7 +147,6 @@ def generate_answer(prompt: str, model, tokenizer, src_path: Path, max_new: int 
         ids = tokenizer(templ, return_tensors="pt").to(model.device)
         out = model.generate(**ids, max_new_tokens=max_new, do_sample=False)
         text = tokenizer.decode(out[0], skip_special_tokens=True)
-
     # crude normalisation heuristics
     try:
         answer = text.split(" Answer:")[-1].strip().split()[0].lower()
@@ -234,12 +243,45 @@ def harvest_pairs(path: Path, gen_k: int, loc_k: int):
 ###############################################################################
 # 4. Model & LoRA initialisation                                             #
 ###############################################################################
+def _infer_ckpt_dtype(sd):
+    for v in sd.values():
+        if torch.is_tensor(v) and torch.is_floating_point(v):
+            return v.dtype
+    return None
 
-def get_model(model_name: str, tokenizer, device: torch.device):
-    base = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float16)
-    # target‑module heuristic
+def _cast_state_dict(sd, dtype):
+    out = {}
+    for k, v in sd.items():
+        if torch.is_tensor(v) and torch.is_floating_point(v):
+            out[k] = v.to(dtype)
+        else:
+            out[k] = v
+    return out
+
+def get_model(model_name: str, tokenizer, device: torch.device, args):
+    ckpt_sd = None
+    ckpt_dtype = None
+    if args.resume is not None:
+        ckpt = torch.load(args.resume, map_location="cpu")
+        ckpt_sd = ckpt.get("model_state", ckpt)
+        ckpt_dtype = _infer_ckpt_dtype(ckpt_sd)
+
+    # 选一个全局 dtype 策略：若 ckpt 是 BF16，就全链路 BF16，否则 FP16
+    target_dtype = torch.bfloat16 if ckpt_dtype == torch.bfloat16 else torch.float16
+
+    base = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=target_dtype)
+
+    if ckpt_sd is not None:
+        if ckpt_dtype is not None and ckpt_dtype != target_dtype:
+            ckpt_sd = _cast_state_dict(ckpt_sd, target_dtype)  # 显式转 dtype，最稳妥
+        missing, unexpected = base.load_state_dict(ckpt_sd, strict=args.strict_resume)
+        print(f"Resumed from {args.resume} (iter={ckpt.get('iter','?')}), "
+              f"missing={len(missing)} unexpected={len(unexpected)}")
+        if "rng_state" in ckpt:
+            torch.set_rng_state(ckpt["rng_state"])
+    # LoRA
     target_modules = [
-        "q_proj", "o_proj", "k_proj", "v_proj", "gate_proj", "up_proj", "down_proj"
+        "q_proj","o_proj","k_proj","v_proj","gate_proj","up_proj","down_proj"
     ] if model_name.startswith("google/gemma-3-4b-it") else None
 
     lora_cfg = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.05,
@@ -300,11 +342,14 @@ class Trainer:
             self._process_pair(pair)
             if step % 2 == 0 or step == len(self.pairs):
                 print(self._progress_str(step))
-                if (self.hits_gen / self.gen_total if self.gen_total else 0) < 0.5:
-                    pdb.set_trace()
         print(f"Completed in {(time.time()-start)/60:.1f} min")
+
+        # ── build output path with tag right before filenames ───────────
         lr_slug = str(self.args.lr).replace('.', 'p').replace('-', 'm')
-        out_dir = Path(str(OUTPUTS_DIR / f"perlogic/{lr_slug}"))
+        base = Path(self.args.out_root).resolve()
+        run_tag = Path(self.args.resume).stem if self.args.resume else "origin"
+        out_dir = base / lr_slug / run_tag      # <── tag goes here
+        print(f"[info] Saving results under: {out_dir}")
         self._save_results(out_dir)
 
     # ------------------------------------------------------------------
@@ -428,7 +473,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     tokenizer = get_tokenizer(args.model_name)
-    model = get_model(args.model_name, tokenizer, device)
+    model = get_model(args.model_name, tokenizer, device, args)
     print("Loaded model with trainable LoRA parameters:")
     model.print_trainable_parameters()
 

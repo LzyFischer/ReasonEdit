@@ -13,6 +13,7 @@ Assumes:
 """
 
 from pathlib import Path
+from datetime import datetime
 from typing import List, Dict, Tuple
 
 import torch
@@ -55,6 +56,34 @@ def flatten_effects_to_embeddings(
 
     return flattened
 
+def save_checkpoint(step: int, tag: str = "contrastive") -> Path:
+    """Save model/optimizer and minimal config (CPU tensors for portability)."""
+    fname = f"{tag}_{step:05d}.pt"
+    path = CKPT_DIR / fname
+    payload = {
+        "step": step,
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "config": {
+            "MODEL_NAME": MODEL_NAME,
+            "GROUP_SIZE": GROUP_SIZE,
+            "N_LOGIC_PER_ITEM": N_LOGIC_PER_ITEM,
+            "MAX_LEN": MAX_LEN,
+            "BATCH_SIZE": BATCH_SIZE,
+            "SEED": SEED,
+            "LR": 1e-4,
+        },
+        "model_state": {k: v.detach().cpu() for k, v in model.state_dict().items()},
+        "optimizer_state": optimizer.state_dict(),
+        "rng_state_cpu": torch.get_rng_state(),
+    }
+    # also store CUDA RNG if available
+    if torch.cuda.is_available():
+        try:
+            payload["rng_state_cuda"] = torch.cuda.get_rng_state()
+        except Exception:
+            pass
+    torch.save(payload, path)
+    return path
 # ------------------- 1.  hyper-params & paths  --------------------------------
 DATA_JSON         = Path("data/corrupt/augmented_dataset.json")  # <-- adjust if needed
 GROUP_SIZE        = 2
@@ -65,6 +94,9 @@ SEED              = 0
 DEVICE            = AP.DEVICE
 DTYPE             = AP.DTYPE
 MODEL_NAME        = AP.MODEL_NAME
+CKPT_DIR = Path("ckpts")
+CKPT_DIR.mkdir(parents=True, exist_ok=True)
+SAVE_EVERY = 10  # save every N steps; change as you like
 # ------------------------------------------------------------------------------
 
 # ------------------- 2.  model / tokenizer / dataset --------------------------
@@ -92,7 +124,7 @@ loader = DataLoader(ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate
 nodes  = AP.get_comp_nodes(model)
 print(f"[INFO] Tracking {len(nodes)} comp-nodes across {len(ds)} dataset items")
 
-optimizer = torch.optim.SGD(model.parameters(), lr=1e-1)
+optimizer = torch.optim.SGD(model.parameters(), lr=1e-4)
 # ------------------- 3.  per-batch attribution loop --------------------------
 for step, item in enumerate(loader, 1):
     effects: Dict[str, List[Dict[str, torch.Tensor]]] = {}
@@ -120,7 +152,7 @@ for step, item in enumerate(loader, 1):
             effect = AP.calculate_effect(model, clean_cache, corrupt_cache, nodes, tok, out_clean, answers)
             effects[logic].append(effect)
             
-            AP.report_effects(effect, topk_node=5, topk_head=5)
+            # AP.report_effects(effect, topk_node=5, topk_head=5)
     
     # contrastive learning loss (same logic similar, different not similar)
     # flatten effects for loss calculation into one embedding
@@ -140,6 +172,11 @@ for step, item in enumerate(loader, 1):
     contrastive_loss.backward()
     optimizer.step()
     optimizer.zero_grad()
+
+    if (step % SAVE_EVERY) == 0:
+        ck = save_checkpoint(step)
+        print(f"[CKPT] saved → {ck}")
+
     print(f"[DONE] Step {step}/{len(loader)}")
     # clean all the cache and gradient
     purge_cache(clean_cache)
@@ -154,8 +191,9 @@ for step, item in enumerate(loader, 1):
     torch.cuda.empty_cache()
     torch.cuda.ipc_collect()
 
-    pdb.set_trace()  # uncomment to debug a specific batch
+    # pdb.set_trace()  # uncomment to debug a specific batch
 
 
-
+final_ck = save_checkpoint(step)
+print(f"[CKPT] final → {final_ck}")
 print("✓ All batches processed.")
