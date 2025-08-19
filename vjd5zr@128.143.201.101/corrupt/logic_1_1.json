@@ -1,0 +1,14 @@
+{
+    "word_idxs": {
+      "start": 0,
+      "end": 0
+    },
+    "prompts": [
+      {
+        "clean": "The soprano sang the aria flawlessly during the opera performance. However, the tenor forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The soprano sang the aria flawlessly during the opera performance. However, the tenor forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up booing the opera performance? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      }
+    ]
+  }

@@ -1,0 +1,72 @@
+{
+    "word_idxs": {
+      "start": 0,
+      "end": 0
+    },
+    "prompts": [
+      {
+        "clean": "The clown Bobo performed a juggling act at the circus. \nIf Bobo did not perform his juggling act, then it means he made a mistake during his act.\nDid Bobo make a mistake during his circus act? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The clown Bobo performed a juggling act at the circus. \nIf Bobo did not perform his juggling act, then it means he made a mistake during his act.\nDid Bobo make a success during his circus act? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "Seattle Slew won the Kentucky Derby in 1977.\nIf Seattle Slew did not win the Kentucky Derby in 1977, then he did not win the Triple Crown that year.\nDid Seattle Slew win the Triple Crown in 1977? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "Seattle Slew won the Kentucky Derby in 1977.\nIf Seattle Slew did not win the Kentucky Derby in 1977, then he did not win the Triple Crown that year.\nDid Seattle Slew lose the Triple Crown in 1977? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "Sarah was invited to her friend's birthday party.\nIf Sarah was not invited to her friend's birthday party, then she did not go to the party.\nDid Sarah go to the party? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "Sarah was invited to her friend's birthday party.\nIf Sarah was not invited to her friend's birthday party, then she did not go to the party.\nDid Sarah leave from the party? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "The Lakers made the playoffs this year.\nIf the Lakers did not make the playoffs, then it implies they must have had a losing record during the regular season.\nDid the Lakers have a losing record during the regular season? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The Lakers made the playoffs this year.\nIf the Lakers did not make the playoffs, then it implies they must have had a losing record during the regular season.\nDid the Lakers have no losing record during the regular season? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "Mary is currently working on a quilt that she has been making by hand. \nIf Mary is not working on her quilt, then it means she is taking a break from quilting.\nIs Mary taking a break from quilting? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "Mary is currently working on a quilt that she has been making by hand. \nIf Mary is not working on her quilt, then it means she is taking a break from quilting.\nIs Mary taking no break from quilting? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "The marsh experienced heavy rainfall this spring.\nIf the marsh did not experience heavy rainfall, then the water level would have remained low.\nDid the water level in the marsh remain low this spring? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The marsh experienced heavy rainfall this spring.\nIf the marsh did not experience heavy rainfall, then the water level would have remained low.\nDid the water level in the marsh remain high this spring? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The reef in question is located in shallow water.\nIf the reef is not located in shallow water, then it experiences significant wave action.\nDoes this particular reef experience significant wave action? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The reef in question is located in shallow water.\nIf the reef is not located in shallow water, then it experiences significant wave action.\nDoes this particular reef experience no wave action? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The waters in San Francisco Bay are calm today.\nIf the waters in San Francisco Bay are not calm, then windsurfers cannot go windsurfing in the bay.\nGiven the calm conditions today, can windsurfers go windsurfing in San Francisco Bay? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The waters in San Francisco Bay are calm today.\nIf the waters in San Francisco Bay are not calm, then windsurfers cannot go windsurfing in the bay.\nGiven the calm conditions today, should windsurfers avoid windsurfing in San Francisco Bay? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The town of Oakville held its annual summer festival this year.\nIf the town did not hold its annual summer festival, then the festival would have been canceled.\nWas Oakville's summer festival canceled? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The town of Oakville held its annual summer festival this year.\nIf the town did not hold its annual summer festival, then the festival would have been canceled.\nWas Oakville's summer festival remained? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The Okefenokee Swamp received heavy rainfall this week.\nIf the Okefenokee Swamp did not receive heavy rainfall, then the water level in the swamp would have decreased.\nBased on this information, did the water level in the Okefenokee Swamp decrease? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The Okefenokee Swamp received heavy rainfall this week.\nIf the Okefenokee Swamp did not receive heavy rainfall, then the water level in the swamp would have decreased.\nBased on this information, did the water level in the Okefenokee Swamp increase? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      }
+    ]
+  }

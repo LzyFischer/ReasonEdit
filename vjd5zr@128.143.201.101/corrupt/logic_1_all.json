@@ -1,0 +1,72 @@
+{
+    "word_idxs": {
+      "start": 0,
+      "end": 0
+    },
+    "prompts": [
+      {
+        "clean": "The soprano sang the aria flawlessly during the opera performance. However, the tenor forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The soprano sang the aria flawlessly during the opera performance. However, the tenor forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up booing the opera performance? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "In the Rugby Championship match between New Zealand's All Blacks and Australia's Wallabies, the All Blacks scored a try but the Wallabies did not score a try.\nIf either the All Blacks or the Wallabies scored a try, then it means points were scored in the match.\nWere any points scored in this Rugby Championship match? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "In the Rugby Championship match between New Zealand's All Blacks and Australia's Wallabies, the All Blacks scored a try but the Wallabies did not score a try.\nIf either the All Blacks or the Wallabies scored a try, then it means points were scored in the match.\nWere any points lost in this Rugby Championship match? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "Alice attended a traditional Japanese tea ceremony. She did not drink coffee at the ceremony.\nIf Alice attended the tea ceremony or drank coffee at the ceremony, then she participated in a beverage-centered cultural ritual.\nDid Alice participate in a beverage-centered cultural ritual? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "Alice attended a traditional Japanese tea ceremony. She did not drink coffee at the ceremony.\nIf Alice attended the tea ceremony or drank coffee at the ceremony, then she participated in a beverage-centered cultural ritual.\nDid Alice avoid in a beverage-centered cultural ritual? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "The Lakers made the playoffs this year. They did not have a losing record during the regular season.\nIf the Lakers made the playoffs or had a losing record, then that would mean they had a successful season overall.\nDid the Lakers have a successful season? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The Lakers made the playoffs this year. They did not have a losing record during the regular season.\nIf the Lakers made the playoffs or had a losing record, then that would mean they had a successful season overall.\nDid the Lakers have a unsuccessful season? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "The water level on the river was running high, providing exciting whitewater for rafting. However, there were not strong winds kicking up large waves on top of the already rapid current.\nIf the river level is high or there are strong winds making big waves, then the rafting conditions would be considered very challenging.\nUnder these circumstances with just the high water but no strong winds, are the whitewater rafting conditions challenging? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The water level on the river was running high, providing exciting whitewater for rafting. However, there were not strong winds kicking up large waves on top of the already rapid current.\nIf the river level is high or there are strong winds making big waves, then the rafting conditions would be considered very challenging.\nUnder these circumstances with just the high water but no strong winds, are the whitewater rafting conditions naive? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+      {
+        "clean": "The moor is covered in heather but does not have many trees.\nIf a moor is covered in heather or has many trees, then it is considered a typical upland habitat.\nCan we conclude that this specific moor is a typical upland habitat? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The moor is covered in heather but does not have many trees.\nIf a moor is covered in heather or has many trees, then it is considered a typical upland habitat.\nCan we conclude that this specific moor is a typical upland habitat? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "It rained heavily in the savannah last week, but the savannah did not experience a drought last month.\nIf it rained heavily last week or there was a drought last month, then the grass in the savannah would currently be tall and green.\nBased on this information, can we conclude that the grass in the savannah is currently tall and green? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "It rained heavily in the savannah last week, but the savannah did not experience a drought last month.\nIf it rained heavily last week or there was a drought last month, then the grass in the savannah would currently be tall and green.\nBased on this information, can we conclude that the grass in the savannah is currently short and blue? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "Springfield is a large city, but Williamsville is not a major metropolitan area.\nIf either Springfield is a large city or Williamsville is a major metropolitan area, then the region has at least one densely populated urban center.\nCan we conclude that the region has at least one densely populated urban center? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "Springfield is a large city, but Williamsville is not a major metropolitan area.\nIf either Springfield is a large city or Williamsville is a major metropolitan area, then the region has at least one densely populated urban center.\nCan we conclude that the region has not any one densely populated urban center? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The Nile river forms a delta where it enters the Mediterranean Sea. However, the Nile does not flow through a desert before reaching the sea.\nIf the Nile forms a delta at its mouth or if it flows through a desert before the sea, then it would deposit rich sediment at its mouth.\nCan we conclude that the Nile deposits rich sediment where it enters the Mediterranean? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The Nile river forms a delta where it enters the Mediterranean Sea. However, the Nile does not flow through a desert before reaching the sea.\nIf the Nile forms a delta at its mouth or if it flows through a desert before the sea, then it would deposit rich sediment at its mouth.\nCan we conclude that the Nile deposits rich sediment where it leaves the Mediterranean? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      },
+  
+      {
+        "clean": "The city of Metropolis has a population exceeding 1 million people. However, Metropolis is not the capital city of the country it is located in.\nIf a city has over 1 million residents or is a national capital, then it is considered a major city.\nGiven this information, can we conclude whether or not Metropolis is classified as a major city? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "corrupt": "The city of Metropolis has a population exceeding 1 million people. However, Metropolis is not the capital city of the country it is located in.\nIf a city has over 1 million residents or is a national capital, then it is considered a major city.\nGiven this information, can we conclude whether or not Metropolis is classified as a irrelevant city? (True, False, or N/A (undetermined)).\n### The answer is:",
+        "answers": [" True"],
+        "wrong_answers": [" False"]
+      }
+    ]
+  }
