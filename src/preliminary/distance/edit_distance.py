@@ -194,7 +194,7 @@ def plot_heatmap(mat: np.ndarray, labels: List[str], out_png: Path,
 # ═════════════════════════════ 6. CLI ════════════════════════════════════
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser()
-    p.add_argument("--input", default=str(OUTPUTS_DIR / "attr_scores/qwen2_5_3b_instruct/5"),
+    p.add_argument("--input", default=str(OUTPUTS_DIR / "attr_scores/level_1/qwen2_5_3b_instruct/5"),
                    help="Directory or glob of *.json mask files")
     p.add_argument("--block", type=int, default=3,
                    help="Dashed grid every N cells")
@@ -213,13 +213,13 @@ def main():
     args = build_parser().parse_args()
 
     # --- Determine output directory ---
-    out_dir = Path(args.input)  # start from given input base
+    base_dir = Path(args.input).resolve()
     if getattr(args, "resume", None):  # will work if --resume is later added to parser
         ckpt_stem = Path(args.resume).stem
-        out_dir = out_dir / ckpt_stem
+        out_dir = base_dir / ckpt_stem
         print(f"[info] Using subdir based on checkpoint name: {out_dir}")
     else:
-        out_dir = out_dir / "origin"  # or "unmodified"
+        out_dir = base_dir / "origin"  # or "unmodified"
         print(f"[info] Using subdir for unmodified model: {out_dir}")
     out_dir.mkdir(parents=True, exist_ok=True)
 

@@ -1,23 +1,38 @@
-#!/bin/bash
 
-# # 运行第一个命令并输出到 log1.txt
-# python -um src.lora_edit --lr 0 > tmp/0_o.txt 2>&1 &
 
-# # 运行第二个命令并输出到 log2.txt
-# python -um src.lora_edit --lr 5e-5 > tmp/5_o.txt 2>&1
+python -m src.ns_dist --data_json data/corrupt/level_2_1.json --seed 42
+CUDA_VISIBLE_DEVICES=1 python -m src.reptile_dist --data_json data/corrupt/level_2_1.json --seed 42
 
-# # 运行第一个命令并输出到 log1.txt
-# python -um src.lora_edit --lr 0 --resume ckpts/reptile_00045.pt > tmp/0_r.txt 2>&1 &
+python -m src.reptile_ns_dist --data_json data/corrupt/level_2_1.json --seed 42
+CUDA_VISIBLE_DEVICES=1 python -m src.reptile_ns --data_json data/corrupt/level_2_1.json --seed 42
 
-# 运行第二个命令并输出到 log2.txt
-python -um src.lora_edit --lr 4e-5 --resume ckpts/reptile_00045.pt > tmp/4_r.txt 2>&1
-python -um src.lora_edit --lr 4e-5 --resume ckpts/reptile_ns_00045.pt > tmp/4_n.txt 2>&1
-python -um src.lora_edit --lr 4e-5 --resume ckpts/contrastive_00045.pt > tmp/4_c.txt 2>&1
+python -m src.ns_dist --data_json data/corrupt/level_3_1.json --seed 42
+CUDA_VISIBLE_DEVICES=1 python -m src.reptile_dist --data_json data/corrupt/level_3_1.json --seed 42
 
-# # 运行第一个命令并输出到 log1.txt
-# python -um src.lora_edit --lr 0 --resume ckpts/reptile_00045.pt > tmp/0_r.txt 2>&1 &
+python -m src.reptile_ns_dist --data_json data/corrupt/level_3_1.json --seed 42
+CUDA_VISIBLE_DEVICES=1 python -m src.reptile_ns --data_json data/corrupt/level_3_1.json --seed 42
 
-# # 运行第二个命令并输出到 log2.txt
-python -um src.lora_edit --lr 2e-5 --resume ckpts/reptile_00045.pt > tmp/2_r.txt 2>&1
-# 等待两个进程结束
-wait
+
+
+
+# python -m src.lora_edit --src_json data/logic/level_2_1.json --resume ckpts/level_2_1/reptile_nsm_00040.pt --lr 2e-4
+
+python -m src.lora_edit --src_json data/logic/level_2_1.json --resume ckpts/level_2_1/reptile_nsm_00045.pt --lr 1e-4
+
+
+
+python -m src.lora_edit --src_json data/logic/level_3_1.json --resume ckpts/level_3_1/nometa_00045.pt --lr 1e-4
+
+CUDA_VISIBLE_DEVICES=1 python -m src.lora_edit --src_json data/logic/level_3_1.json --resume ckpts/level_3_1/reptile_d_00045.pt --lr 1e-4
+
+python -m src.lora_edit --src_json data/logic/level_3_1.json --resume ckpts/level_3_1/reptile_nsm_00045.pt --lr 1e-4
+
+CUDA_VISIBLE_DEVICES=1 python -m src.lora_edit --src_json data/logic/level_3_1.json --resume ckpts/level_3_1/reptile_nsmnl_00045.pt --lr 1e-4
+
+
+
+python -m tools.run_preliminary_pipeline --plot-mode cluster --resume ckpts/level_1/reptile_nsm_00040.pt
+python -m tools.run_preliminary_pipeline --plot-mode cluster --resume ckpts/level_1/nometa_00045.pt
+python -m tools.run_preliminary_pipeline --plot-mode cluster --resume ckpts/level_1/reptile_d_00040.pt
+python -m tools.run_preliminary_pipeline --plot-mode cluster --resume ckpts/level_1/reptile_nsd_00045.pt
+python -m tools.run_preliminary_pipeline --plot-mode cluster 

@@ -69,7 +69,7 @@ parser.add_argument("--gt", type=str2bool, default=False, help="Use ground truth
 parser.add_argument(
     "--src_json",
     type=Path,
-    default=DATA_DIR / "logic/deductive_logic.json",
+    default=DATA_DIR / "logic/level_1.json",
     help="Path to source JSON file",
 )
 parser.add_argument(
@@ -121,7 +121,7 @@ tokenizer.padding_side = "right"
 def encode(row: dict):
     """Convert a (premise, answer) example into supervised tokens."""
     if "deductive" in SRC_JSON.name:
-        prompt = f"{row['text']} (Answer in True, False, or N/A (Neither)). Answer:"
+        prompt = f"{row['text']} (Answer only in True, False, or N/A (Neither)). Answer:"
     else:
         prompt = f"{row['text']}. Answer:"
     answer = f"{row['label']}"
@@ -152,10 +152,7 @@ def encode(row: dict):
 def generate_answer(prompt: str, model, max_new_tokens: int = 50) -> str:
     model.eval()
     with torch.no_grad():
-        if "deductive" in SRC_JSON.name:
-            templ = f"{prompt} (Answer in True, False, or N/A (Neither)). Answer:"
-        else:
-            templ = f"{prompt}\n### The answer is:"
+        templ = f"{prompt} (Answer only in True, False, or N/A (Neither)). Answer:"
         ids = tokenizer(templ, return_tensors="pt").to(device)
         out = model.generate(**ids, max_new_tokens=max_new_tokens, do_sample=False)
         text = tokenizer.decode(out[0], skip_special_tokens=True)
@@ -502,9 +499,10 @@ df_correct = pd.DataFrame(mat_correct,index=logic_tags, columns=logic_tags)
 # Decide subdir: ckpt stem if resume else 'origin'
 # Decide subdir: <out_root>/<ckpt-stem|origin>/<lr-slug>/, then files inside
 lr_slug = str(args.lr).replace(".", "p").replace("-", "m")
+dataset_tag = Path(self.args.src_json).stem
 base_out_root = Path(args.out_root).resolve()
 run_tag = Path(args.resume).stem if args.resume else "origin"
-out_dir = base_out_root / lr_slug / run_tag
+out_dir = base_out_root / dataset_tag / lr_slug / run_tag
 out_dir.mkdir(parents=True, exist_ok=True)
 print(f"[info] Saving results under: {out_dir}")
 

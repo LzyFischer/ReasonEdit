@@ -59,7 +59,7 @@ BATCH_SIZE = 1
 
 CKPT_DIR = Path("ckpts")
 CKPT_DIR.mkdir(exist_ok=True)
-META_ITERS = 1000       # outer iterations
+META_ITERS = 45       # outer iterations
 INNER_STEPS = 5         # k steps of SGD per task
 INNER_LR = 1e-5
 META_LR = 1e-4          # ε in Reptile
@@ -69,6 +69,9 @@ SEED = 0
 DEVICE = AP.DEVICE
 DTYPE = AP.DTYPE
 MODEL_NAME = AP.MODEL_NAME
+
+SAVE_EVERY = 10          # << save every N meta iters
+SAVE_TAG   = "reptile"   # << checkpoint filename prefix
 
 torch.manual_seed(SEED)
 
@@ -96,6 +99,42 @@ def purge_cache(cache: AP.ActCacher):
         cache.cache[k] = None
     cache.cache.clear()
 
+# -----------------------------------------------------------------------------
+# Checkpoint helper
+# -----------------------------------------------------------------------------
+def save_checkpoint(step: int, model: nn.Module, tag: str = SAVE_TAG) -> Path:
+    """Save a minimal, portable checkpoint (CPU tensors + RNG states)."""
+    fname = f"{tag}_{step:05d}.pt"
+    path = CKPT_DIR / fname
+    payload = {
+        "iter": step,
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "config": {
+            "MODEL_NAME": MODEL_NAME,
+            "GROUP_SIZE": GROUP_SIZE,
+            "N_LOGIC_PER_ITEM": N_LOGIC_PER_ITEM,
+            "MAX_LEN": MAX_LEN,
+            "BATCH_SIZE": BATCH_SIZE,
+            "SEED": SEED,
+            "META_ITERS": META_ITERS,
+            "INNER_STEPS": INNER_STEPS,
+            "INNER_LR": INNER_LR,
+            "META_LR": META_LR,
+            "TASKS_PER_META": TASKS_PER_META,
+            "DTYPE": str(DTYPE),
+        },
+        "model_state": {k: v.detach().cpu() for k, v in model.state_dict().items()},
+        "rng_state_cpu": torch.get_rng_state(),
+    }
+    if torch.cuda.is_available():
+        try:
+            payload["rng_state_cuda"] = torch.cuda.get_rng_state()
+        except Exception:
+            pass
+    torch.save(payload, path)
+    # also keep a rolling "latest" file for convenience
+    torch.save(payload, CKPT_DIR / f"{tag}_latest.pt")
+    return path
 
 # -----------------------------------------------------------------------------
 # Effect flattening (unchanged helpers from previous script)
@@ -252,23 +291,10 @@ for meta_iter in trange(META_ITERS, desc="meta", colour="green"):
     for k, v in model.state_dict().items():
         v.data.add_(META_LR * delta_sum[k].to(v.device) / TASKS_PER_META)
     
-    ckpt_path = CKPT_DIR / f"reptile_{meta_iter+1:05d}.pt"
-    torch.save(
-        {
-            "iter":   meta_iter + 1,
-            "config": {                 # anything you might need to resume
-                "META_ITERS": META_ITERS,
-                "INNER_STEPS": INNER_STEPS,
-                "META_LR": META_LR,
-                "INNER_LR": INNER_LR,
-                "MODEL_NAME": MODEL_NAME,
-            },
-            "model_state": {k: v.cpu() for k, v in model.state_dict().items()},
-            "rng_state":  torch.get_rng_state(),   # optional
-        },
-        ckpt_path,
-    )
-    print(f"[INFO] saved checkpoint → {ckpt_path}")
+    step = meta_iter + 1
+    if (step % SAVE_EVERY == 0) or (step == META_ITERS):
+        ckpt_path = save_checkpoint(step, model, tag=SAVE_TAG)
+        print(f"[INFO] saved checkpoint → {ckpt_path}")
     
     del theta0, delta_sum
     # free memory

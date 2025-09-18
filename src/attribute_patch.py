@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
+import os
+from typing import List, Tuple, Dict
+
 import torch
 import torch.nn as nn
 from transformers import AutoTokenizer, AutoModelForCausalLM
-import os
-from typing import List, Tuple, Dict
+
 os.environ["PYTORCH_SDP_BACKEND"] = "math"
 torch.backends.cuda.enable_flash_sdp(False)
 torch.backends.cuda.enable_mem_efficient_sdp(False)
 torch.backends.cuda.enable_math_sdp(True)
-import pdb
 
+import pdb
 
 # ------------------------------- CONFIG ---------------------------------------
 MODEL_NAME   = "Qwen/Qwen2.5-3B-Instruct"   # or any HF CausalLM
@@ -17,15 +19,20 @@ DEVICE       = "cuda" if torch.cuda.is_available() else "cpu"
 DTYPE        = torch.bfloat16 if torch.cuda.is_available() else torch.float32
 TOPK_PRINT   = 10   # how many params with grad to print
 
-CLEAN_TEXT   = ["The soprano sang the aria flawlessly during the opera performance. However, the tenor did not forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (Answer in True, False, or N/A (Neither)). Answer:", "The soprano sang the aria flawlessly not the opera performance. However, the tenor did not forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (Answer in True, False, or N/A (Neither)). Answer:"]
-CORR_TEXT    = ["The soprano sang the aria flawlessly not the opera performance. However, the tenor did not forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (Answer in True, False, or N/A (Neither)). Answer:", "The soprano sang the aria flawlessly not the opera performance. However, the tenor did not forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (Answer in True, False, or N/A (Neither)). Answer:"]
+CLEAN_TEXT   = [
+    "The soprano sang the aria flawlessly during the opera performance. However, the tenor did not forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (Answer in True, False, or N/A (Neither)). Answer:",
+    "The soprano sang the aria flawlessly not the opera performance. However, the tenor did not forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (Answer in True, False, or N/A (Neither)). Answer:"
+]
+CORR_TEXT    = [
+    "The soprano sang the aria flawlessly not the opera performance. However, the tenor did not forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (Answer in True, False, or N/A (Neither)). Answer:",
+    "The soprano sang the aria flawlessly not the opera performance. However, the tenor did not forgot his lines on stage.\nIf the soprano sang flawlessly or the tenor forgot his lines, then it implies the audience would applaud the overall performance.\nDid the audience end up applauding the opera performance? (Answer in True, False, or N/A (Neither)). Answer:"
+]
 ANSWER       = " True"   # NOTE: leading space if your tokenizer splits like that
 
 # -----------------------------UTILS-----------------------------------
 def report_param_grads(model: torch.nn.Module, topk: int = 10) -> Tuple[int, List[Tuple[str, float]]]:
     """
     统计参数梯度并打印 Top-K。
-
     Returns:
         nonzero (int): 有非零梯度的参数个数
         top_items (List[Tuple[str, float]]): [(param_name, grad_abs_sum), ...]
@@ -42,7 +49,7 @@ def report_param_grads(model: torch.nn.Module, topk: int = 10) -> Tuple[int, Lis
 
     print(f"[INFO] Params with non-zero grad from effect-loss: {nonzero}")
     for n, s in top_items:
-        print(f"  • {n}: erad_sum={s:.3e}")
+        print(f"  • {n}: grad_abs_sum={s:.3e}")
 
     return nonzero, top_items
 
@@ -55,7 +62,7 @@ def report_effects(
     对每个节点/每个 head 的 effect 做统计并打印 Top-K。
 
     effects:
-        - q/k/v: 形状 [B, n_heads] 或 [B, n_kv_heads] (已扩展到 n_heads)
+        - q/k/v: 形状 [B, n_heads] 或 [B, n_kv_heads] (可能扩展到 n_heads)
         - 其他: 形状 [B]
 
     Returns:
@@ -68,13 +75,17 @@ def report_effects(
     head_scores = []
 
     for n, v in effects.items():
-        if v.dim() == 1:  # [1, n_heads]
-            score_per_head = v.abs()  # [n_heads]
+        if v.dim() == 2:
+            # [B, n_heads]
+            score_per_head = v.abs().mean(dim=0)  # [n_heads]
             for h, s in enumerate(score_per_head.tolist()):
                 head_scores.append((n, h, s))
             node_scores[n] = score_per_head.mean().item()
-        else:             # [1]
-            node_scores[n] = v.abs().item()
+        elif v.dim() == 1:
+            # [B]
+            node_scores[n] = v.abs().mean().item()
+        else:
+            node_scores[n] = v.abs().mean().item()
 
     top_nodes = sorted(node_scores.items(), key=lambda x: x[1], reverse=True)[:topk_node]
     print("\n[TOP NODE EFFECTS]")
@@ -100,9 +111,6 @@ class ActCacher:
 
     def _hook(self, name):
         def fn(module, inp, out):
-            # Keep graph (no detach) and retain grad so we can get d(metric)/d(act)
-            # if isinstance(out, torch.Tensor):
-            #     out.retain_grad()
             self.cache[name] = out
         return fn
 
@@ -121,13 +129,10 @@ def get_comp_nodes(model):
     """
     Pick nodes you want 'effects' for.
     Example: all attention projections & MLP outputs (excluding container modules).
-    Tweak as you like.
     """
     names = []
     for name, module in model.named_modules():
         if any(k in name for k in ["q_proj", "k_proj", "v_proj", "o_proj", "mlp"]):
-            # Filter out the module itself like "mlp" container if needed
-            # if not name.endswith(("mlp", "self_attn")):
             names.append(name)
     return names
 
@@ -149,28 +154,6 @@ def token_logit_metric(outputs, tokenizer, answers):
     chosen = logits_last.gather(1, tgt_ids.unsqueeze(1)).squeeze(1)  # [B]
     return chosen.mean()  # scalar
 
-def check_effect_graph(debug_cache: Dict[str, Dict[str, torch.Tensor]], model: nn.Module, sample=0):
-    # debug_cache: batch_size n_head hidden_dim
-    print("\n[CHECK EFFECT GRAPH]")
-    some = list(debug_cache.items())[:5]
-    for name, d in some:
-        diff, grad, eff = d["diff"], d["grad"], d["eff"]
-        eff_scalar = eff[sample].float().mean()
-        print(f"\nNode: {name}")
-        print("  diff.requires_grad:", diff.requires_grad, " grad_fn:", type(diff.grad_fn).__name__ if diff.grad_fn else None)
-        print("  grad.requires_grad:", grad.requires_grad, " grad_fn:", type(grad.grad_fn).__name__ if grad.grad_fn else None)
-        print("  eff.requires_grad :", eff.requires_grad,  " grad_fn:", type(eff.grad_fn).__name__ if eff.grad_fn else None)
-
-    for p in model.parameters():
-        if p.grad is not None:
-            p.grad.zero_()
-    probe_loss = torch.stack([d['eff'].mean() for d in debug_cache.values()]).pow(2).mean()
-    probe_loss.backward()
-
-    nz = sum((p.grad is not None) and p.grad.abs().sum().item() > 0 for p in model.parameters())
-    print(f"\n[Probe Backward] Params with non-zero grad: {nz}")
-
-# ----------------------------- MAIN TEST --------------------------------------
 def view_heads(t, n_heads):
     # t: [B, hidden]  ->  [B,  n_heads, head_dim]
     B, H = t.shape
@@ -181,22 +164,43 @@ def per_head_effect(diff, grad):
     # diff/grad: [B, n_heads, head_dim]
     return (diff * grad).mean(-1)   # [B, n_heads]
 
-def calculate_effect(model, clean_cache, corrupt_cache, nodes, tokenizer, out_clean, answer):
+# ----------------------------- EFFECT + GRAD ----------------------------------
+@torch.enable_grad()
+def calculate_effect(
+    model: nn.Module,
+    clean_cache: "ActCacher",
+    corrupt_cache: "ActCacher",
+    nodes: List[str],
+    tokenizer: AutoTokenizer,
+    out_clean,
+    answer: str,
+    last_token_only: bool = True,
+    return_debug: bool = False,
+) -> Tuple[Dict[str, torch.Tensor], Dict[str, torch.Tensor], Dict[str, Dict[str, torch.Tensor]]]:
+    """
+    返回:
+      effects: node -> Tensor  (q/k/v: [B, n_heads or n_kv_heads], others: [B])
+      act_grads: node -> Tensor (激活在最后 token 的梯度，形状 [B, hidden])
+      debug_cache: node -> {"diff":..., "grad":..., "eff":...}（当 return_debug=True）
+    """
     n_heads    = model.config.num_attention_heads
     n_kv_heads = getattr(model.config, "num_key_value_heads", n_heads)
-    group_size = n_heads // n_kv_heads
-    metric = token_logit_metric(out_clean, tokenizer, ANSWER)
-    # Create higher-order graph so we can backprop through grads later
+    group_size = max(1, n_heads // max(1, n_kv_heads))
+
+    metric = token_logit_metric(out_clean, tokenizer, answer)
+
+    # 对每个节点的 clean 激活，求 metric 对激活的梯度
     grads = torch.autograd.grad(
         metric,
         [clean_cache.cache[n] for n in nodes],
-        # retain_graph=False,
         create_graph=True,
         allow_unused=True
     )
 
-    # 3) Build differentiable effects: (clean - corrupt) · grad_act
-    effects = {}
+    effects: Dict[str, torch.Tensor] = {}
+    act_grads: Dict[str, torch.Tensor] = {}
+    debug_cache: Dict[str, Dict[str, torch.Tensor]] = {}
+
     for n, g in zip(nodes, grads):
         if g is None:
             continue
@@ -205,44 +209,54 @@ def calculate_effect(model, clean_cache, corrupt_cache, nodes, tokenizer, out_cl
         act_cor   = corrupt_cache.cache[n]
         diff_full = act_clean - act_cor    # [B, seq, hidden]
 
-        # 只看最后一个 token（你原来也是这样）
-        diff_last = diff_full[:, -1]       # [B, hidden]
-        grad_last = g[:, -1]               # [B, hidden]
+        if last_token_only:
+            diff_last = diff_full[:, -1]       # [B, hidden]
+            grad_last = g[:, -1]               # [B, hidden]
+        else:
+            # 展平所有 token
+            B, S, H = diff_full.shape
+            diff_last = diff_full.reshape(B, S*H)
+            grad_last = g.reshape(B, S*H)
 
         leaf = n.split(".")[-1]
         if leaf in ("q_proj", "k_proj", "v_proj"):
             if leaf == "q_proj":
-                # split into n_heads
-                diff_h = view_heads(diff_last, n_heads).mean(0)  # [1, n_heads, head_
-                grad_h = view_heads(grad_last, n_heads).mean(0)  # [1, n_heads, head_
-                eff_h  = per_head_effect(diff_h, grad_h)        # [1, n_heads]
-                effects[n] = eff_h                               # 每个 head 一个分数
+                # q 使用全部 n_heads
+                diff_h = view_heads(diff_last, n_heads)    # [B, n_heads, head_dim]
+                grad_h = view_heads(grad_last, n_heads)    # [B, n_heads, head_dim]
+                eff_h  = per_head_effect(diff_h, grad_h)   # [B, n_heads]
+                effects[n]   = eff_h
+                act_grads[n] = grad_last                   # 原始激活梯度（[B, hidden]）
+                if return_debug:
+                    debug_cache[n] = {"diff": diff_h, "grad": grad_h, "eff": eff_h}
             else:
-                # k/v use n_kv_heads  → expand to q-heads if你需要一一对应
-                diff_kv = view_heads(diff_last, n_kv_heads).mean(0)  # [1, n_kv_heads, head_dim
-                grad_kv = view_heads(grad_last, n_kv_heads).mean(0)  # [1, n_kv_heads, head_dim
-                eff_kv  = per_head_effect(diff_kv, grad_kv)         # [1, n_kv_heads]
-
-                # 可选：扩展到 q-head 粒度
-                # eff_h = eff_kv.repeat_interleave(group_size, dim=1) # [1, n_heads]
-                effects[n] = eff_kv
+                # k/v 使用 n_kv_heads；如需与 q 对齐，可 repeat_interleave 到 n_heads
+                diff_kv = view_heads(diff_last, n_kv_heads)  # [B, n_kv_heads, head_dim]
+                grad_kv = view_heads(grad_last, n_kv_heads)  # [B, n_kv_heads, head_dim]
+                eff_kv  = per_head_effect(diff_kv, grad_kv)  # [B, n_kv_heads]
+                effects[n]   = eff_kv
+                act_grads[n] = grad_last
+                if return_debug:
+                    debug_cache[n] = {"diff": diff_kv, "grad": grad_kv, "eff": eff_kv}
         else:
-            # 其他层保持原样（整体 effect）
-            diff_mlp = diff_last.reshape(diff_last.size(0), -1).mean(0)  # [1, hidden]
-            grad_mlp = grad_last.reshape(grad_last.size(0), -1).mean(0)  # [1, hidden]
-            eff = (diff_mlp * grad_mlp).mean(dim=-1)  # [1]
-            effects[n] = eff
-        
-    return effects
-    
+            # 其他层整体 effect：对 hidden 维平均
+            eff = (diff_last * grad_last).reshape(diff_last.size(0), -1).mean(dim=1)  # [B]
+            effects[n]   = eff
+            act_grads[n] = grad_last
+            if return_debug:
+                debug_cache[n] = {"diff": diff_last, "grad": grad_last, "eff": eff}
 
+    if return_debug:
+        return effects, act_grads, debug_cache
+    else:
+        return effects, act_grads, {}
 
+# ----------------------------- MAIN TEST --------------------------------------
 def main():
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
     model     = AutoModelForCausalLM.from_pretrained(
         MODEL_NAME,
         torch_dtype=DTYPE,
-        # torch_dtype=torch.bfloat16,          # bf16 更稳
         attn_implementation="eager",
         device_map=None
     ).to(DEVICE)
@@ -262,69 +276,17 @@ def main():
         inputs_cor   = tokenizer(CORR_TEXT, return_tensors="pt").to(DEVICE)
         _            = model(**inputs_cor)
 
-    # 2) Compute metric on clean forward, build grads wrt activations (NOT weights)
-
-    n_heads    = model.config.num_attention_heads
-    n_kv_heads = getattr(model.config, "num_key_value_heads", n_heads)
-    group_size = n_heads // n_kv_heads
-    metric = token_logit_metric(out_clean, tokenizer, ANSWER)
-    # Create higher-order graph so we can backprop through grads later
-    grads = torch.autograd.grad(
-        metric,
-        [clean_cache.cache[n] for n in nodes],
-        retain_graph=True,
-        create_graph=True,
-        allow_unused=True
+    # 2) 直接用 calculate_effect 同时拿到 effect 和 activation-grad
+    effects, act_grads, debug_cache = calculate_effect(
+        model, clean_cache, corrupt_cache, nodes, tokenizer, out_clean, ANSWER, return_debug=True
     )
 
-    # 3) Build differentiable effects: (clean - corrupt) · grad_act
-    effects = {}
-    debug_cache = {}
-    for n, g in zip(nodes, grads):
-        if g is None:
-            continue
-
-        act_clean = clean_cache.cache[n]   # [B, seq, hidden] or other
-        act_cor   = corrupt_cache.cache[n]
-        diff_full = act_clean - act_cor    # [B, seq, hidden]
-
-        # 只看最后一个 token（你原来也是这样）
-        diff_last = diff_full[:, -1]       # [B, hidden]
-        grad_last = g[:, -1]               # [B, hidden]
-
-        leaf = n.split(".")[-1]
-        if leaf in ("q_proj", "k_proj", "v_proj"):
-            if leaf == "q_proj":
-                # split into n_heads
-                diff_h = view_heads(diff_last, n_heads)[:]  # [B, n_heads, head_
-                grad_h = view_heads(grad_last, n_heads)[:]  # [B, n_heads, head_
-                eff_h  = per_head_effect(diff_h, grad_h)        # [B, n_heads]
-                effects[n] = eff_h                               # 每个 head 一个分数
-                debug_cache[n] = {"diff": diff_h, "grad": grad_h, "eff": eff_h}
-            else:
-                # k/v use n_kv_heads  → expand to q-heads if你需要一一对应
-                diff_kv = view_heads(diff_last, n_kv_heads)[:]  # [B, n_kv_heads, head_dim
-                grad_kv = view_heads(grad_last, n_kv_heads)[:]  # [B, n_kv_heads, head_dim
-                eff_kv  = per_head_effect(diff_kv, grad_kv)         # [B, n_kv_heads]
-                debug_cache[n] = {"diff": diff_kv, "grad": grad_kv, "eff": eff_kv}
-
-                # 可选：扩展到 q-head 粒度
-                # eff_h = eff_kv.repeat_interleave(group_size, dim=1) # [B, n_heads]
-                effects[n] = eff_h
-        else:
-            # 其他层保持原样（整体 effect）
-            eff = (diff_last.reshape(diff_last.size(0), -1) *
-                grad_last.reshape(grad_last.size(0), -1)).mean(dim=1)  # [B]
-            effects[n] = eff
-            debug_cache[n] = {"diff": diff_last, "grad": grad_last, "eff": eff}
-
-    # 4) Define a loss on the effects (e.g., encourage them to be small/large)
-    # Here: simple L2 on all effects
+    # 3) 定义一个简单的 effect 损失（示例）
     if len(effects) == 0:
         raise RuntimeError("No effects were computed (all grads were None). Check node list.")
     loss_on_effects = torch.stack([v.mean() for v in effects.values()]).pow(2).mean()
 
-    # 5) Backprop through the effect to model params
+    # 4) 反传到参数
     for p in model.parameters():
         if p.grad is not None:
             p.grad.zero_()
@@ -335,16 +297,14 @@ def main():
     loss_on_effects.backward()
     optimizer.step()
 
-    # check_effect_graph(debug_cache, model)
-
     report_param_grads(model, topk=TOPK_PRINT)
-    # effects 计算完后
     report_effects(effects, topk_node=15, topk_head=40)
 
-    # Optional: sanity prints
+    # Optional: sanity prints & interactive
     some_node = next(iter(effects))
-    pdb.set_trace()
     print(f"[DEBUG] one effect sample -> {some_node}: {effects[some_node].detach().cpu().numpy()}")
+    # 你也可以用 act_grads[some_node] 做进一步分析 / 保护子空间等
+    # pdb.set_trace()
 
 if __name__ == "__main__":
     main()

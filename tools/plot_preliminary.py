@@ -18,6 +18,8 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 from typing import List, Tuple, Optional
+from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
+
 
 import numpy as np
 import pandas as pd
@@ -216,6 +218,7 @@ def _parser() -> argparse.ArgumentParser:
     p.add_argument("--step",     type=float,default=.05)
     p.add_argument("--plot_dist",action="store_true")
     # NEW: tagging args
+    p.add_argument("--dataset_tag", type=str, default="level_1", help="Dataset tag for organizing results")
     p.add_argument("--tag", type=str, default="", help="Explicit run tag to use in paths")
     p.add_argument("--resume", type=str, help="Checkpoint path; stem becomes tag if --tag not given")
     p.add_argument("--origin_tag", type=str, default="origin",
@@ -226,6 +229,7 @@ def main_cli():
     args = _parser().parse_args()
     s_lr = lr_slug(args.lr)
     TAG  = resolve_tag(args.tag, args.resume, args.origin_tag)
+    dataset_tag = args.dataset_tag
 
     # Load matrices (tagged or legacy)
     dist_mat  = load_distance(args.distance, args.seed, TAG)
@@ -233,11 +237,11 @@ def main_cli():
 
     # Figure output dir (tagged or legacy)
     if TAG:
-        out_dir = Path(f"results/figures/{args.distance}/{TAG}/seed{args.seed}/lr{s_lr}")
-        agg_path = Path(f"results/figures/{TAG}/correlations_all.csv")
+        out_dir = Path(f"results/figures/{dataset_tag}/{args.distance}/{TAG}/seed{args.seed}/lr{s_lr}")
+        agg_path = Path(f"results/figures/{dataset_tag}/{TAG}/correlations_all.csv")
     else:
-        out_dir = Path(f"results/figures/{args.distance}/seed{args.seed}/lr{s_lr}")
-        agg_path = Path("results/figures/correlations_all.csv")
+        out_dir = Path(f"results/figures/{dataset_tag}/{args.distance}/seed{args.seed}/lr{s_lr}")
+        agg_path = Path(f"results/figures/{dataset_tag}/correlations_all.csv")
     out_dir.mkdir(parents=True, exist_ok=True)
 
     stats: List[Tuple[str, float]] = []  # figure, corr

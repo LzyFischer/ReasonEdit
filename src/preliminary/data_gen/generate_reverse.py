@@ -1,3 +1,4 @@
+from __future__ import annotations
 from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 #!/usr/bin/env python3
 """
@@ -25,7 +26,7 @@ Environment
 Set the ``OPENAI_API_KEY`` and ``OPENAI_BASE_URL`` environment variables, *or*
 edit the ``client = OpenAI(...)`` line near the bottom.
 """
-from __future__ import annotations
+
 
 import argparse
 import csv
@@ -194,12 +195,12 @@ def main() -> None:
     )
     parser.add_argument(
         "--input_json",
-        default=str(DATA_DIR / "logic/deductive_logic.json"),
+        default=str(DATA_DIR / "logic/level_1.json"),
         help="Path to the input JSON file",
     )
     parser.add_argument(
         "--output_json",
-        default=str(DATA_DIR / "logic/deductive_logic_reverse.json"),
+        default=str(DATA_DIR / "logic/level_1.json"),
         help="Where to write the transformed JSON",
     )
     parser.add_argument(

@@ -124,7 +124,7 @@ loader = DataLoader(ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate
 nodes  = AP.get_comp_nodes(model)
 print(f"[INFO] Tracking {len(nodes)} comp-nodes across {len(ds)} dataset items")
 
-optimizer = torch.optim.SGD(model.parameters(), lr=1e-4)
+optimizer = torch.optim.SGD(model.parameters(), lr=1e-5)
 # ------------------- 3.  per-batch attribution loop --------------------------
 for step, item in enumerate(loader, 1):
     effects: Dict[str, List[Dict[str, torch.Tensor]]] = {}

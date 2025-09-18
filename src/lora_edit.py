@@ -30,13 +30,16 @@ except Exception:
 ###############################################################################
 # 0. Global constants & reproducibility                                       #
 ###############################################################################
-SEED = 1
+SEED = 10
 MAX_LEN = 256
 POSSIBLE_ANSWERS = ["true", "false", "n/a"]
 
 def set_seed(seed: int = SEED) -> None:
     random.seed(seed)
+    np.random.seed(seed)
     torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
 
 ###############################################################################
 # 1. Configuration & CLI                                                      #
@@ -58,12 +61,11 @@ def get_args() -> argparse.Namespace:
 
     # training behaviour
     parser.add_argument("--fine_tune", type=str2bool, default=True)
-    parser.add_argument("--lr", type=float, default=1e-5, help="Learning rate for the LoRA parameters")
+    parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate for the LoRA parameters")
     parser.add_argument("--batch_k", type=int, default=1, help="# of same-logic training examples per step")
 
     # dataset paths
-    parser.add_argument("--src_json", type=Path, default=DATA_DIR / "logic/deductive_logic.json")
-    parser.add_argument("--correct_file", type=str, default=str(DATA_DIR / "processed/correct_pairs_llama_7b.json"))
+    parser.add_argument("--src_json", type=Path, default=DATA_DIR / "logic/level_1.json")
 
     # sampling-scheme (evaluation)
     parser.add_argument("--gen_k", type=int, default=1, help="# SAME-logic eval prompts per step")
@@ -87,6 +89,7 @@ def get_args() -> argparse.Namespace:
     parser.add_argument("--cache_base", type=str2bool, default=True, help="Use/write base-correct cache")
     parser.add_argument("--force_recompute_base", type=str2bool, default=False, help="Ignore cache and recompute")
     parser.add_argument("--base_max_new", type=int, default=5, help="max_new_tokens for base-correct inference")
+    parser.add_argument("--seed", type=int, default=10, help="Random seed for shuffling and sampling")
 
     return parser.parse_args()
 
@@ -102,9 +105,9 @@ def get_tokenizer(model_name: str):
 def encode_example(row: dict, tokenizer, src_path: Path):
     """Convert a (premise, answer) example into supervised tokens."""
     if "deductive" in src_path.name:
-        prompt = f"{row['text']} (Answer in True, False, or N/A (Neither)). Answer:"
+        prompt = f"{row['text']} (Answer only in True, False, or N/A (Neither)). Answer:"
     else:
-        prompt = f"{row['text']}. Answer:"
+        prompt = f"{row['text']} (Answer only in True, False, or N/A (Neither)). Answer:"
     answer = f"{row['label']}"
     full = prompt + " " + answer + tokenizer.eos_token
 
@@ -124,17 +127,14 @@ def generate_answer(prompt: str, model, tokenizer, src_path: Path, max_new: int 
     """Greedy decode a short answer and normalise to {true,false,n/a}."""
     model.eval()
     with torch.no_grad():
-        if "deductive" in src_path.name:
-            templ = f"{prompt} (Answer in True, False, or N/A (Neither)). Answer:"
-        else:
-            templ = f"{prompt}\n### The answer is:"
+        templ = f"{prompt} (Answer only in True, False, or N/A (Neither)). Answer:"
         ids = tokenizer(templ, return_tensors="pt").to(model.device)
         out = model.generate(**ids, max_new_tokens=max_new, do_sample=False)
         text = tokenizer.decode(out[0], skip_special_tokens=True)
 
     # crude normalisation heuristics
     try:
-        answer = text.split(" Answer:")[-1].strip().split()[0].lower()
+        answer = text.split(" Answer:")[-1].strip().split()[0].lower().strip().strip(".").strip(",")
     except Exception:
         answer = "n/a"
     if not any(k in answer for k in POSSIBLE_ANSWERS):
@@ -147,6 +147,7 @@ def generate_answer(prompt: str, model, tokenizer, src_path: Path, max_new: int 
             answer = "n/a"
         else:
             answer = "true"  # default fall-back
+    # pdb.set_trace()
     return answer
 
 ###############################################################################
@@ -157,7 +158,7 @@ CUE = re.compile(
     r"implies?|suggests? that)\b", re.I,
 )
 
-def harvest_examples(path: Path) -> List[dict]:
+def harvest_examples(path: Path, seed: int) -> List[dict]:
     """Load dataset into a flat list of examples with (train, eval, logic)."""
     exs: list[dict] = []
     for rec in json.load(path.open()):
@@ -174,7 +175,7 @@ def harvest_examples(path: Path) -> List[dict]:
                     "train": {"text": premise, "label": gold},
                     "eval": {"prompt": nl_full, "gold": gold},
                 })
-    rng = random.Random(SEED)
+    rng = random.Random(seed)
     rng.shuffle(exs)
     return exs
 
@@ -238,10 +239,11 @@ def _slug(s: str) -> str:
     return re.sub(r"[^a-zA-Z0-9_.-]+", "_", s)
 
 def _base_cache_path(args: argparse.Namespace, src_file: Path) -> Path:
+    dataset_tag = src_file.resolve().stem
     model_slug = _slug(args.model_name)
     ckpt_slug = _slug(args.resume.stem) if args.resume else "origin"
     key = f"{model_slug}_{ckpt_slug}"
-    return Path(args.cache_dir) / f"base_correct_{key}.json"
+    return Path(args.cache_dir) / dataset_tag / f"base_correct_{key}.json"
 
 def load_or_build_base_correct(
     args: argparse.Namespace,
@@ -439,8 +441,9 @@ class Trainer:
     # -------------------------- outputs -----------------------------------
     def _make_outdir(self) -> Path:
         lr_slug = str(self.args.lr).replace('.', 'p').replace('-', 'm')
+        dataset_tag = Path(self.args.src_json).stem
         run_tag = Path(self.args.resume).stem if self.args.resume else "origin"
-        out_dir = Path(self.args.out_root).resolve() / lr_slug / run_tag
+        out_dir = Path(self.args.out_root).resolve() / dataset_tag / lr_slug / run_tag
         out_dir.mkdir(parents=True, exist_ok=True)
         print(f"[info] Saving results under: {out_dir}")
         return out_dir
@@ -464,18 +467,24 @@ class Trainer:
             "batch_k": self.args.batch_k,
             "lr": self.args.lr,
             "model_name": self.args.model_name,
+            "seed": self.args.seed,   # keep recording the seed in the table too
         }])
-        df.to_csv(out_dir / "summary_accuracy.csv", index=False)
-        with (out_dir / "summary_accuracy.json").open("w") as f:
+
+        fname = f"summary_accuracy_seed{self.args.seed}"
+        csv_path = out_dir / f"{fname}.csv"
+        json_path = out_dir / f"{fname}.json"
+
+        df.to_csv(csv_path, index=False)
+        with json_path.open("w") as f:
             json.dump(df.iloc[0].to_dict(), f, indent=2)
-        print("Saved accuracy summaries.")
+        print(f"Saved accuracy summaries: {csv_path}  |  {json_path}")
 
 ###############################################################################
 # 7. Main                                                                     #
 ###############################################################################
 def main():
-    set_seed()
     args = get_args()
+    set_seed(args.seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     tokenizer = get_tokenizer(args.model_name)
@@ -483,7 +492,7 @@ def main():
     print("Loaded model with trainable LoRA parameters:")
     model.print_trainable_parameters()
 
-    examples = harvest_examples(args.src_json)
+    examples = harvest_examples(args.src_json, seed=args.seed)
     print(f"Loaded {len(examples)} examples (shuffled).")
 
     trainer = Trainer(args, tokenizer, model, examples)

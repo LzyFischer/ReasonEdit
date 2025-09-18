@@ -8,6 +8,7 @@ import subprocess, itertools, argparse, os
 from pathlib import Path
 from glob import glob
 import pdb  
+from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -63,15 +64,18 @@ def main(args: argparse.Namespace):
 
     resume = args.resume if (args.resume and str(args.resume).strip()) else None
     resume_tag = Path(resume).stem if resume is not None else "origin"
+    dataset_tag = Path(args.src_json).stem
+    data_file = DATA_DIR / "corrupt" / f"{dataset_tag}.json"
 
     # 1) circuits (默认关闭，与原脚本保持一致)
     if args.run_circuits:
         for seed in args.seeds:
-            pattern = str(PROJECT_ROOT / f"results/output/attr_scores/{args.model_id}/10/{resume_tag}/seed{seed}_split*.json")
+            pattern = str(PROJECT_ROOT / f"results/output/attr_scores/{dataset_tag}/{args.model_id}/10/{resume_tag}/seed{seed}_split*.json")
             matching_dirs = glob(pattern)
             if args.force or not matching_dirs:
                 cmd = ["python", "-m", "src.preliminary.circuit.circuit_aio",
                        "--seed", str(seed),
+                       "--data_file", data_file,
                        "--out_root", str(PROJECT_ROOT / "results/output/attr_scores")]
                 if resume is not None:
                     cmd += ["--resume", str(resume)]
@@ -82,10 +86,10 @@ def main(args: argparse.Namespace):
         for seed in args.seeds:
             for dist_name in use_distances:
                 module = distance_map[dist_name]
-                csv_path = PROJECT_ROOT / f"results/output/distance/{dist_name}/{resume_tag}/seed{seed}.csv"
+                csv_path = PROJECT_ROOT / f"results/output/distance/{dataset_tag}/{dist_name}/{resume_tag}/seed{seed}.csv"
                 if args.force or not csv_path.exists():
                     input_dir = (PROJECT_ROOT /
-                                 f"results/output/attr_scores/{args.model_id}/10/{resume_tag}")
+                                 f"results/output/attr_scores/{dataset_tag}/{args.model_id}/10/{resume_tag}")
                     ensure_dir(csv_path.parent)
                     cmd = ["python", "-m", module,
                            "--seed", str(seed),
@@ -99,33 +103,50 @@ def main(args: argparse.Namespace):
     if args.run_perlogic:
         for lr in args.lrs:
             lr_slug = slug_lr(lr)
-            csv_root = PROJECT_ROOT / f"results/output/perlogic/{lr_slug}/{resume_tag}"
+            csv_root = PROJECT_ROOT / f"results/output/perlogic/{dataset_tag}/{lr_slug}/{resume_tag}"
             if args.force or not csv_root.exists():
                 ensure_dir(csv_root)
                 cmd = ["python", "-m", "src.preliminary.edit.perlogic_delta_batch",
                        "--lr", str(lr),
+                       "--src_json", args.src_json,
                        "--out_root", str(PROJECT_ROOT / "results/output/perlogic")]
                 if resume is not None:
                     cmd += ["--resume", str(resume)]
                 run(cmd)
 
-    # 4) combined plots
+    # 4) this is for edit performance
+    if args.run_lora_edit:
+        for lr in args.lrs:
+            cmd  = [
+                "python", "-m", "src.lora_edit",
+                "--lr", str(lr),
+                "--src_json", args.src_json,
+            ]
+            if resume is not None:
+                cmd += ["--resume", str(resume)]
+            run(cmd)
+            
+
+    # 5) combined plots
+    if args.plot_mode == None:
+        return
     if args.plot_mode in {"combined", "both"}:
         for dist_name in use_distances:
             for lr in args.lrs:
                 seeds_str = ",".join(str(s) for s in args.seeds)
                 cmd = [
-                    "python", "-m", "tools.plot_preliminary_combined",
+                    "python", "-m", "tools.plot_preliminary_combined_int",
                     "--distance", dist_name,
                     "--seeds", seeds_str,
                     "--lrs", str(lr),
+                    "--dataset_tag", str(dataset_tag),
                     "--combine", str(args.combine_size or 0),
                 ]
                 if resume is not None:
                     cmd += ["--resume", str(resume)]
                 run(cmd)
 
-    # 4-B) per-run plots
+    # 5-B) per-run plots
     if args.plot_mode in {"single", "both"}:
         req_pngs = args.req_pngs or REQ_PNGS_DEFAULT
         for seed, dist_name, lr in itertools.product(args.seeds, use_distances, args.lrs):
@@ -138,6 +159,7 @@ def main(args: argparse.Namespace):
                     "python", "-m", "tools.plot_preliminary_intra_inter",
                     "--distance", dist_name,
                     "--seed", str(seed),
+                    "--dataset_tag", str(dataset_tag),
                     "--lr", str(lr),
                 ]
                 if resume is not None:
@@ -151,6 +173,7 @@ def main(args: argparse.Namespace):
                 "--distance", dist_name,
                 "--lrs", " ".join(str(lr) for lr in args.lrs),
                 "--seeds", " ".join(str(s) for s in args.seeds),
+                "--dataset_tag", str(dataset_tag),
                 "--combine", str(args.combine_size or 0),
             ]
             if resume is not None:
@@ -164,7 +187,7 @@ if __name__ == "__main__":
     )
     # core sweep params
     ap.add_argument("--seeds", type=int, nargs="+",
-                    default=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+                    default=[0,1,2,3,4,5,6,7,8,9,10],
                     help="要运行的随机种子，如：--seeds 0 1 2")
     ap.add_argument("--model-id", default="qwen2_5_3b_instruct",
                     help="模型 ID（影响 attr_scores 输入路径）")
@@ -181,7 +204,7 @@ if __name__ == "__main__":
 
     # plotting & combine
     ap.add_argument("--plot-mode", choices=["single", "combined", "both", "cluster"],
-                    default="cluster",
+                    default=None,
                     help="绘图模式：single/combined/both")
     ap.add_argument("--combine-size", type=int, default=10,
                     help="combined 模式合并的 run 数量；0 或 None 表示合并全部。")
@@ -201,8 +224,11 @@ if __name__ == "__main__":
                     help="执行 circuits 计算步骤（默认开启）。")
     ap.add_argument("--run-distances", default=False, type=str2bool,
                     help="执行 distances 计算步骤（默认开启）。")
-    ap.add_argument("--run-perlogic", default=True, type=str2bool,
+    ap.add_argument("--run-perlogic", default=False, type=str2bool,
                     help="执行 per-logic Δ-accuracy 计算（默认开启）。")
+    ap.add_argument("--run-lora-edit", default=False, type=str2bool,
+                    help="执行 LoRA 编辑步骤（默认开启）。")
+    ap.add_argument("--src_json", default=DATA_DIR / "logic/level_1.json")
     args = ap.parse_args()
 
     # 若用户显式传了 --no-run-perlogic（可通过环境变量或移除默认），可在此扩展；保持简单：默认 True

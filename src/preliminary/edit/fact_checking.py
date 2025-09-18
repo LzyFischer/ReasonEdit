@@ -124,10 +124,7 @@ def encode(row: dict):
 def generate_answer(prompt: str, model, max_new_tokens: int = 50) -> str:
     model.eval()
     with torch.no_grad():
-        if "Answer:" not in prompt:
-            templ = f"{prompt} (Output only True, False, or N/A) Answer:"
-        else:
-            templ = f"{prompt}"
+        templ = f"{prompt} (Output only True, False, or N/A) Answer:"
         ids = tokenizer(templ, return_tensors="pt").to(device)
         out = model.generate(**ids, max_new_tokens=max_new_tokens, do_sample=False)
         text = tokenizer.decode(out[0], skip_special_tokens=True)

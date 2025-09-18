@@ -8,8 +8,8 @@ import pdb
 ###############################################################################
 # 1.  Config
 ###############################################################################
-INPUT_FILE  = Path("logic/deductive_logic.json")
-OUTPUT_FILE = Path("augmented_dataset.json")
+INPUT_FILE  = Path("logic/level_1.json")
+OUTPUT_FILE = Path("corrupt/level_1.json")
 
 MODEL_NAME  = "Meta-Llama-3.1-8B-Instruct"
 SEED        = 42

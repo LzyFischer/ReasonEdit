@@ -6,6 +6,8 @@ from typing import Dict, List, Tuple, Optional, Sequence
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
+
 
 # ----------------------------- helpers -----------------------------
 LABEL0 = {0, 1, 3, 4, 8}  # aligns with plot_preliminary_intra_inter.py
@@ -25,6 +27,114 @@ def safe_div(a: float, b: float) -> float:
     return 0.0 if b == 0 else a / b
 
 # ---------------------- clustering metrics ------------------------
+# --------------------------- supervised metrics ----------------------------
+def _contingency(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
+    """Contingency table (rows: true, cols: pred). Works for any integer labels."""
+    yt = y_true.astype(int); yp = y_pred.astype(int)
+    n_rows = yt.max() + 1 if yt.size else 0
+    n_cols = yp.max() + 1 if yp.size else 0
+    C = np.zeros((n_rows, n_cols), dtype=np.int64)
+    for t, p in zip(yt, yp):
+        C[t, p] += 1
+    return C
+
+def _hungarian_best_map_acc(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """
+    Clustering accuracy with optimal label permutation via a tiny 2x2 Hungarian case.
+    Falls back to general mapping if >2 clusters.
+    """
+    C = _contingency(y_true, y_pred)
+    if C.size == 0:
+        return float("nan")
+    # Fast path for 2 clusters
+    if C.shape == (2, 2):
+        acc1 = (C[0,0] + C[1,1]) / C.sum()
+        acc2 = (C[0,1] + C[1,0]) / C.sum()
+        return float(max(acc1, acc2))
+    # General (small) case using brute-force permutations to avoid extra deps
+    import itertools
+    r, c = C.shape
+    best = 0
+    for perm in itertools.permutations(range(c), min(r, c)):
+        s = sum(C[i, perm[i]] for i in range(len(perm)))
+        best = max(best, s)
+    return best / C.sum() if C.sum() > 0 else float("nan")
+
+def _entropy(counts: np.ndarray) -> float:
+    total = counts.sum()
+    if total == 0:
+        return 0.0
+    p = counts / total
+    p = p[p > 0]
+    return float(-(p * np.log(p)).sum())
+
+def normalized_mutual_info(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """NMI with sqrt normalization: MI / sqrt(H(U) * H(V))."""
+    C = _contingency(y_true, y_pred)
+    n = C.sum()
+    if n == 0:
+        return float("nan")
+    row_sums = C.sum(axis=1)
+    col_sums = C.sum(axis=0)
+    # Mutual information
+    mi = 0.0
+    for i in range(C.shape[0]):
+        for j in range(C.shape[1]):
+            nij = C[i, j]
+            if nij == 0:
+                continue
+            mi += (nij / n) * (np.log(nij * n) - np.log(row_sums[i] * col_sums[j]))
+    # Entropies
+    hu = _entropy(row_sums)
+    hv = _entropy(col_sums)
+    denom = math.sqrt(max(hu, 0.0) * max(hv, 0.0))
+    return float(mi / denom) if denom > 0 else 0.0
+
+def adjusted_rand_index(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """ARI (Hubert & Arabie)."""
+    C = _contingency(y_true, y_pred)
+    n = C.sum()
+    if n < 2:
+        return float("nan")
+    def comb2(x): return x*(x-1)/2
+    sum_comb_c = float(sum(comb2(n_ij) for n_ij in C.ravel()))
+    sum_comb_rows = float(sum(comb2(n_i) for n_i in C.sum(axis=1)))
+    sum_comb_cols = float(sum(comb2(n_j) for n_j in C.sum(axis=0)))
+    total_comb = comb2(n)
+    expected = (sum_comb_rows * sum_comb_cols) / total_comb if total_comb > 0 else 0.0
+    max_index = 0.5*(sum_comb_rows + sum_comb_cols)
+    denom = max_index - expected
+    return float((sum_comb_c - expected) / denom) if denom != 0 else 0.0
+
+def _kmeans2(X: np.ndarray, k: int = 2, iters: int = 100, seed: int = 0) -> np.ndarray:
+    """
+    Lightweight KMeans for k=2 (works for general k too).
+    Random init with numpy RNG (no sklearn dependency).
+    """
+    if X.size == 0:
+        return np.zeros(0, dtype=int)
+    rng = np.random.default_rng(seed)
+    # init: choose k distinct points
+    idx = rng.choice(X.shape[0], size=min(k, X.shape[0]), replace=False)
+    centroids = X[idx].astype(float).copy()
+    labels = np.zeros(X.shape[0], dtype=int)
+    for _ in range(iters):
+        # assign
+        d2 = np.sum((X[:, None, :] - centroids[None, :, :])**2, axis=2)  # (n,k)
+        new_labels = np.argmin(d2, axis=1)
+        if np.array_equal(new_labels, labels):
+            break
+        labels = new_labels
+        # update
+        for j in range(k):
+            pts = X[labels == j]
+            if pts.size:
+                centroids[j] = pts.mean(axis=0)
+            else:
+                # re-seed empty centroid
+                centroids[j] = X[rng.integers(0, X.shape[0])]
+    return labels
+
 def silhouette_values(X: np.ndarray, y: np.ndarray) -> np.ndarray:
     X = np.asarray(X, dtype=float); y = np.asarray(y)
     n = len(y)
@@ -212,34 +322,87 @@ def points_accuracy(dist: pd.DataFrame, perlogic_root: Path, win=0.10, step=0.05
 
 # --------------------------- evaluation ----------------------------
 def eval_points(label_intra: np.ndarray, label_inter: np.ndarray) -> Tuple[dict, np.ndarray, np.ndarray]:
+    """
+    Returns:
+      metrics dict (incl. supervised clustering metrics),
+      X (points),
+      y_true (ground-truth labels with your convention: 0=inter, 1=intra)
+    """
     X = np.vstack([label_intra, label_inter]) if label_intra.size and label_inter.size else \
         (label_intra if label_inter.size == 0 else label_inter)
     if X.size == 0:
-        return {"silhouette": float("nan"), "silhouette_intra": float("nan"),
-                "silhouette_inter": float("nan"), "silhouette_x": float("nan"),
-                "silhouette_intra_x": float("nan"), "silhouette_inter_x": float("nan"),
-                "silhouette_y": float("nan"), "silhouette_intra_y": float("nan"),
-                "silhouette_inter_y": float("nan"),
-                "calinski_harabasz": float("nan"), "davies_bouldin": float("nan"),
-                "n_intra": 0, "n_inter": 0}, X, np.array([])
-    y = np.hstack([np.zeros(len(label_intra), dtype=int),
-                   np.ones(len(label_inter), dtype=int)]) if label_intra.size and label_inter.size \
-        else (np.zeros(len(label_intra), dtype=int) if label_inter.size == 0 else np.ones(len(label_inter), dtype=int))
+        return {
+            "silhouette": float("nan"), "silhouette_intra": float("nan"), "silhouette_inter": float("nan"),
+            "silhouette_x": float("nan"), "silhouette_intra_x": float("nan"), "silhouette_inter_x": float("nan"),
+            "silhouette_y": float("nan"), "silhouette_intra_y": float("nan"), "silhouette_inter_y": float("nan"),
+            "calinski_harabasz": float("nan"), "davies_bouldin": float("nan"),
+            "n_intra": 0, "n_inter": 0,
+            # supervised metrics
+            "acc": float("nan"), "nmi": float("nan"), "ari": float("nan"),
+            "acc_x": float("nan"), "nmi_x": float("nan"), "ari_x": float("nan"),
+            "acc_y": float("nan"), "nmi_y": float("nan"), "ari_y": float("nan"),
+        }, X, np.array([])
 
-    # 2D metrics
-    s_all, s0, s1 = silhouette_mean(X, y)
-    ch = ch_score(X, y); db = db_score(X, y)
+    # IMPORTANT: your requested convention for ground truth:
+    #   label 0 = inter (points from label_inter)
+    #   label 1 = intra (points from label_intra)
+    if label_intra.size and label_inter.size:
+        y_true = np.hstack([
+            np.ones(len(label_intra), dtype=int),   # class 1 = intra
+            np.zeros(len(label_inter), dtype=int),  # class 0 = inter
+        ])
+    elif label_inter.size:  # only inter present
+        y_true = np.zeros(len(label_inter), dtype=int)
+    else:                   # only intra present
+        y_true = np.ones(len(label_intra), dtype=int)
 
-    # 1D metrics per axis
-    sx_all, sx0, sx1 = silhouette_mean(X[:, [0]], y)
-    sy_all, sy0, sy1 = silhouette_mean(X[:, [1]], y)
+    # 2D unsupervised metrics (using y_true only to split classes)
+    s_all, s0, s1 = silhouette_mean(X, y_true)  # s0: class 0 (inter), s1: class 1 (intra)
+    ch = ch_score(X, y_true); db = db_score(X, y_true)
 
-    metrics = {"silhouette": s_all, "silhouette_intra": s0, "silhouette_inter": s1,
-               "silhouette_x": sx_all, "silhouette_intra_x": sx0, "silhouette_inter_x": sx1,
-               "silhouette_y": sy_all, "silhouette_intra_y": sy0, "silhouette_inter_y": sy1,
-               "calinski_harabasz": ch, "davies_bouldin": db,
-               "n_intra": int((y == 0).sum()), "n_inter": int((y == 1).sum())}
-    return metrics, X, y
+    # 1D per axis unsupervised silhouettes
+    sx_all, sx0, sx1 = silhouette_mean(X[:, [0]], y_true)
+    sy_all, sy0, sy1 = silhouette_mean(X[:, [1]], y_true)
+
+    # FIX: map *_intra to class 1; *_inter to class 0
+    metrics = {
+        "silhouette": s_all,
+        "silhouette_intra": s1, "silhouette_inter": s0,
+        "silhouette_x": sx_all, "silhouette_intra_x": sx1, "silhouette_inter_x": sx0,
+        "silhouette_y": sy_all, "silhouette_intra_y": sy1, "silhouette_inter_y": sy0,
+        "calinski_harabasz": ch, "davies_bouldin": db,
+        "n_intra": int((y_true == 1).sum()), "n_inter": int((y_true == 0).sum())
+    }
+
+    # ---------------- Supervised clustering metrics ----------------
+    # Cluster the *points* (unsupervised), then compare to y_true (0=inter, 1=intra).
+    if X.shape[0] >= 2 and (y_true.min() != y_true.max()):
+        # 2D
+        y_pred_2d = _kmeans2(X, k=2, iters=100, seed=0)
+        metrics["acc"] = _hungarian_best_map_acc(y_true, y_pred_2d)
+        metrics["nmi"] = normalized_mutual_info(y_true, y_pred_2d)
+        metrics["ari"] = adjusted_rand_index(y_true, y_pred_2d)
+
+        # X-only
+        y_pred_x = _kmeans2(X[:, [0]], k=2, iters=100, seed=0)
+        metrics["acc_x"] = _hungarian_best_map_acc(y_true, y_pred_x)
+        metrics["nmi_x"] = normalized_mutual_info(y_true, y_pred_x)
+        metrics["ari_x"] = adjusted_rand_index(y_true, y_pred_x)
+
+        # Y-only
+        y_pred_y = _kmeans2(X[:, [1]], k=2, iters=100, seed=0)
+        metrics["acc_y"] = _hungarian_best_map_acc(y_true, y_pred_y)
+        metrics["nmi_y"] = normalized_mutual_info(y_true, y_pred_y)
+        metrics["ari_y"] = adjusted_rand_index(y_true, y_pred_y)
+    else:
+        # Degenerate cases
+        metrics.update({
+            "acc": float("nan"), "nmi": float("nan"), "ari": float("nan"),
+            "acc_x": float("nan"), "nmi_x": float("nan"), "ari_x": float("nan"),
+            "acc_y": float("nan"), "nmi_y": float("nan"), "ari_y": float("nan"),
+        })
+
+    return metrics, X, y_true
 
 def grid_plot(Xy_by_figure: Dict[str, Tuple[np.ndarray, np.ndarray]], out_path: Path) -> None:
     names = list(Xy_by_figure.keys()); k = len(names)
@@ -303,18 +466,18 @@ def lr_to_slug(lr: float | str) -> str:
         pass
     return s.replace(".", "p").replace("-", "m")
 
-def load_distance(distance: str, seed: int, tag: str) -> pd.DataFrame:
-    f = Path(f"results/output/distance/{distance}/{tag}/seed{seed}.csv")
+def load_distance(distance: str, seed: int, tag: str, dataset_tag) -> pd.DataFrame:
+    f = Path(f"results/output/distance/{dataset_tag}/{distance}/{tag}/seed{seed}.csv")
     return pd.read_csv(f, index_col=0)
 
-def load_delta(lr: float | str, tag: str) -> pd.DataFrame:
+def load_delta(lr: float | str, tag: str, dataset_tag) -> pd.DataFrame:
     slug = lr_to_slug(lr)
-    f = Path(f"results/output/perlogic/{slug}/{tag}/delta.csv")
+    f = Path(f"results/output/perlogic/{dataset_tag}/{slug}/{tag}/delta.csv")
     return pd.read_csv(f, index_col=0)
 
-def load_acc_counts(lr: float | str, tag: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
+def load_acc_counts(lr: float | str, tag: str, dataset_tag) -> Tuple[pd.DataFrame, pd.DataFrame]:
     slug = lr_to_slug(lr)
-    root = Path(f"results/output/perlogic/{slug}/{tag}")
+    root = Path(f"results/output/perlogic/{dataset_tag}/{slug}/{tag}")
     tot = pd.read_csv(root / "n_total.csv", index_col=0) if (root / "n_total.csv").exists() else pd.DataFrame()
     cor = pd.read_csv(root / "delta_count.csv", index_col=0) if (root / "delta_count.csv").exists() else pd.DataFrame()
     if tot.empty or cor.empty:
@@ -373,8 +536,11 @@ def main():
     ap.add_argument("--lrs", type=str, default="1e-5", help="Comma- or space-separated lrs, e.g. '1e-4 5e-5'.")
     ap.add_argument("--combine", type=int, default=10, help="Group size k: choose k from all (seed,lr) runs.")
     ap.add_argument("--subdir", type=str, default="origin", help="Tag (last layer) used in your outputs.")
+    ap.add_argument("--dataset_tag", type=str, default="level_1", help="Dataset tag for organizing results")
     ap.add_argument("--out-root", type=str, default="results/figures/cluster", help="Root for outputs.")
     ap.add_argument("--win", type=float, default=0.10); ap.add_argument("--step", type=float, default=0.05)
+    ap.add_argument("--violin-scope", choices=["distance","group"], default="distance",
+                    help="distance=汇总所有 group 画一个大提琴图；group=每组各画自己的大提琴图（与该组 CSV 对齐）")
     args = ap.parse_args()
 
     seeds = parse_list(args.seeds, int)
@@ -386,7 +552,7 @@ def main():
     groups = group_runs(runs, args.combine)              # [[(seed,lr)…], …]
 
     # Aggregate CSV path
-    agg_path = Path(args.out_root) / args.distance / "logs" / f"cluster_scores_{args.subdir}.csv"
+    agg_path = Path(args.out_root) / args.dataset_tag / args.distance / "logs" / f"cluster_scores_{args.subdir}.csv"
     agg_path.parent.mkdir(parents=True, exist_ok=True)
     header_needed = not agg_path.exists()
 
@@ -401,13 +567,13 @@ def main():
         lr_slugs  = [lr_to_slug(lr) for lr in lrs_grp]
 
         # Build block-diag matrices for this group (distance paired with seed, delta paired with lr)
-        dist_cat  = block_diag_df([load_distance(args.distance, s, args.subdir) for s, _ in grp])
-        delta_cat = block_diag_df([load_delta(lr, args.subdir)                  for _, lr in grp])
+        dist_cat  = block_diag_df([load_distance(args.distance, s, args.subdir, args.dataset_tag) for s, _ in grp])
+        delta_cat = block_diag_df([load_delta(lr, args.subdir, args.dataset_tag)                  for _, lr in grp])
 
         # Accuracy counts block-diag (if present)
         tot_blocks, cor_blocks = [], []
         for _, lr in grp:
-            tot, cor = load_acc_counts(lr, args.subdir)
+            tot, cor = load_acc_counts(lr, args.subdir, args.dataset_tag)
             if not tot.empty and not cor.empty:
                 tot_blocks.append(tot)
                 cor_blocks.append(cor)
@@ -417,7 +583,7 @@ def main():
         # If accuracy counts exist, write to a temp root for window function
         tmp_root = None
         if not tot_cat.empty and not cor_cat.empty:
-            tmp_root = Path(f"results/output/perlogic/__tmp_{uuid.uuid4().hex}")
+            tmp_root = Path(f"results/output/perlogic/{args.dataset_tag}/__tmp_{uuid.uuid4().hex}")
             tmp_root.mkdir(parents=True, exist_ok=True)
             (tmp_root / "n_total.csv").write_text(tot_cat.to_csv())
             (tmp_root / "delta_count.csv").write_text(cor_cat.to_csv())
@@ -435,18 +601,17 @@ def main():
             "sliding": (Xi_sl, Xd_sl),
             "accuracy": (Xi_ac, Xd_ac),
         }.items():
-            m, X, y = eval_points(Xd, Xi)  # class 0=intra, 1=inter
+            # NOTE: we evaluate with (Xd as intra, Xi as inter)
+            m, X, y = eval_points(Xd, Xi)  # y_true: 0=inter, 1=intra
 
-            # per-dimension silhouettes
+            # record point count and collect per-sample silhouettes for violin
             if X.size:
-                sx_all, sx0, sx1 = silhouette_mean(X[:, [0]], y)
-                sy_all, sy0, sy1 = silhouette_mean(X[:, [1]], y)
-                m["silhouette_x"], m["silhouette_intra_x"], m["silhouette_inter_x"] = sx_all, sx0, sx1
-                m["silhouette_y"], m["silhouette_intra_y"], m["silhouette_inter_y"] = sy_all, sy0, sy1
-
+                m["n_points"] = int(X.shape[0])
                 sil_samples_2d[fig_name].append(silhouette_values(X, y))
                 sil_samples_x[fig_name].append(silhouette_values(X[:, [0]], y))
                 sil_samples_y[fig_name].append(silhouette_values(X[:, [1]], y))
+            else:
+                m["n_points"] = 0
 
             m.update({"figure": fig_name,
                       "distance": args.distance,
@@ -467,12 +632,34 @@ def main():
         pd.DataFrame(metrics_rows).to_csv(out_dir / "cluster_scores.csv", index=False)
         grid_plot(per_fig_points, out_dir / "scatter_grid.png")
 
+        # （可选）每组各画自己的 violin（与该组 CSV 对齐）
+        if args.violin_scope == "group":
+            gdir = out_dir / "violin"
+            gdir.mkdir(parents=True, exist_ok=True)
+            g_2d: Dict[str, List[np.ndarray]] = {}
+            g_x:  Dict[str, List[np.ndarray]] = {}
+            g_y:  Dict[str, List[np.ndarray]] = {}
+            for fig_name, (Xg, yg) in per_fig_points.items():
+                if Xg.size:
+                    g_2d[fig_name] = [silhouette_values(Xg, yg)]
+                    g_x[fig_name]  = [silhouette_values(Xg[:, [0]], yg)]
+                    g_y[fig_name]  = [silhouette_values(Xg[:, [1]], yg)]
+                else:
+                    g_2d[fig_name] = []
+                    g_x[fig_name]  = []
+                    g_y[fig_name]  = []
+            violin_by_distance(g_2d, gdir, suffix="")
+            violin_by_distance(g_x,  gdir, suffix="_x")
+            violin_by_distance(g_y,  gdir, suffix="_y")
+
         # Append to aggregate (include per-dim cols when可用)
         cols = ["distance","seeds","lrs","group_size","figure",
-                "silhouette","silhouette_intra","silhouette_inter",
-                "silhouette_x","silhouette_intra_x","silhouette_inter_x",
-                "silhouette_y","silhouette_intra_y","silhouette_inter_y",
-                "calinski_harabasz","davies_bouldin","n_intra","n_inter"]
+        "silhouette","silhouette_intra","silhouette_inter",
+        "silhouette_x","silhouette_intra_x","silhouette_inter_x",
+        "silhouette_y","silhouette_intra_y","silhouette_inter_y",
+        "calinski_harabasz","davies_bouldin","n_intra","n_inter",
+        # NEW supervised metrics
+        "acc","nmi","ari","acc_x","nmi_x","ari_x","acc_y","nmi_y","ari_y"]
         df = pd.DataFrame(metrics_rows)
         cols = [c for c in cols if c in df.columns]
         df[cols].to_csv(agg_path, mode="a", header=header_needed, index=False); header_needed = False
@@ -484,12 +671,13 @@ def main():
         print(f"[✓] group {gidx}: seeds={seeds_grp} lrs={lrs_grp} → {out_dir}")
 
     # Distance-level violins: 2D (combined), X-only, Y-only
-    vdir = Path(args.out_root) / args.distance / "violin" / args.subdir
-    vdir.mkdir(parents=True, exist_ok=True)
-    violin_by_distance(sil_samples_2d, vdir, suffix="")
-    violin_by_distance(sil_samples_x,  vdir, suffix="_x")
-    violin_by_distance(sil_samples_y,  vdir, suffix="_y")
-    print(f"[✓] violin plots written under {vdir} (2D, X-only, Y-only)")
+    if args.violin_scope == "distance":
+        vdir = Path(args.out_root) / args.dataset_tag / args.distance / "violin" / args.subdir
+        vdir.mkdir(parents=True, exist_ok=True)
+        violin_by_distance(sil_samples_2d, vdir, suffix="")
+        violin_by_distance(sil_samples_x,  vdir, suffix="_x")
+        violin_by_distance(sil_samples_y,  vdir, suffix="_y")
+        print(f"[✓] violin plots written under {vdir} (2D, X-only, Y-only)")
 
 if __name__ == "__main__":
     main()

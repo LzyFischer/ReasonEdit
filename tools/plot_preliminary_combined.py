@@ -18,6 +18,8 @@ import argparse, itertools, uuid, shutil
 from pathlib import Path
 from typing import List, Tuple, Sequence, Optional
 from itertools import combinations
+from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
+
 
 import numpy as np
 import pandas as pd
@@ -70,21 +72,21 @@ def resolve_tag(tag: Optional[str], resume: Optional[str], origin_tag: str) -> O
     return origin_tag if origin_tag else None
 
 # ───────────── tagged I/O helpers (fall back to legacy if TAG is None) ─────────────
-def load_distance(distance: str, seed: int, TAG: Optional[str]) -> pd.DataFrame:
-    f = (Path(f"results/output/distance/{distance}/{TAG}/seed{seed}.csv")
-         if TAG else Path(f"results/output/distance/{distance}/seed{seed}.csv"))
+def load_distance(distance: str, seed: int, TAG: Optional[str], dataset_tag) -> pd.DataFrame:
+    f = (Path(f"results/output/distance/{dataset_tag}/{distance}/{TAG}/seed{seed}.csv")
+         if TAG else Path(f"results/output/distance/{dataset_tag}/{distance}/seed{seed}.csv"))
     return pd.read_csv(f, index_col=0)
 
-def load_delta(lr: float, TAG: Optional[str]) -> pd.DataFrame:
+def load_delta(lr: float, TAG: Optional[str], dataset_tag) -> pd.DataFrame:
     s = lr_slug(lr)
-    f = (Path(f"results/output/perlogic/{s}/{TAG}/delta.csv")
-         if TAG else Path(f"results/output/perlogic/{s}/delta.csv"))
+    f = (Path(f"results/output/perlogic/{dataset_tag}/{s}/{TAG}/delta.csv")
+         if TAG else Path(f"results/output/perlogic/{dataset_tag}/{s}/delta.csv"))
     return pd.read_csv(f, index_col=0)
 
-def load_acc_counts(lr: float, TAG: Optional[str]) -> Tuple[pd.DataFrame, pd.DataFrame]:
+def load_acc_counts(lr: float, TAG: Optional[str], dataset_tag) -> Tuple[pd.DataFrame, pd.DataFrame]:
     s = lr_slug(lr)
-    root = (Path(f"results/output/perlogic/{s}/{TAG}")
-            if TAG else Path(f"results/output/perlogic/{s}"))
+    root = (Path(f"results/output/perlogic/{dataset_tag}/{s}/{TAG}")
+            if TAG else Path(f"results/output/perlogic/{dataset_tag}/{s}"))
     return (pd.read_csv(root / "n_total.csv", index_col=0),
             pd.read_csv(root / "delta_count.csv", index_col=0))
 
@@ -110,6 +112,7 @@ def main_cli() -> None:
     ap.add_argument("--win",  type=float, default=.05)
     ap.add_argument("--step", type=float, default=.05)
     # NEW: tagging
+    ap.add_argument("--dataset_tag", type=str, default="level_1", help="Dataset tag for organizing results")
     ap.add_argument("--tag", type=str, default="", help="Explicit run tag to use in paths")
     ap.add_argument("--resume", type=str, help="Checkpoint path; stem becomes tag if --tag not given")
     ap.add_argument("--origin_tag", type=str, default="origin",
@@ -132,19 +135,19 @@ def main_cli() -> None:
         lr_slugs  = [lr_slug(lr) for lr in lrs_grp]
 
         # ── build block-diag matrices ───────────────────────────────────
-        dist_cat  = block_diag_df([load_distance(args.distance, s, TAG) for s, _ in grp])
-        delta_cat = block_diag_df([load_delta(lr, TAG)                  for _, lr in grp])
+        dist_cat  = block_diag_df([load_distance(args.distance, s, TAG, dataset_tag) for s, _ in grp])
+        delta_cat = block_diag_df([load_delta(lr, TAG, dataset_tag)                  for _, lr in grp])
 
         tot_blocks, cor_blocks = [], []
         for _, lr in grp:
-            tot, cor = load_acc_counts(lr, TAG)
+            tot, cor = load_acc_counts(lr, TAG, dataset_tag)
             tot_blocks.append(tot)
             cor_blocks.append(cor)
         tot_cat = block_diag_df(tot_blocks).round().astype(int)
         cor_cat = block_diag_df(cor_blocks).round().astype(int)
 
         # write to a temp dir so accuracy helper can read counts
-        tmp_root = Path(f"results/output/perlogic/__tmp_{uuid.uuid4().hex}")
+        tmp_root = Path(f"results/output/perlogic/{dataset_tag}/__tmp_{uuid.uuid4().hex}")
         tmp_root.mkdir(parents=True, exist_ok=True)
         tot_cat.to_csv(tmp_root / "n_total.csv")
         cor_cat.to_csv(tmp_root / "delta_count.csv")
@@ -152,12 +155,13 @@ def main_cli() -> None:
         # figure output dir (tagged or legacy)
         seed_tag = "m" + "-".join(map(str, seeds_grp))
         lr_tag   = "m" + "-".join(lr_slugs)
+        dataset_tag = args.dataset_tag if args.dataset_tag else "level_1"
         if TAG:
-            out_dir = Path(f"results/figures/{args.distance}/{TAG}/{seed_tag}/{lr_tag}")
-            agg_path = Path(f"results/figures/{TAG}/correlations_all.csv")
+            out_dir = Path(f"results/figures/{dataset_tag}/{args.distance}/{TAG}/{seed_tag}/{lr_tag}")
+            agg_path = Path(f"results/figures/{dataset_tag}/{TAG}/correlations_all.csv")
         else:
-            out_dir = Path(f"results/figures/{args.distance}/{seed_tag}/{lr_tag}")
-            agg_path = Path("results/figures/correlations_all.csv")
+            out_dir = Path(f"results/figures/{dataset_tag}/{args.distance}/{seed_tag}/{lr_tag}")
+            agg_path = Path(f"results/figures/{dataset_tag}/correlations_all.csv")
         out_dir.mkdir(parents=True, exist_ok=True)
 
         # ── generate four plots ─────────────────────────────────────────

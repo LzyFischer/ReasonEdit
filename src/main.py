@@ -48,9 +48,9 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser("ReasonEdit+ per-logic sweep")
     p.add_argument("--model_name",      default="Qwen/Qwen2.5-3B-Instruct")
     p.add_argument("--deductive_json", type=Path,
-                   default=Path("data/logic/deductive_logic.json"))
+                   default=Path("data/logic/level_1.json"))
     p.add_argument("--augmented_json", type=Path,
-                   default=Path("data/corrupt/augmented_dataset.json"))
+                   default=Path("data/corrupt/level_1.json"))
     p.add_argument("--out_dir",        type=Path, default=Path("output/perlogic"))
 
     # phase hyper-params

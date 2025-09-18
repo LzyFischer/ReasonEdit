@@ -8,7 +8,7 @@ generate_attr_scores.py
 2. 对每个子集计算 mask_gradient_prune_scores
 3. 按 TOP_QUANT 阈值剪枝并保存 JSON + 可视化
 """
-
+import pdb
 import argparse
 import json
 import random
@@ -139,7 +139,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser()
     p.add_argument("--model", default="Qwen/Qwen2.5-3B-Instruct",
                    help="HuggingFace model name / path")
-    p.add_argument("--data_file", default=str(DATA_DIR / "corrupt/augmented_dataset.json"),
+    p.add_argument("--data_file", default=str(DATA_DIR / "corrupt/level_1.json"),
                    help="JSON file containing a list of prompt groups")
     p.add_argument("--quants", nargs="+", type=float, default=[0.95, 0.9],
                    help="Top-quantiles for pruning (space separated)")
@@ -167,10 +167,11 @@ def main():
     model  = load_model(args.model, device, args)
 
     out_root = Path(args.out_root).resolve()
+    dataset_tag = Path(args.data_file).stem
     run_tag  = Path(args.resume).stem if args.resume else "origin"
     print(f"[info] Using run tag: {run_tag}")
 
-    model_dir = out_root / model_tag(args.model)
+    model_dir = out_root / dataset_tag / model_tag(args.model)
     # 预建各量化目录下的 tag/figures 方便后续保存
     for q in args.quants:
         (model_dir / quant_tag(q) / run_tag / "figures").mkdir(parents=True, exist_ok=True)
@@ -187,6 +188,8 @@ def main():
         print(f"\n▶ {logic_name} — {len(prompts)} prompts")
 
         k = min(args.subset_k, len(prompts) // 2 or 1)
+        if dataset_tag == 'level_3':
+            k = min(k, 10)   # level_3 的 prompts 太长，限制 k ≤ 10
 
         for split in range(1, args.splits + 1):
             rng = random.Random(args.seed + split - 1)

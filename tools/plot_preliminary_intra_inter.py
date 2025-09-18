@@ -22,6 +22,8 @@ from typing import List, Tuple
 from scipy.stats import linregress
 from scipy import stats
 import os
+from config.paths import DATA_DIR, RESULTS_DIR, OUTPUTS_DIR, ATTR_SCORES_DIR
+
 
 import numpy as np
 import pandas as pd
@@ -40,7 +42,7 @@ plt.rcParams.update({
     "grid.color": "gray",
     "grid.alpha": 0.5,
 })
-rcParams["font.size"] = 16
+rcParams["font.size"] = 20
 
 # 10‑logic fixed grouping; edit if necessary
 LABEL0 = {0, 1, 3, 4, 8}  # {logic_000,001,003,004,008} ⇒ group‑0
@@ -316,16 +318,24 @@ def plot_accuracy_scatter(dist: pd.DataFrame, perlogic_root: Path, out: Path,
     xi, yi = window(x, acc, tot, m_inter)
     xd, yd = window(x, acc, tot, m_intra)
 
+    mask = (xi >= 0.4 )  # focus on central region
+    xi, yi = xi[mask], yi[mask]
+
+    mask = (yd >= 0.05)
+    xd, yd = xd[mask], yd[mask]
+
     fig, ax = plt.subplots(figsize=(6, 5))
     ax.scatter(xi, yi, s=400, marker="o", facecolor=PALETTE[2],
                edgecolor="black", linewidth=1.8, alpha=.8, label="Inter‑Pattern")
     ax.scatter(xd, yd, s=400, marker="s", facecolor=PALETTE[0],
                edgecolor="black", linewidth=1.8, alpha=.8, label="Intra‑Pattern")
-    _add_corr_line(ax, xi, yi)
-    _add_corr_line(ax, xd, yd)
+    # _add_corr_line(ax, xi, yi)
+    # _add_corr_line(ax, xd, yd)
 
     _style_axes(ax, dist_name, "Interference")
     fig.savefig(out, dpi=600, bbox_inches="tight")
+    # save pdf
+    fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight")
     plt.close(fig)
 
     return _corr(xi, yi), _corr(xd, yd)
@@ -343,6 +353,7 @@ def _parser() -> argparse.ArgumentParser:
     p.add_argument("--plot_dist", action="store_true")
     p.add_argument("--out_root", type=str, default="figures",
                    help="Root directory to save figures")
+    p.add_argument("--dataset_tag", type=str, default="level_1", help="Dataset tag for organizing results")
     p.add_argument("--resume", type=str, default=None,
                    help="If set, use this subdir (e.g., reptile_00045); otherwise 'origin'")
     return p
@@ -351,10 +362,11 @@ def _parser() -> argparse.ArgumentParser:
 def main_cli():
     args = _parser().parse_args()
     lr_slug = str(args.lr).replace(".", "p").replace("-", "m")
+    dataset_tag = args.dataset_tag
 
     # Determine subdir name
     subdir = Path(args.resume).stem if args.resume else "origin"
-    out_dir = Path(args.out_root) / subdir / args.distance / f"seed{args.seed}" / f"lr{lr_slug}"
+    out_dir = Path(args.out_root) / dataset_tag / subdir / args.distance / f"seed{args.seed}" / f"lr{lr_slug}"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # Load matrices
@@ -379,7 +391,7 @@ def main_cli():
     stats.append(("scatter_sliding", ci, cd))
 
     # ④ sliding accuracy
-    perlogic_root = Path(f"results/output/perlogic/{lr_slug}")
+    perlogic_root = Path(f"results/output/perlogic/{dataset_tag}/{lr_slug}")
     ci, cd = plot_accuracy_scatter(dist_mat, perlogic_root, out_dir / "scatter_acc.png",
                                    win=args.win, step=args.step)
     stats.append(("scatter_acc", ci, cd))

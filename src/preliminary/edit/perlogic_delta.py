@@ -70,9 +70,7 @@ def get_args() -> argparse.Namespace:
                         help="Learning rate for the LoRA parameters")
 
     # dataset paths
-    parser.add_argument("--src_json",   type=Path,     default=DATA_DIR / "logic/deductive_logic.json")
-    parser.add_argument("--correct_file", type=str,
-                        default=str(DATA_DIR / "processed/correct_pairs_llama_7b.json"))
+    parser.add_argument("--src_json",   type=Path,     default=DATA_DIR / "logic/level_1.json")
 
     # sampling-scheme
     parser.add_argument("--gen_k", type=int, default=1,
@@ -105,7 +103,7 @@ def get_tokenizer(model_name: str):
 def encode_example(row: dict, tokenizer, src_path: Path):
     """Convert a (premise, answer) example into supervised tokens."""
     if "deductive" in src_path.name:
-        prompt = f"{row['text']} (Answer in True, False, or N/A (Neither)). Answer:"
+        prompt = f"{row['text']} (Answer only in True, False, or N/A (Neither)). Answer:"
     else:
         prompt = f"{row['text']}. Answer:"
     answer = f"{row['label']}"
@@ -128,10 +126,7 @@ def generate_answer(prompt: str, model, tokenizer, src_path: Path, max_new: int 
     """Greedy decode a short answer and normalise to {true,false,n/a}."""
     model.eval()
     with torch.no_grad():
-        if "deductive" in src_path.name:
-            templ = f"{prompt} (Answer in True, False, or N/A (Neither)). Answer:"
-        else:
-            templ = f"{prompt}\n### The answer is:"
+        templ = f"{prompt} (Answer only in True, False, or N/A (Neither)). Answer:"
         ids = tokenizer(templ, return_tensors="pt").to(model.device)
         out = model.generate(**ids, max_new_tokens=max_new, do_sample=False)
         text = tokenizer.decode(out[0], skip_special_tokens=True)
@@ -288,9 +283,10 @@ class Trainer:
 
         # ── build output path with tag right before filenames ───────────
         lr_slug = str(self.args.lr).replace('.', 'p').replace('-', 'm')
+        dataset_tag = Path(self.args.src_json).stem
         base = Path(self.args.out_root).resolve()
         run_tag = Path(self.args.resume).stem if self.args.resume else "origin"
-        out_dir = base / lr_slug / run_tag  # lr_slug first, tag next to file
+        out_dir = base / dataset_tag / lr_slug / run_tag  # lr_slug first, tag next to file
         print(f"[info] Saving results under: {out_dir}")
         self._save_results(out_dir)
     # ------------------------------------------------------------------

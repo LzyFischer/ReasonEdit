@@ -139,9 +139,9 @@ def generate_answer(prompt: str, model, max_new_tokens: int = 50) -> str:
     model.eval()
     with torch.no_grad():
         if "deductive" in SRC_JSON.name:
-            templ = f"{prompt} (Answer in True, False, or N/A (Neither)). Answer:"
+            templ = f"{prompt} (Answer only in True, False, or N/A (Neither)). Answer:"
         else:
-            templ = f"{prompt} (Answer in True, False, or N/A (Neither)). Answer:"
+            templ = f"{prompt} (Answer only in True, False, or N/A (Neither)). Answer:"
         ids = tokenizer(templ, return_tensors="pt").to(device)
         out = model.generate(**ids, max_new_tokens=max_new_tokens, do_sample=False)
         text = tokenizer.decode(out[0], skip_special_tokens=True)

@@ -19,8 +19,8 @@ logging.basicConfig(
 
 # ──────────── CLI ────────────
 cli = argparse.ArgumentParser(description="First-premise corruptions")
-cli.add_argument("--in_file",  type=Path, default=DATA_DIR / "logic/deductive_logic.json")
-cli.add_argument("--out_file", type=Path, default=DATA_DIR / "corrupt/augmented_dataset.json")
+cli.add_argument("--in_file",  type=Path, default=DATA_DIR / "logic/level_2_1.json")
+cli.add_argument("--out_file", type=Path, default=DATA_DIR / "corrupt/level_2_1.json")
 cli.add_argument("--tok_path", type=str,
                  default="Qwen/Qwen2.5-3B-Instruct",
                  help="Tokenizer path (only for token-count bookkeeping)")
@@ -28,7 +28,7 @@ args = cli.parse_args()
 tok  = AutoTokenizer.from_pretrained(args.tok_path, trust_remote_code=True)
 
 ANSWER_MARK      = "Answer:"
-SUFFIX_NO_NL     = " (Answer in True, False, or N/A (Neither))."
+SUFFIX_NO_NL     = " (Answer only in True, False, or N/A (Neither))."
 SUFFIX_WITH_MARK = SUFFIX_NO_NL + " " + ANSWER_MARK
 nlp = spacy.load("en_core_web_sm")
 NEG_PAT = re.compile(r"\bnot\b|\bn't\b", re.I)

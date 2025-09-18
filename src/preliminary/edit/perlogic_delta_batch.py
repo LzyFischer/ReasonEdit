@@ -39,7 +39,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 ###############################################################################
 # 0. Global constants & reproducibility                                       #
 ###############################################################################
-SEED = 1
+SEED = 42
 MAX_LEN = 256
 POSSIBLE_ANSWERS = ["true", "false", "n/a"]
 
@@ -77,7 +77,7 @@ def get_args() -> argparse.Namespace:
                         help="# of same‑logic training examples per fine‑tuning step")
 
     # dataset paths
-    parser.add_argument("--src_json", type=Path, default=DATA_DIR / "logic/deductive_logic.json")
+    parser.add_argument("--src_json", type=Path, default=DATA_DIR / "logic/level_1.json")
     parser.add_argument("--correct_file", type=str,
                         default=str(DATA_DIR / "processed/correct_pairs_llama_7b.json"))
 
@@ -117,9 +117,9 @@ def get_tokenizer(model_name: str):
 def encode_example(row: dict, tokenizer, src_path: Path):
     """Convert a (premise, answer) example into supervised tokens."""
     if "deductive" in src_path.name:
-        prompt = f"{row['text']} (Answer in True, False, or N/A (Neither)). Answer:"
+        prompt = f"{row['text']} (Answer only in True, False, or N/A (Neither)). Answer:"
     else:
-        prompt = f"{row['text']}. Answer:"
+        prompt = f"{row['text']} (Answer only in True, False, or N/A (Neither)). Answer:"
     answer = f"{row['label']}"
     full = prompt + " " + answer + tokenizer.eos_token
 
@@ -140,16 +140,13 @@ def generate_answer(prompt: str, model, tokenizer, src_path: Path, max_new: int 
     """Greedy decode a short answer and normalise to {true,false,n/a}."""
     model.eval()
     with torch.no_grad():
-        if "deductive" in src_path.name:
-            templ = f"{prompt} (Answer in True, False, or N/A (Neither)). Answer:"
-        else:
-            templ = f"{prompt}\n### The answer is:"
+        templ = f"{prompt} (Answer only in True, False, or N/A (Neither)). Answer:"
         ids = tokenizer(templ, return_tensors="pt").to(model.device)
         out = model.generate(**ids, max_new_tokens=max_new, do_sample=False)
         text = tokenizer.decode(out[0], skip_special_tokens=True)
     # crude normalisation heuristics
     try:
-        answer = text.split(" Answer:")[-1].strip().split()[0].lower()
+        answer = text.split(" Answer:")[-1].strip().split()[0].lower().strip(".,;:!?")
     except:
         answer = 'n/a'
     if not any(k in answer for k in POSSIBLE_ANSWERS):
@@ -161,7 +158,7 @@ def generate_answer(prompt: str, model, tokenizer, src_path: Path, max_new: int 
         elif "n/a" in lowered:
             answer = "n/a"
         else:
-            answer = "true"  # default fall‑back
+            answer = "n/a"  # default fall‑back
     return answer
 
 
@@ -346,9 +343,10 @@ class Trainer:
 
         # ── build output path with tag right before filenames ───────────
         lr_slug = str(self.args.lr).replace('.', 'p').replace('-', 'm')
+        dataset_tag = Path(self.args.src_json).stem 
         base = Path(self.args.out_root).resolve()
         run_tag = Path(self.args.resume).stem if self.args.resume else "origin"
-        out_dir = base / lr_slug / run_tag      # <── tag goes here
+        out_dir = base / dataset_tag / lr_slug / run_tag      # <── tag goes here
         print(f"[info] Saving results under: {out_dir}")
         self._save_results(out_dir)
 
@@ -373,7 +371,7 @@ class Trainer:
             loc["gold"] in generate_answer(loc["prompt"], self.model, self.tok, self.args.src_json)
             for loc in pair["loc_eval"]
         ]
-
+        # pdb.set_trace()
         # ---------------- fine‑tune on batch ----------------------------
         if self.args.fine_tune:
             batch_examples = random.sample(
@@ -404,7 +402,6 @@ class Trainer:
             loc["gold"] in generate_answer(loc["prompt"], self.model, self.tok, self.args.src_json)
             for loc in pair["loc_eval"]
         ]
-
         # metrics update
         self._update_matrices(row, pre_hits_gen, post_hits_gen,
                               pair["loc_eval"], pre_hits_loc, post_hits_loc)
