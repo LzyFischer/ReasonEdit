@@ -146,7 +146,7 @@ def collect_stats_per_file(
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dir", default="/scratch/vjd5zr/project/ReasonEdit/results/figures/cluster/level_1/edit/logs", help="Folder containing cluster_scores_*.csv")
+    ap.add_argument("--dir", default="/results/figures/cluster/level_1/edit/logs", help="Folder containing cluster_scores_*.csv")
     ap.add_argument("--figure", default='rowmean', help="One figure type to include (e.g., rowmean, scatter, sliding, accuracy)")
     ap.add_argument("--metric", default="silhouette", choices=["silhouette", "acc", "nmi", "ari"], help="Metric family to plot")
     ap.add_argument("--labels", default="nometa_00045=w/o MCL, reptile_d_00040=w/o NSP, reptile_nsm_00040=w/o PDP, reptile_nsd_00045=REdit, origin=Raw", help="Legend mapping: key=Label,key2=Label2")

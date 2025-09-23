@@ -6,7 +6,6 @@ Circuit-attribution study (single-batch per logic):
 • Evaluate patched accuracy across all logic types.
 • Export clean baseline and patched-accuracy matrix to CSV.
 
-Author: Zhenyu Lei (refactored July 2025)
 """
 
 from __future__ import annotations

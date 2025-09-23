@@ -8,7 +8,7 @@ and plot the heat-map.
 运行示例
 --------
 python weighted_edit_distance_matrix.py \
-    --input /scratch/vjd5zr/project/ReasonEdit/output/attr_scores/qwen1_5_1_8b_chat/1
+    --input 
 """
 import argparse, json, os
 import numpy as np

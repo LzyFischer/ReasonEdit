@@ -16,7 +16,6 @@ After you obtain `scores`, you can build any loss on top of it (e.g. L1, sparsit
 regularizers) and run `loss.backward()` to backprop through both the model and the
 attribution pipeline (if you keep graphs).
 
-Author: Zhenyu Lei (EAP-IG grad-friendly refactor, July 2025)
 """
 from __future__ import annotations
 
