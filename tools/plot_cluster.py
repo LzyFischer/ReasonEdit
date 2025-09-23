@@ -531,7 +531,7 @@ def group_runs(runs: List[Tuple[int, float]], k: Optional[int]) -> List[List[Tup
 # ------------------------------ main --------------------------------
 def main():
     ap = argparse.ArgumentParser(description="Evaluate intra/inter clustering with grouped combinations (choose k from runs).")
-    ap.add_argument("--distance", type=str, default="pot", help="Distance name (e.g., pot).")
+    ap.add_argument("--distance", type=str, default="edit", help="Distance name (e.g., pot).")
     ap.add_argument("--seeds", type=str, default="0,1,2,3,4,5,6,7,8,9,10", help="Comma- or space-separated seeds, e.g. '0,1,2'.")
     ap.add_argument("--lrs", type=str, default="1e-5", help="Comma- or space-separated lrs, e.g. '1e-4 5e-5'.")
     ap.add_argument("--combine", type=int, default=10, help="Group size k: choose k from all (seed,lr) runs.")

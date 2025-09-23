@@ -306,7 +306,8 @@ def compute_task_loss_and_anchor_pg(item: Dict, task_idx: int) -> Tuple[torch.Te
     else:
         A = flat[keys[1]][0]; A_ = flat[keys[1]][1]; B = flat[keys[0]][0]
 
-    loss = nn.functional.cosine_similarity(A, A_, dim=0) - nn.functional.cosine_similarity(A, B, dim=0)
+    loss = nn.functional.cosine_similarity(A, A_, dim=0) / (nn.functional.cosine_similarity(A, A_, dim=0) + nn.functional.cosine_similarity(A, B, dim=0))
+    loss = -torch.log(loss.clamp_min(1e-8))
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
     return loss, anchor_pg

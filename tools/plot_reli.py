@@ -43,21 +43,21 @@ PALETTE = [
 
 # ─────────── Input (fill here) ───────────
 # 方法顺序（图例顺序）
-METHODS = ["raw", "BIMT", "LoRA", "AlphaEdit", "ROME", "Ours"]
+METHODS = ["Raw", "LoRA", "BIMT", "AlphaEdit", "ROME", "REdit"]
 
 # 你的三组数据（我将每组第二行为“标准差”来用）
 # 若这些是“方差”，把 use_std=False（代码里会开方）。
 DATA = {
     "Level 1": {
-        "mean": [60.7, 77.9, 76.6, 78.0, 70.7, 77.55],             # ROME 缺失 -> None
+        "mean": [60.7, 76.6, 77.9, 78.0, 70.7, 77.55],             # ROME 缺失 -> None
         "std": [2.3, 2.6, 0.9, 4.2, 1.6, 0.071],   # 同上
     },
     "Level 2": {
-        "mean": [53.2, 77.3, 78.7, 75.8, 61.7, 75.95],
+        "mean": [53.2, 77.3, 75.8, 78.7, 61.7, 75.95],
         "std": [1.4, 1.8, 0.3, 0.3, 0.5, 0.6363961031],
     },
     "Level 3": {
-        "mean": [45.1, 70.7, 68.9, 70.0, 59.8, 70.7],
+        "mean": [45.1, 68.9, 70.7, 70.1, 59.8, 70.7],
         "std": [1.6, 0.1, 0.1, 0.1, 0.1, 0.1414213562],
     },
 }
@@ -128,7 +128,7 @@ def main():
                 stds.append(v_std if use_std else (v_std ** 0.5))
 
         # 区分 Ours（加 hatch）
-        hatch = '//' if m.lower() == "ours" else None
+        hatch = '//' if m.lower() == "redit" else None
         ax.bar(
             x + offset, means, bar_w, yerr=stds, capsize=5,
             label=m, color=PALETTE[i % len(PALETTE)],
@@ -152,7 +152,7 @@ def main():
 
     ax.legend(
         loc="upper center",
-        bbox_to_anchor=(0.5, 1.4),
+        bbox_to_anchor=(0.5, 1.45),
         ncol=3,
         frameon=True
     )

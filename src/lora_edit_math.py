@@ -87,7 +87,7 @@ def get_args() -> argparse.Namespace:
     parser.add_argument("--cache_dir", type=Path, default=DATA_DIR / "correct", help="Dir for base-correct cache")
     parser.add_argument("--cache_base", type=str2bool, default=True, help="Use/write base-correct cache")
     parser.add_argument("--force_recompute_base", type=str2bool, default=False, help="Ignore cache and recompute")
-    parser.add_argument("--base_max_new", type=int, default=5, help="max_new_tokens for base-correct inference")
+    parser.add_argument("--base_max_new", type=int, default=6, help="max_new_tokens for base-correct inference")
     parser.add_argument("--seed", type=int, default=10, help="Random seed for shuffling and sampling")
 
     return parser.parse_args()

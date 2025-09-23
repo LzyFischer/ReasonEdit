@@ -460,7 +460,8 @@ def compute_task_loss(item: Dict, task_idx: int) -> Tuple[torch.Tensor, Dict[str
     else:
         A = flat[keys[1]][0]; A_ = flat[keys[1]][1]; B = flat[keys[0]][0]
 
-    contrastive = nn.functional.cosine_similarity(A, A_, dim=0) - nn.functional.cosine_similarity(A, B, dim=0)
+    contrastive = nn.functional.cosine_similarity(A, A_, dim=0) / (nn.functional.cosine_similarity(A, A_, dim=0) + nn.functional.cosine_similarity(A, B, dim=0))
+    contrastive = -torch.log(contrastive.clamp_min(1e-8))
 
     if consistency_count > 0 and args.consistency_lambda > 0.0:
         consistency = consistency_sum / float(consistency_count)

@@ -160,13 +160,14 @@ for step, item in enumerate(loader, 1):
     A = flattened_effects[list(flattened_effects.keys())[0]][0]  # first logic, first effect
     A_ = flattened_effects[list(flattened_effects.keys())[0]][1]  # first logic, second effect
     B = flattened_effects[list(flattened_effects.keys())[1]][0]  # second logic, first effect
-    contrastive_loss = torch.nn.functional.cosine_similarity(A, A_, dim=0) - torch.nn.functional.cosine_similarity(A, B, dim=0)
+    contrastive_loss = nn.functional.cosine_similarity(A, A_, dim=0) / (nn.functional.cosine_similarity(A, A_, dim=0) + nn.functional.cosine_similarity(A, B, dim=0))
 
     flattened_effects = flatten_effects_to_embeddings(effects)
     A = flattened_effects[list(flattened_effects.keys())[1]][0]  # first logic, first effect
     A_ = flattened_effects[list(flattened_effects.keys())[1]][1]  # first logic, second effect
     B = flattened_effects[list(flattened_effects.keys())[0]][0]  # second logic, first effect
-    contrastive_loss += torch.nn.functional.cosine_similarity(A, A_, dim=0) - torch.nn.functional.cosine_similarity(A, B, dim=0)
+    contrastiv_loss += nn.functional.cosine_similarity(A, A_, dim=0) / (nn.functional.cosine_similarity(A, A_, dim=0) + nn.functional.cosine_similarity(A, B, dim=0))
+    contrastive_loss = -torch.log(contrastive_loss.clamp_min(1e-8))
 
     optimizer.zero_grad()
     contrastive_loss.backward()
